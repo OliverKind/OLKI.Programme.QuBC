@@ -12,5 +12,9 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
+## [0.1.1.2 - develop] - 2019-12-26
+### Changed
+- Fixed verison numbering
+
 ## [0.0.1.1 - develop] - 2019-12-26
 ### Initial release
