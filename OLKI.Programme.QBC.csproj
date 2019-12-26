@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B6C8FF4-C9EC-4D0D-B46A-A1F13E9DED96}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OLKI.Programme.QBC</RootNamespace>
+    <AssemblyName>QBC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>Properties\Resources\ProgamIcons\program_symbol\Program_Symbol.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>OLKI.Programme.QBC.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\clsHandleExistingFiles.cs" />
+    <Compile Include="src\BackupProject\Process\clsActionException.cs" />
+    <Compile Include="src\BackupProject\Process\CopyItems\clsDirectoryCreator.cs" />
+    <Compile Include="src\BackupProject\Process\CopyItems\clsCopyItems_CopyRecusive.cs" />
+    <Compile Include="src\BackupProject\Process\CopyItems\clsCopyItems.cs" />
+    <Compile Include="src\BackupProject\Process\CountItems\clsCountItems_CountRecusive.cs" />
+    <Compile Include="src\BackupProject\Process\CountItems\clsCountItems.cs" />
+    <Compile Include="src\BackupProject\Settings\clsControle.cs" />
+    <Compile Include="src\BackupProject\Settings\clsControle.Logile.cs" />
+    <Compile Include="src\BackupProject\Settings\clsControle.Action.cs" />
+    <Compile Include="src\BackupProject\Settings\clsSettings_Base.cs" />
+    <Compile Include="src\BackupProject\Settings\clsCommon.ExisitingFiles.cs" />
+    <Compile Include="src\BackupProject\Settings\clsControle.Directroy.cs" />
+    <Compile Include="src\BackupProject\Settings\clsCommon.cs" />
+    <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.Designer.cs">
+      <DependentUpon>frmHandleExistingFilesForm.cs</DependentUpon>
+    </Compile>
+    <None Include="src\BackupProject\NOT_USED__clsLogFileWriter.cs" />
+    <Compile Include="src\BackupProject\clsProject.cs" />
+    <Compile Include="src\BackupProject\Settings\clsSettings.cs" />
+    <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\Stringtable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stringtable.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\BackupProject\Process\clsProgressStore.cs" />
+    <Compile Include="src\MainForm\Usercontroles\uscProcControle\Stringtable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stringtable.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.SetProgress.SetControleValue_Invoke.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.SetProgress.SetControleValue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.SetProgress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.Designer.cs">
+      <DependentUpon>uscProcProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\MainForm\Usercontroles\uscProcControle\uscProcControle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\Usercontroles\uscProcControle\uscProcControle.Designer.cs">
+      <DependentUpon>uscProcControle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Stringtable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stringtable.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\SettingsTestForm\frmSettingsTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\SettingsTestForm\frmSettingsTestForm.Designer.cs">
+      <DependentUpon>frmSettingsTestForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.resx">
+      <DependentUpon>frmHandleExistingFilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\Stringtable.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\MainForm\Usercontroles\uscProcControle\Stringtable.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.resx">
+      <DependentUpon>uscProcProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\MainForm\Usercontroles\uscProcControle\uscProcControle.resx">
+      <DependentUpon>uscProcControle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Stringtable.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\SettingsTestForm\frmSettingsTestForm.resx">
+      <DependentUpon>frmSettingsTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CONTRIBUTING.md" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+    <Compile Include="src\clsProjectManager.cs" />
+    <Compile Include="src\MainForm\SubForms\frmAboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\SubForms\frmAboutForm.designer.cs">
+      <DependentUpon>frmAboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\MainForm\SubForms\frmApplicationSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\SubForms\frmApplicationSettingsForm.designer.cs">
+      <DependentUpon>frmApplicationSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\MainForm\clsMainFormHelper.cs" />
+    <Compile Include="src\MainForm\clsExtendedTreeNode.cs" />
+    <Compile Include="src\MainForm\frmMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\frmMainForm.designer.cs">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="src\MainForm\SubForms\frmAboutForm.resx">
+      <DependentUpon>frmAboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\MainForm\SubForms\frmApplicationSettingsForm.resx">
+      <DependentUpon>frmApplicationSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\MainForm\frmMainForm.resx">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="AssociationTestfile.qbc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="doc\Eula.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="doc\Information.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="installation\setup__QBC.nsi" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="src\BackupProject\Settings\cdSettings.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="Changelog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Properties\Resources\Icons\Icon original Files\075b_UpFolder.ico" />
+    <Content Include="Properties\Resources\Icons\Icon original Files\112_ArrowCurve_Blue_Left_16x16_72.png" />
+    <Content Include="Properties\Resources\Icons\Icon original Files\3.5_Disk_Drive.ico" />
+    <Content Include="Properties\Resources\Icons\Icon original Files\CD_Drive.ico" />
+    <Content Include="Properties\Resources\Icons\Icon original Files\File.ico" />
+    <Content Include="Properties\Resources\Icons\Icon original Files\folder.ico" />
+    <Content Include="Properties\Resources\Icons\Icon original Files\Hard_Drive.ico" />
+    <Content Include="Properties\Resources\Icons\Icon original Files\Network_Drive.ico" />
+    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\Help.png" />
+    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\New.png" />
+    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\Open.png" />
+    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\OpenFolder.png" />
+    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\Properties.png" />
+    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\Save.png" />
+    <Content Include="Properties\Resources\ProgamIcons\program_symbol\Program_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Properties\Resources\Icons\ButtonIcons\Delete.png" />
+    <Content Include="Properties\Resources\ProgamIcons\program_symbol\vorlagen\112_ArrowCurveBlue_Right.ico" />
+    <Content Include="Properties\Resources\ProgamIcons\program_symbol\vorlagen\Generic_Device.ico" />
+    <Content Include="Properties\Resources\ProgamIcons\program_symbol\vorlagen\Hard_Drive.ico" />
+    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Project_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Project_Symbol.png" />
+    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Vorlagen\327_Options.ico" />
+    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Vorlagen\copy.ico" />
+    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Vorlagen\ProgSym.ico" />
+    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Vorlagen\Settings.ico" />
+    <Content Include="doc\ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Resources\Icons\ButtonIcons\UpFolder.png" />
+    <None Include="Properties\Resources\Icons\ButtonIcons\OpenFolder.png" />
+    <None Include="Properties\Resources\Icons\ButtonIcons\112_RefreshArrow_Blue_16x16_72.png" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\00--3.5_Disk_Drive.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\01--3.5_Disk_Drive_NoCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\02--3.5_Disk_Drive_Check.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\03--3.5_Disk_Drive_IntCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\04--Hard_Drive.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\06--Hard_Drive_Check.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\05--Hard_Drive_NoCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\07--Hard_Drive_IntCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\08--CD_Drive.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\09--CD_Drive_NoCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\10--CD_Drive_Check.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\11-CD_Drive_IntCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\12--Network_Drive.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\13--Network_Drive_NoCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\14--Network_Drive_Check.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\15--Network_IntCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\16--folder.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\17--folder_NoCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\18--folder_Check.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\19--folder_IntCheck.ico" />
+    <Content Include="Properties\Resources\Icons\TreeViewIcons\20--File.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\OLKI.Tools\CommonTools\repository\OLKI.Tools.CommonTools.csproj">
+      <Project>{eacf8cee-e449-4591-aaf1-ecdda827ad8a}</Project>
+      <Name>OLKI.Tools.CommonTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OLKI.Widgets\repository\OLKI.Widgets.csproj">
+      <Project>{913126dd-a263-49aa-8f0a-b6460d0d4a1a}</Project>
+      <Name>OLKI.Widgets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

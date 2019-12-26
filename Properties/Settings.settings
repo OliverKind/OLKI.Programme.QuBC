@@ -1,0 +1,87 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OLKI.Programme.QBC.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ListItems_ShowSystemDirectory" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ListItems_ShowDirectorysWithoutAccess" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ProjectFile_DefaultExtension" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">qbc</Value>
+    </Setting>
+    <Setting Name="ProjectFile_FilterList" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Sicherungsvorlage (*.qbc)|*.qbc|Sicherungsvorlage (*.xml)|*.xml|Alle Dateien (*.*)|*.*</Value>
+    </Setting>
+    <Setting Name="ProjectFile_FilterIndex" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ProjectFile_DefaultPath" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="_UNUSED_Logfile_DateFormat" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yyyy-MM-dd__HH-mm-ss</Value>
+    </Setting>
+    <Setting Name="_UNUSED_Logfile_FilterList" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Logdatei (*.log)|*.log|Textdatei (*.txt)|*.txt|Alle Dateien (*.*)|*.*</Value>
+    </Setting>
+    <Setting Name="_UNUSED_Logfile_FilterIndex" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Startup_DefaultFileOpen" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ListItems_ExpandTreeNodeOnClick" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="FileAssociation_TestFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AssociationTestfile.qbc</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QBC.Project</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionDescription" Roaming="true" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QBC Project</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionIconFile" Roaming="true" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Project_Symbol.ico</Value>
+    </Setting>
+    <Setting Name="FileAssociation_CheckOnStartup" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RecentFiles_FileList" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RecentFiles_MaxLength" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="RecentFiles_Seperator" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">|</Value>
+    </Setting>
+    <Setting Name="Internal_SettingsUpgradet" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Internal_CheckAdminRights" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ProjectFile_VersionCompatibleNative" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1;2</Value>
+    </Setting>
+    <Setting Name="ProjectFile_VersionCompatibleConvert" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Copy_DirectoryAttributes" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Copy_FileAttributes" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Copy_FileExisitngAddTextDateFormat" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yyyyMMddHHmmss</Value>
+    </Setting>
+    <Setting Name="Copy_FileExisitngAddTextDefault" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">__{{$LastWriteTime}}</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
