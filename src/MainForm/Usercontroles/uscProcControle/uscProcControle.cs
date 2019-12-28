@@ -485,7 +485,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                     this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
                     break;
                 case ProcessStep.Cancel:
-                    MessageBox.Show(this.ParentForm, Stringtable._0x0007c, Stringtable._0x0007c, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(this.ParentForm, Stringtable._0x0007m, Stringtable._0x0007c, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
                 case ProcessStep.Exception:
