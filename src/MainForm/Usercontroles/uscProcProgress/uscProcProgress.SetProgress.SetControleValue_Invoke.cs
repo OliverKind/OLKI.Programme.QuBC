@@ -42,9 +42,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 /// <param name="text">Text to set to TextBox.Text</param>
                 public void SetLabelTextInvoke(Label label, string text)
                 {
-                    if (this._progressControle.InvokeRequired)
+                    if (label.InvokeRequired)
                     {
-                        this._progressControle.Invoke(new Action<Label, string>(this.SetLabelTextInvoke), new object[] { label, text });
+                        label.Invoke(new Action<Label, string>(this.SetLabelTextInvoke), new object[] { label, text });
                     }
                     else
                     {
@@ -59,9 +59,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 /// <param name="style">Style to set to ProgressBar.Style</param>
                 public void SetProgressbarStyleInvoke(ProgressBar progressBar, ProgressBarStyle style)
                 {
-                    if (this._progressControle.InvokeRequired)
+                    if (progressBar.InvokeRequired)
                     {
-                        this._progressControle.Invoke(new Action<ProgressBar, ProgressBarStyle>(this.SetProgressbarStyleInvoke), new object[] { progressBar, style });
+                        progressBar.Invoke(new Action<ProgressBar, ProgressBarStyle>(this.SetProgressbarStyleInvoke), new object[] { progressBar, style });
                     }
                     else
                     {
@@ -76,9 +76,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 /// <param name="value">Value to set to ProgressBar.Value</param>
                 public void SetProgressbarValueInvoke(ProgressBar progressBar, int value)
                 {
-                    if (this._progressControle.InvokeRequired)
+                    if (progressBar.InvokeRequired)  //if (this._progressControle.InvokeRequired)
                     {
-                        this._progressControle.Invoke(new Action<ProgressBar, int>(this.SetProgressbarValueInvoke), new object[] { progressBar, value });
+                        progressBar.Invoke(new Action<ProgressBar, int>(this.SetProgressbarValueInvoke), new object[] { progressBar, value });
                     }
                     else
                     {
@@ -93,9 +93,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 /// <param name="text">Text to set to TextBox.Text</param>
                 public void SetTextboxTextInvoke(TextBox textBox, string text)
                 {
-                    if (this._progressControle.InvokeRequired)
+                    if (textBox.InvokeRequired)  //if (this._progressControle.InvokeRequired)
                     {
-                        this._progressControle.Invoke(new Action<TextBox, string>(this.SetTextboxTextInvoke), new object[] { textBox, text });
+                        textBox.Invoke(new Action<TextBox, string>(this.SetTextboxTextInvoke), new object[] { textBox, text });
                     }
                     else
                     {
