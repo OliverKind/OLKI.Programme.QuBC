@@ -109,10 +109,12 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// </summary>
             internal void SetProgress_CopyStart()
             {
-                this._progressControle._progressStart = DateTime.Now;
+                DateTime StartTime = DateTime.Now;
+                this._progressControle._progressStart = StartTime;
                 // Set controles
                 this._setControleValue.InitialControles();
-                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyStart, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                
+                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyStart, StartTime.ToString(FORMAT_TIME));
                 if (this._progressControle.ProgressStore.TotalItems.MaxValue == null)
                 {
                     this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
@@ -127,11 +129,28 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             internal void SetProgress_CopyBusy()
             {
                 System.Diagnostics.Debug.Print(this._progressControle.ProgressStore.DirectroyFiles.ElemenName);
+                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, this._progressControle.ProgressStore.TotalItems);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, this._progressControle.ProgressStore.TotalBytes);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllDir, null, this._progressControle.txtAllDirPer, this._progressControle.txtAllDirNum, null, this._progressControle.ProgressStore.TotalDirectories);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaActualDirFiles, this._progressControle.txtActualDir, this._progressControle.txtActualDirFilesPer, this._progressControle.txtActualDirFilesNum, null, this._progressControle.ProgressStore.DirectroyFiles);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaActualFileByte, this._progressControle.txtActualFile, this._progressControle.txtActualFileBytePer, this._progressControle.txtActualFileByteNum, this._progressControle.cboActualFileByteNum, this._progressControle.ProgressStore.FileBytes);
+
+                // Get remaining time if counting was done
+                if (this._progressControle.ProgressStore.TotalItems.MaxValue != null && this._progressControle.ProgressStore.TotalItems.MaxValue > 0)
+                {
+                    TimeSpan RemainingTimeByte = this.RemainingTime(this._progressControle.ElapsedTime, this._progressControle.ProgressStore.TotalBytes.ActualValue, this._progressControle.ProgressStore.TotalBytes.MaxValue);
+                    TimeSpan RemainingTimeItem = this.RemainingTime(this._progressControle.ElapsedTime, this._progressControle.ProgressStore.TotalItems.ActualValue, this._progressControle.ProgressStore.TotalItems.MaxValue);
+                    TimeSpan RemainingTime = RemainingTimeByte > RemainingTimeItem ? RemainingTimeByte : RemainingTimeItem;
+                    if (RemainingTime.Days > 0)
+                    {
+                        this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeDays));
+                    } else
+                    {
+                        this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeNoDays));
+                    }
+                }
             }
 
             /// <summary>

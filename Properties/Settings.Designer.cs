@@ -326,5 +326,29 @@ namespace OLKI.Programme.QBC.Properties {
                 this["Copy_FileExisitngAddTextDefault"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("dd\\.hh\\:mm\\:ss")]
+        public string Copy_RemainTimeDays {
+            get {
+                return ((string)(this["Copy_RemainTimeDays"]));
+            }
+            set {
+                this["Copy_RemainTimeDays"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hh\\:mm\\:ss")]
+        public string Copy_RemainTimeNoDays {
+            get {
+                return ((string)(this["Copy_RemainTimeNoDays"]));
+            }
+            set {
+                this["Copy_RemainTimeNoDays"] = value;
+            }
+        }
     }
 }

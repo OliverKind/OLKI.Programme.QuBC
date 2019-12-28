@@ -40,13 +40,11 @@
             this.txtAllBytePer = new System.Windows.Forms.TextBox();
             this.txtAllItemsNum = new System.Windows.Forms.TextBox();
             this.txtAllItemsPer = new System.Windows.Forms.TextBox();
-            this.lblCopyRemainByte = new System.Windows.Forms.Label();
-            this.txtCopyRemainByte = new System.Windows.Forms.TextBox();
             this.lblAllByte = new System.Windows.Forms.Label();
             this.pbaAllByte = new System.Windows.Forms.ProgressBar();
             this.lblBackupStep = new System.Windows.Forms.Label();
             this.lblCopyRemainItem = new System.Windows.Forms.Label();
-            this.txtCopyRemainItem = new System.Windows.Forms.TextBox();
+            this.txtCopyRemainTime = new System.Windows.Forms.TextBox();
             this.lblCopyElapsed = new System.Windows.Forms.Label();
             this.txtCopyElapsed = new System.Windows.Forms.TextBox();
             this.lblCopyStart = new System.Windows.Forms.Label();
@@ -67,7 +65,6 @@
             this.lblUpdateIntervalDimension = new System.Windows.Forms.Label();
             this.lblBackupStepText = new System.Windows.Forms.Label();
             this.txtActualDir = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudUpdateInterval)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,24 +168,6 @@
             this.txtAllItemsPer.Size = new System.Drawing.Size(35, 20);
             this.txtAllItemsPer.TabIndex = 15;
             // 
-            // lblCopyRemainByte
-            // 
-            this.lblCopyRemainByte.AutoSize = true;
-            this.lblCopyRemainByte.Location = new System.Drawing.Point(422, 55);
-            this.lblCopyRemainByte.Name = "lblCopyRemainByte";
-            this.lblCopyRemainByte.Size = new System.Drawing.Size(161, 13);
-            this.lblCopyRemainByte.TabIndex = 11;
-            this.lblCopyRemainByte.Text = "Erwartete Restzeit (nach Daten):";
-            this.lblCopyRemainByte.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // txtCopyRemainByte
-            // 
-            this.txtCopyRemainByte.Location = new System.Drawing.Point(589, 52);
-            this.txtCopyRemainByte.Name = "txtCopyRemainByte";
-            this.txtCopyRemainByte.ReadOnly = true;
-            this.txtCopyRemainByte.Size = new System.Drawing.Size(200, 20);
-            this.txtCopyRemainByte.TabIndex = 12;
-            // 
             // lblAllByte
             // 
             this.lblAllByte.Location = new System.Drawing.Point(0, 113);
@@ -221,15 +200,15 @@
             this.lblCopyRemainItem.Name = "lblCopyRemainItem";
             this.lblCopyRemainItem.Size = new System.Drawing.Size(190, 23);
             this.lblCopyRemainItem.TabIndex = 4;
-            this.lblCopyRemainItem.Text = "Erwartete Restzeit (nach Objekten):";
+            this.lblCopyRemainItem.Text = "Erwartete Restzeit:";
             // 
-            // txtCopyRemainItem
+            // txtCopyRemainTime
             // 
-            this.txtCopyRemainItem.Location = new System.Drawing.Point(196, 52);
-            this.txtCopyRemainItem.Name = "txtCopyRemainItem";
-            this.txtCopyRemainItem.ReadOnly = true;
-            this.txtCopyRemainItem.Size = new System.Drawing.Size(200, 20);
-            this.txtCopyRemainItem.TabIndex = 5;
+            this.txtCopyRemainTime.Location = new System.Drawing.Point(196, 52);
+            this.txtCopyRemainTime.Name = "txtCopyRemainTime";
+            this.txtCopyRemainTime.ReadOnly = true;
+            this.txtCopyRemainTime.Size = new System.Drawing.Size(200, 20);
+            this.txtCopyRemainTime.TabIndex = 5;
             // 
             // lblCopyElapsed
             // 
@@ -416,18 +395,10 @@
             this.txtActualDir.Size = new System.Drawing.Size(755, 20);
             this.txtActualDir.TabIndex = 27;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(813, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(117, 20);
-            this.textBox1.TabIndex = 39;
-            // 
-            // uscProgress
+            // ProcProgress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblBackupStepText);
             this.Controls.Add(this.lblUpdateIntervalDimension);
             this.Controls.Add(this.nudUpdateInterval);
@@ -444,13 +415,11 @@
             this.Controls.Add(this.txtAllBytePer);
             this.Controls.Add(this.txtAllItemsNum);
             this.Controls.Add(this.txtAllItemsPer);
-            this.Controls.Add(this.lblCopyRemainByte);
-            this.Controls.Add(this.txtCopyRemainByte);
             this.Controls.Add(this.lblAllByte);
             this.Controls.Add(this.pbaAllByte);
             this.Controls.Add(this.lblBackupStep);
             this.Controls.Add(this.lblCopyRemainItem);
-            this.Controls.Add(this.txtCopyRemainItem);
+            this.Controls.Add(this.txtCopyRemainTime);
             this.Controls.Add(this.lblCopyElapsed);
             this.Controls.Add(this.txtCopyElapsed);
             this.Controls.Add(this.lblCopyStart);
@@ -467,7 +436,7 @@
             this.Controls.Add(this.pbaActualDirFiles);
             this.Controls.Add(this.pbaAllDir);
             this.Controls.Add(this.pbaAllItems);
-            this.Name = "uscProgress";
+            this.Name = "ProcProgress";
             this.Size = new System.Drawing.Size(951, 270);
             ((System.ComponentModel.ISupportInitialize)(this.nudUpdateInterval)).EndInit();
             this.ResumeLayout(false);
@@ -489,13 +458,11 @@
         internal System.Windows.Forms.TextBox txtAllBytePer;
         internal System.Windows.Forms.TextBox txtAllItemsNum;
         internal System.Windows.Forms.TextBox txtAllItemsPer;
-        private System.Windows.Forms.Label lblCopyRemainByte;
-        internal System.Windows.Forms.TextBox txtCopyRemainByte;
         private System.Windows.Forms.Label lblAllByte;
         internal System.Windows.Forms.ProgressBar pbaAllByte;
         private System.Windows.Forms.Label lblBackupStep;
         private System.Windows.Forms.Label lblCopyRemainItem;
-        internal System.Windows.Forms.TextBox txtCopyRemainItem;
+        internal System.Windows.Forms.TextBox txtCopyRemainTime;
         private System.Windows.Forms.Label lblCopyElapsed;
         internal System.Windows.Forms.TextBox txtCopyElapsed;
         private System.Windows.Forms.Label lblCopyStart;
@@ -513,9 +480,8 @@
         private System.Windows.Forms.Label lblUpdateInterval;
         private System.Windows.Forms.NumericUpDown nudUpdateInterval;
         private System.Windows.Forms.Label lblUpdateIntervalDimension;
-        private System.Windows.Forms.Label lblBackupStepText;
         private System.Windows.Forms.TextBox txtActualFile;
         private System.Windows.Forms.TextBox txtActualDir;
-        private System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.Label lblBackupStepText;
     }
 }
