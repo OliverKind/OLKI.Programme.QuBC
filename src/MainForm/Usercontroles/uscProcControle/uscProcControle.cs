@@ -501,7 +501,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             System.Diagnostics.Debug.Print("uscControleProcess::_worker_RunWorkerCompleted::FINISH");
         }
 
-        private void WriteExceptionToListView(BackupProject.Process.ProcessException exception)
+        /// <summary>
+        /// Add specified exception to ListView
+        /// </summary>
+        /// <param name="exception">Exception to att do ListView</param>
+        private void WriteExceptionToListView(ProcessException exception)
         {
             string ExceptionText = string.Empty;
             if (!string.IsNullOrEmpty(exception.Description) && string.IsNullOrEmpty(exception.Exception.Message)) ExceptionText = exception.Description;
@@ -511,13 +515,13 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             System.Drawing.Color ItemBackground;
             switch (exception.Level)
             {
-                case BackupProject.Process.ProcessException.ExceptionLevel.Slight:
+                case ProcessException.ExceptionLevel.Slight:
                     ItemBackground = System.Drawing.Color.FromArgb(255, 255, 192);
                     break;
-                case BackupProject.Process.ProcessException.ExceptionLevel.Medium:
+                case ProcessException.ExceptionLevel.Medium:
                     ItemBackground = System.Drawing.Color.FromArgb(255, 224, 192);
                     break;
-                case BackupProject.Process.ProcessException.ExceptionLevel.Critical:
+                case ProcessException.ExceptionLevel.Critical:
                     ItemBackground = System.Drawing.Color.FromArgb(255, 192, 192);
                     break;
                 default:
