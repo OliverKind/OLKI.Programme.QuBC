@@ -140,8 +140,8 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 // Get remaining time if counting was done
                 if (this._progressControle.ProgressStore.TotalItems.MaxValue != null && this._progressControle.ProgressStore.TotalItems.MaxValue > 0)
                 {
-                    TimeSpan RemainingTimeByte = this.RemainingTime(this._progressControle.ElapsedTime, this._progressControle.ProgressStore.TotalBytes.ActualValue, this._progressControle.ProgressStore.TotalBytes.MaxValue);
-                    TimeSpan RemainingTimeItem = this.RemainingTime(this._progressControle.ElapsedTime, this._progressControle.ProgressStore.TotalItems.ActualValue, this._progressControle.ProgressStore.TotalItems.MaxValue);
+                    TimeSpan RemainingTimeByte = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, this._progressControle.ProgressStore.TotalBytes.ActualValue, this._progressControle.ProgressStore.TotalBytes.MaxValue);
+                    TimeSpan RemainingTimeItem = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, this._progressControle.ProgressStore.TotalItems.ActualValue, this._progressControle.ProgressStore.TotalItems.MaxValue);
                     TimeSpan RemainingTime = RemainingTimeByte > RemainingTimeItem ? RemainingTimeByte : RemainingTimeItem;
                     if (RemainingTime.Days > 0)
                     {
