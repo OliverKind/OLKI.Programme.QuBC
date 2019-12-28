@@ -336,5 +336,68 @@ namespace OLKI.Programme.QBC.Properties {
                 return ResourceManager.GetString("0x0014", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zählen von Elemente und Daten wird gestartet ähnelt.
+        /// </summary>
+        internal static string _0x0015 {
+            get {
+                return ResourceManager.GetString("0x0015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Elemente und Daten werden gezählt ähnelt.
+        /// </summary>
+        internal static string _0x0016 {
+            get {
+                return ResourceManager.GetString("0x0016", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zählen von Elemente und Daten abgeschlossen ähnelt.
+        /// </summary>
+        internal static string _0x0017 {
+            get {
+                return ResourceManager.GetString("0x0017", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kopieren von Daten wird gestartet ähnelt.
+        /// </summary>
+        internal static string _0x0018 {
+            get {
+                return ResourceManager.GetString("0x0018", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Elemente und Daten werden kopiert ähnelt.
+        /// </summary>
+        internal static string _0x0019 {
+            get {
+                return ResourceManager.GetString("0x0019", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kopieren von Elemente und Daten abgeschlossen ähnelt.
+        /// </summary>
+        internal static string _0x001A {
+            get {
+                return ResourceManager.GetString("0x001A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vorgang abgebrochen ähnelt.
+        /// </summary>
+        internal static string _0x001B {
+            get {
+                return ResourceManager.GetString("0x001B", resourceCulture);
+            }
+        }
     }
 }

@@ -111,6 +111,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             this.cboActualFileByteNum.SelectedIndex = DEBAULT_COMBOBOX_ACTUAL_BYTE_NUM_SELECTED_INDEX;
             FileSize.SetDimensionlistToComboBox(this.cboAllByteNum, FileSize.ByteBase.IEC, FileSize.ByteBase.SI, true, true);
             this.cboAllByteNum.SelectedIndex = DEBAULT_COMBOBOX_ALL_BYTE_NUM_SELECTED_INDEX;
+            this.lblStepText.Text = string.Empty;
         }
 
         /// <summary>

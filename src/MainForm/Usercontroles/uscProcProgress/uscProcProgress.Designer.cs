@@ -42,7 +42,7 @@
             this.txtAllItemsPer = new System.Windows.Forms.TextBox();
             this.lblAllByte = new System.Windows.Forms.Label();
             this.pbaAllByte = new System.Windows.Forms.ProgressBar();
-            this.lblBackupStep = new System.Windows.Forms.Label();
+            this.lblStep = new System.Windows.Forms.Label();
             this.lblCopyRemainItem = new System.Windows.Forms.Label();
             this.txtCopyRemainTime = new System.Windows.Forms.TextBox();
             this.lblCopyElapsed = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.lblUpdateInterval = new System.Windows.Forms.Label();
             this.nudUpdateInterval = new System.Windows.Forms.NumericUpDown();
             this.lblUpdateIntervalDimension = new System.Windows.Forms.Label();
-            this.lblBackupStepText = new System.Windows.Forms.Label();
+            this.lblStepText = new System.Windows.Forms.Label();
             this.txtActualDir = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudUpdateInterval)).BeginInit();
             this.SuspendLayout();
@@ -184,15 +184,15 @@
             this.pbaAllByte.Step = 1;
             this.pbaAllByte.TabIndex = 18;
             // 
-            // lblBackupStep
+            // lblStep
             // 
-            this.lblBackupStep.AutoSize = true;
-            this.lblBackupStep.Location = new System.Drawing.Point(489, 29);
-            this.lblBackupStep.Name = "lblBackupStep";
-            this.lblBackupStep.Size = new System.Drawing.Size(94, 13);
-            this.lblBackupStep.TabIndex = 9;
-            this.lblBackupStep.Text = "Aktueller Vorgang:";
-            this.lblBackupStep.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblStep.AutoSize = true;
+            this.lblStep.Location = new System.Drawing.Point(489, 29);
+            this.lblStep.Name = "lblStep";
+            this.lblStep.Size = new System.Drawing.Size(94, 13);
+            this.lblStep.TabIndex = 9;
+            this.lblStep.Text = "Aktueller Vorgang:";
+            this.lblStep.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblCopyRemainItem
             // 
@@ -377,15 +377,15 @@
             this.lblUpdateIntervalDimension.TabIndex = 8;
             this.lblUpdateIntervalDimension.Text = "Sekunden";
             // 
-            // lblBackupStepText
+            // lblStepText
             // 
-            this.lblBackupStepText.AutoSize = true;
-            this.lblBackupStepText.Location = new System.Drawing.Point(589, 29);
-            this.lblBackupStepText.Name = "lblBackupStepText";
-            this.lblBackupStepText.Size = new System.Drawing.Size(94, 13);
-            this.lblBackupStepText.TabIndex = 10;
-            this.lblBackupStepText.Text = "Aktueller Vorgang:";
-            this.lblBackupStepText.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblStepText.AutoSize = true;
+            this.lblStepText.Location = new System.Drawing.Point(589, 29);
+            this.lblStepText.Name = "lblStepText";
+            this.lblStepText.Size = new System.Drawing.Size(165, 13);
+            this.lblStepText.TabIndex = 10;
+            this.lblStepText.Text = "Aktueller Vorgang - Beschreibung";
+            this.lblStepText.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtActualDir
             // 
@@ -399,7 +399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblBackupStepText);
+            this.Controls.Add(this.lblStepText);
             this.Controls.Add(this.lblUpdateIntervalDimension);
             this.Controls.Add(this.nudUpdateInterval);
             this.Controls.Add(this.lblUpdateInterval);
@@ -417,7 +417,7 @@
             this.Controls.Add(this.txtAllItemsPer);
             this.Controls.Add(this.lblAllByte);
             this.Controls.Add(this.pbaAllByte);
-            this.Controls.Add(this.lblBackupStep);
+            this.Controls.Add(this.lblStep);
             this.Controls.Add(this.lblCopyRemainItem);
             this.Controls.Add(this.txtCopyRemainTime);
             this.Controls.Add(this.lblCopyElapsed);
@@ -460,7 +460,7 @@
         internal System.Windows.Forms.TextBox txtAllItemsPer;
         private System.Windows.Forms.Label lblAllByte;
         internal System.Windows.Forms.ProgressBar pbaAllByte;
-        private System.Windows.Forms.Label lblBackupStep;
+        private System.Windows.Forms.Label lblStep;
         private System.Windows.Forms.Label lblCopyRemainItem;
         internal System.Windows.Forms.TextBox txtCopyRemainTime;
         private System.Windows.Forms.Label lblCopyElapsed;
@@ -482,6 +482,6 @@
         private System.Windows.Forms.Label lblUpdateIntervalDimension;
         private System.Windows.Forms.TextBox txtActualFile;
         private System.Windows.Forms.TextBox txtActualDir;
-        internal System.Windows.Forms.Label lblBackupStepText;
+        internal System.Windows.Forms.Label lblStepText;
     }
 }

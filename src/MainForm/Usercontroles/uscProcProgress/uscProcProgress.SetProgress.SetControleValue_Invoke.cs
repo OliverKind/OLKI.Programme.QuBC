@@ -34,20 +34,21 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             public partial class SetControleValue
             {
                 #region Set Items, check if invoke is required
+
                 /// <summary>
                 /// Set TextBox text, if required invoke
                 /// </summary>
-                /// <param name="textBox">TextBox to set the text</param>
+                /// <param name="label">TextBox to set the text</param>
                 /// <param name="text">Text to set to TextBox.Text</param>
-                public void SetTextboxTextInvoke(TextBox textBox, string text)
+                public void SetLabelTextInvoke(Label label, string text)
                 {
                     if (this._progressControle.InvokeRequired)
                     {
-                        this._progressControle.Invoke(new Action<TextBox, string>(this.SetTextboxTextInvoke), new object[] { textBox, text });
+                        this._progressControle.Invoke(new Action<Label, string>(this.SetLabelTextInvoke), new object[] { label, text });
                     }
                     else
                     {
-                        textBox.Text = text;
+                        label.Text = text;
                     }
                 }
 
@@ -82,6 +83,23 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                     else
                     {
                         progressBar.Value = value;
+                    }
+                }
+
+                /// <summary>
+                /// Set TextBox text, if required invoke
+                /// </summary>
+                /// <param name="textBox">TextBox to set the text</param>
+                /// <param name="text">Text to set to TextBox.Text</param>
+                public void SetTextboxTextInvoke(TextBox textBox, string text)
+                {
+                    if (this._progressControle.InvokeRequired)
+                    {
+                        this._progressControle.Invoke(new Action<TextBox, string>(this.SetTextboxTextInvoke), new object[] { textBox, text });
+                    }
+                    else
+                    {
+                        textBox.Text = text;
                     }
                 }
                 #endregion

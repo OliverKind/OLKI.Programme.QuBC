@@ -63,6 +63,8 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 public void InitialControles()
                 {
                     System.Diagnostics.Debug.Print("uscProcess::InitialControles::START");
+                    this.SetLabelTextInvoke(this._progressControle.lblStepText, "");
+
                     this.SetTextboxTextInvoke(this._progressControle.txtCopyStart, "");
                     this.SetTextboxTextInvoke(this._progressControle.txtCopyElapsed, "");
                     this.SetTextboxTextInvoke(this._progressControle.txtCopyRemainTime, "");
