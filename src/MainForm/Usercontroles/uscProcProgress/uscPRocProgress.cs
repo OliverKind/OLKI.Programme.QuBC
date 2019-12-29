@@ -40,6 +40,10 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
         /// </summary>
         private const int DEBAULT_COMBOBOX_ACTUAL_BYTE_NUM_SELECTED_INDEX = 1;
         /// <summary>
+        /// Defines the icon index for exception item on conclusion TabPage
+        /// </summary>
+        private const int EXCEPTION_ICON_INDEX = 0;
+        /// <summary>
         /// Defines the format for a actual and maximum value
         /// </summary>
         private const string FORMAT_ACTUAL_MAX_VALUE = "{0} / {1}";
@@ -54,7 +58,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
         /// <summary>
         /// Defines the format for a string with a value number value
         /// </summary>
-        const string FORMAT_VALUE = "{0:n0}";
+        private const string FORMAT_VALUE = "{0:n0}";
         #endregion
 
         #region Fields
@@ -65,6 +69,84 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
         #endregion
 
         #region Properties
+
+
+
+
+        /// <summary>
+        /// TextBox to show copies files
+        /// </summary>
+        private TextBox _conclusionFilesTextBox;
+        /// <summary>
+        /// Set TextBox to show copies files
+        /// </summary>
+        public TextBox ConclusionFilesTextBox {
+            set
+            {
+                this._conclusionFilesTextBox = value;
+            }
+        } 
+
+        /// <summary>
+        /// TextBox to show copies directuries
+        /// </summary>
+        private TextBox _conclusionDirectoriesTextBox;
+        /// <summary>
+        /// Set TextBox to show copies directuries
+        /// </summary>
+        public TextBox ConclusionDirectoriesTextBox
+        {
+            set
+            {
+                this._conclusionDirectoriesTextBox = value;
+            }
+        }
+
+        /// <summary>
+        /// TextBox to show copy duration
+        /// </summary>
+        private TextBox _conclusionDurationTextBox;
+        /// <summary>
+        /// Set TextBox to show copy duration
+        /// </summary>
+        public TextBox ConclusionDurationTextBox
+        {
+            set
+            {
+                this._conclusionDurationTextBox = value;
+            }
+        }
+
+        /// <summary>
+        /// ListView to show exception details
+        /// </summary>
+        private ListView _exceptionListView;
+        /// <summary>
+        /// Set the ListView to show exception details
+        /// </summary>
+        public ListView ExceptionListView
+        {
+            set
+            {
+                this._exceptionListView = value;
+            }
+        }
+
+        /// <summary>
+        /// TabPage to show conclusion
+        /// </summary>
+        private TabPage _conclusionTabPage;
+        /// <summary>
+        /// Set the TabPage to show conclusion
+        /// </summary>
+        public TabPage ConclusionTabPage
+        {
+            set
+            {
+                this._conclusionTabPage = value;
+            }
+        }
+
         /// <summary>
         /// The time where the progress started
         /// </summary>

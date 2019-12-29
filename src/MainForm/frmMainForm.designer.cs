@@ -83,14 +83,10 @@
             this.trvExplorer = new System.Windows.Forms.TreeView();
             this.tabPageBackup = new System.Windows.Forms.TabPage();
             this.grbControleProcessBackup = new System.Windows.Forms.GroupBox();
-            this.uscControleBackup = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle();
             this.grbProgressBackup = new System.Windows.Forms.GroupBox();
-            this.uscProgressBackup = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress();
             this.tabPageRestore = new System.Windows.Forms.TabPage();
             this.grbControleProcessRestore = new System.Windows.Forms.GroupBox();
-            this.uscControleRestore = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle();
             this.grbProgressRestore = new System.Windows.Forms.GroupBox();
-            this.uscProgressRestore = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
             this.lsvErrorLog = new OLKI.Widgets.SortListView();
@@ -107,14 +103,16 @@
             this.lblExceptionCount = new System.Windows.Forms.Label();
             this.txtExceptionCount = new System.Windows.Forms.TextBox();
             this.lblCopiedDuration = new System.Windows.Forms.Label();
-            this.txtCopiedDuration = new System.Windows.Forms.TextBox();
+            this.txtConclusionDuration = new System.Windows.Forms.TextBox();
             this.lblCopiedFiles = new System.Windows.Forms.Label();
-            this.txtCopiedFiles = new System.Windows.Forms.TextBox();
-            this.txtCopiedDirectories = new System.Windows.Forms.TextBox();
+            this.txtConclusionFiles = new System.Windows.Forms.TextBox();
+            this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.readOnlyPropertyGrid2 = new OLKI.Widgets.ReadOnlyPropertyGrid();
-            this.readOnlyPropertyGrid1 = new OLKI.Widgets.ReadOnlyPropertyGrid();
+            this.imlExceptionIcons = new System.Windows.Forms.ImageList(this.components);
+            this.uscControleBackup = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle();
+            this.uscProgressBackup = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress();
+            this.uscControleRestore = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle();
+            this.uscProgressRestore = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress();
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -127,7 +125,6 @@
             this.grbProgressRestore.SuspendLayout();
             this.tabPageConclusion.SuspendLayout();
             this.grbException.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -297,7 +294,7 @@
             this.tabControlMain.Controls.Add(this.tabPageBackup);
             this.tabControlMain.Controls.Add(this.tabPageRestore);
             this.tabControlMain.Controls.Add(this.tabPageConclusion);
-            this.tabControlMain.Controls.Add(this.tabPage1);
+            this.tabControlMain.ImageList = this.imlExceptionIcons;
             this.tabControlMain.Location = new System.Drawing.Point(12, 27);
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlMain.MinimumSize = new System.Drawing.Size(983, 598);
@@ -316,10 +313,10 @@
             this.tabPageSelect.Controls.Add(this.lsvDirectoryContent);
             this.tabPageSelect.Controls.Add(this.grbDirectoryScope);
             this.tabPageSelect.Controls.Add(this.trvExplorer);
-            this.tabPageSelect.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSelect.Location = new System.Drawing.Point(4, 23);
             this.tabPageSelect.Name = "tabPageSelect";
             this.tabPageSelect.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSelect.Size = new System.Drawing.Size(975, 572);
+            this.tabPageSelect.Size = new System.Drawing.Size(975, 571);
             this.tabPageSelect.TabIndex = 0;
             this.tabPageSelect.Text = "Sicherung - Quelle";
             this.tabPageSelect.UseVisualStyleBackColor = true;
@@ -506,10 +503,10 @@
             // 
             this.tabPageBackup.Controls.Add(this.grbControleProcessBackup);
             this.tabPageBackup.Controls.Add(this.grbProgressBackup);
-            this.tabPageBackup.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBackup.Location = new System.Drawing.Point(4, 23);
             this.tabPageBackup.Name = "tabPageBackup";
             this.tabPageBackup.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBackup.Size = new System.Drawing.Size(975, 572);
+            this.tabPageBackup.Size = new System.Drawing.Size(975, 571);
             this.tabPageBackup.TabIndex = 1;
             this.tabPageBackup.Text = "Sicherung - Ausführen";
             this.tabPageBackup.UseVisualStyleBackColor = true;
@@ -524,14 +521,6 @@
             this.grbControleProcessBackup.TabStop = false;
             this.grbControleProcessBackup.Text = "Sicherungsoptionen";
             // 
-            // uscControleBackup
-            // 
-            this.uscControleBackup.Location = new System.Drawing.Point(0, 17);
-            this.uscControleBackup.Mode = OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.CreateBackup;
-            this.uscControleBackup.Name = "uscControleBackup";
-            this.uscControleBackup.Size = new System.Drawing.Size(957, 235);
-            this.uscControleBackup.TabIndex = 0;
-            // 
             // grbProgressBackup
             // 
             this.grbProgressBackup.Controls.Add(this.uscProgressBackup);
@@ -542,21 +531,14 @@
             this.grbProgressBackup.TabStop = false;
             this.grbProgressBackup.Text = "Sicherungsvorgang";
             // 
-            // uscProgressBackup
-            // 
-            this.uscProgressBackup.Location = new System.Drawing.Point(6, 20);
-            this.uscProgressBackup.Name = "uscProgressBackup";
-            this.uscProgressBackup.Size = new System.Drawing.Size(951, 270);
-            this.uscProgressBackup.TabIndex = 0;
-            // 
             // tabPageRestore
             // 
             this.tabPageRestore.Controls.Add(this.grbControleProcessRestore);
             this.tabPageRestore.Controls.Add(this.grbProgressRestore);
-            this.tabPageRestore.Location = new System.Drawing.Point(4, 22);
+            this.tabPageRestore.Location = new System.Drawing.Point(4, 23);
             this.tabPageRestore.Name = "tabPageRestore";
             this.tabPageRestore.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRestore.Size = new System.Drawing.Size(975, 572);
+            this.tabPageRestore.Size = new System.Drawing.Size(975, 571);
             this.tabPageRestore.TabIndex = 3;
             this.tabPageRestore.Text = "Sicherung - Wiederherstellen";
             this.tabPageRestore.UseVisualStyleBackColor = true;
@@ -571,14 +553,6 @@
             this.grbControleProcessRestore.TabStop = false;
             this.grbControleProcessRestore.Text = "Wiederherstellungsoptionen";
             // 
-            // uscControleRestore
-            // 
-            this.uscControleRestore.Location = new System.Drawing.Point(0, 17);
-            this.uscControleRestore.Mode = OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.RestoreBackup;
-            this.uscControleRestore.Name = "uscControleRestore";
-            this.uscControleRestore.Size = new System.Drawing.Size(957, 235);
-            this.uscControleRestore.TabIndex = 0;
-            // 
             // grbProgressRestore
             // 
             this.grbProgressRestore.Controls.Add(this.uscProgressRestore);
@@ -589,28 +563,21 @@
             this.grbProgressRestore.TabStop = false;
             this.grbProgressRestore.Text = "Wiederherstellung";
             // 
-            // uscProgressRestore
-            // 
-            this.uscProgressRestore.Location = new System.Drawing.Point(6, 20);
-            this.uscProgressRestore.Name = "uscProgressRestore";
-            this.uscProgressRestore.Size = new System.Drawing.Size(951, 270);
-            this.uscProgressRestore.TabIndex = 0;
-            // 
             // tabPageConclusion
             // 
             this.tabPageConclusion.Controls.Add(this.grbException);
             this.tabPageConclusion.Controls.Add(this.lblExceptionCount);
             this.tabPageConclusion.Controls.Add(this.txtExceptionCount);
             this.tabPageConclusion.Controls.Add(this.lblCopiedDuration);
-            this.tabPageConclusion.Controls.Add(this.txtCopiedDuration);
+            this.tabPageConclusion.Controls.Add(this.txtConclusionDuration);
             this.tabPageConclusion.Controls.Add(this.lblCopiedFiles);
-            this.tabPageConclusion.Controls.Add(this.txtCopiedFiles);
-            this.tabPageConclusion.Controls.Add(this.txtCopiedDirectories);
+            this.tabPageConclusion.Controls.Add(this.txtConclusionFiles);
+            this.tabPageConclusion.Controls.Add(this.txtConclusionDirectories);
             this.tabPageConclusion.Controls.Add(this.lbltxtCopiedDirectories);
-            this.tabPageConclusion.Location = new System.Drawing.Point(4, 22);
+            this.tabPageConclusion.Location = new System.Drawing.Point(4, 23);
             this.tabPageConclusion.Name = "tabPageConclusion";
             this.tabPageConclusion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConclusion.Size = new System.Drawing.Size(975, 572);
+            this.tabPageConclusion.Size = new System.Drawing.Size(975, 571);
             this.tabPageConclusion.TabIndex = 2;
             this.tabPageConclusion.Text = "Zusammenfassung - Fehler";
             this.tabPageConclusion.UseVisualStyleBackColor = true;
@@ -744,13 +711,13 @@
             this.lblCopiedDuration.TabIndex = 4;
             this.lblCopiedDuration.Text = "Dauer:";
             // 
-            // txtCopiedDuration
+            // txtConclusionDuration
             // 
-            this.txtCopiedDuration.Location = new System.Drawing.Point(225, 58);
-            this.txtCopiedDuration.Name = "txtCopiedDuration";
-            this.txtCopiedDuration.ReadOnly = true;
-            this.txtCopiedDuration.Size = new System.Drawing.Size(200, 20);
-            this.txtCopiedDuration.TabIndex = 5;
+            this.txtConclusionDuration.Location = new System.Drawing.Point(225, 58);
+            this.txtConclusionDuration.Name = "txtConclusionDuration";
+            this.txtConclusionDuration.ReadOnly = true;
+            this.txtConclusionDuration.Size = new System.Drawing.Size(200, 20);
+            this.txtConclusionDuration.TabIndex = 5;
             // 
             // lblCopiedFiles
             // 
@@ -760,21 +727,21 @@
             this.lblCopiedFiles.TabIndex = 3;
             this.lblCopiedFiles.Text = "Gesicherte / Wiederhergestellte Dateiein:";
             // 
-            // txtCopiedFiles
+            // txtConclusionFiles
             // 
-            this.txtCopiedFiles.Location = new System.Drawing.Point(225, 32);
-            this.txtCopiedFiles.Name = "txtCopiedFiles";
-            this.txtCopiedFiles.ReadOnly = true;
-            this.txtCopiedFiles.Size = new System.Drawing.Size(200, 20);
-            this.txtCopiedFiles.TabIndex = 2;
+            this.txtConclusionFiles.Location = new System.Drawing.Point(225, 32);
+            this.txtConclusionFiles.Name = "txtConclusionFiles";
+            this.txtConclusionFiles.ReadOnly = true;
+            this.txtConclusionFiles.Size = new System.Drawing.Size(200, 20);
+            this.txtConclusionFiles.TabIndex = 2;
             // 
-            // txtCopiedDirectories
+            // txtConclusionDirectories
             // 
-            this.txtCopiedDirectories.Location = new System.Drawing.Point(225, 6);
-            this.txtCopiedDirectories.Name = "txtCopiedDirectories";
-            this.txtCopiedDirectories.ReadOnly = true;
-            this.txtCopiedDirectories.Size = new System.Drawing.Size(200, 20);
-            this.txtCopiedDirectories.TabIndex = 1;
+            this.txtConclusionDirectories.Location = new System.Drawing.Point(225, 6);
+            this.txtConclusionDirectories.Name = "txtConclusionDirectories";
+            this.txtConclusionDirectories.ReadOnly = true;
+            this.txtConclusionDirectories.Size = new System.Drawing.Size(200, 20);
+            this.txtConclusionDirectories.TabIndex = 1;
             // 
             // lbltxtCopiedDirectories
             // 
@@ -784,35 +751,41 @@
             this.lbltxtCopiedDirectories.TabIndex = 0;
             this.lbltxtCopiedDirectories.Text = "Gesicherte / Wiederhergestellte Ordner:";
             // 
-            // tabPage1
+            // imlExceptionIcons
             // 
-            this.tabPage1.Controls.Add(this.readOnlyPropertyGrid2);
-            this.tabPage1.Controls.Add(this.readOnlyPropertyGrid1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(975, 572);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.imlExceptionIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlExceptionIcons.ImageStream")));
+            this.imlExceptionIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlExceptionIcons.Images.SetKeyName(0, "eventlogWarn.ico");
             // 
-            // readOnlyPropertyGrid2
+            // uscControleBackup
             // 
-            this.readOnlyPropertyGrid2.LineColor = System.Drawing.SystemColors.ControlDark;
-            this.readOnlyPropertyGrid2.Location = new System.Drawing.Point(257, 6);
-            this.readOnlyPropertyGrid2.Name = "readOnlyPropertyGrid2";
-            this.readOnlyPropertyGrid2.ReadOnly = true;
-            this.readOnlyPropertyGrid2.Size = new System.Drawing.Size(245, 387);
-            this.readOnlyPropertyGrid2.TabIndex = 6;
+            this.uscControleBackup.Location = new System.Drawing.Point(0, 17);
+            this.uscControleBackup.Mode = OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.CreateBackup;
+            this.uscControleBackup.Name = "uscControleBackup";
+            this.uscControleBackup.Size = new System.Drawing.Size(957, 235);
+            this.uscControleBackup.TabIndex = 0;
             // 
-            // readOnlyPropertyGrid1
+            // uscProgressBackup
             // 
-            this.readOnlyPropertyGrid1.LineColor = System.Drawing.SystemColors.ControlDark;
-            this.readOnlyPropertyGrid1.Location = new System.Drawing.Point(6, 6);
-            this.readOnlyPropertyGrid1.Name = "readOnlyPropertyGrid1";
-            this.readOnlyPropertyGrid1.ReadOnly = true;
-            this.readOnlyPropertyGrid1.Size = new System.Drawing.Size(245, 387);
-            this.readOnlyPropertyGrid1.TabIndex = 5;
+            this.uscProgressBackup.Location = new System.Drawing.Point(6, 20);
+            this.uscProgressBackup.Name = "uscProgressBackup";
+            this.uscProgressBackup.Size = new System.Drawing.Size(951, 270);
+            this.uscProgressBackup.TabIndex = 0;
+            // 
+            // uscControleRestore
+            // 
+            this.uscControleRestore.Location = new System.Drawing.Point(0, 17);
+            this.uscControleRestore.Mode = OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.RestoreBackup;
+            this.uscControleRestore.Name = "uscControleRestore";
+            this.uscControleRestore.Size = new System.Drawing.Size(957, 235);
+            this.uscControleRestore.TabIndex = 0;
+            // 
+            // uscProgressRestore
+            // 
+            this.uscProgressRestore.Location = new System.Drawing.Point(6, 20);
+            this.uscProgressRestore.Name = "uscProgressRestore";
+            this.uscProgressRestore.Size = new System.Drawing.Size(951, 270);
+            this.uscProgressRestore.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -849,7 +822,6 @@
             this.tabPageConclusion.PerformLayout();
             this.grbException.ResumeLayout(false);
             this.grbException.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -897,20 +869,18 @@
         private System.Windows.Forms.Label lblExceptionCount;
         internal System.Windows.Forms.TextBox txtExceptionCount;
         private System.Windows.Forms.Label lblCopiedDuration;
-        internal System.Windows.Forms.TextBox txtCopiedDuration;
+        internal System.Windows.Forms.TextBox txtConclusionDuration;
         private System.Windows.Forms.Label lblCopiedFiles;
-        internal System.Windows.Forms.TextBox txtCopiedFiles;
-        internal System.Windows.Forms.TextBox txtCopiedDirectories;
+        internal System.Windows.Forms.TextBox txtConclusionFiles;
+        internal System.Windows.Forms.TextBox txtConclusionDirectories;
         private System.Windows.Forms.Label lbltxtCopiedDirectories;
         private System.Windows.Forms.GroupBox grbControleProcessBackup;
         private System.Windows.Forms.GroupBox grbControleProcessRestore;
         private System.Windows.Forms.GroupBox grbProgressRestore;
-        private System.Windows.Forms.TabPage tabPage1;
-        private Widgets.ReadOnlyPropertyGrid readOnlyPropertyGrid2;
-        private Widgets.ReadOnlyPropertyGrid readOnlyPropertyGrid1;
         private Usercontroles.uscProcControle.ProcControle uscControleBackup;
         private Usercontroles.uscProcControle.ProcControle uscControleRestore;
         private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressBackup;
         private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressRestore;
+        private System.Windows.Forms.ImageList imlExceptionIcons;
     }
 }

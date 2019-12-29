@@ -40,11 +40,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 /// </summary>
                 /// <param name="label">TextBox to set the text</param>
                 /// <param name="text">Text to set to TextBox.Text</param>
-                public void SetLabelTextInvoke(Label label, string text)
+                public void Invoke_Label_Text(Label label, string text)
                 {
                     if (label.InvokeRequired)
                     {
-                        label.Invoke(new Action<Label, string>(this.SetLabelTextInvoke), new object[] { label, text });
+                        label.Invoke(new Action<Label, string>(this.Invoke_Label_Text), new object[] { label, text });
                     }
                     else
                     {
@@ -53,15 +53,49 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 }
 
                 /// <summary>
+                /// Clears ListView by Invoke, if required
+                /// </summary>
+                /// <param name="listView">ListView to clear</param>
+                public void Invoke_ListView_ClearItems(ListView listView)
+                {
+                    if (listView.InvokeRequired)
+                    {
+                        listView.Invoke(new Action<ListView>(this.Invoke_ListView_ClearItems), new object[] { listView });
+                    }
+                    else
+                    {
+                        listView.Items.Clear();
+                    }
+                }
+
+                /// <summary>
+                /// Add new item to listview, if required invoke
+                /// </summary>
+                /// <param name="listView">ListView to clear to add item</param>
+                /// <param name="newItem">Item to add to ListView</param>
+                public void Invoke_ListView_AddItem(ListView listView, ListViewItem newItem)
+                {
+                    if (listView.InvokeRequired)
+                    {
+                        listView.Invoke(new Action<ListView, ListViewItem>(this.Invoke_ListView_AddItem), new object[] { listView, newItem });
+                    }
+                    else
+                    {
+                        listView.Items.Add(newItem);
+                    }
+                }
+
+
+                /// <summary>
                 /// Set Progressbar style, if required invoke
                 /// </summary>
                 /// <param name="progressBar">Progressbar to set the style</param>
                 /// <param name="style">Style to set to ProgressBar.Style</param>
-                public void SetProgressbarStyleInvoke(ProgressBar progressBar, ProgressBarStyle style)
+                public void Invoke_ProgressBar_Style(ProgressBar progressBar, ProgressBarStyle style)
                 {
                     if (progressBar.InvokeRequired)
                     {
-                        progressBar.Invoke(new Action<ProgressBar, ProgressBarStyle>(this.SetProgressbarStyleInvoke), new object[] { progressBar, style });
+                        progressBar.Invoke(new Action<ProgressBar, ProgressBarStyle>(this.Invoke_ProgressBar_Style), new object[] { progressBar, style });
                     }
                     else
                     {
@@ -74,15 +108,27 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 /// </summary>
                 /// <param name="progressBar">Progressbar to set the value</param>
                 /// <param name="value">Value to set to ProgressBar.Value</param>
-                public void SetProgressbarValueInvoke(ProgressBar progressBar, int value)
+                public void Invoke_ProgressBar_Value(ProgressBar progressBar, int value)
                 {
                     if (progressBar.InvokeRequired)
                     {
-                        progressBar.Invoke(new Action<ProgressBar, int>(this.SetProgressbarValueInvoke), new object[] { progressBar, value });
+                        progressBar.Invoke(new Action<ProgressBar, int>(this.Invoke_ProgressBar_Value), new object[] { progressBar, value });
                     }
                     else
                     {
                         progressBar.Value = value;
+                    }
+                }
+
+                public void Invoke_TabPage_ImageIndex(TabPage tabPage, int imageIndex)
+                {
+                    if (tabPage.InvokeRequired)
+                    {
+                        tabPage.Invoke(new Action<TabPage, int>(this.Invoke_TabPage_ImageIndex), new object[] { tabPage, imageIndex });
+                    }
+                    else
+                    {
+                        tabPage.ImageIndex = imageIndex;
                     }
                 }
 
@@ -91,11 +137,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 /// </summary>
                 /// <param name="textBox">TextBox to set the text</param>
                 /// <param name="text">Text to set to TextBox.Text</param>
-                public void SetTextboxTextInvoke(TextBox textBox, string text)
+                public void Invoke_TextBox_Text(TextBox textBox, string text)
                 {
                     if (textBox.InvokeRequired)
                     {
-                        textBox.Invoke(new Action<TextBox, string>(this.SetTextboxTextInvoke), new object[] { textBox, text });
+                        textBox.Invoke(new Action<TextBox, string>(this.Invoke_TextBox_Text), new object[] { textBox, text });
                     }
                     else
                     {

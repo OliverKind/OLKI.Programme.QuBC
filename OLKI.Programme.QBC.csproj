@@ -248,6 +248,7 @@
     <Content Include="Changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Properties\Resources\Icons\eventlogWarn.ico" />
     <Content Include="Properties\Resources\Icons\Icon original Files\075b_UpFolder.ico" />
     <Content Include="Properties\Resources\Icons\Icon original Files\112_ArrowCurve_Blue_Left_16x16_72.png" />
     <Content Include="Properties\Resources\Icons\Icon original Files\3.5_Disk_Drive.ico" />

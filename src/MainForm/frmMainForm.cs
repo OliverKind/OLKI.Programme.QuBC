@@ -118,10 +118,16 @@ namespace OLKI.Programme.QBC.MainForm
             this._saveLogFileDialog.InitialDirectory = Settings.Default.ProjectFile_DefaultPath;
 
             this.trvExplorer_AfterSelect(this, new TreeViewEventArgs(null));
-            this.uscControleBackup.ExceptionListView = this.lsvErrorLog;
+
+
+            this.uscProgressBackup.ConclusionDirectoriesTextBox = this.txtConclusionDirectories;
+            this.uscProgressBackup.ConclusionDurationTextBox = this.txtConclusionDuration;
+            this.uscProgressBackup.ConclusionFilesTextBox = this.txtConclusionFiles;
+            this.uscProgressBackup.ConclusionTabPage = this.tabPageConclusion;
+            this.uscProgressBackup.ExceptionListView = this.lsvErrorLog;
+
             this.uscControleBackup.ProgressControle = this.uscProgressBackup;
             this.uscControleBackup.ProjectManager = this._projectManager;
-            this.uscControleRestore.ExceptionListView = this.lsvErrorLog;
             this.uscControleRestore.ProgressControle = this.uscProgressRestore;
             this.uscControleRestore.ProjectManager = this._projectManager;
 

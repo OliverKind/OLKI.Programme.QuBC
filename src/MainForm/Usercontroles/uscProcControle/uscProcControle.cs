@@ -123,6 +123,27 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         #endregion
 
         #region Properties
+
+
+        /*
+        /// <summary>
+        /// ListView to show exception details
+        /// </summary>
+        private ListView _exceptionListView ;
+        /// <summary>
+        /// Set the ListView to show exception details
+        /// </summary>
+        [Browsable(false)]
+        public ListView ExceptionListView
+        {
+            set
+            {
+                this._exceptionListView = value;
+            }
+        }
+*/
+
+
         /// <summary>
         /// The mode to run the controle
         /// </summary>
@@ -180,7 +201,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// The Projectmanager of the application to run main project functions
         /// </summary>
-        private ProjectManager _projectManager = null;
+        private ProjectManager _projectManager ;
         /// <summary>
         /// Get and set the Projectmanager of the application to run main project functions
         /// </summary>
@@ -200,7 +221,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// Controle to show the progress of a process
         /// </summary>
-        private uscProgress.ProcProgress _uscProgress = null;
+        private uscProgress.ProcProgress _uscProgress ;
         /// <summary>
         /// Set the controle to show the progress of a process
         /// </summary>
@@ -210,22 +231,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             set
             {
                 this._uscProgress = value;
-            }
-        }
-
-        /// <summary>
-        /// ListView to show exception details
-        /// </summary>
-        private ListView _exceptionListView = null;
-        /// <summary>
-        /// Get and set the ListView to show exception details
-        /// </summary>
-        [Browsable(false)]
-        public ListView ExceptionListView
-        {
-            set
-            {
-                this._exceptionListView = value;
             }
         }
         #endregion
@@ -293,38 +298,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         {
             if (this.SettingsChanged != null && !this._projectManager.ActiveProject.Settings.RestrainChangedEvent) SettingsChanged(this, new EventArgs());
         }
-
-        /// <summary>
-        /// Clears exception ListView by Invoke, if required
-        /// </summary>
-        private void ExceptionListView_ClearItems()
-        {
-            if (this._exceptionListView.InvokeRequired)
-            {
-                this._exceptionListView.Invoke(new Action(this.ExceptionListView_ClearItems));
-            }
-            else
-            {
-                this._exceptionListView.Items.Clear();
-            }
-        }
-
-        /// <summary>
-        ///  Add Item to exception ListView by Invoke, if required
-        /// </summary>
-        /// <param name="newItem">Item to add to exception listview</param>
-        private void ExceptionListView_AddItemInvoke(ListViewItem newItem)
-        {
-            if (this._exceptionListView.InvokeRequired)
-            {
-                this._exceptionListView.Invoke(new Action<ListViewItem>(this.ExceptionListView_AddItemInvoke), newItem);
-            }
-            else
-            {
-                this._exceptionListView.Items.Add(newItem);
-            }
-        }
-
         #region Form User Events
         #region Progrcess Changed
         private void btnProcessCancel_Click(object sender, EventArgs e)
@@ -430,7 +403,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                 switch (this._processStep)
                 {
                     case ProcessStep.Count_Start:
-                        this.ExceptionListView_ClearItems();
                         this._uscProgress.SetProgressStates.SetProgress_CountStart();
                         break;
                     case ProcessStep.Count_Busy:
@@ -440,7 +412,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                         this._uscProgress.SetProgressStates.SetProgress_CountFinish();
                         break;
                     case ProcessStep.Copy_Start:
-                        this.ExceptionListView_ClearItems();
                         this._uscProgress.SetProgressStates.SetProgress_CopyStart();
                         break;
                     case ProcessStep.Copy_Busy:
@@ -453,7 +424,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                         this._uscProgress.SetProgressStates.SetProgress_Cancel();
                         break;
                     case ProcessStep.Exception:
-                        this.WriteExceptionToListView(this._uscProgress.ProgressStore.Exception);
                         this._uscProgress.SetProgressStates.SetProgress_Exception();
                         break;
                     default:
@@ -485,11 +455,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                     this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
                     break;
                 case ProcessStep.Cancel:
-                    MessageBox.Show(this.ParentForm, Stringtable._0x0007m, Stringtable._0x0007c, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(this.ParentForm, Stringtable._0x0007m, Stringtable._0x0007m, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
                 case ProcessStep.Exception:
-                    MessageBox.Show(this.ParentForm, string.Format(Stringtable._0x0008c, new object[] { this._uscProgress.ProgressStore.Exception.Exception.Message }), Stringtable._0x0008c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this.ParentForm, string.Format(Stringtable._0x0008m, new object[] { this._uscProgress.ProgressStore.Exception.Exception.Message }), Stringtable._0x0008c, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
                 default:
@@ -499,47 +469,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             this.btnProcessCancel.Enabled = false;
             this.btnProcessStart.Enabled = true;
             System.Diagnostics.Debug.Print("uscControleProcess::_worker_RunWorkerCompleted::FINISH");
-        }
-
-        /// <summary>
-        /// Add specified exception to ListView
-        /// </summary>
-        /// <param name="exception">Exception to att do ListView</param>
-        private void WriteExceptionToListView(ProcessException exception)
-        {
-            string ExceptionText = string.Empty;
-            if (!string.IsNullOrEmpty(exception.Description) && string.IsNullOrEmpty(exception.Exception.Message)) ExceptionText = exception.Description;
-            if (string.IsNullOrEmpty(exception.Description) && !string.IsNullOrEmpty(exception.Exception.Message)) ExceptionText = exception.Exception.Message;
-            if (!string.IsNullOrEmpty(exception.Description) && !string.IsNullOrEmpty(exception.Exception.Message)) ExceptionText = exception.Description + ": " + exception.Exception.Message;
-
-            System.Drawing.Color ItemBackground;
-            switch (exception.Level)
-            {
-                case ProcessException.ExceptionLevel.Slight:
-                    ItemBackground = System.Drawing.Color.FromArgb(255, 255, 192);
-                    break;
-                case ProcessException.ExceptionLevel.Medium:
-                    ItemBackground = System.Drawing.Color.FromArgb(255, 224, 192);
-                    break;
-                case ProcessException.ExceptionLevel.Critical:
-                    ItemBackground = System.Drawing.Color.FromArgb(255, 192, 192);
-                    break;
-                default:
-                    ItemBackground = System.Drawing.SystemColors.Window;
-                    break;
-            }
-
-            ListViewItem ExItem = new ListViewItem
-            {
-                BackColor = ItemBackground,
-                Tag = exception,
-                Text = (this._exceptionListView.Items.Count + 1).ToString()
-            };
-            ExItem.SubItems.Add(exception.Source);
-            ExItem.SubItems.Add(exception.Target);
-            ExItem.SubItems.Add(ExceptionText);
-
-            this.ExceptionListView_AddItemInvoke(ExItem);
         }
         #endregion
 

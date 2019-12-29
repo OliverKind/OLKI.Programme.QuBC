@@ -22,6 +22,7 @@
  * 
  * */
 
+using OLKI.Programme.QBC.BackupProject.Process;
 using OLKI.Programme.QBC.Properties;
 using System;
 using System.Windows.Forms;
@@ -75,11 +76,17 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 this._progressControle._progressStart = DateTime.Now;
 
                 this._setControleValue.InitialControles();
-                this._setControleValue.SetLabelTextInvoke(this._progressControle.lblStepText, Stringtable._0x0015);
-                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyStart, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
-                this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
-                this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
-                this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
+                this._setControleValue.Invoke_ListView_ClearItems(this._progressControle._exceptionListView);
+                this._setControleValue.Invoke_TabPage_ImageIndex(this._progressControle._conclusionTabPage, 0);
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionDirectoriesTextBox, "");
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionFilesTextBox, "");
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionDurationTextBox, "");
+
+                this._setControleValue.Invoke_Label_Text(this._progressControle.lblStepText, Stringtable._0x0015);
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle.txtCopyStart, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
+                this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
+                this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
             }
 
             /// <summary>
@@ -87,8 +94,8 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// </summary>
             internal void SetPRogress_CountBusy()
             {
-                this._setControleValue.SetLabelTextInvoke(this._progressControle.lblStepText, Stringtable._0x0016);
-                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                this._setControleValue.Invoke_Label_Text(this._progressControle.lblStepText, Stringtable._0x0016);
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
 
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, this._progressControle.ProgressStore.TotalItems);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, this._progressControle.ProgressStore.TotalBytes);
@@ -101,7 +108,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// </summary>
             internal void SetProgress_CountFinish()
             {
-                this._setControleValue.SetLabelTextInvoke(this._progressControle.lblStepText, Stringtable._0x0017);
+                this._setControleValue.Invoke_Label_Text(this._progressControle.lblStepText, Stringtable._0x0017);
                 this._setControleValue.ResetAllProgressBars(true, false);
             }
             #endregion
@@ -117,14 +124,19 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 this._progressControle._progressStart = StartTime;
                 // Set controles
                 this._setControleValue.InitialControles();
-                this._setControleValue.SetLabelTextInvoke(this._progressControle.lblStepText, Stringtable._0x0018);
+                this._setControleValue.Invoke_ListView_ClearItems(this._progressControle._exceptionListView);
+                this._setControleValue.Invoke_Label_Text(this._progressControle.lblStepText, Stringtable._0x0018);
+                this._setControleValue.Invoke_TabPage_ImageIndex(this._progressControle._conclusionTabPage, -1);
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionDirectoriesTextBox, "");
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionFilesTextBox, "");
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionDurationTextBox, "");
 
-                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyStart, StartTime.ToString(FORMAT_TIME));
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle.txtCopyStart, StartTime.ToString(FORMAT_TIME));
                 if (this._progressControle.ProgressStore.TotalItems.MaxValue == null)
                 {
-                    this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
-                    this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
-                    this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
+                    this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
+                    this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
+                    this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
                 }
             }
 
@@ -134,8 +146,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             internal void SetProgress_CopyBusy()
             {
                 System.Diagnostics.Debug.Print(this._progressControle.ProgressStore.DirectroyFiles.ElemenName);
-                this._setControleValue.SetLabelTextInvoke(this._progressControle.lblStepText, Stringtable._0x0019);
-                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                this._setControleValue.Invoke_Label_Text(this._progressControle.lblStepText, Stringtable._0x0019);
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionDirectoriesTextBox, this._progressControle.ProgressStore.TotalDirectories.ActualValue.ToString());
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionFilesTextBox, this._progressControle.ProgressStore.TotalFiles.ActualValue.ToString());
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionDurationTextBox, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
 
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, this._progressControle.ProgressStore.TotalItems);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, this._progressControle.ProgressStore.TotalBytes);
@@ -151,10 +166,10 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                     TimeSpan RemainingTime = RemainingTimeByte > RemainingTimeItem ? RemainingTimeByte : RemainingTimeItem;
                     if (RemainingTime.Days > 0)
                     {
-                        this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeDays));
+                        this._setControleValue.Invoke_TextBox_Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeDays));
                     } else
                     {
-                        this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeNoDays));
+                        this._setControleValue.Invoke_TextBox_Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeNoDays));
                     }
                 }
             }
@@ -164,9 +179,13 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// </summary>
             internal void SetProgress_CopyFinish()
             {
-                this._setControleValue.SetLabelTextInvoke(this._progressControle.lblStepText, Stringtable._0x001A);
-                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyStart, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
-                this._setControleValue.SetTextboxTextInvoke(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                this._setControleValue.Invoke_Label_Text(this._progressControle.lblStepText, Stringtable._0x001A);
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle.txtCopyStart, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionDirectoriesTextBox, this._progressControle.ProgressStore.TotalDirectories.ActualValue.ToString());
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionFilesTextBox, this._progressControle.ProgressStore.TotalFiles.ActualValue.ToString());
+                this._setControleValue.Invoke_TextBox_Text(this._progressControle._conclusionDurationTextBox, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
             }
             #endregion
 
@@ -176,20 +195,54 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// </summary>
             internal void SetProgress_Cancel()
             {
-                this._setControleValue.SetLabelTextInvoke(this._progressControle.lblStepText, Stringtable._0x001B);
-                this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllItems, ProgressBarStyle.Blocks);
-                this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
-                this._setControleValue.SetProgressbarStyleInvoke(this._progressControle.pbaAllDir, ProgressBarStyle.Blocks);
-                return;
+                this._setControleValue.Invoke_Label_Text(this._progressControle.lblStepText, Stringtable._0x001B);
+                this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllItems, ProgressBarStyle.Blocks);
+                this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
+                this._setControleValue.Invoke_ProgressBar_Style(this._progressControle.pbaAllDir, ProgressBarStyle.Blocks);
             }
 
             /// <summary>
             /// Set controles for state: Exception
+            /// Add exception to ListView
             /// </summary>
             internal void SetProgress_Exception()
             {
-                // Nothing to do during normal operation
-                return;
+                ProcessException Exception = this._progressControle.ProgressStore.Exception;
+                string ExceptionText = string.Empty;
+
+                if (!string.IsNullOrEmpty(Exception.Description) && string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText = Exception.Description;
+                if (string.IsNullOrEmpty(Exception.Description) && !string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText = Exception.Exception.Message;
+                if (!string.IsNullOrEmpty(Exception.Description) && !string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText = Exception.Description + ": " + Exception.Exception.Message;
+
+                System.Drawing.Color ItemBackground;
+                switch (Exception.Level)
+                {
+                    case ProcessException.ExceptionLevel.Slight:
+                        ItemBackground = System.Drawing.Color.FromArgb(255, 255, 192);
+                        break;
+                    case ProcessException.ExceptionLevel.Medium:
+                        ItemBackground = System.Drawing.Color.FromArgb(255, 224, 192);
+                        break;
+                    case ProcessException.ExceptionLevel.Critical:
+                        ItemBackground = System.Drawing.Color.FromArgb(255, 192, 192);
+                        break;
+                    default:
+                        ItemBackground = System.Drawing.SystemColors.Window;
+                        break;
+                }
+
+                ListViewItem ExItem = new ListViewItem
+                {
+                    BackColor = ItemBackground,
+                    Tag = Exception,
+                    Text = (this._progressControle._exceptionListView.Items.Count + 1).ToString()
+                };
+                ExItem.SubItems.Add(Exception.Source);
+                ExItem.SubItems.Add(Exception.Target);
+                ExItem.SubItems.Add(ExceptionText);
+
+                this._setControleValue.Invoke_ListView_AddItem(this._progressControle._exceptionListView,ExItem);
+                this._setControleValue.Invoke_TabPage_ImageIndex(this._progressControle._conclusionTabPage, EXCEPTION_ICON_INDEX);
             }
             #endregion
             #endregion
