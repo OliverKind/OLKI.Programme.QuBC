@@ -293,6 +293,7 @@
             this.grbLogFile.TabIndex = 2;
             this.grbLogFile.TabStop = false;
             this.grbLogFile.Text = "Protokolldatei";
+            this.grbLogFile.Visible = false;
             // 
             // lblLogfileDateFormat
             // 
