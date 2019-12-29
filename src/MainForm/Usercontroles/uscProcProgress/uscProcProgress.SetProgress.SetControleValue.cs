@@ -24,6 +24,7 @@
 
 using OLKI.Programme.QBC.BackupProject.Process;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
+using OLKI.Widgets.Invoke;
 using System;
 using System.Windows.Forms;
 
@@ -63,11 +64,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 public void InitialControles()
                 {
                     System.Diagnostics.Debug.Print("uscProcess::InitialControles::START");
-                    this.Invoke_Label_Text(this._progressControle.lblStepText, "");
+                    LabelInv.Text(this._progressControle.lblStepText, "");
 
-                    this.Invoke_TextBox_Text(this._progressControle.txtCopyStart, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtCopyElapsed, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtCopyRemainTime, "");
+                    TextBoxInv.Text(this._progressControle.txtCopyStart, "");
+                    TextBoxInv.Text(this._progressControle.txtCopyElapsed, "");
+                    TextBoxInv.Text(this._progressControle.txtCopyRemainTime, "");
 
                     this.ResetAllTextBoxes();
                     this.ResetAllProgressBars(true, true);
@@ -80,18 +81,18 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 private void ResetAllTextBoxes()
                 {
                     System.Diagnostics.Debug.Print("    uscProcess::ResetProgressTextBoxes::START");
-                    this.Invoke_TextBox_Text(this._progressControle.txtActualDir, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtActualDirFilesNum, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtActualDirFilesPer, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtActualFile, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtActualFileByteNum, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtActualFileBytePer, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtAllByteNum, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtAllBytePer, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtAllDirNum, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtAllDirPer, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtAllItemsNum, "");
-                    this.Invoke_TextBox_Text(this._progressControle.txtAllItemsPer, "");
+                    TextBoxInv.Text(this._progressControle.txtActualDir, "");
+                    TextBoxInv.Text(this._progressControle.txtActualDirFilesNum, "");
+                    TextBoxInv.Text(this._progressControle.txtActualDirFilesPer, "");
+                    TextBoxInv.Text(this._progressControle.txtActualFile, "");
+                    TextBoxInv.Text(this._progressControle.txtActualFileByteNum, "");
+                    TextBoxInv.Text(this._progressControle.txtActualFileBytePer, "");
+                    TextBoxInv.Text(this._progressControle.txtAllByteNum, "");
+                    TextBoxInv.Text(this._progressControle.txtAllBytePer, "");
+                    TextBoxInv.Text(this._progressControle.txtAllDirNum, "");
+                    TextBoxInv.Text(this._progressControle.txtAllDirPer, "");
+                    TextBoxInv.Text(this._progressControle.txtAllItemsNum, "");
+                    TextBoxInv.Text(this._progressControle.txtAllItemsPer, "");
                     System.Diagnostics.Debug.Print("    uscProcess::ResetProgressTextBoxes::FINISH");
                 }
 
@@ -105,20 +106,20 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                     System.Diagnostics.Debug.Print("    uscProcess::ResetProgressBars::START");
                     if (setBlockStyle)
                     {
-                        this.Invoke_ProgressBar_Style(this._progressControle.pbaActualDirFiles, ProgressBarStyle.Blocks);
-                        this.Invoke_ProgressBar_Style(this._progressControle.pbaActualFileByte, ProgressBarStyle.Blocks);
-                        this.Invoke_ProgressBar_Style(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
-                        this.Invoke_ProgressBar_Style(this._progressControle.pbaAllDir, ProgressBarStyle.Blocks);
-                        this.Invoke_ProgressBar_Style(this._progressControle.pbaAllItems, ProgressBarStyle.Blocks);
+                        ProgressBarInv.Style(this._progressControle.pbaActualDirFiles, ProgressBarStyle.Blocks);
+                        ProgressBarInv.Style(this._progressControle.pbaActualFileByte, ProgressBarStyle.Blocks);
+                        ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
+                        ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Blocks);
+                        ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Blocks);
                     }
 
                     if (setProgressToZero)
                     {
-                        this.Invoke_ProgressBar_Value(this._progressControle.pbaActualDirFiles, 0);
-                        this.Invoke_ProgressBar_Value(this._progressControle.pbaActualFileByte, 0);
-                        this.Invoke_ProgressBar_Value(this._progressControle.pbaAllByte, 0);
-                        this.Invoke_ProgressBar_Value(this._progressControle.pbaAllDir, 0);
-                        this.Invoke_ProgressBar_Value(this._progressControle.pbaAllItems, 0);
+                        ProgressBarInv.Value(this._progressControle.pbaActualDirFiles, 0);
+                        ProgressBarInv.Value(this._progressControle.pbaActualFileByte, 0);
+                        ProgressBarInv.Value(this._progressControle.pbaAllByte, 0);
+                        ProgressBarInv.Value(this._progressControle.pbaAllDir, 0);
+                        ProgressBarInv.Value(this._progressControle.pbaAllItems, 0);
                     }
                     System.Diagnostics.Debug.Print("    uscProcess::ResetProgressBars::FINISH");
                 }
@@ -150,7 +151,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 private void SetItemTextBox(TextBox itemTextBox, ProgressStore.ProgressElement progressElement)
                 {
                     if (itemTextBox == null) return;
-                    this.Invoke_TextBox_Text(itemTextBox, progressElement.ElemenName);
+                    TextBoxInv.Text(itemTextBox, progressElement.ElemenName);
                 }
 
                 /// <summary>
@@ -165,12 +166,12 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                     if (progressElement.ActualValue == null || progressElement.MaxValue == null)
                     {
                         // If no vlaues are set clear and return
-                        this.Invoke_ProgressBar_Value(progressBar, 0);
+                        ProgressBarInv.Value(progressBar, 0);
                         return;
                     }
 
                     //Set new Value
-                    this.Invoke_ProgressBar_Value(progressBar, progressElement.Percentage);
+                    ProgressBarInv.Value(progressBar, progressElement.Percentage);
                 }
 
                 /// <summary>
@@ -185,11 +186,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                     if (progressElement.ActualValue == null || progressElement.MaxValue == null)
                     {
                         // If no vlaues are set clear and return
-                        this.Invoke_TextBox_Text(percentageTextBox, "");
+                        TextBoxInv.Text(percentageTextBox, "");
                         return;
                     }
                     //Set new Value
-                    this.Invoke_TextBox_Text(percentageTextBox, string.Format(FORMAT_PERCENTAGE, new object[] { progressElement.Percentage }));
+                    TextBoxInv.Text(percentageTextBox, string.Format(FORMAT_PERCENTAGE, new object[] { progressElement.Percentage }));
                 }
 
                 /// <summary>

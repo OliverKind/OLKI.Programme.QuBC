@@ -121,9 +121,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.SetProgress.SetControleValue_Invoke.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.SetProgress.SetControleValue.cs">
       <SubType>UserControl</SubType>
     </Compile>
