@@ -23,6 +23,7 @@
  * */
 
 using OLKI.Programme.QBC.Properties;
+using OLKI.Tools.CommonTools;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -55,7 +56,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <summary>
         /// Provides helper functions for the application MainForm
         /// </summary>
-        private OLKI.Programme.QBC.MainForm.MainFormHelper _mainFormHelper = null;
+        private MainFormHelper _mainFormHelper = null;
         /// <summary>
         /// Specifies the projectmanager object
         /// </summary>
@@ -63,7 +64,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <summary>
         /// Specifies the recent files object
         /// </summary>
-        private readonly OLKI.Tools.CommonTools.RecentFiles _recentFiles = new Tools.CommonTools.RecentFiles();
+        private readonly RecentFiles _recentFiles = new RecentFiles();
         /// <summary>
         /// Set True if changes on widgeds was done by system and change events should been ignored
         /// </summary>
@@ -71,7 +72,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <summary>
         /// A SaveFileDilaog to specifies the path where the Logfile should been saved to
         /// </summary9
-        private readonly SaveFileDialog _saveLogFileDialog = new System.Windows.Forms.SaveFileDialog();
+        private readonly SaveFileDialog _saveLogFileDialog = new SaveFileDialog();
         /// <summary>
         /// Specifies the application about form
         /// </summary>
@@ -80,6 +81,8 @@ namespace OLKI.Programme.QBC.MainForm
         /// Specifies the application settings form
         /// </summary>
         private SubForms.ApplicationSettingsForm _frmApplicationSettings = null;
+
+        public RecentFiles RecentFiles => _recentFiles;
         #endregion
 
         #region Methodes
@@ -109,7 +112,7 @@ namespace OLKI.Programme.QBC.MainForm
             this._recentFiles.MaxLength = Settings.Default.RecentFiles_MaxLength;
             this._recentFiles.Seperator = Settings.Default.RecentFiles_Seperator;
             this._recentFiles.SetFromString(Settings.Default.RecentFiles_FileList);
-            this.SetRecentFilesSettingsAndMenue();
+            //this.SetRecentFilesSettingsAndMenue(); --> Raisid while loading inital projects
 
             // Initial save dialog
             this._saveLogFileDialog.DefaultExt = Settings.Default.ProjectFile_DefaultExtension;
@@ -118,7 +121,6 @@ namespace OLKI.Programme.QBC.MainForm
             this._saveLogFileDialog.InitialDirectory = Settings.Default.ProjectFile_DefaultPath;
 
             this.trvExplorer_AfterSelect(this, new TreeViewEventArgs(null));
-
 
             this.uscProgressBackup.ConclusionDirectoriesTextBox = this.txtConclusionDirectories;
             this.uscProgressBackup.ConclusionDurationTextBox = this.txtConclusionDuration;
@@ -151,7 +153,6 @@ namespace OLKI.Programme.QBC.MainForm
                 if (new FileInfo(Arg).Exists)
                 {
                     this._projectManager.Project_Open(Arg);
-                    this.SetRecentFilesSettingsAndMenue();
                     break;
                 }
             }
@@ -159,10 +160,10 @@ namespace OLKI.Programme.QBC.MainForm
             // Load default project file
             if (this._projectManager.ActiveProject == null && !string.IsNullOrEmpty(Settings.Default.Startup_DefaultFileOpen))
             {
-                this._projectManager.Project_Open(GetDefault().Startup_DefaultFileOpen);
+                this._projectManager.Project_Open(Settings.Default.Startup_DefaultFileOpen);
             }
 
-            // Loiad empty project
+            // Load empty project
             if (this._projectManager.ActiveProject == null)
             {
                 this._projectManager.Project_New();
@@ -172,11 +173,6 @@ namespace OLKI.Programme.QBC.MainForm
             this.ProjectManager_ProjectFileChanged(this, new EventArgs());
         }
 
-        private static Settings GetDefault()
-        {
-            return Settings.Default;
-        }
-
         /// <summary>
         /// Add a new item to recent file list and sets the menue item
         /// </summary>
@@ -184,11 +180,11 @@ namespace OLKI.Programme.QBC.MainForm
         {
             if (this._projectManager.ActiveProject != null && this._projectManager.ActiveProject.File != null)
             {
-                this._recentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
-                Settings.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
+                this.RecentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
+                Settings.Default.RecentFiles_FileList = this.RecentFiles.GetAsString();
             }
 
-            this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
+            this.RecentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
         }
 
         #region Projec Events
@@ -219,7 +215,8 @@ namespace OLKI.Programme.QBC.MainForm
 
         private void ProjectManager_ProjecOpenOrNew(object sender, EventArgs e)
         {
-            //Actual nothing to do. Used as place holder
+            this.SetRecentFilesSettingsAndMenue();
+            Settings.Default.Save();
         }
         #endregion
 
@@ -536,7 +533,7 @@ namespace OLKI.Programme.QBC.MainForm
         private void mnuMain_Extras_Options_Click(object sender, EventArgs e)
         {
             this._frmApplicationSettings = new SubForms.ApplicationSettingsForm();
-            if (this._frmApplicationSettings.ShowDialog(this) == System.Windows.Forms.DialogResult.OK && this._frmApplicationSettings.ClearRecentFiles)
+            if (this._frmApplicationSettings.ShowDialog(this) == DialogResult.OK && this._frmApplicationSettings.ClearRecentFiles)
             {
                 this._recentFiles.FileList.Clear();
                 this.SetRecentFilesSettingsAndMenue();
