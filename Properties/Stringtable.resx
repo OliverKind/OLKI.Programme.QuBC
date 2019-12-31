@@ -277,4 +277,8 @@ Möchten Sie fortfahren?</value>
     <value>Vorgang abgebrochen</value>
     <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetProgress_Cancel:lblStepText</comment>
   </data>
+  <data name="0x001C" xml:space="preserve">
+    <value>Das eingegebene Datumsformat ist nicht gültig</value>
+    <comment>OLKI.Programme.QBC.MainForm.SubForms.ApplicationSettingsForm:ValidateDateFormats.InvalidFormat</comment>
+  </data>
 </root>

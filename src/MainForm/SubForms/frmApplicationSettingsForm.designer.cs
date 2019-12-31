@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationSettingsForm));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
@@ -60,12 +61,14 @@
             this.lblAddTextToFileDateFormat = new System.Windows.Forms.Label();
             this.txtAddTextToFileDateFormat = new System.Windows.Forms.TextBox();
             this.chkAutoCheckFileAssociation = new System.Windows.Forms.CheckBox();
+            this.erpDateFormat = new System.Windows.Forms.ErrorProvider(this.components);
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
             this.grbExplorerSettings.SuspendLayout();
             this.grbLogFile.SuspendLayout();
             this.grbAddTextToFiile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpDateFormat)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -293,7 +296,6 @@
             this.grbLogFile.TabIndex = 2;
             this.grbLogFile.TabStop = false;
             this.grbLogFile.Text = "Protokolldatei";
-            this.grbLogFile.Visible = false;
             // 
             // lblLogfileDateFormat
             // 
@@ -308,8 +310,9 @@
             // 
             this.txtLogfileDateFormat.Location = new System.Drawing.Point(195, 19);
             this.txtLogfileDateFormat.Name = "txtLogfileDateFormat";
-            this.txtLogfileDateFormat.Size = new System.Drawing.Size(206, 20);
+            this.txtLogfileDateFormat.Size = new System.Drawing.Size(190, 20);
             this.txtLogfileDateFormat.TabIndex = 1;
+            this.txtLogfileDateFormat.TextChanged += new System.EventHandler(this.txtLogfileDateFormat_TextChanged);
             // 
             // btnSetDefaults
             // 
@@ -363,8 +366,9 @@
             // 
             this.txtAddTextToFileDateFormat.Location = new System.Drawing.Point(476, 19);
             this.txtAddTextToFileDateFormat.Name = "txtAddTextToFileDateFormat";
-            this.txtAddTextToFileDateFormat.Size = new System.Drawing.Size(206, 20);
+            this.txtAddTextToFileDateFormat.Size = new System.Drawing.Size(190, 20);
             this.txtAddTextToFileDateFormat.TabIndex = 3;
+            this.txtAddTextToFileDateFormat.TextChanged += new System.EventHandler(this.txtAddTextToFileDateFormat_TextChanged);
             // 
             // chkAutoCheckFileAssociation
             // 
@@ -375,6 +379,11 @@
             this.chkAutoCheckFileAssociation.TabIndex = 6;
             this.chkAutoCheckFileAssociation.Text = "Dateizuordnung beim Programmstart prüfen";
             this.chkAutoCheckFileAssociation.UseVisualStyleBackColor = true;
+            // 
+            // erpDateFormat
+            // 
+            this.erpDateFormat.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.erpDateFormat.ContainerControl = this;
             // 
             // ApplicationSettingsForm
             // 
@@ -412,6 +421,7 @@
             this.grbLogFile.PerformLayout();
             this.grbAddTextToFiile.ResumeLayout(false);
             this.grbAddTextToFiile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpDateFormat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,5 +460,6 @@
         private System.Windows.Forms.Label lblAddTextToFileDefaultText;
         private System.Windows.Forms.TextBox txtAddTextToFileDefaultText;
         private System.Windows.Forms.CheckBox chkAutoCheckFileAssociation;
+        private System.Windows.Forms.ErrorProvider erpDateFormat;
     }
 }

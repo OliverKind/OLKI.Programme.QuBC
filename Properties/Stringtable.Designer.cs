@@ -399,5 +399,14 @@ namespace OLKI.Programme.QBC.Properties {
                 return ResourceManager.GetString("0x001B", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Das eingegebene Datumsformat ist nicht gültig ähnelt.
+        /// </summary>
+        internal static string _0x001C {
+            get {
+                return ResourceManager.GetString("0x001C", resourceCulture);
+            }
+        }
     }
 }

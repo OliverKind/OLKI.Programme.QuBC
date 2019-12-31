@@ -77,6 +77,41 @@ namespace OLKI.Programme.QBC.MainForm.SubForms
             this.txtAddTextToFileDateFormat.Text = Settings.Default.Copy_FileExisitngAddTextDateFormat;
         }
 
+        /// <summary>
+        /// Set the form OK button, debeding by the error states of the date format textbox contents
+        /// </summary>
+        private void ValidateDateFormats()
+        {
+            bool AddTextFormatValid;
+            bool LogFileFormatValid;
+
+            this.erpDateFormat.Clear();
+
+            try
+            {
+                _ = DateTime.Now.ToString(this.txtAddTextToFileDateFormat.Text);
+                AddTextFormatValid = true;
+            }
+            catch
+            {
+                this.erpDateFormat.SetError(this.txtAddTextToFileDateFormat, Stringtable._0x001C);
+                AddTextFormatValid = false;
+            }
+
+            try
+            {
+                _ = DateTime.Now.ToString(this.txtLogfileDateFormat.Text);
+                LogFileFormatValid = true;
+            }
+            catch
+            {
+                this.erpDateFormat.SetError(this.txtLogfileDateFormat, Stringtable._0x001C);
+                LogFileFormatValid = false;
+            }
+
+            this.btnOk.Enabled = AddTextFormatValid && LogFileFormatValid;
+        }
+
         #region Form events
         private void btnDefaultPath_Browse_Click(object sender, EventArgs e)
         {
@@ -152,6 +187,16 @@ namespace OLKI.Programme.QBC.MainForm.SubForms
         {
             Settings.Default.Reset();
             this.SetControlesFromSettings();
+        }
+
+        private void txtAddTextToFileDateFormat_TextChanged(object sender, EventArgs e)
+        {
+            this.ValidateDateFormats();
+        }
+
+        private void txtLogfileDateFormat_TextChanged(object sender, EventArgs e)
+        {
+            this.ValidateDateFormats();
         }
         #endregion
         #endregion
