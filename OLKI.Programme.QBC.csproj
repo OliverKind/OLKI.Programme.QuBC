@@ -89,7 +89,7 @@
   <ItemGroup>
     <Compile Include="src\BackupProject\LogFileWriter\clsLogFile.cs" />
     <Compile Include="src\BackupProject\LogFileWriter\clsLogFile.WriteLogLine.cs" />
-    <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\clsHandleExistingFiles.cs" />
+    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\clsHandleExistingFiles.cs" />
     <Compile Include="src\BackupProject\Process\clsActionException.cs" />
     <Compile Include="src\BackupProject\Process\CopyItems\clsDirectoryCreator.cs" />
     <Compile Include="src\BackupProject\Process\CopyItems\clsCopyItems_CopyRecusive.cs" />
@@ -103,20 +103,20 @@
     <Compile Include="src\BackupProject\Settings\clsCommon.ExisitingFiles.cs" />
     <Compile Include="src\BackupProject\Settings\clsControle.Directroy.cs" />
     <Compile Include="src\BackupProject\Settings\clsCommon.cs" />
-    <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.cs">
+    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.Designer.cs">
+    </None>
+    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.Designer.cs">
       <DependentUpon>frmHandleExistingFilesForm.cs</DependentUpon>
-    </Compile>
+    </None>
     <None Include="src\BackupProject\NOT_USED__clsLogFileWriter.cs" />
     <Compile Include="src\BackupProject\clsProject.cs" />
     <Compile Include="src\BackupProject\Settings\clsSettings.cs" />
-    <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\Stringtable.Designer.cs">
+    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\Stringtable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
-    </Compile>
+    </None>
     <Compile Include="src\BackupProject\Process\clsProgressStore.cs" />
     <Compile Include="src\MainForm\Usercontroles\uscProcControle\Stringtable.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -152,13 +152,13 @@
     <Compile Include="src\SettingsTestForm\frmSettingsTestForm.Designer.cs">
       <DependentUpon>frmSettingsTestForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.resx">
+    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.resx">
       <DependentUpon>frmHandleExistingFilesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\Stringtable.resx">
+    </None>
+    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\Stringtable.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    </None>
     <EmbeddedResource Include="src\MainForm\Usercontroles\uscProcControle\Stringtable.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>

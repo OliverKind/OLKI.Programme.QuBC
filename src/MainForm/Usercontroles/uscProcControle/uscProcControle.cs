@@ -22,7 +22,7 @@
  * 
  * */
 
-using OLKI.Programme.QBC.BackupProject.Process;
+using OLKI.Tools.CommonTools.DirectoryAndFile;
 using OLKI.Programme.QBC.Properties;
 using System;
 using System.ComponentModel;
@@ -123,27 +123,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         #endregion
 
         #region Properties
-
-
-        /*
-        /// <summary>
-        /// ListView to show exception details
-        /// </summary>
-        private ListView _exceptionListView ;
-        /// <summary>
-        /// Set the ListView to show exception details
-        /// </summary>
-        [Browsable(false)]
-        public ListView ExceptionListView
-        {
-            set
-            {
-                this._exceptionListView = value;
-            }
-        }
-*/
-
-
         /// <summary>
         /// The mode to run the controle
         /// </summary>
