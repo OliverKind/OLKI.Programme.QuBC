@@ -87,37 +87,37 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\BackupProject\LogFileWriter\clsLogFile.cs" />
-    <Compile Include="src\BackupProject\LogFileWriter\clsLogFile.WriteLogLine.cs" />
-    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\clsHandleExistingFiles.cs" />
-    <Compile Include="src\BackupProject\Process\clsActionException.cs" />
-    <Compile Include="src\BackupProject\Process\CopyItems\clsDirectoryCreator.cs" />
-    <Compile Include="src\BackupProject\Process\CopyItems\clsCopyItems_CopyRecusive.cs" />
-    <Compile Include="src\BackupProject\Process\CopyItems\clsCopyItems.cs" />
-    <Compile Include="src\BackupProject\Process\CountItems\clsCountItems_CountRecusive.cs" />
-    <Compile Include="src\BackupProject\Process\CountItems\clsCountItems.cs" />
-    <Compile Include="src\BackupProject\Settings\clsControle.cs" />
-    <Compile Include="src\BackupProject\Settings\clsControle.Logile.cs" />
-    <Compile Include="src\BackupProject\Settings\clsControle.Action.cs" />
-    <Compile Include="src\BackupProject\Settings\clsSettings_Base.cs" />
-    <Compile Include="src\BackupProject\Settings\clsCommon.ExisitingFiles.cs" />
-    <Compile Include="src\BackupProject\Settings\clsControle.Directroy.cs" />
-    <Compile Include="src\BackupProject\Settings\clsCommon.cs" />
-    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.cs">
+    <Compile Include="src\Project\LogFileWriter\clsLogFile.cs" />
+    <Compile Include="src\Project\LogFileWriter\clsLogFile.WriteLogLine.cs" />
+    <None Include="src\Project\Process\CopyItems\HandleExistingFiles\clsHandleExistingFiles.cs" />
+    <Compile Include="src\Project\Process\clsActionException.cs" />
+    <Compile Include="src\Project\Process\CopyItems\clsDirectoryCreator.cs" />
+    <Compile Include="src\Project\Process\CopyItems\clsCopyItems_CopyRecusive.cs" />
+    <Compile Include="src\Project\Process\CopyItems\clsCopyItems.cs" />
+    <Compile Include="src\Project\Process\CountItems\clsCountItems_CountRecusive.cs" />
+    <Compile Include="src\Project\Process\CountItems\clsCountItems.cs" />
+    <Compile Include="src\Project\Settings\clsControle.cs" />
+    <Compile Include="src\Project\Settings\clsControle.Logile.cs" />
+    <Compile Include="src\Project\Settings\clsControle.Action.cs" />
+    <Compile Include="src\Project\Settings\clsSettings_Base.cs" />
+    <Compile Include="src\Project\Settings\clsCommon.ExisitingFiles.cs" />
+    <Compile Include="src\Project\Settings\clsControle.Directroy.cs" />
+    <Compile Include="src\Project\Settings\clsCommon.cs" />
+    <None Include="src\Project\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.cs">
       <SubType>Form</SubType>
     </None>
-    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.Designer.cs">
+    <None Include="src\Project\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.Designer.cs">
       <DependentUpon>frmHandleExistingFilesForm.cs</DependentUpon>
     </None>
-    <None Include="src\BackupProject\NOT_USED__clsLogFileWriter.cs" />
-    <Compile Include="src\BackupProject\clsProject.cs" />
-    <Compile Include="src\BackupProject\Settings\clsSettings.cs" />
-    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\Stringtable.Designer.cs">
+    <None Include="src\Project\NOT_USED__clsLogFileWriter.cs" />
+    <Compile Include="src\Project\clsProject.cs" />
+    <Compile Include="src\Project\Settings\clsSettings.cs" />
+    <None Include="src\Project\Process\CopyItems\HandleExistingFiles\Stringtable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </None>
-    <Compile Include="src\BackupProject\Process\clsProgressStore.cs" />
+    <Compile Include="src\Project\Process\clsProgressStore.cs" />
     <Compile Include="src\MainForm\Usercontroles\uscProcControle\Stringtable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,10 +152,10 @@
     <Compile Include="src\SettingsTestForm\frmSettingsTestForm.Designer.cs">
       <DependentUpon>frmSettingsTestForm.cs</DependentUpon>
     </Compile>
-    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.resx">
+    <None Include="src\Project\Process\CopyItems\HandleExistingFiles\frmHandleExistingFilesForm.resx">
       <DependentUpon>frmHandleExistingFilesForm.cs</DependentUpon>
     </None>
-    <None Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\Stringtable.resx">
+    <None Include="src\Project\Process\CopyItems\HandleExistingFiles\Stringtable.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
     </None>
@@ -240,7 +240,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="src\BackupProject\Settings\cdSettings.cd" />
+    <None Include="src\Project\Settings\cdSettings.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OLKI.Programme.QBC.Proj.Settings.Common.Common">
+    <Position X="10.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>src\BackupProject\Project\Settings\clsCommon.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ExisitingFiles1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OLKI.Programme.QBC.Proj.Settings.Common.ExisitingFiles">
+    <Position X="13" Y="7" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="OLKI.Programme.QBC.Proj.Settings.Common.ExisitingFiles.HowToHandleExistingItem" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>src\BackupProject\Project\Settings\clsCommon.ExisitingFiles.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAABAQAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>src\BackupProject\Project\Settings\clsCommon.ExisitingFiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OLKI.Programme.QBC.Proj.Settings.Controle.Action">
+    <Position X="13" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEABAAAAAAEQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BackupProject\Project\Settings\clsControle.Action.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OLKI.Programme.QBC.Proj.Settings.Controle.Controle">
+    <Position X="10.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAAQAADAIAAAAAAAAAAAgAAAgAAAAAQ=</HashCode>
+      <FileName>src\BackupProject\Project\Settings\clsControle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Action1" />
+      <Property Name="Directroy" />
+      <Property Name="Logfile1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OLKI.Programme.QBC.Proj.Settings.Controle.Directroy">
+    <Position X="13" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAMAAAAAAIAAAAAAgAABBAAAAAAAAAA=</HashCode>
+      <FileName>src\BackupProject\Project\Settings\clsControle.Directroy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OLKI.Programme.QBC.Proj.Settings.Controle.Logfile">
+    <Position X="13" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAIAAAAAAAgAAACAAEAAAAAAAAAAQAA=</HashCode>
+      <FileName>src\BackupProject\Project\Settings\clsControle.Logile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OLKI.Programme.QBC.Proj.Settings.Settings">
+    <Position X="7" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACADABAAAQABAAAQAABAAAAAAQAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>src\BackupProject\Project\Settings\clsSettings.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Common1" />
+      <Property Name="Controle" />
+      <Property Name="Controle1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OLKI.Programme.QBC.Proj.Settings.SettingsBase">
+    <Position X="14.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>src\BackupProject\Project\Settings\clsSettings_Base.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
