@@ -88,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\BackupProject\LogFileWriter\clsLogFile.cs" />
-    <Compile Include="src\BackupProject\LogFileWriter\clsLLogFile.WriteLogLine.cs" />
+    <Compile Include="src\BackupProject\LogFileWriter\clsLogFile.WriteLogLine.cs" />
     <Compile Include="src\BackupProject\Process\CopyItems\HandleExistingFiles\clsHandleExistingFiles.cs" />
     <Compile Include="src\BackupProject\Process\clsActionException.cs" />
     <Compile Include="src\BackupProject\Process\CopyItems\clsDirectoryCreator.cs" />
