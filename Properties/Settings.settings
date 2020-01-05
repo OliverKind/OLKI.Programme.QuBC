@@ -83,10 +83,10 @@
     <Setting Name="Copy_FileExisitngAddTextDefault" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">__{{$LastWriteTime}}</Value>
     </Setting>
-    <Setting Name="Copy_RemainTimeDays" Type="System.String" Scope="User">
+    <Setting Name="Copy_RemainTimeDays" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">dd\.hh\:mm\:ss</Value>
     </Setting>
-    <Setting Name="Copy_RemainTimeNoDays" Type="System.String" Scope="User">
+    <Setting Name="Copy_RemainTimeNoDays" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">hh\:mm\:ss</Value>
     </Setting>
   </Settings>
