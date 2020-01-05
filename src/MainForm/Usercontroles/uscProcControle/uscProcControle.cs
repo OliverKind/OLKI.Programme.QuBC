@@ -180,7 +180,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// The Projectmanager of the application to run main project functions
         /// </summary>
-        private ProjectManager _projectManager ;
+        private ProjectManager _projectManager;
         /// <summary>
         /// Get and set the Projectmanager of the application to run main project functions
         /// </summary>
@@ -200,7 +200,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// Controle to show the progress of a process
         /// </summary>
-        private uscProgress.ProcProgress _uscProgress ;
+        private uscProgress.ProcProgress _uscProgress;
         /// <summary>
         /// Set the controle to show the progress of a process
         /// </summary>
@@ -271,12 +271,39 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             this.txtLogFilePath.Text = ControleSettings.Logfile.Path;
 
             this._projectManager.ActiveProject.Settings.RestrainChangedEvent = false;
+
+            this.SetExistingFileTextBoxes(null);
         }
 
+        /// <summary>
+        /// Toggle settings changed event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToggleSettingsChanged(object sender, EventArgs e)
         {
             if (this.SettingsChanged != null && !this._projectManager.ActiveProject.Settings.RestrainChangedEvent) SettingsChanged(this, new EventArgs());
         }
+
+        private void SetExistingFileTextBoxes(HandleExistingFilesForm handleFilesDialog)
+        {
+            if (handleFilesDialog is null) handleFilesDialog = new HandleExistingFilesForm(HandleExistingFilesForm.FormMode.DefaultSettings, null, null, this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.HandleExistingItem, this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.AddTextToExistingFile, true);
+
+            if (handleFilesDialog.ActionHandleExistingFiles == HandleExistingFiles.HowToHandleExistingItem.AddText)
+            {
+                this.txtAddTextToExistingFileText.Text = handleFilesDialog.ActionAddTextText;
+                this.lblAddTextToExistingFileText.Visible = true;
+                this.txtAddTextToExistingFileText.Visible = true;
+            }
+            else
+            {
+                this.txtAddTextToExistingFileText.Text = string.Empty;
+                this.lblAddTextToExistingFileText.Visible = false;
+                this.txtAddTextToExistingFileText.Visible = false;
+            }
+            this.txtHandleExistingFileText.Text = handleFilesDialog.GetActionAsText(handleFilesDialog.ActionHandleExistingFiles);
+        }
+
         #region Form User Events
         #region Progrcess Changed
         private void btnProcessCancel_Click(object sender, EventArgs e)
@@ -466,17 +493,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             HandleExistingFilesForm HandleFilesDialog = new HandleExistingFilesForm(HandleExistingFilesForm.FormMode.DefaultSettings, null, null, this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.HandleExistingItem, this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.AddTextToExistingFile, true);
             if (HandleFilesDialog.ShowDialog() == DialogResult.OK)
             {
-                if (HandleFilesDialog.ActionHandleExistingFiles == HandleExistingFiles.HowToHandleExistingItem.AddText)
-                {
-                    this.txtAddTextToExistingFileText.Text = HandleFilesDialog.ActionAddTextText; //Visibility will change automaticly
-                }
-                else
-                {
-                    this.txtAddTextToExistingFileText.Text = string.Empty; //Visibility will change automaticly
-                }
-                this.txtHandleExistingFileText.Text = HandleFilesDialog.GetActionAsText(HandleFilesDialog.ActionHandleExistingFiles);
                 this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.AddTextToExistingFile = HandleFilesDialog.ActionAddTextText;
                 this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.HandleExistingItem = HandleFilesDialog.ActionHandleExistingFiles;
+                this.SetExistingFileTextBoxes(HandleFilesDialog);
             }
             this.ToggleSettingsChanged(sender, e);
         }

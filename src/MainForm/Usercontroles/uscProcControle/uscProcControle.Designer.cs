@@ -50,7 +50,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uscProcControle.ProcControle));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcControle));
             this.txtDirectory = new System.Windows.Forms.TextBox();
             this.lblDirectory = new System.Windows.Forms.Label();
             this.chkRootDirectory = new System.Windows.Forms.CheckBox();
@@ -348,7 +348,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             this.lblTargetDirectory.TabIndex = 4;
             this.lblTargetDirectory.Text = "Zielverzeichniss:";
             // 
-            // uscControleProcess
+            // ProcControle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -364,7 +364,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             this.Controls.Add(this.chkRootDirectory);
             this.Controls.Add(this.lblDirectory);
             this.Controls.Add(this.txtDirectory);
-            this.Name = "uscControleProcess";
+            this.Name = "ProcControle";
             this.Size = new System.Drawing.Size(957, 235);
             this.grbHandleExistingFiles.ResumeLayout(false);
             this.grbHandleExistingFiles.PerformLayout();
