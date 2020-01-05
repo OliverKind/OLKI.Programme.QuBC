@@ -285,6 +285,10 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             if (this.SettingsChanged != null && !this._projectManager.ActiveProject.Settings.RestrainChangedEvent) SettingsChanged(this, new EventArgs());
         }
 
+        /// <summary>
+        /// Set existing file text boxes to selected actions
+        /// </summary>
+        /// <param name="handleFilesDialog">Referece form to get text from, if null it will be created</param>
         private void SetExistingFileTextBoxes(HandleExistingFilesForm handleFilesDialog)
         {
             if (handleFilesDialog is null) handleFilesDialog = new HandleExistingFilesForm(HandleExistingFilesForm.FormMode.DefaultSettings, null, null, this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.HandleExistingItem, this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.AddTextToExistingFile, true);
