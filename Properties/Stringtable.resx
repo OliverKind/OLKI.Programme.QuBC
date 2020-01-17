@@ -215,11 +215,11 @@ Möchten Sie fortfahren?</value>
   </data>
   <data name="0x000C" xml:space="preserve">
     <value>Der Quellordner existiert nicht.</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecusive:NoSource</comment>
+    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecursive:NoSource</comment>
   </data>
   <data name="0x000D" xml:space="preserve">
     <value>Allgemeiner Fehler beim kopieren von Dateien im Ordner.</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecusive:GeneralException</comment>
+    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecursive:GeneralException</comment>
   </data>
   <data name="0x000E" xml:space="preserve">
     <value>Allgemeienr Fehler biem kopieren der Datei.</value>

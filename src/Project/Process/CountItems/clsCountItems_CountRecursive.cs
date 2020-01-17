@@ -5,7 +5,7 @@
  * License:     LGPL
  * 
  * Desctiption:
- * Count recusive all items and bytes to write an backup or resture it
+ * Count recursive all items and bytes to write an backup or resture it
  * 
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -36,26 +36,26 @@ namespace OLKI.Programme.QBC.BackupProject.Process
     internal partial class CountItems
     {
         #region Methodes
-        #region Count CountRecusive
+        #region Count CountRecursive
         /// <summary>
-        /// Count recusive all elements in directory an subdirectory, sepending of the scope
+        /// Count recursive all elements in directory an subdirectory, sepending of the scope
         /// </summary>
         /// <param name="directory">A string that specifice the directory to count</param>
         /// <param name="scope">Scope of the directory</param>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        private void CountRecusive(string directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
+        private void CountRecursive(string directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
-            this.CountRecusive(new DirectoryInfo(directory), scope, worker, e);
+            this.CountRecursive(new DirectoryInfo(directory), scope, worker, e);
         }
         /// <summary>
-        /// Count recusive all elements in directory an subdirectory, sepending of the scope
+        /// Count recursive all elements in directory an subdirectory, sepending of the scope
         /// </summary>
         /// <param name="directory">Directory to count</param>
         /// <param name="scope">Scope of the directory</param>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        private void CountRecusive(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
+        private void CountRecursive(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
             try
             {
@@ -71,21 +71,21 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 switch (scope)
                 {
                     case Project.DirectoryScope.All:
-                        this.CountRecusive_All(directory, scope, worker, e);
+                        this.CountRecursive_All(directory, scope, worker, e);
 
                         // Search for files in sub directorys
                         foreach (DirectoryInfo DirectoryItem in directory.GetDirectories().OrderBy(o => o.Name))
                         {
                             // Check for abbort
                             if (worker.CancellationPending) { e.Cancel = true; return; }
-                            this.CountRecusive(DirectoryItem, scope, worker, e);
+                            this.CountRecursive(DirectoryItem, scope, worker, e);
                         }
                         break;
                     case Project.DirectoryScope.Nothing:
-                        this.CountRecusive_Nothing(directory, scope, worker, e);
+                        this.CountRecursive_Nothing(directory, scope, worker, e);
                         break;
                     case Project.DirectoryScope.Selected:
-                        this.CountRecusive_Selected(directory, scope, worker, e);
+                        this.CountRecursive_Selected(directory, scope, worker, e);
                         break;
                     default:
                         break;
@@ -105,7 +105,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// <param name="scope">Scope of the directory</param>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        private void CountRecusive_All(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
+        private void CountRecursive_All(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
             //this._progress.TotalDirectories.MaxValue++;
 
@@ -131,7 +131,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// <param name="scope">Scope of the directory</param>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        private void CountRecusive_Nothing(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
+        private void CountRecursive_Nothing(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
             //Absolutly nothing to do
             return;
@@ -144,7 +144,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// <param name="scope">Scope of the directory</param>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        private void CountRecusive_Selected(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
+        private void CountRecursive_Selected(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
             //this._progress.TotalDirectories.MaxValue++;
             //Leafe if the key didn't exists or if no files are selected

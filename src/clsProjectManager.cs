@@ -154,7 +154,7 @@ namespace OLKI.Programme.QBC
                 {
                     if (string.IsNullOrEmpty(path))
                     {
-                        return this.Project_Open();  // Recusive to Project_Open to show the OpenFileDialog
+                        return this.Project_Open();  // Recursive to Project_Open to show the OpenFileDialog
                     }
                     else
                     {

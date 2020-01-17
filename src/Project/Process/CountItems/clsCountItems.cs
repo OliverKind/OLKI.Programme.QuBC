@@ -101,8 +101,8 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 this._progress.DirectroyFiles.ElemenName = item.Key;
                 worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, ProcControle.FORCE_REPORTING_FLAG);
 
-                // Search Recusive
-                this.CountRecusive(item.Key, item.Value, worker, e);
+                // Search Recursive
+                this.CountRecursive(item.Key, item.Value, worker, e);
 
                 //Report Progress
                 if (worker.CancellationPending) { e.Cancel = true; break; }

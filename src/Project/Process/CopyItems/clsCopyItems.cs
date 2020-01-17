@@ -115,8 +115,8 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 // Check for abbort
                 if (worker.CancellationPending) { e.Cancel = true; return; }
 
-                // Copy Recusive    item.Key => sourceDirectory    item.Value = scope
-                if (this.CopyRecusive(CopyMode.Backup, item.Key, item.Value, worker, e, out Exception ex) == ProcessException.ExceptionLevel.Critical)
+                // Copy Recursive    item.Key => sourceDirectory    item.Value = scope
+                if (this.CopyRecursive(CopyMode.Backup, item.Key, item.Value, worker, e, out Exception ex) == ProcessException.ExceptionLevel.Critical)
                 {
                     e.Cancel = true;
                     worker.CancelAsync();
@@ -124,7 +124,6 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 }
             }
         }
-
 
         /// <summary>
         /// Copy items in restore mode

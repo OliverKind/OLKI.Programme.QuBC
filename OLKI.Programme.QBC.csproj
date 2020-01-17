@@ -91,9 +91,9 @@
     <Compile Include="src\Project\LogFileWriter\clsLogFile.WriteLogLine.cs" />
     <Compile Include="src\Project\Process\clsActionException.cs" />
     <Compile Include="src\Project\Process\CopyItems\clsDirectoryCreator.cs" />
-    <Compile Include="src\Project\Process\CopyItems\clsCopyItems_CopyRecusive.cs" />
+    <Compile Include="src\Project\Process\CopyItems\clsCopyItems_CopyRecursive.cs" />
     <Compile Include="src\Project\Process\CopyItems\clsCopyItems.cs" />
-    <Compile Include="src\Project\Process\CountItems\clsCountItems_CountRecusive.cs" />
+    <Compile Include="src\Project\Process\CountItems\clsCountItems_CountRecursive.cs" />
     <Compile Include="src\Project\Process\CountItems\clsCountItems.cs" />
     <Compile Include="src\Project\Settings\clsControle.cs" />
     <Compile Include="src\Project\Settings\clsControle.Logile.cs" />

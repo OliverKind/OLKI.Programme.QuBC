@@ -5,7 +5,7 @@
  * License:     LGPL
  * 
  * Desctiption:
- * Copy item recusive to backup or to resotre
+ * Copy item recursive to backup or to resotre
  * 
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -39,9 +39,9 @@ namespace OLKI.Programme.QBC.BackupProject.Process
     internal partial class CopyItems
     {
         #region Methodes
-        #region CopyRecusive
+        #region CopyRecursive
         /// <summary>
-        /// Copy recusive all elements in directory an subdirectory, sepending of the scope
+        /// Copy recursive all elements in directory an subdirectory, sepending of the scope
         /// </summary>
         /// <param name="copyMode">The copy mode</param>
         /// <param name="sourceDirectory">Source directroy to copy</param>
@@ -50,13 +50,13 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// <param name="e">Provides data for the BackgroundWorker</param>
         /// <param name="exception">Exception of the process</param>
         /// <returns>Exception level of the copy process</returns>
-        private ProcessException.ExceptionLevel CopyRecusive(CopyItems.CopyMode copyMode, string sourceDirectory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
+        private ProcessException.ExceptionLevel CopyRecursive(CopyItems.CopyMode copyMode, string sourceDirectory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
         {
-            return this.CopyRecusive(copyMode, new DirectoryInfo(sourceDirectory), scope, worker, e, out exception);
+            return this.CopyRecursive(copyMode, new DirectoryInfo(sourceDirectory), scope, worker, e, out exception);
         }
 
         /// <summary>
-        /// Copy recusive all elements in directory an subdirectory, sepending of the scope
+        /// Copy recursive all elements in directory an subdirectory, sepending of the scope
         /// </summary>
         /// <param name="copyMode">The copy mode</param>
         /// <param name="sourceDirectory">Source directroy to copy</param>
@@ -65,7 +65,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// <param name="e">Provides data for the BackgroundWorker</param>
         /// <param name="exception">Exception of the process</param>
         /// <returns>Exception level of the copy process</returns>
-        private ProcessException.ExceptionLevel CopyRecusive(CopyItems.CopyMode copyMode, DirectoryInfo sourceDirectory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
+        private ProcessException.ExceptionLevel CopyRecursive(CopyItems.CopyMode copyMode, DirectoryInfo sourceDirectory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
         {
             exception = null;
             DirectoryCreator CreateDirectory = new DirectoryCreator();
@@ -114,7 +114,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                         {
                             // Check for abbort
                             if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
-                            if (this.CopyRecusive(copyMode, NextSourceDirectory, scope, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
+                            if (this.CopyRecursive(copyMode, NextSourceDirectory, scope, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
                         }
                         break;
                     case Project.DirectoryScope.Nothing:
@@ -124,7 +124,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                         if (this.CopySelectedFiles(sourceDirectory, TargetDirectory, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
                         break;
                     default:
-                        throw new ArgumentException("CopyItems->CopyRecusive->Invalid value", nameof(scope));
+                        throw new ArgumentException("CopyItems->CopyRecursive->Invalid value", nameof(scope));
                 }
 
                 //Copy attributes from source to target
