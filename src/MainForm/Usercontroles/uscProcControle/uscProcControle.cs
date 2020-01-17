@@ -36,7 +36,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
     public partial class ProcControle : UserControl
     {
         #region Constants
-        //private const int LOGFILE_FILTER_DEFAULT_INDEX = 1;
         /// <summary>
         /// A flag that forces reporting the progress.
         /// </summary>
