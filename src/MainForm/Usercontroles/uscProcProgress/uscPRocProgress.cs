@@ -197,7 +197,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
         }
 
         /// <summary>
-        /// Report ony in Time Interval or by process percentage
+        /// Check time interval for reporting progress
         /// </summary>
         /// <param name="lastUpdate">The time when the last update of the progress controles was done</param>
         /// <returns>True if an update of the controles should been done</returns>
