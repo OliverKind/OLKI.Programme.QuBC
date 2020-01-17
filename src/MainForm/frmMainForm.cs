@@ -94,7 +94,7 @@ namespace OLKI.Programme.QBC.MainForm
         {
             InitializeComponent();
 
-            //TODO: Remove in future versions to create logfiles
+            //TODO: Remove in future versions to restore backups
             //tabPageRestore
             this.tabControlMain.TabPages.Remove(this.tabPageRestore);
             this.tabControlMain.Refresh();
