@@ -279,6 +279,23 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                         this._project.Settings.Common.ExisitingFiles.HandleExistingItem = HandleFile.SelectedAction;
                         this._project.Settings.Common.ExisitingFiles.AddTextToExistingFile = HandleFile.AddText;
                     }
+
+                    //Handle overwrite state
+                    switch (HandleFile.OverwriteFile)
+                    {
+                        case HandleExistingFiles.ExistingFile.Exception:
+                            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                            return ProcessException.ExceptionLevel.Medium;
+                        case HandleExistingFiles.ExistingFile.Overwrite:
+                        case HandleExistingFiles.ExistingFile.Rename:
+                            //Nothing speceial to do
+                            break;
+                        case HandleExistingFiles.ExistingFile.Skip:
+                            this._progress.TotalBytes.ActualValue += sourceFile.Length;
+                            this._progress.TotalFiles.ActualValue++;
+                            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                            return ProcessException.ExceptionLevel.NoException;
+                    }
                 }
 
                 if (!this.CopyFileBufferd(sourceFile, TargetFile, worker, e, out exception))
