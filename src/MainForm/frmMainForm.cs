@@ -41,7 +41,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <summary>
         /// Defines the index of the tab page to select by defaukt.
         /// </summary>
-        private const int DEBAULT_TAB_PAGE_INDEX = 1;
+        private const int DEBAULT_TAB_PAGE_INDEX = 0;
         /// <summary>
         /// Defines the format of title line text of these form
         /// </summary>
