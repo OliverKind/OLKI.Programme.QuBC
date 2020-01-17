@@ -12,6 +12,12 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.0.1.5] - 2020-01-??
+### Fixed
+- Change settings roaming to true
+- Handle exisiting file settings not show
+- Overwrite result for existing files ignored
+
 ## [1.0.0.4] - 2020-01-02
 ### Changed
 - Several development
