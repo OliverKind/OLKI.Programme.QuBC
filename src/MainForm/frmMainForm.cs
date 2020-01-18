@@ -127,6 +127,7 @@ namespace OLKI.Programme.QBC.MainForm
             this.uscProgressBackup.ConclusionFilesTextBox = this.txtConclusionFiles;
             this.uscProgressBackup.ConclusionTabPage = this.tabPageConclusion;
             this.uscProgressBackup.ExceptionListView = this.lsvErrorLog;
+            this.uscProgressBackup.ExceptionCount = this.txtExceptionCount;
 
             this.uscControleBackup.ProgressControle = this.uscProgressBackup;
             this.uscControleBackup.ProjectManager = this._projectManager;

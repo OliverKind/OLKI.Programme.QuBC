@@ -78,6 +78,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
 
                 this._setControleValue.InitialControles();
                 ListViewInv.ClearItems(this._progressControle._exceptionListView);
+                TextBoxInv.Text(this._progressControle._exceptionCount, "0");
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, 0);
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
                 TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");
@@ -127,6 +128,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 // Set controles
                 this._setControleValue.InitialControles();
                 ListViewInv.ClearItems(this._progressControle._exceptionListView);
+                TextBoxInv.Text(this._progressControle._exceptionCount, "0");
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0018);
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
@@ -169,7 +171,8 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                     if (RemainingTime.Days > 0)
                     {
                         TextBoxInv.Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeDays));
-                    } else
+                    }
+                    else
                     {
                         TextBoxInv.Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeNoDays));
                     }
@@ -243,8 +246,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 ExItem.SubItems.Add(Exception.Target);
                 ExItem.SubItems.Add(ExceptionText);
 
-                ListViewInv.AddItem(this._progressControle._exceptionListView,ExItem);
+                ListViewInv.AddItem(this._progressControle._exceptionListView, ExItem);
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, EXCEPTION_ICON_INDEX);
+                TextBoxInv.Text(this._progressControle._exceptionCount, this._progressControle._exceptionListView.Items.Count.ToString());
             }
             #endregion
             #endregion

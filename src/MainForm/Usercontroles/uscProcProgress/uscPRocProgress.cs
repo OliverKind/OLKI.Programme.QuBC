@@ -131,6 +131,20 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 this._exceptionListView = value;
             }
         }
+        /// <summary>
+        /// TextBox to count exceptions
+        /// </summary>
+        private TextBox _exceptionCount;
+        /// <summary>
+        /// Set the TextBox to count exceptions
+        /// </summary>
+        public TextBox ExceptionCount
+        {
+            set
+            {
+                this._exceptionCount = value;
+            }
+        }
 
         /// <summary>
         /// TabPage to show conclusion
