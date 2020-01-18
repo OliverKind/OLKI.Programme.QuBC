@@ -65,7 +65,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
             catch (Exception ex)
             {
                 exception = ex;
-                progress.Exception.Exception = new Exception("__TEXT_00__", ex);
+                progress.Exception.Exception = new Exception("Der Zielordner konnte nicht angelegt werden", ex);
                 progress.Exception.Source = sourceDirectory.FullName;
                 progress.Exception.Target = targetDirectory.FullName;
                 worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
