@@ -222,11 +222,11 @@ Möchten Sie fortfahren?</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecursive:GeneralException</comment>
   </data>
   <data name="0x000E" xml:space="preserve">
-    <value>Allgemeienr Fehler biem kopieren der Datei.</value>
+    <value>Allgemeienr Fehler beim kopieren der Datei</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFile:GeneralExceptiona</comment>
   </data>
   <data name="0x000F" xml:space="preserve">
-    <value>Allgemeienr Fehler biem kopieren der Datei.</value>
+    <value>Allgemeienr Fehler beim kopieren der Datei</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileBufferd:GeneralExceptiona</comment>
   </data>
   <data name="0x0010" xml:space="preserve">
@@ -280,5 +280,9 @@ Möchten Sie fortfahren?</value>
   <data name="0x001C" xml:space="preserve">
     <value>Das eingegebene Datumsformat ist nicht gültig</value>
     <comment>OLKI.Programme.QBC.MainForm.SubForms.ApplicationSettingsForm:ValidateDateFormats.InvalidFormat</comment>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+    <comment>OLKI.Programme.QBC.BackupProject.Process.DirectoryCreator.TargetDirectory:Exception.Rescription</comment>
   </data>
 </root>

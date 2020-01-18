@@ -275,7 +275,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeienr Fehler biem kopieren der Datei. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeienr Fehler beim kopieren der Datei ähnelt.
         /// </summary>
         internal static string _0x000E {
             get {
@@ -284,7 +284,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeienr Fehler biem kopieren der Datei. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeienr Fehler beim kopieren der Datei ähnelt.
         /// </summary>
         internal static string _0x000F {
             get {
@@ -406,6 +406,15 @@ namespace OLKI.Programme.QBC.Properties {
         internal static string _0x001C {
             get {
                 return ResourceManager.GetString("0x001C", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }
