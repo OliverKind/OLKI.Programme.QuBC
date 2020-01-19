@@ -79,7 +79,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 this._setControleValue.InitialControles();
                 ListViewInv.ClearItems(this._progressControle._exceptionListView);
                 TextBoxInv.Text(this._progressControle._exceptionCount, "0");
-                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, 0);
+                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
                 TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");
                 TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, "");
