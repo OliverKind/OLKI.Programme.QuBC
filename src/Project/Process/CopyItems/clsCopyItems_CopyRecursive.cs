@@ -92,6 +92,8 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 {
                     case ProcessException.ExceptionLevel.Critical:
                         return ProcessException.ExceptionLevel.Critical;
+                    case ProcessException.ExceptionLevel.Medium:
+                        return ProcessException.ExceptionLevel.Medium;
                     case ProcessException.ExceptionLevel.Slight:
                         return ProcessException.ExceptionLevel.Slight;
                     default:

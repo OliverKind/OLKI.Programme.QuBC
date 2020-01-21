@@ -66,7 +66,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 {
                     Description = Stringtable._0x001D,
                     Exception = ex,
-                    Level = copyItemClass.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Slight),
+                    Level = copyItemClass.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Medium),
                     Source = sourceDirectory.FullName,
                     Target = targetDirectory.FullName
                 };
