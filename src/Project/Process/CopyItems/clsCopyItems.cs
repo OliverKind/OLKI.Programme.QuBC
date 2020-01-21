@@ -23,6 +23,7 @@
  * */
 
 using OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QBC.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -157,7 +158,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
             {
                 ProcessException Exception = new ProcessException
                 {
-                    Description = "Fehler beim Anlegen des Zielordners",
+                    Description = Stringtable._0x001E,
                     Exception = ex,
                     Level = ProcessException.ExceptionLevel.Critical,
                     Source = "",

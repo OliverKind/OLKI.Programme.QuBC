@@ -410,11 +410,20 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Der Zielordner konnte nicht angelegt werden ähnelt.
         /// </summary>
-        internal static string String1 {
+        internal static string _0x001D {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                return ResourceManager.GetString("0x001D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Anlegen des Zielordners ähnelt.
+        /// </summary>
+        internal static string _0x001E {
+            get {
+                return ResourceManager.GetString("0x001E", resourceCulture);
             }
         }
     }

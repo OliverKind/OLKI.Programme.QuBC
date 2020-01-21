@@ -281,8 +281,12 @@ Möchten Sie fortfahren?</value>
     <value>Das eingegebene Datumsformat ist nicht gültig</value>
     <comment>OLKI.Programme.QBC.MainForm.SubForms.ApplicationSettingsForm:ValidateDateFormats.InvalidFormat</comment>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
-    <comment>OLKI.Programme.QBC.BackupProject.Process.DirectoryCreator.TargetDirectory:Exception.Rescription</comment>
+  <data name="0x001D" xml:space="preserve">
+    <value>Der Zielordner konnte nicht angelegt werden</value>
+    <comment>OLKI.Programme.QBC.BackupProject.Process.DirectoryCreator.TargetDirectory:Exception.Description</comment>
+  </data>
+  <data name="0x001E" xml:space="preserve">
+    <value>Fehler beim Anlegen des Zielordners</value>
+    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CreateRootDirectory:Exception.Description</comment>
   </data>
 </root>
