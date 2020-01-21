@@ -134,12 +134,12 @@ namespace OLKI.Programme.QBC.MainForm
             this.uscControleRestore.ProgressControle = this.uscProgressRestore;
             this.uscControleRestore.ProjectManager = this._projectManager;
 
-            // Initial project on startup
-            this.LoadInitialProject(args);
-
             // Intital helper
             this._mainFormHelper = new MainFormHelper(this._projectManager);
-            this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
+
+            // Initial project on startup
+            this.LoadInitialProject(args);
+            //this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
         }
 
         /// <summary>
@@ -210,6 +210,7 @@ namespace OLKI.Programme.QBC.MainForm
             this.Text = string.Format(TITLE_LINE_FORMAT, new object[] { ProductName, ProjectName, ProjectChanged });
 
             // Load settings to controle
+            this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
             this.uscControleBackup.LoadSettings();
             this.uscControleRestore.LoadSettings();
         }
@@ -502,16 +503,18 @@ namespace OLKI.Programme.QBC.MainForm
         {
             if (!this._projectManager.GetOverwriteActiveProject()) return;
             this._projectManager.Project_New();
-            this._mainFormHelper = new MainFormHelper(this._projectManager);
-            this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
+            this.ProjectManager_ProjectFileChanged(sender, e);
+            //todo: REMOVE this._mainFormHelper = new MainFormHelper(this._projectManager);
+            //todo: REMOVE this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
         }
 
         private void mnuMain_File_Open_Click(object sender, EventArgs e)
         {
             if (!this._projectManager.GetOverwriteActiveProject()) return;
             this._projectManager.Project_Open();
-            this._mainFormHelper = new MainFormHelper(this._projectManager);
-            this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
+            this.ProjectManager_ProjectFileChanged(sender, e);
+            //todo: REMOVE this._mainFormHelper = new MainFormHelper(this._projectManager);
+            //todo: REMOVE this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
             this.SetRecentFilesSettingsAndMenue();
         }
 
