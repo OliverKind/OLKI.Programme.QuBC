@@ -22,16 +22,12 @@
  * 
  * */
 
-using OLKI.Programme.QBC.BackupProject.Process;
 using OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle;
 using OLKI.Programme.QBC.Properties;
+using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 
 namespace OLKI.Programme.QBC.BackupProject.Process
 {
@@ -59,19 +55,25 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 if (!targetDirectory.Exists && !Tools.CommonTools.DirectoryAndFile.Path.IsDrive(targetDirectory))
                 {
                     targetDirectory.Create();
-                    Tools.CommonTools.DirectoryAndFile.HandleAttributes.Direcotry.Remove(targetDirectory);
+                    HandleAttributes.Direcotry.Remove(targetDirectory);
                 }
                 return ProcessException.ExceptionLevel.NoException;
             }
             catch (Exception ex)
             {
                 exception = ex;
-                progress.Exception.Exception = new Exception(Stringtable._0x001D, ex);
-                progress.Exception.Source = sourceDirectory.FullName;
-                progress.Exception.Target = targetDirectory.FullName;
+                ProcessException Exception = new ProcessException
+                {
+                    Description = Stringtable._0x001D,
+                    Exception = ex,
+                    Level = copyItemClass.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Slight),
+                    Source = sourceDirectory.FullName,
+                    Target = targetDirectory.FullName
+                };
+                progress.Exception = Exception;
                 worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
 
-                return copyItemClass.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Slight);
+                return Exception.Level;
             }
         }
 
