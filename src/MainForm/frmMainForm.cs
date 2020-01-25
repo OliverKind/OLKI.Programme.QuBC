@@ -56,7 +56,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <summary>
         /// Provides helper functions for the application MainForm
         /// </summary>
-        private MainFormHelper _mainFormHelper = null;
+        private readonly MainFormHelper _mainFormHelper = null;
         /// <summary>
         /// Specifies the projectmanager object
         /// </summary>
@@ -81,8 +81,6 @@ namespace OLKI.Programme.QBC.MainForm
         /// Specifies the application settings form
         /// </summary>
         private SubForms.ApplicationSettingsForm _frmApplicationSettings = null;
-
-        public RecentFiles RecentFiles => _recentFiles;
         #endregion
 
         #region Methodes
@@ -181,11 +179,11 @@ namespace OLKI.Programme.QBC.MainForm
         {
             if (this._projectManager.ActiveProject != null && this._projectManager.ActiveProject.File != null)
             {
-                this.RecentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
-                Settings.Default.RecentFiles_FileList = this.RecentFiles.GetAsString();
+                this._recentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
+                Settings.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
             }
 
-            this.RecentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
+            this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
         }
 
         #region Projec Events
