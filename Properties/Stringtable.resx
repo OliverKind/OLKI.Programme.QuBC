@@ -289,4 +289,14 @@ Möchten Sie fortfahren?</value>
     <value>Fehler beim Anlegen des Zielordners</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CreateRootDirectory:Exception.Description</comment>
   </data>
+  <data name="0x001Fc" xml:space="preserve">
+    <value>Projekt Öffnen fehlgeschlagen</value>
+    <comment>OLKI.Programme.QBC.BackupProject.Project.Project_FromXMLString:Exception.Caption</comment>
+  </data>
+  <data name="0x001Fm" xml:space="preserve">
+    <value>Fehler beim lesen der Projektdatei.
+
+{0}</value>
+    <comment>OLKI.Programme.QBC.BackupProject.Project.Project_FromXMLString:Exception.Message</comment>
+  </data>
 </root>

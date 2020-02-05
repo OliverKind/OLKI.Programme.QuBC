@@ -426,5 +426,25 @@ namespace OLKI.Programme.QBC.Properties {
                 return ResourceManager.GetString("0x001E", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Projekt Öffnen fehlgeschlagen ähnelt.
+        /// </summary>
+        internal static string _0x001Fc {
+            get {
+                return ResourceManager.GetString("0x001Fc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim lesen der Projektdatei.
+        ///
+        ///{0} ähnelt.
+        /// </summary>
+        internal static string _0x001Fm {
+            get {
+                return ResourceManager.GetString("0x001Fm", resourceCulture);
+            }
+        }
     }
 }

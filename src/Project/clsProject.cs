@@ -580,11 +580,16 @@ namespace OLKI.Programme.QBC.BackupProject
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Fehler beim lesen der Projektdatei.\n\n{1}", new object[] { ex.Message }), "Projekt Öffnen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(Stringtable._0x001Fm, new object[] { ex.Message }), Stringtable._0x001Fc, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
+        /// <summary>
+        /// Check if the file to open is compatible or compatible after conwerted, with this application
+        /// </summary>
+        /// <param name="FileVersion">Version of the file to check</param>
+        /// <returns>True if file is compatible or converted, otherwise false</returns>
         private bool Project_FromXMLString_CheckVersion(string FileVersion)
         {
             // Create list with file Versions
