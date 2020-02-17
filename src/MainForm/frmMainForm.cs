@@ -186,6 +186,19 @@ namespace OLKI.Programme.QBC.MainForm
             this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
         }
 
+
+        /// <summary>
+        /// Open a project from recent file list
+        /// </summary>
+        /// <param name="index">Index of file list to open</param>
+        private void OpenRecentFile(int index)
+        {
+            if (!string.IsNullOrEmpty(this._recentFiles.FileList[index]))
+            {
+                this._projectManager.Project_Open(this._recentFiles.FileList[index]);
+            }
+        }
+
         #region Projec Events
         private void ProjectManager_ProjectChanged(object sender, EventArgs e)
         {
@@ -502,8 +515,6 @@ namespace OLKI.Programme.QBC.MainForm
             if (!this._projectManager.GetOverwriteActiveProject()) return;
             this._projectManager.Project_New();
             this.ProjectManager_ProjectFileChanged(sender, e);
-            //todo: REMOVE this._mainFormHelper = new MainFormHelper(this._projectManager);
-            //todo: REMOVE this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
         }
 
         private void mnuMain_File_Open_Click(object sender, EventArgs e)
@@ -511,8 +522,6 @@ namespace OLKI.Programme.QBC.MainForm
             if (!this._projectManager.GetOverwriteActiveProject()) return;
             this._projectManager.Project_Open();
             this.ProjectManager_ProjectFileChanged(sender, e);
-            //todo: REMOVE this._mainFormHelper = new MainFormHelper(this._projectManager);
-            //todo: REMOVE this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
             this.SetRecentFilesSettingsAndMenue();
         }
 
@@ -525,6 +534,26 @@ namespace OLKI.Programme.QBC.MainForm
         {
             this._projectManager.Project_SaveAs();
             this.SetRecentFilesSettingsAndMenue();
+        }
+
+        private void mnuMain_File_RecentFiles_File0_Click(object sender, EventArgs e)
+        {
+            this.OpenRecentFile(0);
+        }
+
+        private void mnuMain_File_RecentFiles_File1_Click(object sender, EventArgs e)
+        {
+            this.OpenRecentFile(1);
+        }
+
+        private void mnuMain_File_RecentFiles_File2_Click(object sender, EventArgs e)
+        {
+            this.OpenRecentFile(2);
+        }
+
+        private void mnuMain_File_RecentFiles_File3_Click(object sender, EventArgs e)
+        {
+            this.OpenRecentFile(3);
         }
 
         private void mnuMain_File_Exit_Click(object sender, EventArgs e)
@@ -547,7 +576,9 @@ namespace OLKI.Programme.QBC.MainForm
             this._frmAbout.ShowDialog(this);
         }
         #endregion
+
         #endregion
+
         #endregion
     }
 }
