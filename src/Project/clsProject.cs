@@ -36,7 +36,7 @@ namespace OLKI.Programme.QBC.BackupProject
     /// <summary>
     /// A class that provides all information to handle and save backup project. Setting it true will raise the
     /// </summary>
-    internal class Project
+    public class Project
     {
         #region Constants
         private const string XML_DIRECTORYS_ELEMENT_NAME = "DirectoryList";
@@ -60,7 +60,7 @@ namespace OLKI.Programme.QBC.BackupProject
         /// <summary>
         /// An Enumeration ths specifies what to copy of an direcrtory during the copy progress
         /// </summary>
-        internal enum DirectoryScope
+        public enum DirectoryScope
         {
             /// <summary>
             /// The directory and all files and sub directories will skiped during copy prograss
@@ -607,7 +607,7 @@ namespace OLKI.Programme.QBC.BackupProject
             List<string> ConvCompatibleVersionList = Properties.Settings.Default.ProjectFile_VersionCompatibleConvert.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             if (FileVersionList.Intersect(ConvCompatibleVersionList).Count() > 0)
             {
-                //TODO: Add code to convert if necessary --> in future version
+                //TODO: ADD CODE --> in future version to convert if necessary 
                 return true;    // Compatible if converted
             }
 
