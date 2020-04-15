@@ -17,14 +17,9 @@ namespace OLKI.Programme.QBC.MainForm
     {
         #region Constants
         /// <summary>
-        /// Format to show drives
-        /// </summary>
-        private const string DRIVE_NAME_FORMAT = "{0} ({1})";
-
-        /// <summary>
         /// Should sub nodes been set if the image variant for a special node was changed
         /// </summary>
-        private const bool SET_IMAGE_VARIANT_SUB_NODES = false;
+        private const bool SET_IMAGE_VARIANT_FOR_SUBNODES = false;
         #endregion
 
         #region Properties
@@ -129,10 +124,7 @@ namespace OLKI.Programme.QBC.MainForm
             // Add root nodes
             foreach (DriveInfo Drive in DriveInfo.GetDrives().OrderBy(d => d.Name))
             {
-                ExtendedTreeNode NewNode = new ExtendedTreeNode(new DirectoryInfo(Drive.Name))
-                {
-                    Text = string.Format(DRIVE_NAME_FORMAT, new object[] { Drive.IsReady ? Drive.VolumeLabel : string.Empty, Drive.Name })
-                };
+                ExtendedTreeNode NewNode = new ExtendedTreeNode(new DirectoryInfo(Drive.Name));
 
                 switch (Drive.DriveType)
                 {
@@ -227,22 +219,52 @@ namespace OLKI.Programme.QBC.MainForm
         }
 
         /// <summary>
+        /// Search the tree node, that is corresponding that match to the directory
+        /// </summary>
+        /// <param name="directroy">Directroy to search the tree nodes</param>
+        public ExtendedTreeNode SearchTreeNode(DirectoryInfo directroy)
+        {
+            return this.SearchTreeNode(directroy, this.Nodes);
+        }
+        /// <summary>
+        /// Search the tree node, that is corresponding that match to the directory
+        /// </summary>
+        /// <param name="directroy">Directroy to search the tree nodes</param>
+        /// <param name="nodes">TreeNodes to search fir the node</param>
+        private ExtendedTreeNode SearchTreeNode(DirectoryInfo directroy, TreeNodeCollection nodes)
+        {
+            ExtendedTreeNode ReturnNode = null;
+            foreach (ExtendedTreeNode TreeNode in nodes)
+            {
+                if (TreeNode.DirectoryInfo.FullName == directroy.FullName && !TreeNode.IsDummy)
+                {
+                    ReturnNode = TreeNode;
+                }
+                else if (TreeNode.Nodes.Count > 0)
+                {
+                    ReturnNode = this.SearchTreeNode(directroy, TreeNode.Nodes);
+                }
+                if (ReturnNode != null) break;
+            }
+            return ReturnNode;
+        }
+
+        #region SetImageVariant
+        /// <summary>
         /// Set the image variant for all nodes in the TreeView, automatically by the directory list
         /// </summary>
         public void SetImageVariant()
         {
             this.SetImageVariantRecursive(this.Nodes);
         }
-
         /// <summary>
         /// Set the image variant for the TreeNode, that match to the given directroy path
         /// </summary>
         /// <param name="directroy">Directroy to search for to set the ImageVariant</param>
         public void SetImageVariant(DirectoryInfo directroy)
         {
-            this.SetImageVariant(directroy, SET_IMAGE_VARIANT_SUB_NODES);
+            this.SetImageVariant(directroy, SET_IMAGE_VARIANT_FOR_SUBNODES);
         }
-
         /// <summary>
         /// Set the image variant for the TreeNode, that match to the given directroy path
         /// </summary>
@@ -257,7 +279,6 @@ namespace OLKI.Programme.QBC.MainForm
                 if (setSubNodes) this.SetImageVariantRecursive(TreeNode.Nodes);
             }
         }
-
         /// <summary>
         /// Set the image variant of the specified TreeNode, automatically by the directory list
         /// </summary>
@@ -290,7 +311,6 @@ namespace OLKI.Programme.QBC.MainForm
             }
             this.SetImageVariant(treeNode, ImageVariant);
         }
-
         /// <summary>
         /// Set the specified ImageVariant to the specified TreeNode
         /// </summary>
@@ -299,38 +319,6 @@ namespace OLKI.Programme.QBC.MainForm
         public void SetImageVariant(ExtendedTreeNode treeNode, ExtendedTreeNode.CheckedState imageVariant)
         {
             treeNode.ImageVariant = imageVariant;
-        }
-
-        /// <summary>
-        /// Search the tree node, that is corresponding that match to the directory
-        /// </summary>
-        /// <param name="directroy">Directroy to search the tree nodes</param>
-        public ExtendedTreeNode SearchTreeNode(DirectoryInfo directroy)
-        {
-            return this.SearchTreeNode(directroy, this.Nodes);
-        }
-
-        /// <summary>
-        /// Search the tree node, that is corresponding that match to the directory
-        /// </summary>
-        /// <param name="directroy">Directroy to search the tree nodes</param>
-        /// <param name="nodes">TreeNodes to search fir the node</param>
-        private ExtendedTreeNode SearchTreeNode(DirectoryInfo directroy, TreeNodeCollection nodes)
-        {
-            ExtendedTreeNode ReturnNode = null;
-            foreach (ExtendedTreeNode TreeNode in nodes)
-            {
-                if (TreeNode.DirectoryInfo.FullName == directroy.FullName && !TreeNode.IsDummy)
-                {
-                    ReturnNode = TreeNode;
-                }
-                else if (TreeNode.Nodes.Count > 0)
-                {
-                    ReturnNode = this.SearchTreeNode(directroy, TreeNode.Nodes);
-                }
-                if (ReturnNode != null) break;
-            }
-            return ReturnNode;
         }
 
         /// <summary>
@@ -345,6 +333,7 @@ namespace OLKI.Programme.QBC.MainForm
                 if (TreeNode.Nodes.Count > 0) this.SetImageVariantRecursive(TreeNode.Nodes);
             }
         }
+        #endregion
         #endregion
     }
 }
