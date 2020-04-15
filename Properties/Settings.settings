@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OLKI.Programme.QBC.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ListItems_ShowSystemDirectory" Roaming="true" Type="System.Boolean" Scope="User">
+    <Setting Name="ListItems_ShowSystem" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ListItems_ShowDirectorysWithoutAccess" Roaming="true" Type="System.Boolean" Scope="User">
+    <Setting Name="ListItems_ShowWithoutAccess" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ProjectFile_DefaultExtension" Type="System.String" Scope="Application">
@@ -32,7 +32,7 @@
     <Setting Name="Startup_DefaultFileOpen" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ListItems_ExpandTreeNodeOnClick" Roaming="true" Type="System.Boolean" Scope="User">
+    <Setting Name="ListItems_ExpandTreeNodeOnSingleClick" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="FileAssociation_TestFile" Type="System.String" Scope="Application">
@@ -88,6 +88,9 @@
     </Setting>
     <Setting Name="Copy_RemainTimeNoDays" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">hh\:mm\:ss</Value>
+    </Setting>
+    <Setting Name="ListItems_ShowHidden" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

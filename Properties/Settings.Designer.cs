@@ -27,12 +27,12 @@ namespace OLKI.Programme.QBC.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool ListItems_ShowSystemDirectory {
+        public bool ListItems_ShowSystem {
             get {
-                return ((bool)(this["ListItems_ShowSystemDirectory"]));
+                return ((bool)(this["ListItems_ShowSystem"]));
             }
             set {
-                this["ListItems_ShowSystemDirectory"] = value;
+                this["ListItems_ShowSystem"] = value;
             }
         }
         
@@ -40,12 +40,12 @@ namespace OLKI.Programme.QBC.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool ListItems_ShowDirectorysWithoutAccess {
+        public bool ListItems_ShowWithoutAccess {
             get {
-                return ((bool)(this["ListItems_ShowDirectorysWithoutAccess"]));
+                return ((bool)(this["ListItems_ShowWithoutAccess"]));
             }
             set {
-                this["ListItems_ShowDirectorysWithoutAccess"] = value;
+                this["ListItems_ShowWithoutAccess"] = value;
             }
         }
         
@@ -138,12 +138,12 @@ namespace OLKI.Programme.QBC.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool ListItems_ExpandTreeNodeOnClick {
+        public bool ListItems_ExpandTreeNodeOnSingleClick {
             get {
-                return ((bool)(this["ListItems_ExpandTreeNodeOnClick"]));
+                return ((bool)(this["ListItems_ExpandTreeNodeOnSingleClick"]));
             }
             set {
-                this["ListItems_ExpandTreeNodeOnClick"] = value;
+                this["ListItems_ExpandTreeNodeOnSingleClick"] = value;
             }
         }
         
@@ -350,6 +350,19 @@ namespace OLKI.Programme.QBC.Properties {
             }
             set {
                 this["Copy_RemainTimeNoDays"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool ListItems_ShowHidden {
+            get {
+                return ((bool)(this["ListItems_ShowHidden"]));
+            }
+            set {
+                this["ListItems_ShowHidden"] = value;
             }
         }
     }
