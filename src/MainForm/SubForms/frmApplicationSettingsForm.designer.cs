@@ -271,9 +271,9 @@
             this.chkShowDirectorysWithoutAccess.AutoSize = true;
             this.chkShowDirectorysWithoutAccess.Location = new System.Drawing.Point(6, 19);
             this.chkShowDirectorysWithoutAccess.Name = "chkShowDirectorysWithoutAccess";
-            this.chkShowDirectorysWithoutAccess.Size = new System.Drawing.Size(164, 17);
+            this.chkShowDirectorysWithoutAccess.Size = new System.Drawing.Size(225, 17);
             this.chkShowDirectorysWithoutAccess.TabIndex = 0;
-            this.chkShowDirectorysWithoutAccess.Text = "Ordner ohne Zugriff anzeigen";
+            this.chkShowDirectorysWithoutAccess.Text = "Ordner und Dateien ohne Zugriff anzeigen";
             this.chkShowDirectorysWithoutAccess.UseVisualStyleBackColor = true;
             // 
             // chkShowSystemDirectory
@@ -281,9 +281,9 @@
             this.chkShowSystemDirectory.AutoSize = true;
             this.chkShowSystemDirectory.Location = new System.Drawing.Point(6, 42);
             this.chkShowSystemDirectory.Name = "chkShowSystemDirectory";
-            this.chkShowSystemDirectory.Size = new System.Drawing.Size(137, 17);
+            this.chkShowSystemDirectory.Size = new System.Drawing.Size(199, 17);
             this.chkShowSystemDirectory.TabIndex = 1;
-            this.chkShowSystemDirectory.Text = "Systemordner Anzeigen";
+            this.chkShowSystemDirectory.Text = "Systemordner und -dateien Anzeigen";
             this.chkShowSystemDirectory.UseVisualStyleBackColor = true;
             // 
             // grbLogFile

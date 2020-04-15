@@ -68,9 +68,9 @@ namespace OLKI.Programme.QBC.MainForm.SubForms
             this.txtDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
             this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
             this.chkAutoCheckFileAssociation.Checked = Settings.Default.FileAssociation_CheckOnStartup;
-            this.chkShowDirectorysWithoutAccess.Checked = Settings.Default.ListItems_ShowDirectorysWithoutAccess;
-            this.chkShowSystemDirectory.Checked = Settings.Default.ListItems_ShowSystemDirectory;
-            this.chkEypandTreeNodeOnClick.Checked = Settings.Default.ListItems_ExpandTreeNodeOnClick;
+            this.chkShowDirectorysWithoutAccess.Checked = Settings.Default.ListItems_ShowWithoutAccess;
+            this.chkShowSystemDirectory.Checked = Settings.Default.ListItems_ShowSystem;
+            this.chkEypandTreeNodeOnClick.Checked = Settings.Default.ListItems_ExpandTreeNodeOnSingleClick;
             this.txtLogfileDateFormat.Text = Settings.Default._UNUSED_Logfile_DateFormat;
 
             this.txtAddTextToFileDefaultText.Text = Settings.Default.Copy_FileExisitngAddTextDefault;
@@ -167,9 +167,9 @@ namespace OLKI.Programme.QBC.MainForm.SubForms
             Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
             Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;
-            Settings.Default.ListItems_ShowDirectorysWithoutAccess = this.chkShowDirectorysWithoutAccess.Checked;
-            Settings.Default.ListItems_ShowSystemDirectory = this.chkShowSystemDirectory.Checked;
-            Settings.Default.ListItems_ExpandTreeNodeOnClick = this.chkEypandTreeNodeOnClick.Checked;
+            Settings.Default.ListItems_ShowWithoutAccess = this.chkShowDirectorysWithoutAccess.Checked;
+            Settings.Default.ListItems_ShowSystem = this.chkShowSystemDirectory.Checked;
+            Settings.Default.ListItems_ExpandTreeNodeOnSingleClick = this.chkEypandTreeNodeOnClick.Checked;
             Settings.Default._UNUSED_Logfile_DateFormat = this.txtLogfileDateFormat.Text;
 
             Settings.Default.Save();
