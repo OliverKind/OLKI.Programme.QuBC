@@ -221,7 +221,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         {
             InitializeComponent();
 
-            //TODO: Remove in future versions to write log files
+            //TODO: ROMOVE --> future versions to write log files
             this.grbLogFiles.Visible = false;
 
             // Initial BackgroundWorker
