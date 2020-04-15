@@ -83,6 +83,8 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             // 
             // txtDirectory
             // 
+            this.txtDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDirectory.Location = new System.Drawing.Point(96, 3);
             this.txtDirectory.Name = "txtDirectory";
             this.txtDirectory.Size = new System.Drawing.Size(722, 20);
@@ -112,6 +114,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             // 
             // btnBrowseDirectory
             // 
+            this.btnBrowseDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBrowseDirectory.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowseDirectory.Image")));
             this.btnBrowseDirectory.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBrowseDirectory.Location = new System.Drawing.Point(824, 1);
@@ -319,6 +322,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             // 
             // btnBrowseTargetDirectory
             // 
+            this.btnBrowseTargetDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBrowseTargetDirectory.Enabled = false;
             this.btnBrowseTargetDirectory.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowseTargetDirectory.Image")));
             this.btnBrowseTargetDirectory.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -332,6 +336,8 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             // 
             // txtTargetDirectory
             // 
+            this.txtTargetDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTargetDirectory.Enabled = false;
             this.txtTargetDirectory.Location = new System.Drawing.Point(435, 30);
             this.txtTargetDirectory.Name = "txtTargetDirectory";

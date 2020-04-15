@@ -70,6 +70,7 @@
             // 
             // cboAllByteNum
             // 
+            this.cboAllByteNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboAllByteNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAllByteNum.DropDownWidth = 65;
             this.cboAllByteNum.FormattingEnabled = true;
@@ -80,6 +81,7 @@
             // 
             // cboActualFileByteNum
             // 
+            this.cboActualFileByteNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboActualFileByteNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboActualFileByteNum.DropDownWidth = 65;
             this.cboActualFileByteNum.FormattingEnabled = true;
@@ -90,6 +92,7 @@
             // 
             // txtActualFileByteNum
             // 
+            this.txtActualFileByteNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtActualFileByteNum.Location = new System.Drawing.Point(773, 249);
             this.txtActualFileByteNum.Name = "txtActualFileByteNum";
             this.txtActualFileByteNum.ReadOnly = true;
@@ -98,6 +101,7 @@
             // 
             // txtActualFileBytePer
             // 
+            this.txtActualFileBytePer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtActualFileBytePer.Location = new System.Drawing.Point(732, 249);
             this.txtActualFileBytePer.Name = "txtActualFileBytePer";
             this.txtActualFileBytePer.ReadOnly = true;
@@ -106,6 +110,7 @@
             // 
             // txtActualDirFilesNum
             // 
+            this.txtActualDirFilesNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtActualDirFilesNum.Location = new System.Drawing.Point(773, 194);
             this.txtActualDirFilesNum.Name = "txtActualDirFilesNum";
             this.txtActualDirFilesNum.ReadOnly = true;
@@ -114,6 +119,7 @@
             // 
             // txtActualDirFilesPer
             // 
+            this.txtActualDirFilesPer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtActualDirFilesPer.Location = new System.Drawing.Point(732, 194);
             this.txtActualDirFilesPer.Name = "txtActualDirFilesPer";
             this.txtActualDirFilesPer.ReadOnly = true;
@@ -122,6 +128,7 @@
             // 
             // txtAllDirNum
             // 
+            this.txtAllDirNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAllDirNum.Location = new System.Drawing.Point(773, 139);
             this.txtAllDirNum.Name = "txtAllDirNum";
             this.txtAllDirNum.ReadOnly = true;
@@ -130,6 +137,7 @@
             // 
             // txtAllDirPer
             // 
+            this.txtAllDirPer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAllDirPer.Location = new System.Drawing.Point(732, 139);
             this.txtAllDirPer.Name = "txtAllDirPer";
             this.txtAllDirPer.ReadOnly = true;
@@ -138,6 +146,7 @@
             // 
             // txtAllByteNum
             // 
+            this.txtAllByteNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAllByteNum.Location = new System.Drawing.Point(773, 110);
             this.txtAllByteNum.Name = "txtAllByteNum";
             this.txtAllByteNum.ReadOnly = true;
@@ -146,6 +155,7 @@
             // 
             // txtAllBytePer
             // 
+            this.txtAllBytePer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAllBytePer.Location = new System.Drawing.Point(732, 110);
             this.txtAllBytePer.Name = "txtAllBytePer";
             this.txtAllBytePer.ReadOnly = true;
@@ -154,6 +164,7 @@
             // 
             // txtAllItemsNum
             // 
+            this.txtAllItemsNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAllItemsNum.Location = new System.Drawing.Point(773, 81);
             this.txtAllItemsNum.Name = "txtAllItemsNum";
             this.txtAllItemsNum.ReadOnly = true;
@@ -162,6 +173,7 @@
             // 
             // txtAllItemsPer
             // 
+            this.txtAllItemsPer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAllItemsPer.Location = new System.Drawing.Point(732, 81);
             this.txtAllItemsPer.Name = "txtAllItemsPer";
             this.txtAllItemsPer.ReadOnly = true;
@@ -178,6 +190,8 @@
             // 
             // pbaAllByte
             // 
+            this.pbaAllByte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbaAllByte.Location = new System.Drawing.Point(196, 107);
             this.pbaAllByte.Name = "pbaAllByte";
             this.pbaAllByte.Size = new System.Drawing.Size(530, 23);
@@ -252,6 +266,8 @@
             // 
             // pbaActualFileByte
             // 
+            this.pbaActualFileByte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbaActualFileByte.Location = new System.Drawing.Point(196, 246);
             this.pbaActualFileByte.Name = "pbaActualFileByte";
             this.pbaActualFileByte.Size = new System.Drawing.Size(530, 23);
@@ -268,6 +284,8 @@
             // 
             // txtActualFile
             // 
+            this.txtActualFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtActualFile.Location = new System.Drawing.Point(196, 220);
             this.txtActualFile.Name = "txtActualFile";
             this.txtActualFile.ReadOnly = true;
@@ -308,6 +326,8 @@
             // 
             // pbaActualDirFiles
             // 
+            this.pbaActualDirFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbaActualDirFiles.Location = new System.Drawing.Point(196, 191);
             this.pbaActualDirFiles.Name = "pbaActualDirFiles";
             this.pbaActualDirFiles.Size = new System.Drawing.Size(530, 23);
@@ -316,6 +336,8 @@
             // 
             // pbaAllDir
             // 
+            this.pbaAllDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbaAllDir.Location = new System.Drawing.Point(196, 136);
             this.pbaAllDir.Name = "pbaAllDir";
             this.pbaAllDir.Size = new System.Drawing.Size(530, 23);
@@ -324,6 +346,8 @@
             // 
             // pbaAllItems
             // 
+            this.pbaAllItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbaAllItems.Location = new System.Drawing.Point(196, 78);
             this.pbaAllItems.Name = "pbaAllItems";
             this.pbaAllItems.Size = new System.Drawing.Size(530, 23);
@@ -389,6 +413,8 @@
             // 
             // txtActualDir
             // 
+            this.txtActualDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtActualDir.Location = new System.Drawing.Point(196, 165);
             this.txtActualDir.Name = "txtActualDir";
             this.txtActualDir.ReadOnly = true;

@@ -65,22 +65,23 @@
             this.mnuMain_Help_About = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageSelect = new System.Windows.Forms.TabPage();
+            this.spcExplorer = new System.Windows.Forms.SplitContainer();
             this.trvExplorer = new OLKI.Programme.QBC.MainForm.ExplorerTreeView();
             this.imlTreeViewIcons = new System.Windows.Forms.ImageList(this.components);
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnGoToFolder = new System.Windows.Forms.Button();
-            this.btnExplorerGoTop = new System.Windows.Forms.Button();
-            this.txtExplorerPath = new System.Windows.Forms.TextBox();
-            this.prgItemProperty = new OLKI.Widgets.ReadOnlyPropertyGrid();
-            this.lsvDirectoryContent = new OLKI.Widgets.SortListView();
-            this.chLsvExplorer_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLsvExplorer_Length = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLsvExplorer_LastChange = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbDirectoryScope = new System.Windows.Forms.GroupBox();
             this.rabSaveNothing = new System.Windows.Forms.RadioButton();
             this.btnLsvExplorerChangeSelect = new System.Windows.Forms.Button();
             this.rabSaveAll = new System.Windows.Forms.RadioButton();
             this.rabSaveSelected = new System.Windows.Forms.RadioButton();
+            this.lsvDirectoryContent = new OLKI.Widgets.SortListView();
+            this.chLsvExplorer_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLsvExplorer_Length = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLsvExplorer_LastChange = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prgItemProperty = new OLKI.Widgets.ReadOnlyPropertyGrid();
+            this.txtExplorerPath = new System.Windows.Forms.TextBox();
+            this.btnExplorerGoTop = new System.Windows.Forms.Button();
+            this.btnGoToFolder = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.tabPageBackup = new System.Windows.Forms.TabPage();
             this.grbControleProcessBackup = new System.Windows.Forms.GroupBox();
             this.uscControleBackup = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle();
@@ -116,6 +117,10 @@
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spcExplorer)).BeginInit();
+            this.spcExplorer.Panel1.SuspendLayout();
+            this.spcExplorer.Panel2.SuspendLayout();
+            this.spcExplorer.SuspendLayout();
             this.grbDirectoryScope.SuspendLayout();
             this.tabPageBackup.SuspendLayout();
             this.grbControleProcessBackup.SuspendLayout();
@@ -294,6 +299,9 @@
             // 
             // tabControlMain
             // 
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Controls.Add(this.tabPageSelect);
             this.tabControlMain.Controls.Add(this.tabPageBackup);
             this.tabControlMain.Controls.Add(this.tabPageRestore);
@@ -309,14 +317,7 @@
             // 
             // tabPageSelect
             // 
-            this.tabPageSelect.Controls.Add(this.trvExplorer);
-            this.tabPageSelect.Controls.Add(this.btnRefresh);
-            this.tabPageSelect.Controls.Add(this.btnGoToFolder);
-            this.tabPageSelect.Controls.Add(this.btnExplorerGoTop);
-            this.tabPageSelect.Controls.Add(this.txtExplorerPath);
-            this.tabPageSelect.Controls.Add(this.prgItemProperty);
-            this.tabPageSelect.Controls.Add(this.lsvDirectoryContent);
-            this.tabPageSelect.Controls.Add(this.grbDirectoryScope);
+            this.tabPageSelect.Controls.Add(this.spcExplorer);
             this.tabPageSelect.Location = new System.Drawing.Point(4, 23);
             this.tabPageSelect.Name = "tabPageSelect";
             this.tabPageSelect.Padding = new System.Windows.Forms.Padding(3);
@@ -325,16 +326,47 @@
             this.tabPageSelect.Text = "Sicherung - Quelle";
             this.tabPageSelect.UseVisualStyleBackColor = true;
             // 
+            // spcExplorer
+            // 
+            this.spcExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spcExplorer.Location = new System.Drawing.Point(3, 3);
+            this.spcExplorer.Margin = new System.Windows.Forms.Padding(0);
+            this.spcExplorer.Name = "spcExplorer";
+            // 
+            // spcExplorer.Panel1
+            // 
+            this.spcExplorer.Panel1.Controls.Add(this.trvExplorer);
+            this.spcExplorer.Panel1MinSize = 230;
+            // 
+            // spcExplorer.Panel2
+            // 
+            this.spcExplorer.Panel2.Controls.Add(this.grbDirectoryScope);
+            this.spcExplorer.Panel2.Controls.Add(this.lsvDirectoryContent);
+            this.spcExplorer.Panel2.Controls.Add(this.prgItemProperty);
+            this.spcExplorer.Panel2.Controls.Add(this.txtExplorerPath);
+            this.spcExplorer.Panel2.Controls.Add(this.btnExplorerGoTop);
+            this.spcExplorer.Panel2.Controls.Add(this.btnGoToFolder);
+            this.spcExplorer.Panel2.Controls.Add(this.btnRefresh);
+            this.spcExplorer.Panel2MinSize = 700;
+            this.spcExplorer.Size = new System.Drawing.Size(969, 565);
+            this.spcExplorer.SplitterDistance = 230;
+            this.spcExplorer.TabIndex = 11;
+            // 
             // trvExplorer
             // 
+            this.trvExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trvExplorer.DirectoryList = null;
             this.trvExplorer.ImageIndex = 16;
             this.trvExplorer.ImageList = this.imlTreeViewIcons;
-            this.trvExplorer.Location = new System.Drawing.Point(6, 6);
+            this.trvExplorer.Location = new System.Drawing.Point(3, 3);
             this.trvExplorer.Name = "trvExplorer";
             this.trvExplorer.SelectedImageIndex = 0;
             this.trvExplorer.ShowNodeToolTips = true;
-            this.trvExplorer.Size = new System.Drawing.Size(226, 559);
+            this.trvExplorer.Size = new System.Drawing.Size(225, 559);
             this.trvExplorer.TabIndex = 10;
             this.trvExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer_AfterSelect);
             // 
@@ -364,98 +396,17 @@
             this.imlTreeViewIcons.Images.SetKeyName(19, "19--folder_IntCheck.ico");
             this.imlTreeViewIcons.Images.SetKeyName(20, "20--File.ico");
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(695, 150);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(23, 23);
-            this.btnRefresh.TabIndex = 9;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnGoToFolder
-            // 
-            this.btnGoToFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnGoToFolder.Image")));
-            this.btnGoToFolder.Location = new System.Drawing.Point(666, 150);
-            this.btnGoToFolder.Name = "btnGoToFolder";
-            this.btnGoToFolder.Size = new System.Drawing.Size(23, 23);
-            this.btnGoToFolder.TabIndex = 8;
-            this.btnGoToFolder.UseVisualStyleBackColor = true;
-            this.btnGoToFolder.Click += new System.EventHandler(this.btnGoToFolder_Click);
-            // 
-            // btnExplorerGoTop
-            // 
-            this.btnExplorerGoTop.Image = ((System.Drawing.Image)(resources.GetObject("btnExplorerGoTop.Image")));
-            this.btnExplorerGoTop.Location = new System.Drawing.Point(637, 150);
-            this.btnExplorerGoTop.Name = "btnExplorerGoTop";
-            this.btnExplorerGoTop.Size = new System.Drawing.Size(23, 23);
-            this.btnExplorerGoTop.TabIndex = 6;
-            this.btnExplorerGoTop.UseVisualStyleBackColor = true;
-            this.btnExplorerGoTop.Click += new System.EventHandler(this.btnExplorerGoTop_Click);
-            // 
-            // txtExplorerPath
-            // 
-            this.txtExplorerPath.Location = new System.Drawing.Point(238, 150);
-            this.txtExplorerPath.Name = "txtExplorerPath";
-            this.txtExplorerPath.ReadOnly = true;
-            this.txtExplorerPath.Size = new System.Drawing.Size(393, 20);
-            this.txtExplorerPath.TabIndex = 2;
-            // 
-            // prgItemProperty
-            // 
-            this.prgItemProperty.LineColor = System.Drawing.SystemColors.ControlDark;
-            this.prgItemProperty.Location = new System.Drawing.Point(724, 179);
-            this.prgItemProperty.Name = "prgItemProperty";
-            this.prgItemProperty.ReadOnly = true;
-            this.prgItemProperty.Size = new System.Drawing.Size(245, 387);
-            this.prgItemProperty.TabIndex = 4;
-            // 
-            // lsvDirectoryContent
-            // 
-            this.lsvDirectoryContent.CheckBoxes = true;
-            this.lsvDirectoryContent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chLsvExplorer_Name,
-            this.chLsvExplorer_Length,
-            this.chLsvExplorer_LastChange});
-            this.lsvDirectoryContent.FullRowSelect = true;
-            this.lsvDirectoryContent.GridLines = true;
-            this.lsvDirectoryContent.HideSelection = false;
-            this.lsvDirectoryContent.Location = new System.Drawing.Point(238, 176);
-            this.lsvDirectoryContent.MultiSelect = false;
-            this.lsvDirectoryContent.Name = "lsvDirectoryContent";
-            this.lsvDirectoryContent.Size = new System.Drawing.Size(480, 390);
-            this.lsvDirectoryContent.SmallImageList = this.imlTreeViewIcons;
-            this.lsvDirectoryContent.TabIndex = 3;
-            this.lsvDirectoryContent.UseCompatibleStateImageBehavior = false;
-            this.lsvDirectoryContent.View = System.Windows.Forms.View.Details;
-            this.lsvDirectoryContent.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lsvExplorer_ItemChecked);
-            this.lsvDirectoryContent.SelectedIndexChanged += new System.EventHandler(this.lsvExplorer_SelectedIndexChanged);
-            // 
-            // chLsvExplorer_Name
-            // 
-            this.chLsvExplorer_Name.Text = "Name";
-            this.chLsvExplorer_Name.Width = 255;
-            // 
-            // chLsvExplorer_Length
-            // 
-            this.chLsvExplorer_Length.Text = "Größe";
-            this.chLsvExplorer_Length.Width = 75;
-            // 
-            // chLsvExplorer_LastChange
-            // 
-            this.chLsvExplorer_LastChange.Text = "Geändert am";
-            this.chLsvExplorer_LastChange.Width = 120;
-            // 
             // grbDirectoryScope
             // 
+            this.grbDirectoryScope.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbDirectoryScope.Controls.Add(this.rabSaveNothing);
             this.grbDirectoryScope.Controls.Add(this.btnLsvExplorerChangeSelect);
             this.grbDirectoryScope.Controls.Add(this.rabSaveAll);
             this.grbDirectoryScope.Controls.Add(this.rabSaveSelected);
-            this.grbDirectoryScope.Location = new System.Drawing.Point(238, 6);
+            this.grbDirectoryScope.Location = new System.Drawing.Point(3, 3);
             this.grbDirectoryScope.Name = "grbDirectoryScope";
-            this.grbDirectoryScope.Size = new System.Drawing.Size(731, 138);
+            this.grbDirectoryScope.Size = new System.Drawing.Size(729, 138);
             this.grbDirectoryScope.TabIndex = 1;
             this.grbDirectoryScope.TabStop = false;
             this.grbDirectoryScope.Text = "Sicherungsoption für Ordner";
@@ -505,6 +456,99 @@
             this.rabSaveSelected.UseVisualStyleBackColor = true;
             this.rabSaveSelected.CheckedChanged += new System.EventHandler(this.rabSaveSelected_CheckedChanged);
             // 
+            // lsvDirectoryContent
+            // 
+            this.lsvDirectoryContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsvDirectoryContent.CheckBoxes = true;
+            this.lsvDirectoryContent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chLsvExplorer_Name,
+            this.chLsvExplorer_Length,
+            this.chLsvExplorer_LastChange});
+            this.lsvDirectoryContent.FullRowSelect = true;
+            this.lsvDirectoryContent.GridLines = true;
+            this.lsvDirectoryContent.HideSelection = false;
+            this.lsvDirectoryContent.Location = new System.Drawing.Point(2, 176);
+            this.lsvDirectoryContent.MultiSelect = false;
+            this.lsvDirectoryContent.Name = "lsvDirectoryContent";
+            this.lsvDirectoryContent.Size = new System.Drawing.Size(479, 386);
+            this.lsvDirectoryContent.SmallImageList = this.imlTreeViewIcons;
+            this.lsvDirectoryContent.TabIndex = 3;
+            this.lsvDirectoryContent.UseCompatibleStateImageBehavior = false;
+            this.lsvDirectoryContent.View = System.Windows.Forms.View.Details;
+            this.lsvDirectoryContent.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lsvExplorer_ItemChecked);
+            this.lsvDirectoryContent.SelectedIndexChanged += new System.EventHandler(this.lsvExplorer_SelectedIndexChanged);
+            // 
+            // chLsvExplorer_Name
+            // 
+            this.chLsvExplorer_Name.Text = "Name";
+            this.chLsvExplorer_Name.Width = 255;
+            // 
+            // chLsvExplorer_Length
+            // 
+            this.chLsvExplorer_Length.Text = "Größe";
+            this.chLsvExplorer_Length.Width = 75;
+            // 
+            // chLsvExplorer_LastChange
+            // 
+            this.chLsvExplorer_LastChange.Text = "Geändert am";
+            this.chLsvExplorer_LastChange.Width = 120;
+            // 
+            // prgItemProperty
+            // 
+            this.prgItemProperty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.prgItemProperty.LineColor = System.Drawing.SystemColors.ControlDark;
+            this.prgItemProperty.Location = new System.Drawing.Point(487, 173);
+            this.prgItemProperty.Name = "prgItemProperty";
+            this.prgItemProperty.ReadOnly = true;
+            this.prgItemProperty.Size = new System.Drawing.Size(245, 389);
+            this.prgItemProperty.TabIndex = 4;
+            // 
+            // txtExplorerPath
+            // 
+            this.txtExplorerPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExplorerPath.Location = new System.Drawing.Point(3, 147);
+            this.txtExplorerPath.Name = "txtExplorerPath";
+            this.txtExplorerPath.ReadOnly = true;
+            this.txtExplorerPath.Size = new System.Drawing.Size(391, 20);
+            this.txtExplorerPath.TabIndex = 2;
+            // 
+            // btnExplorerGoTop
+            // 
+            this.btnExplorerGoTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExplorerGoTop.Image = ((System.Drawing.Image)(resources.GetObject("btnExplorerGoTop.Image")));
+            this.btnExplorerGoTop.Location = new System.Drawing.Point(400, 147);
+            this.btnExplorerGoTop.Name = "btnExplorerGoTop";
+            this.btnExplorerGoTop.Size = new System.Drawing.Size(23, 23);
+            this.btnExplorerGoTop.TabIndex = 6;
+            this.btnExplorerGoTop.UseVisualStyleBackColor = true;
+            this.btnExplorerGoTop.Click += new System.EventHandler(this.btnExplorerGoTop_Click);
+            // 
+            // btnGoToFolder
+            // 
+            this.btnGoToFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGoToFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnGoToFolder.Image")));
+            this.btnGoToFolder.Location = new System.Drawing.Point(429, 147);
+            this.btnGoToFolder.Name = "btnGoToFolder";
+            this.btnGoToFolder.Size = new System.Drawing.Size(23, 23);
+            this.btnGoToFolder.TabIndex = 8;
+            this.btnGoToFolder.UseVisualStyleBackColor = true;
+            this.btnGoToFolder.Click += new System.EventHandler(this.btnGoToFolder_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(458, 147);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(23, 23);
+            this.btnRefresh.TabIndex = 9;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // tabPageBackup
             // 
             this.tabPageBackup.Controls.Add(this.grbControleProcessBackup);
@@ -519,6 +563,8 @@
             // 
             // grbControleProcessBackup
             // 
+            this.grbControleProcessBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbControleProcessBackup.Controls.Add(this.uscControleBackup);
             this.grbControleProcessBackup.Location = new System.Drawing.Point(6, 6);
             this.grbControleProcessBackup.Name = "grbControleProcessBackup";
@@ -529,6 +575,8 @@
             // 
             // uscControleBackup
             // 
+            this.uscControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uscControleBackup.Location = new System.Drawing.Point(0, 17);
             this.uscControleBackup.Mode = OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.CreateBackup;
             this.uscControleBackup.Name = "uscControleBackup";
@@ -537,6 +585,8 @@
             // 
             // grbProgressBackup
             // 
+            this.grbProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbProgressBackup.Controls.Add(this.uscProgressBackup);
             this.grbProgressBackup.Location = new System.Drawing.Point(6, 270);
             this.grbProgressBackup.Name = "grbProgressBackup";
@@ -547,6 +597,8 @@
             // 
             // uscProgressBackup
             // 
+            this.uscProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uscProgressBackup.Location = new System.Drawing.Point(6, 20);
             this.uscProgressBackup.Name = "uscProgressBackup";
             this.uscProgressBackup.Size = new System.Drawing.Size(951, 270);
@@ -566,6 +618,8 @@
             // 
             // grbControleProcessRestore
             // 
+            this.grbControleProcessRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbControleProcessRestore.Controls.Add(this.uscControleRestore);
             this.grbControleProcessRestore.Location = new System.Drawing.Point(6, 6);
             this.grbControleProcessRestore.Name = "grbControleProcessRestore";
@@ -576,6 +630,8 @@
             // 
             // uscControleRestore
             // 
+            this.uscControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uscControleRestore.Location = new System.Drawing.Point(0, 17);
             this.uscControleRestore.Mode = OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.RestoreBackup;
             this.uscControleRestore.Name = "uscControleRestore";
@@ -584,6 +640,8 @@
             // 
             // grbProgressRestore
             // 
+            this.grbProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbProgressRestore.Controls.Add(this.uscProgressRestore);
             this.grbProgressRestore.Location = new System.Drawing.Point(6, 270);
             this.grbProgressRestore.Name = "grbProgressRestore";
@@ -594,6 +652,8 @@
             // 
             // uscProgressRestore
             // 
+            this.uscProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uscProgressRestore.Location = new System.Drawing.Point(6, 20);
             this.uscProgressRestore.Name = "uscProgressRestore";
             this.uscProgressRestore.Size = new System.Drawing.Size(951, 270);
@@ -620,6 +680,9 @@
             // 
             // grbException
             // 
+            this.grbException.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbException.Controls.Add(this.lsvErrorLog);
             this.grbException.Controls.Add(this.lblExceptionMessage);
             this.grbException.Controls.Add(this.txtExceptionMessage);
@@ -629,13 +692,16 @@
             this.grbException.Controls.Add(this.lblExceptionSourcePath);
             this.grbException.Location = new System.Drawing.Point(6, 110);
             this.grbException.Name = "grbException";
-            this.grbException.Size = new System.Drawing.Size(966, 445);
+            this.grbException.Size = new System.Drawing.Size(966, 458);
             this.grbException.TabIndex = 8;
             this.grbException.TabStop = false;
             this.grbException.Text = "Kopierfehler";
             // 
             // lsvErrorLog
             // 
+            this.lsvErrorLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lsvErrorLog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chLsvErrorLog_Number,
             this.chLsvErrorLog_Source,
@@ -648,7 +714,7 @@
             this.lsvErrorLog.MultiSelect = false;
             this.lsvErrorLog.Name = "lsvErrorLog";
             this.lsvErrorLog.ShowItemToolTips = true;
-            this.lsvErrorLog.Size = new System.Drawing.Size(954, 302);
+            this.lsvErrorLog.Size = new System.Drawing.Size(954, 315);
             this.lsvErrorLog.TabIndex = 0;
             this.lsvErrorLog.UseCompatibleStateImageBehavior = false;
             this.lsvErrorLog.View = System.Windows.Forms.View.Details;
@@ -676,7 +742,8 @@
             // 
             // lblExceptionMessage
             // 
-            this.lblExceptionMessage.Location = new System.Drawing.Point(6, 382);
+            this.lblExceptionMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblExceptionMessage.Location = new System.Drawing.Point(6, 395);
             this.lblExceptionMessage.Name = "lblExceptionMessage";
             this.lblExceptionMessage.Size = new System.Drawing.Size(45, 23);
             this.lblExceptionMessage.TabIndex = 5;
@@ -684,7 +751,9 @@
             // 
             // txtExceptionMessage
             // 
-            this.txtExceptionMessage.Location = new System.Drawing.Point(82, 379);
+            this.txtExceptionMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExceptionMessage.Location = new System.Drawing.Point(82, 392);
             this.txtExceptionMessage.Multiline = true;
             this.txtExceptionMessage.Name = "txtExceptionMessage";
             this.txtExceptionMessage.ReadOnly = true;
@@ -693,7 +762,8 @@
             // 
             // lblExceptionDestinationPath
             // 
-            this.lblExceptionDestinationPath.Location = new System.Drawing.Point(6, 356);
+            this.lblExceptionDestinationPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblExceptionDestinationPath.Location = new System.Drawing.Point(6, 369);
             this.lblExceptionDestinationPath.Name = "lblExceptionDestinationPath";
             this.lblExceptionDestinationPath.Size = new System.Drawing.Size(45, 23);
             this.lblExceptionDestinationPath.TabIndex = 3;
@@ -701,7 +771,9 @@
             // 
             // txtExceptionDestinationPath
             // 
-            this.txtExceptionDestinationPath.Location = new System.Drawing.Point(82, 353);
+            this.txtExceptionDestinationPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExceptionDestinationPath.Location = new System.Drawing.Point(82, 366);
             this.txtExceptionDestinationPath.Name = "txtExceptionDestinationPath";
             this.txtExceptionDestinationPath.ReadOnly = true;
             this.txtExceptionDestinationPath.Size = new System.Drawing.Size(878, 20);
@@ -709,7 +781,9 @@
             // 
             // txtExceptionSourcePath
             // 
-            this.txtExceptionSourcePath.Location = new System.Drawing.Point(82, 327);
+            this.txtExceptionSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExceptionSourcePath.Location = new System.Drawing.Point(82, 340);
             this.txtExceptionSourcePath.Name = "txtExceptionSourcePath";
             this.txtExceptionSourcePath.ReadOnly = true;
             this.txtExceptionSourcePath.Size = new System.Drawing.Size(878, 20);
@@ -717,7 +791,8 @@
             // 
             // lblExceptionSourcePath
             // 
-            this.lblExceptionSourcePath.Location = new System.Drawing.Point(6, 330);
+            this.lblExceptionSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblExceptionSourcePath.Location = new System.Drawing.Point(6, 343);
             this.lblExceptionSourcePath.Name = "lblExceptionSourcePath";
             this.lblExceptionSourcePath.Size = new System.Drawing.Size(45, 23);
             this.lblExceptionSourcePath.TabIndex = 1;
@@ -801,22 +876,23 @@
             this.ClientSize = new System.Drawing.Size(1007, 634);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.mnuMain);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuMain;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1023, 673);
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "{0}";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
             this.tabPageSelect.ResumeLayout(false);
-            this.tabPageSelect.PerformLayout();
+            this.spcExplorer.Panel1.ResumeLayout(false);
+            this.spcExplorer.Panel2.ResumeLayout(false);
+            this.spcExplorer.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spcExplorer)).EndInit();
+            this.spcExplorer.ResumeLayout(false);
             this.grbDirectoryScope.ResumeLayout(false);
             this.tabPageBackup.ResumeLayout(false);
             this.grbControleProcessBackup.ResumeLayout(false);
@@ -888,5 +964,6 @@
         private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressRestore;
         private System.Windows.Forms.ImageList imlExceptionIcons;
         private ExplorerTreeView trvExplorer;
+        private System.Windows.Forms.SplitContainer spcExplorer;
     }
 }

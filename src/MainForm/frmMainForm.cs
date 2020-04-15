@@ -265,15 +265,6 @@ namespace OLKI.Programme.QBC.MainForm
             }
         }
 
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-            // Get New Tabcontrole Size
-            int BorderH = 75;
-            int BorderW = 40;
-            this.tabControlMain.Height = this.Height - BorderH < this.tabControlMain.MinimumSize.Height ? this.tabControlMain.MinimumSize.Height : this.Height - BorderH;   //598
-            this.tabControlMain.Width = this.Width - BorderW < this.tabControlMain.MinimumSize.Width ? this.tabControlMain.MinimumSize.Width : this.Width - BorderW;  //983 
-        }
-
         private void MainForm_Shown(object sender, EventArgs e)
         {
             // Check for Admin Rights
