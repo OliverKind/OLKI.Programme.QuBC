@@ -48,7 +48,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <summary>
         /// Default check state to return by ExplorerTreeView_GetCheckStateDirectory if check state can not identified
         /// </summary>
-        private const ExtendedTreeNode.ExtendedTreeNodeCheckedState DEFAULT_CHECK_STATE = OLKI.Programme.QBC.MainForm.ExtendedTreeNode.ExtendedTreeNodeCheckedState.NotChecked;
+        private const ExtendedTreeNode.CheckedState DEFAULT_CHECK_STATE = OLKI.Programme.QBC.MainForm.ExtendedTreeNode.CheckedState.NotChecked;
         /// <summary>
         /// Default Explorer TreeVie icon
         /// </summary>
@@ -170,15 +170,15 @@ namespace OLKI.Programme.QBC.MainForm
         /// List the sub directories and files of the specified directroy to the directroy contenct list
         /// </summary>
         /// <param name="directory">Specifies the directory to lust sub directories and files</param>
-        /// <param name="irectoryContentList">Specifies the LitView where the content should been listet to</param>
-        internal void DirectoryContentListView_ListDirectoryItems(DirectoryInfo directory, ListView irectoryContentList)
+        /// <param name="directoryContentList">Specifies the LitView where the content should been listet to</param>
+        internal void DirectoryContentListView_ListDirectoryItems(DirectoryInfo directory, ListView directoryContentList)
         {
             try
             {
-                irectoryContentList.Items.Clear();
+                directoryContentList.Items.Clear();
                 foreach (DirectoryInfo Directory in new DirectoryInfo(directory.FullName).GetDirectories().OrderBy(o => o.Name))
                 {
-                    if ((Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(Directory) || Settings.Default.ListItems_ShowDirectorysWithoutAccess) && (Settings.Default.ListItems_ShowSystemDirectory || (Directory.Attributes & FileAttributes.System) != FileAttributes.System))
+                    if ((Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(Directory) || Settings.Default.ListItems_ShowWithoutAccess) && (Settings.Default.ListItems_ShowSystem || (Directory.Attributes & FileAttributes.System) != FileAttributes.System))
                     {
                         ListViewItem NewItem = new ListViewItem
                         {
@@ -192,7 +192,7 @@ namespace OLKI.Programme.QBC.MainForm
                         NewItem.SubItems[1].Tag = null;
                         NewItem.SubItems.Add(Directory.LastWriteTime.ToString());
                         NewItem.SubItems[1].Tag = Directory.LastWriteTime;
-                        irectoryContentList.Items.Add(NewItem);
+                        directoryContentList.Items.Add(NewItem);
                     }
                 }
                 foreach (FileInfo File in new DirectoryInfo(directory.FullName).GetFiles().OrderBy(o => o.Name))
@@ -209,7 +209,7 @@ namespace OLKI.Programme.QBC.MainForm
                     NewItem.SubItems[1].Tag = File.Length;
                     NewItem.SubItems.Add(File.LastWriteTime.ToString());
                     NewItem.SubItems[2].Tag = File.LastWriteTime;
-                    irectoryContentList.Items.Add(NewItem);
+                    directoryContentList.Items.Add(NewItem);
                 }
             }
             catch (IOException ex)
@@ -240,7 +240,7 @@ namespace OLKI.Programme.QBC.MainForm
                 {
                     try
                     {
-                        if ((Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(Directory) || Settings.Default.ListItems_ShowDirectorysWithoutAccess) && (Settings.Default.ListItems_ShowSystemDirectory || (Directory.Attributes & FileAttributes.System) != FileAttributes.System))
+                        if ((Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(Directory) || Settings.Default.ListItems_ShowWithoutAccess) && (Settings.Default.ListItems_ShowSystem || (Directory.Attributes & FileAttributes.System) != FileAttributes.System))
                         {
                             ExtendedTreeNode NewNode = new ExtendedTreeNode(Directory)
                             {
@@ -268,7 +268,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="directory">Specifies the directory to check</param>
         /// <returns>The checked state of the specified directory</returns>
-        internal ExtendedTreeNode.ExtendedTreeNodeCheckedState ExplorerTreeView_GetCheckStateDirectory(DirectoryInfo directory)
+        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectory(DirectoryInfo directory)
         {
             return this.ExplorerTreeView_GetCheckStateDirectory(directory.FullName, DEFAULT_CHECK_STATE);
         }
@@ -278,7 +278,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <param name="directory">Specifies the directory to check</param>
         /// <param name="defaultReturn">Check state to return if check state can not identified</param>
         /// <returns>The checked state of the specified directory</returns>
-        internal ExtendedTreeNode.ExtendedTreeNodeCheckedState ExplorerTreeView_GetCheckStateDirectory(DirectoryInfo directory, ExtendedTreeNode.ExtendedTreeNodeCheckedState defaultReturn)
+        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectory(DirectoryInfo directory, ExtendedTreeNode.CheckedState defaultReturn)
         {
             return this.ExplorerTreeView_GetCheckStateDirectory(directory.FullName, defaultReturn);
         }
@@ -287,7 +287,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="path">A string that specifies the path of the directory to check</param>
         /// <returns>The checked state of the specified directory</returns>
-        internal ExtendedTreeNode.ExtendedTreeNodeCheckedState ExplorerTreeView_GetCheckStateDirectory(string path)
+        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectory(string path)
         {
             return this.ExplorerTreeView_GetCheckStateDirectory(path, DEFAULT_CHECK_STATE);
         }
@@ -297,18 +297,18 @@ namespace OLKI.Programme.QBC.MainForm
         /// <param name="path">A string that specifies the path of the directory to check</param>
         /// <param name="defaultReturn">Check state to return if check state can not identified</param>
         /// <returns>The checked state of the specified directory</returns>
-        internal ExtendedTreeNode.ExtendedTreeNodeCheckedState ExplorerTreeView_GetCheckStateDirectory(string path, ExtendedTreeNode.ExtendedTreeNodeCheckedState defaultReturn)
+        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectory(string path, ExtendedTreeNode.CheckedState defaultReturn)
         {
             if (this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(path))
             {
                 switch (this._projectManager.ActiveProject.ToBackupDirectorys[path])
                 {
                     case BackupProject.Project.DirectoryScope.Nothing:
-                        return ExtendedTreeNode.ExtendedTreeNodeCheckedState.NotChecked;
+                        return ExtendedTreeNode.CheckedState.NotChecked;
                     case BackupProject.Project.DirectoryScope.Selected:
-                        return ExtendedTreeNode.ExtendedTreeNodeCheckedState.Intermediate;
+                        return ExtendedTreeNode.CheckedState.Intermediate;
                     case BackupProject.Project.DirectoryScope.All:
-                        return ExtendedTreeNode.ExtendedTreeNodeCheckedState.Checked;
+                        return ExtendedTreeNode.CheckedState.Checked;
                     default:
                         return defaultReturn;
                 }
@@ -323,7 +323,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="directory">Specifies the directory to check</param>
         /// <returns>The icon to set in tree view for the specified directory</returns>
-        internal ExtendedTreeNode.ExtendedTreeNodeCheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(DirectoryInfo directory)
+        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(DirectoryInfo directory)
         {
             return this.ExplorerTreeView_GetCheckStateDirectoryIcon(directory.FullName);
         }
@@ -332,7 +332,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="directory">Specifies the directory to check</param>
         /// <returns>The icon to set in tree view for the specified directory</returns>
-        internal ExtendedTreeNode.ExtendedTreeNodeCheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(DirectoryInfo directory, int initalIcon)
+        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(DirectoryInfo directory, int initalIcon)
         {
             return this.ExplorerTreeView_GetCheckStateDirectoryIcon(directory.FullName, initalIcon);
         }
@@ -341,7 +341,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="path">A string that specifies the path of the directory to check</param>
         /// <returns>The icon to set in tree view for the specified directory</returns>
-        internal ExtendedTreeNode.ExtendedTreeNodeCheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(string path)
+        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(string path)
         {
             return this.ExplorerTreeView_GetCheckStateDirectoryIcon(path, DFAULT_INITIAL_ICON);
         }
@@ -350,7 +350,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="path">A string that specifies the path of the directory to check</param>
         /// <returns>The icon to set in tree view for the specified directory</returns>
-        internal ExtendedTreeNode.ExtendedTreeNodeCheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(string path, int initalIcon)
+        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(string path, int initalIcon)
         {
             return initalIcon + this.ExplorerTreeView_GetCheckStateDirectory(path);
         }
@@ -392,6 +392,7 @@ namespace OLKI.Programme.QBC.MainForm
         #endregion
 
         #region ExplorerTreeView_SelectTreeViewItem
+        //TODO: REMOVE?
         /// <summary>
         /// Select the TreeView node in explorer TreeView by a specified directroy
         /// </summary>
@@ -400,6 +401,7 @@ namespace OLKI.Programme.QBC.MainForm
         {
             this.ExplorerTreeView_SelectTreeViewItem(directory.FullName, treeNodes);
         }
+        //TODO: REMOVE?
         /// <summary>
         /// Select the TreeView node in explorer TreeView by a specified directroy
         /// </summary>
@@ -427,7 +429,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <param name="treeNode"></param>
         private void ExplorerTreeView_SetTreeViewNodeAndSubNotesToNotChecked(ExtendedTreeNode treeNode)
         {
-            treeNode.ImageVariant = ExtendedTreeNode.ExtendedTreeNodeCheckedState.NotChecked;
+            treeNode.ImageVariant = ExtendedTreeNode.CheckedState.NotChecked;
             foreach (ExtendedTreeNode TreeNode in treeNode.Nodes)
             {
                 this.ExplorerTreeView_SetTreeViewNodeAndSubNotesToNotChecked(TreeNode);
@@ -442,9 +444,9 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="directory">Specifies the directory to add to project</param>
         /// <param name="treeNode">Specifies the ExplorerTreeViewNode associated with the directory</param>
-        internal void Project_AddDirectorysToProjectAndSetTree(DirectoryInfo directory, ExtendedTreeNode treeNode)
+        internal void Project_AddDirectorysToProject(DirectoryInfo directory)
         {
-            this.Project_AddDirectorysToProjectAndSetTree(directory, treeNode, DEFAULT_ADD_DIRECTROY_TO_PROJECT_DIRECTORY_SCOPE, false);
+            this.Project_AddDirectorysToProject(directory, DEFAULT_ADD_DIRECTROY_TO_PROJECT_DIRECTORY_SCOPE, false);
         }
         /// <summary>
         /// Add or overwrite the specified directroy to the project, using a specified scope and set the associated ExplorerTreeViewNode
@@ -452,9 +454,9 @@ namespace OLKI.Programme.QBC.MainForm
         /// <param name="directory">Specifies the directory to add to project</param>
         /// <param name="treeNode">Specifies the ExplorerTreeViewNode associated with the directory</param>
         /// <param name="scope">Specifies the scope of the specified directroy to add to project</param>
-        internal void Project_AddDirectorysToProjectAndSetTree(DirectoryInfo directory, ExtendedTreeNode treeNode, BackupProject.Project.DirectoryScope scope)
+        internal void Project_AddDirectorysToProject(DirectoryInfo directory, BackupProject.Project.DirectoryScope scope)
         {
-            this.Project_AddDirectorysToProjectAndSetTree(directory, treeNode, scope, true);
+            this.Project_AddDirectorysToProject(directory, scope, true);
         }
         /// <summary>
         /// Add or overwrite the specified directroy to the project, using a specified scope or keep existing scope and set the associated ExplorerTreeViewNode
@@ -463,19 +465,17 @@ namespace OLKI.Programme.QBC.MainForm
         /// <param name="treeNode">Specifies the ExplorerTreeViewNode associated with the directory</param>
         /// <param name="scope">Specifies the scope of the specified directroy to add to project</param>
         /// <param name="overwriteExistingScope">Specifies if the scope of the directroy should been overwritte if directroy is allready in project</param>
-        private void Project_AddDirectorysToProjectAndSetTree(DirectoryInfo directory, ExtendedTreeNode treeNode, BackupProject.Project.DirectoryScope scope, bool overwriteExistingScope)
+        private void Project_AddDirectorysToProject(DirectoryInfo directory, BackupProject.Project.DirectoryScope scope, bool overwriteExistingScope)
         {
-            if (directory == null)
-            {
-                return;
-            }
+            if (directory == null) return;
+
             //Add directory to ToDo list
             if (this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(directory.FullName))
             {
-                if (this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] == BackupProject.Project.DirectoryScope.Nothing)
-                {
-                    this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = BackupProject.Project.DirectoryScope.Selected;
-                }
+                //if (this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] == BackupProject.Project.DirectoryScope.Nothing)
+                //{
+                this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = BackupProject.Project.DirectoryScope.Selected;
+                //}
             }
             else
             {
@@ -488,10 +488,10 @@ namespace OLKI.Programme.QBC.MainForm
             {
                 this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = scope;
             }
-            treeNode.ImageVariant = this.ExplorerTreeView_GetCheckStateDirectoryIcon(directory);
+            //TODO: ROMVE --> treeNode.ImageVariant = this.ExplorerTreeView_GetCheckStateDirectoryIcon(directory);
 
             // Set parents
-            this.Project_AddDirectorysToProjectAndSetTree(directory.Parent, (ExtendedTreeNode)treeNode.Parent);
+            this.Project_AddDirectorysToProject(directory.Parent);
         }
         #endregion
 
@@ -499,14 +499,11 @@ namespace OLKI.Programme.QBC.MainForm
         /// Removes the specified directroy and all sub directrories and files from project and set the asspcoated ExplorerTreeViewNodes
         /// </summary>
         /// <param name="directory">Specifies the directroy to remove</param>
-        /// <param name="treeNode">Specifies the ExplorerTreeViewNode associated to the specified directroy</param>
-        internal void Project_RemoveDirectorysFromBackupAndSetTree(DirectoryInfo directory, ExtendedTreeNode treeNode)
+        internal void Project_RemoveDirectorysFromBackup(DirectoryInfo directory)
         {
-            if (directory == null)
-            {
-                return;
-            }
-            this.ExplorerTreeView_SetTreeViewNodeAndSubNotesToNotChecked(treeNode);
+            //TODO: REMOVE -->   if (treeNode == null)                return;
+
+            //TODO: REMOVE -->   this.ExplorerTreeView_SetTreeViewNodeAndSubNotesToNotChecked(treeNode);
             foreach (KeyValuePair<string, QBC.BackupProject.Project.DirectoryScope> directoryItem in new Dictionary<string, BackupProject.Project.DirectoryScope>(this._projectManager.ActiveProject.ToBackupDirectorys).Where(A => A.Key.StartsWith(directory.FullName)))
             {
                 this._projectManager.ActiveProject.DirectoryRemove(directoryItem.Key);

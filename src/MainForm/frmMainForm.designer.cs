@@ -65,6 +65,8 @@
             this.mnuMain_Help_About = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageSelect = new System.Windows.Forms.TabPage();
+            this.trvExplorer2 = new OLKI.Programme.QBC.MainForm.ExplorerTreeView();
+            this.imlTreeViewIcons = new System.Windows.Forms.ImageList(this.components);
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnGoToFolder = new System.Windows.Forms.Button();
             this.btnExplorerGoTop = new System.Windows.Forms.Button();
@@ -74,7 +76,6 @@
             this.chLsvExplorer_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLsvExplorer_Length = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLsvExplorer_LastChange = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.imlTreeViewIcons = new System.Windows.Forms.ImageList(this.components);
             this.grbDirectoryScope = new System.Windows.Forms.GroupBox();
             this.rabSaveNothing = new System.Windows.Forms.RadioButton();
             this.btnLsvExplorerChangeSelect = new System.Windows.Forms.Button();
@@ -215,28 +216,28 @@
             // mnuMain_File_RecentFiles_File0
             // 
             this.mnuMain_File_RecentFiles_File0.Name = "mnuMain_File_RecentFiles_File0";
-            this.mnuMain_File_RecentFiles_File0.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_File_RecentFiles_File0.Size = new System.Drawing.Size(110, 22);
             this.mnuMain_File_RecentFiles_File0.Text = "Datei 0";
             this.mnuMain_File_RecentFiles_File0.Click += new System.EventHandler(this.mnuMain_File_RecentFiles_File0_Click);
             // 
             // mnuMain_File_RecentFiles_File1
             // 
             this.mnuMain_File_RecentFiles_File1.Name = "mnuMain_File_RecentFiles_File1";
-            this.mnuMain_File_RecentFiles_File1.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_File_RecentFiles_File1.Size = new System.Drawing.Size(110, 22);
             this.mnuMain_File_RecentFiles_File1.Text = "Datei 1";
             this.mnuMain_File_RecentFiles_File1.Click += new System.EventHandler(this.mnuMain_File_RecentFiles_File1_Click);
             // 
             // mnuMain_File_RecentFiles_File2
             // 
             this.mnuMain_File_RecentFiles_File2.Name = "mnuMain_File_RecentFiles_File2";
-            this.mnuMain_File_RecentFiles_File2.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_File_RecentFiles_File2.Size = new System.Drawing.Size(110, 22);
             this.mnuMain_File_RecentFiles_File2.Text = "Datei 2";
             this.mnuMain_File_RecentFiles_File2.Click += new System.EventHandler(this.mnuMain_File_RecentFiles_File2_Click);
             // 
             // mnuMain_File_RecentFiles_File3
             // 
             this.mnuMain_File_RecentFiles_File3.Name = "mnuMain_File_RecentFiles_File3";
-            this.mnuMain_File_RecentFiles_File3.Size = new System.Drawing.Size(180, 22);
+            this.mnuMain_File_RecentFiles_File3.Size = new System.Drawing.Size(110, 22);
             this.mnuMain_File_RecentFiles_File3.Text = "Datei 3";
             this.mnuMain_File_RecentFiles_File3.Click += new System.EventHandler(this.mnuMain_File_RecentFiles_File3_Click);
             // 
@@ -309,6 +310,7 @@
             // 
             // tabPageSelect
             // 
+            this.tabPageSelect.Controls.Add(this.trvExplorer2);
             this.tabPageSelect.Controls.Add(this.btnRefresh);
             this.tabPageSelect.Controls.Add(this.btnGoToFolder);
             this.tabPageSelect.Controls.Add(this.btnExplorerGoTop);
@@ -324,6 +326,45 @@
             this.tabPageSelect.TabIndex = 0;
             this.tabPageSelect.Text = "Sicherung - Quelle";
             this.tabPageSelect.UseVisualStyleBackColor = true;
+            // 
+            // trvExplorer2
+            // 
+            this.trvExplorer2.DirectoryList = null;
+            this.trvExplorer2.ImageIndex = 16;
+            this.trvExplorer2.ImageList = this.imlTreeViewIcons;
+            this.trvExplorer2.Location = new System.Drawing.Point(6, 212);
+            this.trvExplorer2.Name = "trvExplorer2";
+            this.trvExplorer2.SelectedImageIndex = 0;
+            this.trvExplorer2.ShowNodeToolTips = true;
+            this.trvExplorer2.Size = new System.Drawing.Size(226, 309);
+            this.trvExplorer2.TabIndex = 10;
+            this.trvExplorer2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer2_AfterSelect);
+            // 
+            // imlTreeViewIcons
+            // 
+            this.imlTreeViewIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlTreeViewIcons.ImageStream")));
+            this.imlTreeViewIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlTreeViewIcons.Images.SetKeyName(0, "00--3.5_Disk_Drive.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(1, "01--3.5_Disk_Drive_NoCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(2, "02--3.5_Disk_Drive_Check.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(3, "03--3.5_Disk_Drive_IntCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(4, "04--Hard_Drive.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(5, "05--Hard_Drive_NoCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(6, "06--Hard_Drive_Check.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(7, "07--Hard_Drive_IntCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(8, "08--CD_Drive.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(9, "09--CD_Drive_NoCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(10, "10--CD_Drive_Check.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(11, "11-CD_Drive_IntCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(12, "12--Network_Drive.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(13, "13--Network_Drive_NoCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(14, "14--Network_Drive_Check.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(15, "15--Network_IntCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(16, "16--folder.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(17, "17--folder_NoCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(18, "18--folder_Check.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(19, "19--folder_IntCheck.ico");
+            this.imlTreeViewIcons.Images.SetKeyName(20, "20--File.ico");
             // 
             // btnRefresh
             // 
@@ -408,32 +449,6 @@
             this.chLsvExplorer_LastChange.Text = "Geändert am";
             this.chLsvExplorer_LastChange.Width = 120;
             // 
-            // imlTreeViewIcons
-            // 
-            this.imlTreeViewIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlTreeViewIcons.ImageStream")));
-            this.imlTreeViewIcons.TransparentColor = System.Drawing.Color.Transparent;
-            this.imlTreeViewIcons.Images.SetKeyName(0, "00--3.5_Disk_Drive.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(1, "01--3.5_Disk_Drive_NoCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(2, "02--3.5_Disk_Drive_Check.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(3, "03--3.5_Disk_Drive_IntCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(4, "04--Hard_Drive.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(5, "05--Hard_Drive_NoCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(6, "06--Hard_Drive_Check.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(7, "07--Hard_Drive_IntCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(8, "08--CD_Drive.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(9, "09--CD_Drive_NoCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(10, "10--CD_Drive_Check.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(11, "11-CD_Drive_IntCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(12, "12--Network_Drive.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(13, "13--Network_Drive_NoCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(14, "14--Network_Drive_Check.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(15, "15--Network_IntCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(16, "16--folder.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(17, "17--folder_NoCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(18, "18--folder_Check.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(19, "19--folder_IntCheck.ico");
-            this.imlTreeViewIcons.Images.SetKeyName(20, "20--File.ico");
-            // 
             // grbDirectoryScope
             // 
             this.grbDirectoryScope.Controls.Add(this.rabSaveNothing);
@@ -494,12 +509,13 @@
             // 
             // trvExplorer
             // 
+            this.trvExplorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.trvExplorer.ImageIndex = 16;
             this.trvExplorer.ImageList = this.imlTreeViewIcons;
-            this.trvExplorer.Location = new System.Drawing.Point(6, 6);
+            this.trvExplorer.Location = new System.Drawing.Point(3, 6);
             this.trvExplorer.Name = "trvExplorer";
             this.trvExplorer.SelectedImageIndex = 16;
-            this.trvExplorer.Size = new System.Drawing.Size(226, 560);
+            this.trvExplorer.Size = new System.Drawing.Size(226, 200);
             this.trvExplorer.TabIndex = 0;
             this.trvExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer_AfterSelect);
             // 
@@ -886,5 +902,6 @@
         private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressBackup;
         private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressRestore;
         private System.Windows.Forms.ImageList imlExceptionIcons;
+        private ExplorerTreeView trvExplorer2;
     }
 }
