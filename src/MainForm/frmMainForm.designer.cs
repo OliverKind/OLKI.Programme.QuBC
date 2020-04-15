@@ -65,7 +65,7 @@
             this.mnuMain_Help_About = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageSelect = new System.Windows.Forms.TabPage();
-            this.trvExplorer2 = new OLKI.Programme.QBC.MainForm.ExplorerTreeView();
+            this.trvExplorer = new OLKI.Programme.QBC.MainForm.ExplorerTreeView();
             this.imlTreeViewIcons = new System.Windows.Forms.ImageList(this.components);
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnGoToFolder = new System.Windows.Forms.Button();
@@ -81,7 +81,6 @@
             this.btnLsvExplorerChangeSelect = new System.Windows.Forms.Button();
             this.rabSaveAll = new System.Windows.Forms.RadioButton();
             this.rabSaveSelected = new System.Windows.Forms.RadioButton();
-            this.trvExplorer = new System.Windows.Forms.TreeView();
             this.tabPageBackup = new System.Windows.Forms.TabPage();
             this.grbControleProcessBackup = new System.Windows.Forms.GroupBox();
             this.uscControleBackup = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle();
@@ -310,7 +309,7 @@
             // 
             // tabPageSelect
             // 
-            this.tabPageSelect.Controls.Add(this.trvExplorer2);
+            this.tabPageSelect.Controls.Add(this.trvExplorer);
             this.tabPageSelect.Controls.Add(this.btnRefresh);
             this.tabPageSelect.Controls.Add(this.btnGoToFolder);
             this.tabPageSelect.Controls.Add(this.btnExplorerGoTop);
@@ -318,7 +317,6 @@
             this.tabPageSelect.Controls.Add(this.prgItemProperty);
             this.tabPageSelect.Controls.Add(this.lsvDirectoryContent);
             this.tabPageSelect.Controls.Add(this.grbDirectoryScope);
-            this.tabPageSelect.Controls.Add(this.trvExplorer);
             this.tabPageSelect.Location = new System.Drawing.Point(4, 23);
             this.tabPageSelect.Name = "tabPageSelect";
             this.tabPageSelect.Padding = new System.Windows.Forms.Padding(3);
@@ -327,18 +325,18 @@
             this.tabPageSelect.Text = "Sicherung - Quelle";
             this.tabPageSelect.UseVisualStyleBackColor = true;
             // 
-            // trvExplorer2
+            // trvExplorer
             // 
-            this.trvExplorer2.DirectoryList = null;
-            this.trvExplorer2.ImageIndex = 16;
-            this.trvExplorer2.ImageList = this.imlTreeViewIcons;
-            this.trvExplorer2.Location = new System.Drawing.Point(6, 212);
-            this.trvExplorer2.Name = "trvExplorer2";
-            this.trvExplorer2.SelectedImageIndex = 0;
-            this.trvExplorer2.ShowNodeToolTips = true;
-            this.trvExplorer2.Size = new System.Drawing.Size(226, 309);
-            this.trvExplorer2.TabIndex = 10;
-            this.trvExplorer2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer2_AfterSelect);
+            this.trvExplorer.DirectoryList = null;
+            this.trvExplorer.ImageIndex = 16;
+            this.trvExplorer.ImageList = this.imlTreeViewIcons;
+            this.trvExplorer.Location = new System.Drawing.Point(6, 6);
+            this.trvExplorer.Name = "trvExplorer";
+            this.trvExplorer.SelectedImageIndex = 0;
+            this.trvExplorer.ShowNodeToolTips = true;
+            this.trvExplorer.Size = new System.Drawing.Size(226, 559);
+            this.trvExplorer.TabIndex = 10;
+            this.trvExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer_AfterSelect);
             // 
             // imlTreeViewIcons
             // 
@@ -506,18 +504,6 @@
             this.rabSaveSelected.Text = "Dieses Ordner und ausgewählte Untreordner und ausgewählte Dateien sichern";
             this.rabSaveSelected.UseVisualStyleBackColor = true;
             this.rabSaveSelected.CheckedChanged += new System.EventHandler(this.rabSaveSelected_CheckedChanged);
-            // 
-            // trvExplorer
-            // 
-            this.trvExplorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.trvExplorer.ImageIndex = 16;
-            this.trvExplorer.ImageList = this.imlTreeViewIcons;
-            this.trvExplorer.Location = new System.Drawing.Point(3, 6);
-            this.trvExplorer.Name = "trvExplorer";
-            this.trvExplorer.SelectedImageIndex = 16;
-            this.trvExplorer.Size = new System.Drawing.Size(226, 200);
-            this.trvExplorer.TabIndex = 0;
-            this.trvExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer_AfterSelect);
             // 
             // tabPageBackup
             // 
@@ -855,7 +841,6 @@
         private System.Windows.Forms.Button btnLsvExplorerChangeSelect;
         private System.Windows.Forms.RadioButton rabSaveAll;
         private System.Windows.Forms.RadioButton rabSaveSelected;
-        private System.Windows.Forms.TreeView trvExplorer;
         private System.Windows.Forms.ImageList imlTreeViewIcons;
         private System.Windows.Forms.TextBox txtExplorerPath;
         private System.Windows.Forms.RadioButton rabSaveNothing;
@@ -902,6 +887,6 @@
         private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressBackup;
         private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressRestore;
         private System.Windows.Forms.ImageList imlExceptionIcons;
-        private ExplorerTreeView trvExplorer2;
+        private ExplorerTreeView trvExplorer;
     }
 }

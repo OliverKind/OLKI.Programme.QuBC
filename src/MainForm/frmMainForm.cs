@@ -1,7 +1,7 @@
 ﻿/*
  * QBC- QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -49,10 +49,6 @@ namespace OLKI.Programme.QBC.MainForm
         #endregion 
 
         #region Fields
-        /// <summary>
-        /// Specifies the current selected directory
-        /// </summary>
-        private DirectoryInfo _activeDirectory = null;
         /// <summary>
         /// Provides helper functions for the application MainForm
         /// </summary>
@@ -135,19 +131,16 @@ namespace OLKI.Programme.QBC.MainForm
 
             // Initial project on startup
             this.LoadInitialProject(args);
-            //this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
+
+            this.trvExplorer.LoadDrives();
+            this.trvExplorer.DirectoryList = this._projectManager.ActiveProject.ToBackupDirectorys;
+            this.trvExplorer.ShowHiddenDirectories = Properties.Settings.Default.ListItems_ShowHidden;
+            this.trvExplorer.ShowDirectoriesWithoutAccess = Properties.Settings.Default.ListItems_ShowWithoutAccess;
+            this.trvExplorer.ShowSystemDirectories = Properties.Settings.Default.ListItems_ShowSystem;
+            this.trvExplorer.SetImageVariant();
 
             // Initial directory content area
             this.trvExplorer_AfterSelect(this, new TreeViewEventArgs(null));
-
-
-            //TODO: REMOVE --> For Testing
-            this.trvExplorer2.LoadDrives();
-            this.trvExplorer2.DirectoryList = this._projectManager.ActiveProject.ToBackupDirectorys;
-            this.trvExplorer2.ShowHiddenDirectories = Properties.Settings.Default.ListItems_ShowHidden;
-            this.trvExplorer2.ShowDirectoriesWithoutAccess = Properties.Settings.Default.ListItems_ShowWithoutAccess;
-            this.trvExplorer2.ShowSystemDirectories = Properties.Settings.Default.ListItems_ShowSystem;
-            this.trvExplorer2.SetImageVariant();
         }
 
         /// <summary>
@@ -231,7 +224,6 @@ namespace OLKI.Programme.QBC.MainForm
             this.Text = string.Format(TITLE_LINE_FORMAT, new object[] { ProductName, ProjectName, ProjectChanged });
 
             // Load settings to controle
-            this._mainFormHelper.ExplorerTreeView_InitialTreeView(this.trvExplorer);
             this.uscControleBackup.LoadSettings();
             this.uscControleRestore.LoadSettings();
         }
@@ -301,76 +293,8 @@ namespace OLKI.Programme.QBC.MainForm
 
         #region Tab Pages
         #region tabPage_Select
-        private void trvExplorer2_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            // Clear if no node is selected
-            if (this.trvExplorer2.SelectedNode == null)
-            {
-                this.btnExplorerGoTop.Enabled = false;
-                this.btnGoToFolder.Enabled = false;
-                this.btnRefresh.Enabled = false;
-                this.grbDirectoryScope.Enabled = false;
-                this.lsvDirectoryContent.Enabled = false;
-                this.prgItemProperty.Enabled = false;
-                this.txtExplorerPath.Enabled = false;
-
-                this.rabSaveNothing.Checked = true;
-                this.prgItemProperty.SelectedObject = null;
-                return;
-            }
-
-            // Show directroy properties
-            bool DirectroyAccess;
-            if (Tools.CommonTools.DirectoryAndFile.Path.IsDrive(this.trvExplorer2.LastSelectedNode.DirectoryInfo.FullName))
-            {
-                DriveInfo SelectedDrive = new DriveInfo(this.trvExplorer2.LastSelectedNode.DirectoryInfo.Name);
-                DirectroyAccess = SelectedDrive.IsReady;
-                this.prgItemProperty.SelectedObject = SelectedDrive;
-            }
-            else
-            {
-                DirectroyAccess = this.trvExplorer2.LastSelectedNode.DirectoryInfo.Exists;
-                this.prgItemProperty.SelectedObject = this.trvExplorer2.LastSelectedNode.DirectoryInfo;
-            }
-            this.btnExplorerGoTop.Enabled = DirectroyAccess;
-            this.btnGoToFolder.Enabled = DirectroyAccess;
-            this.btnRefresh.Enabled = DirectroyAccess;
-            this.grbDirectoryScope.Enabled = DirectroyAccess;
-            this.lsvDirectoryContent.Enabled = DirectroyAccess;
-            this.prgItemProperty.Enabled = true;
-            this.txtExplorerPath.Enabled = DirectroyAccess;
-
-            //List directrory items
-            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this.trvExplorer2.LastSelectedNode.DirectoryInfo, this.lsvDirectoryContent);
-
-            // Search in project for an defined scrope or set default to nothing selected
-            switch (this._mainFormHelper.DirectoryContentListView_GetDirectoryScope(this.trvExplorer2.LastSelectedNode.DirectoryInfo))
-            {
-                case BackupProject.Project.DirectoryScope.Nothing:
-                    this.rabSaveNothing.Checked = true;
-                    break;
-                case BackupProject.Project.DirectoryScope.All:
-                    this.rabSaveAll.Checked = true;
-                    break;
-                case BackupProject.Project.DirectoryScope.Selected:
-                    this.rabSaveSelected.Checked = true;
-                    break;
-                default:
-                    this.rabSaveNothing.Checked = true;
-                    break;
-            }
-
-            this.rabSaveXXX_CheckedChanged(sender, e);
-            this._suppressControleEvents = false;
-        }
-
-
-
-
-
         private void trvExplorer_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            this._suppressControleEvents = true;
             // Clear if no node is selected
             if (this.trvExplorer.SelectedNode == null)
             {
@@ -387,44 +311,34 @@ namespace OLKI.Programme.QBC.MainForm
                 return;
             }
 
-            //Set properties of selected node (directroy or drive)
-            bool HasAccess;
-            if (Tools.CommonTools.DirectoryAndFile.Path.IsDrive(((ExtendedTreeNode)this.trvExplorer.SelectedNode).DirectoryInfo.FullName))
+            // Show directroy properties
+            bool DirectroyAccess;
+            if (Tools.CommonTools.DirectoryAndFile.Path.IsDrive(this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName))
             {
-                DriveInfo SelectedDrive = new DriveInfo(((ExtendedTreeNode)this.trvExplorer.SelectedNode).DirectoryInfo.Name);
-                HasAccess = SelectedDrive.IsReady;
+                DriveInfo SelectedDrive = new DriveInfo(this.trvExplorer.LastSelectedNode.DirectoryInfo.Name);
+                DirectroyAccess = SelectedDrive.IsReady;
                 this.prgItemProperty.SelectedObject = SelectedDrive;
             }
             else
             {
-                DirectoryInfo Selectedirectory = ((ExtendedTreeNode)this.trvExplorer.SelectedNode).DirectoryInfo;
-                HasAccess = Selectedirectory.Exists;
-                this.prgItemProperty.SelectedObject = Selectedirectory;
+                DirectroyAccess = this.trvExplorer.LastSelectedNode.DirectoryInfo.Exists;
+                this.prgItemProperty.SelectedObject = this.trvExplorer.LastSelectedNode.DirectoryInfo;
             }
-            this.btnExplorerGoTop.Enabled = HasAccess;
-            this.btnGoToFolder.Enabled = HasAccess;
-            this.btnRefresh.Enabled = HasAccess;
-            this.grbDirectoryScope.Enabled = HasAccess;
-            this.lsvDirectoryContent.Enabled = HasAccess;
+            this.btnExplorerGoTop.Enabled = DirectroyAccess;
+            this.btnGoToFolder.Enabled = DirectroyAccess;
+            this.btnRefresh.Enabled = DirectroyAccess;
+            this.grbDirectoryScope.Enabled = DirectroyAccess;
+            this.lsvDirectoryContent.Enabled = DirectroyAccess;
             this.prgItemProperty.Enabled = true;
-            this.txtExplorerPath.Enabled = HasAccess;
+            this.txtExplorerPath.Enabled = DirectroyAccess;
 
-            //Remember selected directroy
-            this._activeDirectory = ((ExtendedTreeNode)this.trvExplorer.SelectedNode).DirectoryInfo;
-
-            //Create Subnodes of selected directroy
-            if (((ExtendedTreeNode)this.trvExplorer.SelectedNode).Nodes.Count == 0)
-            {
-                this._mainFormHelper.ExplorerTreeView_AddSubNotes((ExtendedTreeNode)this.trvExplorer.SelectedNode);
-            }
+            this.txtExplorerPath.Text = this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName;
 
             //List directrory items
-            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this._activeDirectory, this.lsvDirectoryContent);
-            if (Settings.Default.ListItems_ExpandTreeNodeOnSingleClick) this.trvExplorer.SelectedNode.Expand();
-            this.txtExplorerPath.Text = (this._activeDirectory.FullName);
+            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this.trvExplorer.LastSelectedNode.DirectoryInfo, this.lsvDirectoryContent);
 
             // Search in project for an defined scrope or set default to nothing selected
-            switch (this._mainFormHelper.DirectoryContentListView_GetDirectoryScope(this._activeDirectory))
+            switch (this._mainFormHelper.DirectoryContentListView_GetDirectoryScope(this.trvExplorer.LastSelectedNode.DirectoryInfo))
             {
                 case BackupProject.Project.DirectoryScope.Nothing:
                     this.rabSaveNothing.Checked = true;
@@ -439,7 +353,8 @@ namespace OLKI.Programme.QBC.MainForm
                     this.rabSaveNothing.Checked = true;
                     break;
             }
-            this.rabSaveXXX_CheckedChanged(sender, e); // To change Enable states
+
+            this.rabSaveXXX_CheckedChanged(sender, e);
             this._suppressControleEvents = false;
         }
 
@@ -467,18 +382,20 @@ namespace OLKI.Programme.QBC.MainForm
             // Set Directory and TreeView
             if (!this._suppressControleEvents)
             {
-                if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer2.LastSelectedNode.DirectoryInfo, QBC.BackupProject.Project.DirectoryScope.All);
-                if (this.rabSaveNothing.Checked) this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer2.LastSelectedNode.DirectoryInfo);
-                if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer2.LastSelectedNode.DirectoryInfo, QBC.BackupProject.Project.DirectoryScope.Selected);
+                if (this.trvExplorer.LastSelectedNode == null) return;
+
+                if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, QBC.BackupProject.Project.DirectoryScope.All);
+                if (this.rabSaveNothing.Checked) this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
+                if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, QBC.BackupProject.Project.DirectoryScope.Selected);
 
                 //Set TreeNodes
-                if (this.trvExplorer2.LastSelectedNode.Parent == null)
+                if (this.trvExplorer.LastSelectedNode.Parent == null)
                 {
-                    this.trvExplorer2.SetImageVariant(this.trvExplorer2.LastSelectedNode.DirectoryInfo, true);
+                    this.trvExplorer.SetImageVariant(this.trvExplorer.LastSelectedNode.DirectoryInfo, true);
                 }
                 else
                 {
-                    this.trvExplorer2.SetImageVariant(((ExtendedTreeNode)this.trvExplorer2.LastSelectedNode.Parent).DirectoryInfo, true);
+                    this.trvExplorer.SetImageVariant(((ExtendedTreeNode)this.trvExplorer.LastSelectedNode.Parent).DirectoryInfo, true);
                 }
             }
         }
@@ -505,22 +422,25 @@ namespace OLKI.Programme.QBC.MainForm
         {
             try
             {
-                this._mainFormHelper.ExplorerTreeView_SelectTreeViewItem(this._activeDirectory.Parent.FullName, this.trvExplorer.Nodes);
+                if (this.trvExplorer.LastSelectedNode != null && this.trvExplorer.LastSelectedNode.Parent != null)
+                {
+                    ExtendedTreeNode SelectedTreeNode = this.trvExplorer.SearchTreeNode(((ExtendedTreeNode)this.trvExplorer.LastSelectedNode.Parent).DirectoryInfo);
+                    if (SelectedTreeNode != null) this.trvExplorer.SelectedNode = SelectedTreeNode;
+                }
             }
-            catch (Exception ex)
+            catch
             {
-                System.Diagnostics.Debug.Print(ex.Message);
             }
         }
 
         private void btnGoToFolder_Click(object sender, EventArgs e)
         {
-            OLKI.Tools.CommonTools.DirectoryAndFile.Directory.Open(this._activeDirectory.FullName, false, string.Empty);
+            OLKI.Tools.CommonTools.DirectoryAndFile.Directory.Open(this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName, false, string.Empty);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this._activeDirectory, this.lsvDirectoryContent);
+            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this.trvExplorer.LastSelectedNode.DirectoryInfo, this.lsvDirectoryContent);
         }
 
         private void lsvExplorer_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -530,12 +450,6 @@ namespace OLKI.Programme.QBC.MainForm
             {
                 DirectoryInfo Directory = (DirectoryInfo)e.Item.Tag;
 
-                //Search Treeview, then set directory
-                //TODO: CREASH IF NO NODE IS SELECTED
-                //foreach (ExtendedTreeNode CTreeNode in this.trvExplorer2.SelectedNode.Nodes)
-                //{
-                //    if (CTreeNode.DirectoryInfo.FullName == Directory.FullName)
-                //    {
                 if (e.Item.Checked)
                 {
                     this._mainFormHelper.Project_AddDirectorysToProject(Directory, BackupProject.Project.DirectoryScope.All);
@@ -546,19 +460,18 @@ namespace OLKI.Programme.QBC.MainForm
                     this._mainFormHelper.Project_RemoveDirectorysFromBackup(Directory);
                     e.Item.ImageIndex = 17;
                 }
-                //    }
-                //}
             }
+
             //Is File
             if (!this._suppressControleEvents && e.Item.Tag.GetType().Equals(typeof(FileInfo)))
             {
                 if (e.Item.Checked)
                 {
-                    this._projectManager.ActiveProject.FileAdd(this.trvExplorer2.LastSelectedNode.DirectoryInfo, ((FileInfo)e.Item.Tag));
+                    this._projectManager.ActiveProject.FileAdd(this.trvExplorer.LastSelectedNode.DirectoryInfo, ((FileInfo)e.Item.Tag));
                 }
                 else
                 {
-                    this._projectManager.ActiveProject.FileRemove(this.trvExplorer2.LastSelectedNode.DirectoryInfo, ((FileInfo)e.Item.Tag));
+                    this._projectManager.ActiveProject.FileRemove(this.trvExplorer.LastSelectedNode.DirectoryInfo, ((FileInfo)e.Item.Tag));
                 }
             }
         }
@@ -657,9 +570,9 @@ namespace OLKI.Programme.QBC.MainForm
                 this._recentFiles.FileList.Clear();
                 this.SetRecentFilesSettingsAndMenue();
             }
-            this.trvExplorer2.ShowHiddenDirectories = Properties.Settings.Default.ListItems_ShowHidden;
-            this.trvExplorer2.ShowDirectoriesWithoutAccess = Properties.Settings.Default.ListItems_ShowWithoutAccess;
-            this.trvExplorer2.ShowSystemDirectories = Properties.Settings.Default.ListItems_ShowSystem;
+            this.trvExplorer.ShowHiddenDirectories = Properties.Settings.Default.ListItems_ShowHidden;
+            this.trvExplorer.ShowDirectoriesWithoutAccess = Properties.Settings.Default.ListItems_ShowWithoutAccess;
+            this.trvExplorer.ShowSystemDirectories = Properties.Settings.Default.ListItems_ShowSystem;
         }
 
         private void mnuMain_Help_About_Click(object sender, EventArgs e)

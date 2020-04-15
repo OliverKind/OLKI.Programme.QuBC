@@ -1,7 +1,7 @@
 ﻿/*
  * QBC- QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -48,11 +48,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <summary>
         /// Default check state to return by ExplorerTreeView_GetCheckStateDirectory if check state can not identified
         /// </summary>
-        private const ExtendedTreeNode.CheckedState DEFAULT_CHECK_STATE = OLKI.Programme.QBC.MainForm.ExtendedTreeNode.CheckedState.NotChecked;
-        /// <summary>
-        /// Default Explorer TreeVie icon
-        /// </summary>
-        private const int DFAULT_INITIAL_ICON = 0;
+        private const ExtendedTreeNode.CheckedState DEFAULT_CHECK_STATE = ExtendedTreeNode.CheckedState.NotChecked;
         #endregion
 
         #region Fields
@@ -183,7 +179,7 @@ namespace OLKI.Programme.QBC.MainForm
                         ListViewItem NewItem = new ListViewItem
                         {
                             Checked = this.DirectoryContentListView_GetDirectoryChecked(Directory),
-                            ImageIndex = (int)this.ExplorerTreeView_GetCheckStateDirectoryIcon(Directory, 16),
+                            ImageIndex = 16+(int)this.DirectoryContentListView_GetCheckState(Directory.FullName),
                             Tag = Directory,
                             Text = Directory.Name
                         };
@@ -225,79 +221,13 @@ namespace OLKI.Programme.QBC.MainForm
                 System.Diagnostics.Debug.Print(ex.Message);
             }
         }
-        #endregion
 
-        #region ExplorerTreeView
         /// <summary>
-        /// Reads the directroy, represents by the specified node, an add sub nodes like the sub directory of the selected directroy to the specified node
-        /// </summary>
-        /// <param name="parentNode">Specifies the tree node to read an add sub nodes</param>
-        internal void ExplorerTreeView_AddSubNotes(ExtendedTreeNode parentNode)
-        {
-            try
-            {
-                foreach (DirectoryInfo Directory in new DirectoryInfo(parentNode.DirectoryInfo.FullName).GetDirectories().OrderBy(o => o.Name))
-                {
-                    try
-                    {
-                        if ((Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(Directory) || Settings.Default.ListItems_ShowWithoutAccess) && (Settings.Default.ListItems_ShowSystem || (Directory.Attributes & FileAttributes.System) != FileAttributes.System))
-                        {
-                            ExtendedTreeNode NewNode = new ExtendedTreeNode(Directory)
-                            {
-                                BaseImageIndex = 16,
-                                ImageVariant = this.ExplorerTreeView_GetCheckStateDirectoryIcon(Directory)
-                            };
-                            parentNode.Nodes.Add(NewNode);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        System.Diagnostics.Debug.Print(ex.Message);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Print(ex.Message);
-            }
-        }
-
-        #region ExplorerTreeView_GetCheckStateDirectory
-        /// <summary>
-        /// Get the check state of a tree view item by a specified directory from project data and returns a unknown as check state if check state can not identified
-        /// </summary>
-        /// <param name="directory">Specifies the directory to check</param>
-        /// <returns>The checked state of the specified directory</returns>
-        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectory(DirectoryInfo directory)
-        {
-            return this.ExplorerTreeView_GetCheckStateDirectory(directory.FullName, DEFAULT_CHECK_STATE);
-        }
-        /// <summary>
-        /// Get the check state of a tree view item by a specified directory from project data and returns a specified check state if check state can not identified
-        /// </summary>
-        /// <param name="directory">Specifies the directory to check</param>
-        /// <param name="defaultReturn">Check state to return if check state can not identified</param>
-        /// <returns>The checked state of the specified directory</returns>
-        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectory(DirectoryInfo directory, ExtendedTreeNode.CheckedState defaultReturn)
-        {
-            return this.ExplorerTreeView_GetCheckStateDirectory(directory.FullName, defaultReturn);
-        }
-        /// <summary>
-        /// Get the check state of a tree view item by a specified directory from project data and returns a unknown as check state if check state can not identified
+        /// Get the check state of a ListViewItem by a specified directory from project data and returns the defaukt check state can not identified
         /// </summary>
         /// <param name="path">A string that specifies the path of the directory to check</param>
         /// <returns>The checked state of the specified directory</returns>
-        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectory(string path)
-        {
-            return this.ExplorerTreeView_GetCheckStateDirectory(path, DEFAULT_CHECK_STATE);
-        }
-        /// <summary>
-        /// Get the check state of a tree view item by a specified directory from project data and returns a specified check state if check state can not identified
-        /// </summary>
-        /// <param name="path">A string that specifies the path of the directory to check</param>
-        /// <param name="defaultReturn">Check state to return if check state can not identified</param>
-        /// <returns>The checked state of the specified directory</returns>
-        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectory(string path, ExtendedTreeNode.CheckedState defaultReturn)
+        private ExtendedTreeNode.CheckedState DirectoryContentListView_GetCheckState(string path)
         {
             if (this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(path))
             {
@@ -310,135 +240,15 @@ namespace OLKI.Programme.QBC.MainForm
                     case BackupProject.Project.DirectoryScope.All:
                         return ExtendedTreeNode.CheckedState.Checked;
                     default:
-                        return defaultReturn;
+                        return DEFAULT_CHECK_STATE;
                 }
             }
-            return defaultReturn;
-        }
-        #endregion
-
-        #region ExplorerTreeView_GetCheckStateDirectoryIcon
-        /// <summary>
-        /// Get the icon with check state to set for the specified directory in ExplorerTreeView, using a default icon
-        /// </summary>
-        /// <param name="directory">Specifies the directory to check</param>
-        /// <returns>The icon to set in tree view for the specified directory</returns>
-        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(DirectoryInfo directory)
-        {
-            return this.ExplorerTreeView_GetCheckStateDirectoryIcon(directory.FullName);
-        }
-        /// <summary>
-        /// Get the icon with check state to set for the specified directory in ExplorerTreeView, using a initial icon
-        /// </summary>
-        /// <param name="directory">Specifies the directory to check</param>
-        /// <returns>The icon to set in tree view for the specified directory</returns>
-        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(DirectoryInfo directory, int initalIcon)
-        {
-            return this.ExplorerTreeView_GetCheckStateDirectoryIcon(directory.FullName, initalIcon);
-        }
-        /// <summary>
-        /// Get the icon with check state to set for the specified directory in ExplorerTreeView, using a default icon
-        /// </summary>
-        /// <param name="path">A string that specifies the path of the directory to check</param>
-        /// <returns>The icon to set in tree view for the specified directory</returns>
-        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(string path)
-        {
-            return this.ExplorerTreeView_GetCheckStateDirectoryIcon(path, DFAULT_INITIAL_ICON);
-        }
-        /// <summary>
-        /// Get the icon with check state to set for the specified directory in ExplorerTreeView, using a initial icon
-        /// </summary>
-        /// <param name="path">A string that specifies the path of the directory to check</param>
-        /// <returns>The icon to set in tree view for the specified directory</returns>
-        internal ExtendedTreeNode.CheckedState ExplorerTreeView_GetCheckStateDirectoryIcon(string path, int initalIcon)
-        {
-            return initalIcon + this.ExplorerTreeView_GetCheckStateDirectory(path);
-        }
-        #endregion
-
-        #region ExplorerTreeView_InitialTreeView
-        /// <summary>
-        /// Clears the explorer TreeView and add root nodes with syste, drives
-        /// </summary>
-        internal void ExplorerTreeView_InitialTreeView(TreeView explorerTreeView)
-        {
-            explorerTreeView.Nodes.Clear();
-            foreach (DriveInfo Drive in DriveInfo.GetDrives().OrderBy(o => o.Name))
-            {
-                ExtendedTreeNode NewNode = new ExtendedTreeNode(new DirectoryInfo(Drive.Name))
-                {
-                    Text = string.Format("{0} ({1})", new object[] { Drive.IsReady ? Drive.VolumeLabel : string.Empty, Drive.Name })
-                };
-
-                switch (Drive.DriveType)
-                {
-                    case DriveType.Removable:
-                        NewNode.BaseImageIndex = 0;
-                        break;
-                    case DriveType.CDRom:
-                        NewNode.BaseImageIndex = 8;
-                        break;
-                    case DriveType.Network:
-                        NewNode.BaseImageIndex = 12;
-                        break;
-                    default:
-                        NewNode.BaseImageIndex = 4;
-                        break;
-                }
-                NewNode.ImageVariant = this.ExplorerTreeView_GetCheckStateDirectoryIcon(Drive.Name);
-                explorerTreeView.Nodes.Add(NewNode);
-            }
-        }
-        #endregion
-
-        #region ExplorerTreeView_SelectTreeViewItem
-        //TODO: REMOVE?
-        /// <summary>
-        /// Select the TreeView node in explorer TreeView by a specified directroy
-        /// </summary>
-        /// <param name="directory">A string that specifies the path of the directory to select the tree node in explorer TreeView</param>
-        internal void ExplorerTreeView_SelectTreeViewItem(System.IO.DirectoryInfo directory, TreeNodeCollection treeNodes)
-        {
-            this.ExplorerTreeView_SelectTreeViewItem(directory.FullName, treeNodes);
-        }
-        //TODO: REMOVE?
-        /// <summary>
-        /// Select the TreeView node in explorer TreeView by a specified directroy
-        /// </summary>
-        /// <param name="directoryPath">Specifies the directroy to select the TreeView node</param>
-        internal void ExplorerTreeView_SelectTreeViewItem(string directoryPath, TreeNodeCollection treeNodes)
-        {
-            foreach (ExtendedTreeNode TreeNode in treeNodes)
-            {
-                if (TreeNode.DirectoryInfo.FullName == directoryPath)
-                {
-                    TreeNode.TreeView.SelectedNode = TreeNode;
-                    return;
-                }
-                else
-                {
-                    this.ExplorerTreeView_SelectTreeViewItem(directoryPath, (TreeNodeCollection)TreeNode.Nodes);
-                }
-            }
-        }
-        #endregion
-
-        /// <summary>
-        /// Set the specified ExplorerTreeViewNode an all sub nodes to not checked
-        /// </summary>
-        /// <param name="treeNode"></param>
-        private void ExplorerTreeView_SetTreeViewNodeAndSubNotesToNotChecked(ExtendedTreeNode treeNode)
-        {
-            treeNode.ImageVariant = ExtendedTreeNode.CheckedState.NotChecked;
-            foreach (ExtendedTreeNode TreeNode in treeNode.Nodes)
-            {
-                this.ExplorerTreeView_SetTreeViewNodeAndSubNotesToNotChecked(TreeNode);
-            }
+            return DEFAULT_CHECK_STATE;
         }
         #endregion
 
         #region Project
-        #region Project_AddDirectorysToProjectAndSetTree
+        #region Project_AddDirectorysToProject
         /// <summary>
         /// Add or overwrite the specified directroy to the project, using a default scope and set the associated ExplorerTreeViewNode
         /// </summary>
@@ -469,13 +279,10 @@ namespace OLKI.Programme.QBC.MainForm
         {
             if (directory == null) return;
 
-            //Add directory to ToDo list
             if (this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(directory.FullName))
             {
-                //if (this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] == BackupProject.Project.DirectoryScope.Nothing)
-                //{
+                //Add directory to ToDo list
                 this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = BackupProject.Project.DirectoryScope.Selected;
-                //}
             }
             else
             {
@@ -488,28 +295,26 @@ namespace OLKI.Programme.QBC.MainForm
             {
                 this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = scope;
             }
-            //TODO: ROMVE --> treeNode.ImageVariant = this.ExplorerTreeView_GetCheckStateDirectoryIcon(directory);
 
             // Set parents
             this.Project_AddDirectorysToProject(directory.Parent);
         }
         #endregion
 
+        #region Project_RemoveDirectorysFromBackup
         /// <summary>
         /// Removes the specified directroy and all sub directrories and files from project and set the asspcoated ExplorerTreeViewNodes
         /// </summary>
         /// <param name="directory">Specifies the directroy to remove</param>
         internal void Project_RemoveDirectorysFromBackup(DirectoryInfo directory)
         {
-            //TODO: REMOVE -->   if (treeNode == null)                return;
-
-            //TODO: REMOVE -->   this.ExplorerTreeView_SetTreeViewNodeAndSubNotesToNotChecked(treeNode);
             foreach (KeyValuePair<string, QBC.BackupProject.Project.DirectoryScope> directoryItem in new Dictionary<string, BackupProject.Project.DirectoryScope>(this._projectManager.ActiveProject.ToBackupDirectorys).Where(A => A.Key.StartsWith(directory.FullName)))
             {
                 this._projectManager.ActiveProject.DirectoryRemove(directoryItem.Key);
             }
             this._projectManager.ActiveProject.Changed = true;
         }
+        #endregion
         #endregion
         #endregion
     }
