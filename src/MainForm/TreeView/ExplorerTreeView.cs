@@ -1,18 +1,40 @@
-﻿using OLKI.Tools;
-using OLKI.Tools.CommonTools;
+﻿/*
+ * QBC- QuickBackupCreator
+ * 
+ * Copyright:   Oliver Kind - 2020
+ * License:     LGPL
+ * 
+ * Desctiption:
+ * Explorer TreeView for the application
+ * 
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the LGPL General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * LGPL General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not check the GitHub-Repository.
+ * 
+ * */
+ 
 using OLKI.Programme.QBC.BackupProject;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace OLKI.Programme.QBC.MainForm
 {
+    /// <summary>
+    /// Explorer TreeView for the application
+    /// </summary>
     public partial class ExplorerTreeView : TreeView
     {
         #region Constants
@@ -143,9 +165,6 @@ namespace OLKI.Programme.QBC.MainForm
                 }
                 this.CreateDummyForSubDirectories(NewNode);
                 this.Nodes.Add(NewNode);
-
-                //TODO: REMOVE
-                this.LoadSubDirectories(NewNode);
             }
         }
 
@@ -218,6 +237,7 @@ namespace OLKI.Programme.QBC.MainForm
             }
         }
 
+        #region SearchTreeNode
         /// <summary>
         /// Search the tree node, that is corresponding that match to the directory
         /// </summary>
@@ -248,6 +268,7 @@ namespace OLKI.Programme.QBC.MainForm
             }
             return ReturnNode;
         }
+        #endregion
 
         #region SetImageVariant
         /// <summary>
