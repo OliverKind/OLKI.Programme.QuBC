@@ -171,6 +171,9 @@ namespace OLKI.Programme.QBC.MainForm
         {
             try
             {
+                directoryContentList.BeginUpdate();
+                ListView.ListViewItemCollection NewItemsCollection = new ListView.ListViewItemCollection(directoryContentList);
+
                 directoryContentList.Items.Clear();
                 foreach (DirectoryInfo Directory in new DirectoryInfo(directory.FullName).GetDirectories().OrderBy(o => o.Name))
                 {
@@ -179,7 +182,7 @@ namespace OLKI.Programme.QBC.MainForm
                         ListViewItem NewItem = new ListViewItem
                         {
                             Checked = this.DirectoryContentListView_GetDirectoryChecked(Directory),
-                            ImageIndex = 16+(int)this.DirectoryContentListView_GetCheckState(Directory.FullName),
+                            ImageIndex = 16 + (int)this.DirectoryContentListView_GetCheckState(Directory.FullName),
                             Tag = Directory,
                             Text = Directory.Name
                         };
@@ -188,7 +191,7 @@ namespace OLKI.Programme.QBC.MainForm
                         NewItem.SubItems[1].Tag = null;
                         NewItem.SubItems.Add(Directory.LastWriteTime.ToString());
                         NewItem.SubItems[1].Tag = Directory.LastWriteTime;
-                        directoryContentList.Items.Add(NewItem);
+                        NewItemsCollection.Add(NewItem);
                     }
                 }
                 foreach (FileInfo File in new DirectoryInfo(directory.FullName).GetFiles().OrderBy(o => o.Name))
@@ -205,8 +208,9 @@ namespace OLKI.Programme.QBC.MainForm
                     NewItem.SubItems[1].Tag = File.Length;
                     NewItem.SubItems.Add(File.LastWriteTime.ToString());
                     NewItem.SubItems[2].Tag = File.LastWriteTime;
-                    directoryContentList.Items.Add(NewItem);
+                    NewItemsCollection.Add(NewItem);
                 }
+                directoryContentList.Items.AddRange(NewItemsCollection);
             }
             catch (IOException ex)
             {
@@ -219,6 +223,10 @@ namespace OLKI.Programme.QBC.MainForm
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.Print(ex.Message);
+            }
+            finally
+            {
+                directoryContentList.EndUpdate();
             }
         }
 
