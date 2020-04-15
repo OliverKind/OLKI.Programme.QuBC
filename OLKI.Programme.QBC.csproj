@@ -175,7 +175,7 @@
       <DependentUpon>frmApplicationSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\MainForm\clsMainFormHelper.cs" />
-    <Compile Include="src\MainForm\clsExtendedTreeNode.cs" />
+    <Compile Include="src\MainForm\TreeView\clsExtendedTreeNode.cs" />
     <Compile Include="src\MainForm\frmMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
