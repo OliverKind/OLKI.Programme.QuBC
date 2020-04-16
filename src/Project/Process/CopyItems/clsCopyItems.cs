@@ -123,7 +123,9 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     worker.CancelAsync();
                     return;
                 }
+                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, ProcControle.FORCE_REPORTING_FLAG);
             }
+            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, ProcControle.FORCE_REPORTING_FLAG);
         }
 
         /// <summary>
