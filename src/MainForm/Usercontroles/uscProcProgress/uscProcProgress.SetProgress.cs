@@ -187,10 +187,21 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x001A);
                 TextBoxInv.Text(this._progressControle.txtCopyStart, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                TextBoxInv.Text(this._progressControle.txtActualDir, "");
+                TextBoxInv.Text(this._progressControle.txtActualFile, "");
 
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, this._progressControle.ProgressStore.TotalDirectories.ActualValue.ToString());
                 TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, this._progressControle.ProgressStore.TotalFiles.ActualValue.ToString());
                 TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+
+                ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
+                ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Blocks);
+                ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Blocks);
+                ProgressBarInv.Style(this._progressControle.pbaActualDirFiles, ProgressBarStyle.Blocks);
+                ProgressBarInv.Style(this._progressControle.pbaActualFileByte, ProgressBarStyle.Blocks);
+
+                ProgressBarInv.Value(this._progressControle.pbaActualDirFiles, 0);
+                ProgressBarInv.Value(this._progressControle.pbaActualFileByte, 0);
             }
             #endregion
 
