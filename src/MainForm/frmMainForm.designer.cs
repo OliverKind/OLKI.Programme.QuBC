@@ -175,7 +175,7 @@
             this.mnuMain_File_Open.Name = "mnuMain_File_Open";
             this.mnuMain_File_Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.mnuMain_File_Open.Size = new System.Drawing.Size(291, 22);
-            this.mnuMain_File_Open.Text = "Profil &Öffnen";
+            this.mnuMain_File_Open.Text = "Profil &öffnen";
             this.mnuMain_File_Open.Click += new System.EventHandler(this.mnuMain_File_Open_Click);
             // 
             // mnuMain_File_SepSave
@@ -418,7 +418,7 @@
             this.rabSaveNothing.Name = "rabSaveNothing";
             this.rabSaveNothing.Size = new System.Drawing.Size(488, 24);
             this.rabSaveNothing.TabIndex = 0;
-            this.rabSaveNothing.Text = "Dieses Ordner und alle Unterordner und Dateien nicht sichern";
+            this.rabSaveNothing.Text = "Diesen Ordner und alle Unterordner und Dateien nicht sichern";
             this.rabSaveNothing.UseVisualStyleBackColor = true;
             this.rabSaveNothing.CheckedChanged += new System.EventHandler(this.rabSaveNothing_CheckedChanged);
             // 
@@ -439,7 +439,7 @@
             this.rabSaveAll.Name = "rabSaveAll";
             this.rabSaveAll.Size = new System.Drawing.Size(488, 24);
             this.rabSaveAll.TabIndex = 1;
-            this.rabSaveAll.Text = "Dieses Ordner und alle Unterordner und Dateien sichern";
+            this.rabSaveAll.Text = "Diesen Ordner und alle Unterordner und Dateien sichern";
             this.rabSaveAll.UseVisualStyleBackColor = true;
             this.rabSaveAll.CheckedChanged += new System.EventHandler(this.rabSaveAll_CheckedChanged);
             // 
@@ -452,7 +452,7 @@
             this.rabSaveSelected.Size = new System.Drawing.Size(488, 24);
             this.rabSaveSelected.TabIndex = 2;
             this.rabSaveSelected.TabStop = true;
-            this.rabSaveSelected.Text = "Dieses Ordner und ausgewählte Untreordner und ausgewählte Dateien sichern";
+            this.rabSaveSelected.Text = "Diesen Ordner und ausgewählte Unterordner und ausgewählte Dateien sichern";
             this.rabSaveSelected.UseVisualStyleBackColor = true;
             this.rabSaveSelected.CheckedChanged += new System.EventHandler(this.rabSaveSelected_CheckedChanged);
             // 
@@ -836,7 +836,7 @@
             this.lblCopiedFiles.Name = "lblCopiedFiles";
             this.lblCopiedFiles.Size = new System.Drawing.Size(213, 23);
             this.lblCopiedFiles.TabIndex = 3;
-            this.lblCopiedFiles.Text = "Gesicherte / Wiederhergestellte Dateiein:";
+            this.lblCopiedFiles.Text = "Gesicherte / Wiederhergestellte Dateien:";
             // 
             // txtConclusionFiles
             // 

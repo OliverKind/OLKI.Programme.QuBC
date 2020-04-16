@@ -79,7 +79,7 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Im Zielverzeichniss ablegen, mit angehängtem Datum ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Im Zielverzeichnis ablegen, mit angehängtem Datum ähnelt.
         /// </summary>
         internal static string chkLogFileAutoPath_Text__Backup {
             get {
@@ -88,7 +88,7 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Im Quellverzeichniss ablegen, mit angehängtem Datum ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Im Quellverzeichnis ablegen, mit angehängtem Datum ähnelt.
         /// </summary>
         internal static string chkLogFileAutoPath_Text__Restore {
             get {

@@ -151,9 +151,9 @@
             // 
             // txtDefaultFileOpen
             // 
-            this.txtDefaultFileOpen.Location = new System.Drawing.Point(140, 45);
+            this.txtDefaultFileOpen.Location = new System.Drawing.Point(142, 45);
             this.txtDefaultFileOpen.Name = "txtDefaultFileOpen";
-            this.txtDefaultFileOpen.Size = new System.Drawing.Size(460, 20);
+            this.txtDefaultFileOpen.Size = new System.Drawing.Size(458, 20);
             this.txtDefaultFileOpen.TabIndex = 5;
             // 
             // lblDefaultFileOpen
@@ -161,9 +161,9 @@
             this.lblDefaultFileOpen.AutoSize = true;
             this.lblDefaultFileOpen.Location = new System.Drawing.Point(6, 48);
             this.lblDefaultFileOpen.Name = "lblDefaultFileOpen";
-            this.lblDefaultFileOpen.Size = new System.Drawing.Size(128, 13);
+            this.lblDefaultFileOpen.Size = new System.Drawing.Size(130, 13);
             this.lblDefaultFileOpen.TabIndex = 4;
-            this.lblDefaultFileOpen.Text = "Datei beim starten öffnen:";
+            this.lblDefaultFileOpen.Text = "Datei beim Starten öffnen:";
             // 
             // btnDefaultPath_Browse
             // 
@@ -177,9 +177,9 @@
             // 
             // txtDefaultPath
             // 
-            this.txtDefaultPath.Location = new System.Drawing.Point(140, 19);
+            this.txtDefaultPath.Location = new System.Drawing.Point(142, 19);
             this.txtDefaultPath.Name = "txtDefaultPath";
-            this.txtDefaultPath.Size = new System.Drawing.Size(460, 20);
+            this.txtDefaultPath.Size = new System.Drawing.Size(458, 20);
             this.txtDefaultPath.TabIndex = 1;
             // 
             // lblDefaultPath
@@ -261,9 +261,9 @@
             this.chkEypandTreeNodeOnClick.AutoSize = true;
             this.chkEypandTreeNodeOnClick.Location = new System.Drawing.Point(6, 65);
             this.chkEypandTreeNodeOnClick.Name = "chkEypandTreeNodeOnClick";
-            this.chkEypandTreeNodeOnClick.Size = new System.Drawing.Size(243, 17);
+            this.chkEypandTreeNodeOnClick.Size = new System.Drawing.Size(242, 17);
             this.chkEypandTreeNodeOnClick.TabIndex = 2;
-            this.chkEypandTreeNodeOnClick.Text = "Ordnerbaum beim Einfachen klicken erweitern";
+            this.chkEypandTreeNodeOnClick.Text = "Ordnerbaum beim einfachen klicken erweitern";
             this.chkEypandTreeNodeOnClick.UseVisualStyleBackColor = true;
             // 
             // chkShowDirectorysWithoutAccess
@@ -281,9 +281,9 @@
             this.chkShowSystemDirectory.AutoSize = true;
             this.chkShowSystemDirectory.Location = new System.Drawing.Point(6, 42);
             this.chkShowSystemDirectory.Name = "chkShowSystemDirectory";
-            this.chkShowSystemDirectory.Size = new System.Drawing.Size(199, 17);
+            this.chkShowSystemDirectory.Size = new System.Drawing.Size(198, 17);
             this.chkShowSystemDirectory.TabIndex = 1;
-            this.chkShowSystemDirectory.Text = "Systemordner und -dateien Anzeigen";
+            this.chkShowSystemDirectory.Text = "Systemordner und -dateien anzeigen";
             this.chkShowSystemDirectory.UseVisualStyleBackColor = true;
             // 
             // grbLogFile
@@ -335,7 +335,7 @@
             this.grbAddTextToFiile.Size = new System.Drawing.Size(688, 45);
             this.grbAddTextToFiile.TabIndex = 3;
             this.grbAddTextToFiile.TabStop = false;
-            this.grbAddTextToFiile.Text = "Text an bereits existierende Datei anhängen";
+            this.grbAddTextToFiile.Text = "Text an bereits existierende Dateien anhängen";
             // 
             // lblAddTextToFileDefaultText
             // 

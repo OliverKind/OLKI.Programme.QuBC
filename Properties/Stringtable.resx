@@ -136,7 +136,7 @@ Ihre Änderungen gehen verloren, wenn Sie diese nicht speichern.</value>
     <comment>OLKI.Programme.QBC.MainForm.MainForm.MainForm_FormClosing:SaveChanges.Message</comment>
   </data>
   <data name="0x0003c" xml:space="preserve">
-    <value>Bitte als Administrator auführen.</value>
+    <value>Bitte als Administrator ausführen.</value>
     <comment>OLKI.Programme.QBC.MainForm.MainForm.MainForm_Shown:NotAdministrator.Caption</comment>
   </data>
   <data name="0x0003m" xml:space="preserve">
@@ -158,7 +158,7 @@ Ihre Änderungen gehen verloren, wenn Sie diese nicht speichern.</value>
     <comment>OLKI.Programme.QBC.MainForm.MainFormHelper.DirectoryContentListView_ListDirectoryItems:ExceptionOpenDirectory.Message</comment>
   </data>
   <data name="0x0006" xml:space="preserve">
-    <value>Standardordner der bei er Dateiauswahl angezeigt werden soll</value>
+    <value>Standardordner der bei der Dateiauswahl angezeigt werden soll</value>
     <comment>OLKI.Programme.QBC.MainForm.SubForms.ApplicationSettingsForm.btnDefaultPath_Browse_Click:FolderBrowserDialog.Description</comment>
   </data>
   <data name="0x0007c" xml:space="preserve">
@@ -188,7 +188,7 @@ Die kopie ist wahrscheinlich unvollständig.
     <comment>OLKI.Programme.QBC.ProjectManager.GetOverwriteActiveProject:HasUnsavedChanges.Caption</comment>
   </data>
   <data name="0x0009m" xml:space="preserve">
-    <value>Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wenn Sie fortfahren gehen diese Änderungen verlohren.
+    <value>Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wenn Sie fortfahren gehen diese Änderungen verloren.
 
 Möchten Sie fortfahren?</value>
     <comment>OLKI.Programme.QBC.ProjectManager.GetOverwriteActiveProject:HasUnsavedChanges.Message</comment>
@@ -218,15 +218,15 @@ Möchten Sie fortfahren?</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecursive:NoSource</comment>
   </data>
   <data name="0x000D" xml:space="preserve">
-    <value>Allgemeiner Fehler beim kopieren von Dateien im Ordner.</value>
+    <value>Allgemeiner Fehler beim Kopieren von Dateien im Ordner.</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecursive:GeneralException</comment>
   </data>
   <data name="0x000E" xml:space="preserve">
-    <value>Allgemeienr Fehler beim kopieren der Datei</value>
+    <value>Allgemeiner Fehler beim Kopieren der Datei</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFile:GeneralExceptiona</comment>
   </data>
   <data name="0x000F" xml:space="preserve">
-    <value>Allgemeienr Fehler beim kopieren der Datei</value>
+    <value>Allgemeiner Fehler beim Kopieren der Datei</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileBufferd:GeneralExceptiona</comment>
   </data>
   <data name="0x0010" xml:space="preserve">
@@ -234,11 +234,11 @@ Möchten Sie fortfahren?</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileOpenSource:GeneralExceptiona</comment>
   </data>
   <data name="0x0011" xml:space="preserve">
-    <value>Fehler beim Anlegen der Quelldatei</value>
+    <value>Fehler beim Anlegen der Quelldatei????????????????????????????</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileCreateTarget:GeneralExceptiona</comment>
   </data>
   <data name="0x0012" xml:space="preserve">
-    <value>Fehler beim schreiben der Daten in die Zieldatei</value>
+    <value>Fehler beim Schreiben der Daten in die Zieldatei</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileWriteDate:GeneralExceptiona</comment>
   </data>
   <data name="0x0013" xml:space="preserve">
@@ -250,7 +250,7 @@ Möchten Sie fortfahren?</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileWriteMetadata:GeneralExceptiona</comment>
   </data>
   <data name="0x0015" xml:space="preserve">
-    <value>Zählen von Elemente und Daten wird gestartet</value>
+    <value>Zählen von Elementen und Daten wird gestartet</value>
     <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetProgress_CountStart:lblStepText</comment>
   </data>
   <data name="0x0016" xml:space="preserve">
@@ -258,7 +258,7 @@ Möchten Sie fortfahren?</value>
     <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CountBusy:lblStepText</comment>
   </data>
   <data name="0x0017" xml:space="preserve">
-    <value>Zählen von Elemente und Daten abgeschlossen</value>
+    <value>Zählen von Elementen und Daten abgeschlossen</value>
     <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CountFinish:lblStepText</comment>
   </data>
   <data name="0x0018" xml:space="preserve">
@@ -294,7 +294,7 @@ Möchten Sie fortfahren?</value>
     <comment>OLKI.Programme.QBC.BackupProject.Project.Project_FromXMLString:Exception.Caption</comment>
   </data>
   <data name="0x001Fm" xml:space="preserve">
-    <value>Fehler beim lesen der Projektdatei.
+    <value>Fehler beim Lesen der Projektdatei.
 
 {0}</value>
     <comment>OLKI.Programme.QBC.BackupProject.Project.Project_FromXMLString:Exception.Message</comment>

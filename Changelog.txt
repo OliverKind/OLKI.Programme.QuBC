@@ -14,10 +14,12 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.0.7] - 2020-04-16
 ### Changed
-- Sizeable form
+- Application sizeable
 
 ### Fixed
 - Progressbar keep Marque-Style after copy finish
+- Crash while copying file failed
+- Unwanted project change indication
 - Spelling
 
 ## [1.0.2.6] - 2020-04-15

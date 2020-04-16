@@ -64,7 +64,7 @@
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(446, 17);
             this.lblProductName.TabIndex = 0;
-            this.lblProductName.Text = "Progamm: {0}";
+            this.lblProductName.Text = "Programm: {0}";
             this.lblProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tblLayoutPanel

@@ -124,10 +124,10 @@
     <value>Datenwiederherstellung starten</value>
   </data>
   <data name="chkLogFileAutoPath_Text__Backup" xml:space="preserve">
-    <value>Im Zielverzeichniss ablegen, mit angehängtem Datum</value>
+    <value>Im Zielverzeichnis ablegen, mit angehängtem Datum</value>
   </data>
   <data name="chkLogFileAutoPath_Text__Restore" xml:space="preserve">
-    <value>Im Quellverzeichniss ablegen, mit angehängtem Datum</value>
+    <value>Im Quellverzeichnis ablegen, mit angehängtem Datum</value>
   </data>
   <data name="chkRootDirectory_Text__Backup" xml:space="preserve">
     <value>Wurzelordner mit Laufwerksbuchstaben erstellen</value>

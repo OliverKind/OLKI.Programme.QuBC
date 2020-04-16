@@ -99,7 +99,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte als Administrator auführen. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte als Administrator ausführen. ähnelt.
         /// </summary>
         internal static string _0x0003c {
             get {
@@ -146,7 +146,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Standardordner der bei er Dateiauswahl angezeigt werden soll ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Standardordner der bei der Dateiauswahl angezeigt werden soll ähnelt.
         /// </summary>
         internal static string _0x0006 {
             get {
@@ -206,7 +206,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wenn Sie fortfahren gehen diese Änderungen verlohren.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wenn Sie fortfahren gehen diese Änderungen verloren.
         ///
         ///Möchten Sie fortfahren? ähnelt.
         /// </summary>
@@ -266,7 +266,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeiner Fehler beim kopieren von Dateien im Ordner. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeiner Fehler beim Kopieren von Dateien im Ordner. ähnelt.
         /// </summary>
         internal static string _0x000D {
             get {
@@ -275,7 +275,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeienr Fehler beim kopieren der Datei ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeiner Fehler beim Kopieren der Datei ähnelt.
         /// </summary>
         internal static string _0x000E {
             get {
@@ -284,7 +284,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeienr Fehler beim kopieren der Datei ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Allgemeiner Fehler beim Kopieren der Datei ähnelt.
         /// </summary>
         internal static string _0x000F {
             get {
@@ -302,7 +302,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Anlegen der Quelldatei ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Anlegen der Quelldatei???????????????????????????? ähnelt.
         /// </summary>
         internal static string _0x0011 {
             get {
@@ -311,7 +311,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim schreiben der Daten in die Zieldatei ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Schreiben der Daten in die Zieldatei ähnelt.
         /// </summary>
         internal static string _0x0012 {
             get {
@@ -338,7 +338,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zählen von Elemente und Daten wird gestartet ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zählen von Elementen und Daten wird gestartet ähnelt.
         /// </summary>
         internal static string _0x0015 {
             get {
@@ -356,7 +356,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zählen von Elemente und Daten abgeschlossen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zählen von Elementen und Daten abgeschlossen ähnelt.
         /// </summary>
         internal static string _0x0017 {
             get {
@@ -437,7 +437,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim lesen der Projektdatei.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Lesen der Projektdatei.
         ///
         ///{0} ähnelt.
         /// </summary>

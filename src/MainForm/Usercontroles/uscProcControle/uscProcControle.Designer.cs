@@ -184,9 +184,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             this.chkCountItemsAndBytes.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkCountItemsAndBytes.Location = new System.Drawing.Point(6, 19);
             this.chkCountItemsAndBytes.Name = "chkCountItemsAndBytes";
-            this.chkCountItemsAndBytes.Size = new System.Drawing.Size(189, 17);
+            this.chkCountItemsAndBytes.Size = new System.Drawing.Size(191, 17);
             this.chkCountItemsAndBytes.TabIndex = 0;
-            this.chkCountItemsAndBytes.Text = "1. Auftragsvolumen vorab ermitteln";
+            this.chkCountItemsAndBytes.Text = "1. Aufgabenumfang vorab ermitteln";
             this.chkCountItemsAndBytes.UseVisualStyleBackColor = true;
             this.chkCountItemsAndBytes.CheckedChanged += new System.EventHandler(this.chkCountItemsAndBytes_CheckedChanged);
             // 
@@ -348,11 +348,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             // 
             this.lblTargetDirectory.AutoSize = true;
             this.lblTargetDirectory.Enabled = false;
-            this.lblTargetDirectory.Location = new System.Drawing.Point(344, 34);
+            this.lblTargetDirectory.Location = new System.Drawing.Point(349, 33);
             this.lblTargetDirectory.Name = "lblTargetDirectory";
-            this.lblTargetDirectory.Size = new System.Drawing.Size(85, 13);
+            this.lblTargetDirectory.Size = new System.Drawing.Size(80, 13);
             this.lblTargetDirectory.TabIndex = 4;
-            this.lblTargetDirectory.Text = "Zielverzeichniss:";
+            this.lblTargetDirectory.Text = "Zielverzeichnis:";
             // 
             // ProcControle
             // 
