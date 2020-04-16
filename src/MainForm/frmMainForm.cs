@@ -205,15 +205,26 @@ namespace OLKI.Programme.QBC.MainForm
         #region Projec Events
         private void ProjectManager_ProjectChanged(object sender, EventArgs e)
         {
+            if (this._suppressControleEvents)
+            {
+                if(this._projectManager.ActiveProject!=null ) this._projectManager.ActiveProject.Changed = false;
+                return;
+            }
             this.ProjectManager_ProjectFileChanged(sender, e);
         }
         private void ProjectManager_ProjectFileChanged(object sender, EventArgs e)
         {
-            string ProductName = string.Empty;
+            if (this._suppressControleEvents)
+            {
+                if (this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
+                return;
+            }
+
+            string ApplicationName = string.Empty;
             object[] attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Reflection.AssemblyProductAttribute), false);
             if (attributes.Length > 0)
             {
-                ProductName = ((System.Reflection.AssemblyProductAttribute)attributes[0]).Product;
+                ApplicationName = ((System.Reflection.AssemblyProductAttribute)attributes[0]).Product;
             }
             string ProjectName = Stringtable._0x0004;
             if (this._projectManager.ActiveProject.File != null && !string.IsNullOrEmpty(this._projectManager.ActiveProject.File.Name))
@@ -221,7 +232,7 @@ namespace OLKI.Programme.QBC.MainForm
                 ProjectName = this._projectManager.ActiveProject.File.Name;
             }
             string ProjectChanged = this._projectManager.ActiveProject.Changed ? "*" : string.Empty;
-            this.Text = string.Format(TITLE_LINE_FORMAT, new object[] { ProductName, ProjectName, ProjectChanged });
+            this.Text = string.Format(TITLE_LINE_FORMAT, new object[] { ApplicationName, ProjectName, ProjectChanged });
 
             // Load settings to controle
             this.uscControleBackup.LoadSettings();
@@ -286,6 +297,8 @@ namespace OLKI.Programme.QBC.MainForm
         #region tabPage_Select
         private void trvExplorer_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            this._suppressControleEvents = true;
+
             // Clear if no node is selected
             if (this.trvExplorer.SelectedNode == null)
             {
@@ -296,9 +309,10 @@ namespace OLKI.Programme.QBC.MainForm
                 this.lsvDirectoryContent.Enabled = false;
                 this.prgItemProperty.Enabled = false;
                 this.txtExplorerPath.Enabled = false;
-
                 this.rabSaveNothing.Checked = true;
                 this.prgItemProperty.SelectedObject = null;
+
+                this._suppressControleEvents = false;
                 return;
             }
 
