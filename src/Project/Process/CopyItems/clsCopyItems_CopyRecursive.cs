@@ -375,8 +375,8 @@ namespace OLKI.Programme.QBC.BackupProject.Process
             }
             finally
             {
-                Writer.Dispose();
-                Reader.Dispose();
+                if (Writer != null) Writer.Dispose();
+                if (Reader != null) Reader.Dispose();
             }
         }
 
@@ -506,8 +506,8 @@ namespace OLKI.Programme.QBC.BackupProject.Process
             }
             finally
             {
-                reader.Dispose();
-                writer.Dispose();
+                if (writer != null) writer.Dispose();
+                if (reader != null) reader.Dispose();
             }
         }
 
@@ -598,12 +598,12 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// Check if the exception is a full disc exception an return a critical exception level, otherwise return the alternative exception level
         /// </summary>
         /// <param name="exception">Exception to check the exception code for full disc exception</param>
-        /// <param name="alternateLevel">Exceptionlevel to return if it is not an full disc exception</param>
+        /// <param name="alternativeLevel">Exceptionlevel to return if it is not an full disc exception</param>
         /// <returns>Critical exception level if exception is an full disc exception, otherweise return the alternative definded exception level</returns>
-        public ProcessException.ExceptionLevel GetFullDiscExceptionReturnCode(Exception exception, ProcessException.ExceptionLevel alternateLevel)
+        public ProcessException.ExceptionLevel GetFullDiscExceptionReturnCode(Exception exception, ProcessException.ExceptionLevel alternativeLevel)
         {
             if (exception != null && System.Runtime.InteropServices.Marshal.GetHRForException(exception) == EXCEPTION_FULL_DISC) return ProcessException.ExceptionLevel.Critical;
-            return alternateLevel;
+            return alternativeLevel;
         }
         #endregion
     }
