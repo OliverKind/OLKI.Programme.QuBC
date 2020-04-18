@@ -46,6 +46,11 @@ namespace OLKI.Programme.QBC.BackupProject.Process
 
         #region Properties
         /// <summary>
+        /// The application MainForm
+        /// </summary>
+        private readonly MainForm.MainForm _mainFoorm;
+
+        /// <summary>
         /// The progresstore for copy items
         /// </summary>
         private ProgressStore _progress = null;
@@ -91,8 +96,9 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// <summary>
         /// Initialise an new copy item object
         /// </summary>
-        public CopyItems()
+        public CopyItems(MainForm.MainForm mainFoorm)
         {
+            this._mainFoorm = mainFoorm;
         }
 
         /// <summary>

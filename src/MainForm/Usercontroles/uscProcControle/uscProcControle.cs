@@ -94,7 +94,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// Element to copy items
         /// </summary>
-        private readonly BackupProject.Process.CopyItems _copier = new BackupProject.Process.CopyItems();
+        private BackupProject.Process.CopyItems _copier;
         /// <summary>
         /// Element to count items and bytes
         /// </summary>
@@ -122,6 +122,22 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         #endregion
 
         #region Properties
+        /// <summary>
+        /// The application MainForm
+        /// </summary>
+        private MainForm _mainForm;
+        [Browsable(false)]
+        /// <summary>
+        /// Set the application MainForm
+        /// </summary>
+        public MainForm MainForm
+        {
+            set
+            {
+                this._mainForm = value;
+            }
+        }
+
         /// <summary>
         /// The mode to run the controle
         /// </summary>
@@ -370,8 +386,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             if (this.chkCopyData.Checked)
             {
                 // Initial copier
-                this._copier.Progress = this._uscProgress.ProgressStore;
-                this._copier.Project = this._projectManager.ActiveProject;
+                this._copier = new BackupProject.Process.CopyItems(this._mainForm)
+                {
+                    Progress = this._uscProgress.ProgressStore,
+                    Project = this._projectManager.ActiveProject
+                };
 
                 //Start copy progress
                 this._worker.ReportProgress((int)ProcessStep.Copy_Start, FORCE_REPORTING_FLAG);

@@ -268,7 +268,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
             {
                 if (TargetFile.Exists)
                 {
-                    HandleExistingFiles.CheckResult HandleFile = HandleExistingFiles.GetOverwriteByAction(sourceFile, TargetFile, Properties.Settings.Default.Copy_FileExisitngAddTextDateFormat, this._project.Settings.Common.ExisitingFiles.HandleExistingItem, this._project.Settings.Common.ExisitingFiles.AddTextToExistingFile, false, out exception);
+                    HandleExistingFiles.CheckResult HandleFile = HandleExistingFiles.GetOverwriteByAction(sourceFile, TargetFile, Properties.Settings.Default.Copy_FileExisitngAddTextDateFormat, this._project.Settings.Common.ExisitingFiles.HandleExistingItem, this._project.Settings.Common.ExisitingFiles.AddTextToExistingFile, false, out exception, this._mainFoorm);
                     if (HandleFile.FormResult == DialogResult.Cancel)
                     {
                         worker.ReportProgress((int)ProcControle.ProcessStep.Cancel, ProcControle.FORCE_REPORTING_FLAG);

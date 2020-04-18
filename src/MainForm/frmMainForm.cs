@@ -123,8 +123,10 @@ namespace OLKI.Programme.QBC.MainForm
 
             this.uscControleBackup.ProgressControle = this.uscProgressBackup;
             this.uscControleBackup.ProjectManager = this._projectManager;
+            this.uscControleBackup.MainForm = this;
             this.uscControleRestore.ProgressControle = this.uscProgressRestore;
             this.uscControleRestore.ProjectManager = this._projectManager;
+            this.uscControleRestore.MainForm = this;
 
             // Intital helper
             this._mainFormHelper = new MainFormHelper(this._projectManager);
@@ -207,7 +209,7 @@ namespace OLKI.Programme.QBC.MainForm
         {
             if (this._suppressControleEvents)
             {
-                if(this._projectManager.ActiveProject!=null ) this._projectManager.ActiveProject.Changed = false;
+                if (this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
                 return;
             }
             this.ProjectManager_ProjectFileChanged(sender, e);
