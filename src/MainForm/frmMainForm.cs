@@ -384,7 +384,6 @@ namespace OLKI.Programme.QBC.MainForm
         {
             // Set Explorer
             this.btnLsvExplorerChangeSelect.Enabled = this.rabSaveSelected.Checked;
-            //this.lsvDirectoryContent.Enabled = this.btnLsvExplorerChangeSelect.Enabled;
             this.lsvDirectoryContent.BackColor = System.Drawing.SystemColors.Window;
             if(this.rabSaveAll.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
             if (this.rabSaveNothing.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(255, 192, 192);
