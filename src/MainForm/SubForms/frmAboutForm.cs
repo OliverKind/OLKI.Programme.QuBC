@@ -139,9 +139,9 @@ namespace OLKI.Programme.QBC.MainForm.SubForms
         internal AboutForm()
         {
             InitializeComponent();
-            this.Text = String.Format(this.Text, this.AssemblyTitle);
+            this.Text = string.Format(this.Text, this.AssemblyTitle);
             this.lblProductName.Text = string.Format(this.lblProductName.Text, this.AssemblyProduct);
-            this.lblVersion.Text = String.Format(this.lblVersion.Text, new object[] { this.AssemblyVersion, VERSION_NAME });
+            this.lblVersion.Text = string.Format(this.lblVersion.Text, new object[] { this.AssemblyVersion, VERSION_NAME });
             this.lblCopyright.Text = string.Format(this.lblCopyright.Text, this.AssemblyCopyright);
             this.lblCompanyName.Text = string.Format(this.lblCompanyName.Text, this.AssemblyCompany);
             this.textBoxDescription.Text = this.AssemblyDescription;
