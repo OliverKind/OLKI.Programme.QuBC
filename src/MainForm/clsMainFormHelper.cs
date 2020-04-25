@@ -172,9 +172,8 @@ namespace OLKI.Programme.QBC.MainForm
             try
             {
                 directoryContentList.BeginUpdate();
-                ListView.ListViewItemCollection NewItemsCollection = new ListView.ListViewItemCollection(directoryContentList);
-
                 directoryContentList.Items.Clear();
+
                 foreach (DirectoryInfo Directory in new DirectoryInfo(directory.FullName).GetDirectories().OrderBy(o => o.Name))
                 {
                     if ((Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(Directory) || Settings.Default.ListItems_ShowWithoutAccess) && (Settings.Default.ListItems_ShowSystem || (Directory.Attributes & FileAttributes.System) != FileAttributes.System))
@@ -191,9 +190,10 @@ namespace OLKI.Programme.QBC.MainForm
                         NewItem.SubItems[1].Tag = null;
                         NewItem.SubItems.Add(Directory.LastWriteTime.ToString());
                         NewItem.SubItems[1].Tag = Directory.LastWriteTime;
-                        NewItemsCollection.Add(NewItem);
+                        directoryContentList.Items.Add(NewItem);
                     }
                 }
+
                 foreach (FileInfo File in new DirectoryInfo(directory.FullName).GetFiles().OrderBy(o => o.Name))
                 {
                     ListViewItem NewItem = new ListViewItem
@@ -208,9 +208,8 @@ namespace OLKI.Programme.QBC.MainForm
                     NewItem.SubItems[1].Tag = File.Length;
                     NewItem.SubItems.Add(File.LastWriteTime.ToString());
                     NewItem.SubItems[2].Tag = File.LastWriteTime;
-                    NewItemsCollection.Add(NewItem);
+                    directoryContentList.Items.Add(NewItem);
                 }
-                directoryContentList.Items.AddRange(NewItemsCollection);
             }
             catch (IOException ex)
             {
