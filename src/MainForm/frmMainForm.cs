@@ -384,16 +384,20 @@ namespace OLKI.Programme.QBC.MainForm
         {
             // Set Explorer
             this.btnLsvExplorerChangeSelect.Enabled = this.rabSaveSelected.Checked;
-            this.lsvDirectoryContent.Enabled = this.btnLsvExplorerChangeSelect.Enabled;
+            //this.lsvDirectoryContent.Enabled = this.btnLsvExplorerChangeSelect.Enabled;
+            this.lsvDirectoryContent.BackColor = System.Drawing.SystemColors.Window;
+            if(this.rabSaveAll.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            if (this.rabSaveNothing.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(255, 192, 192);
+            if (this.rabSaveSelected.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 255);
 
             // Set Directory and TreeView
             if (!this._suppressControleEvents)
             {
                 if (this.trvExplorer.LastSelectedNode == null) return;
 
-                if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, QBC.BackupProject.Project.DirectoryScope.All);
+                if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, BackupProject.Project.DirectoryScope.All);
                 if (this.rabSaveNothing.Checked) this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
-                if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, QBC.BackupProject.Project.DirectoryScope.Selected);
+                if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, BackupProject.Project.DirectoryScope.Selected);
 
                 //Set TreeNodes
                 if (this.trvExplorer.LastSelectedNode.Parent == null)
@@ -481,6 +485,7 @@ namespace OLKI.Programme.QBC.MainForm
                     this._projectManager.ActiveProject.FileRemove(this.trvExplorer.LastSelectedNode.DirectoryInfo, ((FileInfo)e.Item.Tag));
                 }
             }
+            this.rabSaveSelected.Checked = true;
         }
 
         private void lsvExplorer_SelectedIndexChanged(object sender, EventArgs e)
