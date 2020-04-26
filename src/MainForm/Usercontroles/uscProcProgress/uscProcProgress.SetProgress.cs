@@ -170,11 +170,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                     TimeSpan RemainingTime = RemainingTimeByte > RemainingTimeItem ? RemainingTimeByte : RemainingTimeItem;
                     if (RemainingTime.Days > 0)
                     {
-                        TextBoxInv.Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeDays));
+                        TextBoxInv.Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(FORMAT_TIME_WITH_DAYS));
                     }
                     else
                     {
-                        TextBoxInv.Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(Properties.Settings.Default.Copy_RemainTimeNoDays));
+                        TextBoxInv.Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(FORMAT_TIME));
                     }
                 }
             }
