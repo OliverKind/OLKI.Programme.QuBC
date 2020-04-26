@@ -1,7 +1,7 @@
 ﻿/*
  * QBC- QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -21,11 +21,8 @@
  * along with this program; if not check the GitHub-Repository.
  * 
  * */
- 
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace OLKI.Programme.QBC.BackupProject.Process
 {
@@ -54,11 +51,29 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         };
 
         #region Properties
+        /// <summary>
+        /// Inner exception, original thrown
+        /// </summary>
         public Exception Exception { get; set; } = null;
 
+        /// <summary>
+        /// Levvel of the exception
+        /// </summary>
         public ExceptionLevel Level { get; set; } = DEFAULT_EXCEPTIOON_LEVEL;
+
+        /// <summary>
+        /// Directory or file source path, to copy
+        /// </summary>
         public string Source { get; set; } = "";
+
+        /// <summary>
+        /// Directory or file target path, to copy
+        /// </summary>
         public string Target { get; set; } = "";
+
+        /// <summary>
+        /// Description of the exception
+        /// </summary>
         public string Description { get; set; } = "";
 
         public ProcessException()
