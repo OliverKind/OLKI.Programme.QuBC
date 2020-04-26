@@ -486,7 +486,7 @@ namespace OLKI.Programme.QBC.MainForm
                     this._projectManager.ActiveProject.FileRemove(this.trvExplorer.LastSelectedNode.DirectoryInfo, ((FileInfo)e.Item.Tag));
                 }
             }
-            this.rabSaveSelected.Checked = true;
+            if (!this._suppressControleEvents) this.rabSaveSelected.Checked = true;
         }
 
         private void lsvExplorer_SelectedIndexChanged(object sender, EventArgs e)
