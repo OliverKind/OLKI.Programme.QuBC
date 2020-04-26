@@ -368,7 +368,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                 this._counter.Project = this._projectManager.ActiveProject;
 
                 //Start count progress
-                worker.ReportProgress((int)ProcessStep.Count_Start, new ProgressState(true));
+                worker.ReportProgress((int)ProcessStep.Count_Start, new ProgressState(this._progressStore,true));
                 System.Diagnostics.Debug.Print("    this._mode::" + this._mode.ToString());
                 switch (this._mode)
                 {
