@@ -111,7 +111,29 @@ namespace OLKI.Programme.QBC.MainForm
             {
                 return this._projectManager.ActiveProject.ToBackupDirectorys[path];
             }
-            return BackupProject.Project.DirectoryScope.Nothing;
+            return this.DirectoryContentListView_GetDirectoryScope_FromParent(path);
+        }
+
+        /// <summary>
+        /// Get the Scope of the specified directory at the parent directorys
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private BackupProject.Project.DirectoryScope DirectoryContentListView_GetDirectoryScope_FromParent(string path)
+        {
+            DirectoryInfo Parent = new DirectoryInfo(path).Parent;
+            if (Parent == null) return BackupProject.Project.DirectoryScope.Nothing;
+
+            if (this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(Parent.FullName))
+            {
+                if (this._projectManager.ActiveProject.ToBackupDirectorys[Parent.FullName] == BackupProject.Project.DirectoryScope.All)
+                {
+                    return BackupProject.Project.DirectoryScope.All;
+                }
+                return BackupProject.Project.DirectoryScope.Nothing;
+            }
+
+            return this.DirectoryContentListView_GetDirectoryScope_FromParent(Parent.FullName);
         }
         #endregion
 
