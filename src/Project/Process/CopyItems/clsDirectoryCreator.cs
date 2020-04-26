@@ -71,7 +71,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = targetDirectory.FullName
                 };
                 progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(progress, true));
 
                 return Exception.Level;
             }

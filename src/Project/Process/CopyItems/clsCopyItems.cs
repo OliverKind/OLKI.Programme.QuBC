@@ -54,16 +54,6 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// The progresstore for copy items
         /// </summary>
         private ProgressStore _progress = null;
-        /// <summary>
-        /// Set the progresstore for copy items
-        /// </summary>
-        internal ProgressStore Progress
-        {
-            set
-            {
-                this._progress = value;
-            }
-        }
 
         /// <summary>
         /// The project for copy items
@@ -106,12 +96,13 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// </summary>
         /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        internal void Backup(BackgroundWorker worker, DoWorkEventArgs e)
+        internal void Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             // Create main target directory
             ProcessException CreateTargetDirectoryException = new ProcessException();
             if (!this.CreateRootDirectory(this._project.Settings.ControleBackup.Directory.Path, worker, e)) return;
 
+            this._progress = progressStore;
             this._progress.TotalBytes.ActualValue = 0;
             this._progress.TotalDirectories.ActualValue = 0;
             this._progress.TotalFiles.ActualValue = 0;
@@ -129,9 +120,9 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     worker.CancelAsync();
                     return;
                 }
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress, true));
             }
-            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, ProcControle.FORCE_REPORTING_FLAG);
+            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress, true));
         }
 
         /// <summary>
@@ -139,10 +130,11 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// </summary>
         /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        internal void Restore(BackgroundWorker worker, DoWorkEventArgs e)
+        internal void Restore(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             if (worker is null) throw new ArgumentNullException(nameof(worker));
             if (e is null) throw new ArgumentNullException(nameof(e));
+            if (progressStore is null) throw new ArgumentNullException(nameof(progressStore));
             //TODO: ADD CODE --> in future version to restore Backup
             throw new Exception("OLKI.Programme.QBC.BackupProject.Process.CopyItems.Restore has no active code");
         }
@@ -173,7 +165,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = targetDirectory
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
 
                 e.Cancel = true;
                 worker.CancelAsync();

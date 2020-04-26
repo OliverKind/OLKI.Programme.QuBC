@@ -82,7 +82,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 if (!sourceDirectory.Exists)
                 {
                     this._progress.Exception.Exception = new Exception(Stringtable._0x000C, null);
-                    worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                    worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
 
                     return ProcessException.ExceptionLevel.Slight;
                 }
@@ -103,7 +103,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
 
                 // Report Progress
                 this._progress.DirectroyFiles.ElemenName = sourceDirectory.FullName;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
 
                 //Copy Files
                 switch (scope)
@@ -134,7 +134,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
 
                 // Report Progress
                 this._progress.TotalDirectories.ActualValue++;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
 
                 return ProcessException.ExceptionLevel.NoException;
             }
@@ -149,7 +149,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Source = sourceDirectory.FullName,
                     Target = TargetDirectory.FullName
                 };
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
 
                 return ProcessException.ExceptionLevel.Critical;
             }
@@ -184,7 +184,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
 
                 //Report Progress
                 this._progress.DirectroyFiles.ActualValue++;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
             }
             return ProcessException.ExceptionLevel.NoException;
         }
@@ -238,7 +238,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
 
                 //Report Progress
                 this._progress.DirectroyFiles.ActualValue++;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
             }
             return ProcessException.ExceptionLevel.NoException;
         }
@@ -261,7 +261,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
             this._progress.FileBytes.ElemenName = sourceFile.FullName;
             this._progress.FileBytes.MaxValue = sourceFile.Length;
 
-            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
 
             FileInfo TargetFile = new FileInfo(targetDirectory.FullName + @"\" + sourceFile.Name);
             try
@@ -271,7 +271,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     HandleExistingFiles.CheckResult HandleFile = HandleExistingFiles.GetOverwriteByAction(sourceFile, TargetFile, Properties.Settings.Default.Copy_FileExisitngAddTextDateFormat, this._project.Settings.Common.ExisitingFiles.HandleExistingItem, this._project.Settings.Common.ExisitingFiles.AddTextToExistingFile, false, out exception, this._mainFoorm);
                     if (HandleFile.FormResult == DialogResult.Cancel)
                     {
-                        worker.ReportProgress((int)ProcControle.ProcessStep.Cancel, ProcControle.FORCE_REPORTING_FLAG);
+                        worker.ReportProgress((int)ProcControle.ProcessStep.Cancel, new ProgressState(true));
                         e.Cancel = true;
                         worker.CancelAsync();
                         return ProcessException.ExceptionLevel.NoException;
@@ -286,7 +286,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     switch (HandleFile.OverwriteFile)
                     {
                         case HandleExistingFiles.ExistingFile.Exception:
-                            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
                             return ProcessException.ExceptionLevel.Medium;
                         case HandleExistingFiles.ExistingFile.Overwrite:
                         case HandleExistingFiles.ExistingFile.Rename:
@@ -295,7 +295,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                         case HandleExistingFiles.ExistingFile.Skip:
                             this._progress.TotalBytes.ActualValue += sourceFile.Length;
                             this._progress.TotalFiles.ActualValue++;
-                            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
                             return ProcessException.ExceptionLevel.NoException;
                     }
                 }
@@ -310,7 +310,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 }
 
                 //Report Progress
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
                 return ProcessException.ExceptionLevel.NoException;
             }
             catch (Exception ex)
@@ -326,7 +326,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = TargetFile.FullName
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
                 return ReturnLevel;
             }
         }
@@ -370,7 +370,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = targetFile.FullName
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
                 return false;
             }
             finally
@@ -412,8 +412,9 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = targetFile.FullName
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
-
+                //System.Diagnostics.Trace.WriteLine(sourceFile.FullName);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
+                //worker.CancelAsync();
                 return false;
             }
         }
@@ -450,7 +451,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = targetFile.FullName
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
 
                 return false;
             }
@@ -482,7 +483,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
 
                     this._progress.FileBytes.ActualValue += read;
                     this._progress.TotalBytes.ActualValue += read;
-                    worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy);
+                    worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
 
                     if (worker.CancellationPending) { e.Cancel = true; return false; }
                 }
@@ -500,7 +501,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = targetFile.FullName
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
 
                 return false;
             }
@@ -535,7 +536,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = targetFile.FullName
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
 
                 return false;
             }
@@ -569,7 +570,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                         Target = targetFile.FullName
                     };
                     this._progress.Exception = Exception;
-                    worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                    worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
                 }
                 targetFile.IsReadOnly = sourceFile.IsReadOnly;
 
@@ -587,7 +588,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     Target = targetFile.FullName
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
 
                 return false;
             }

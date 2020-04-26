@@ -23,6 +23,7 @@
  * */
 
 using OLKI.Tools.CommonTools.DirectoryAndFile;
+using OLKI.Programme.QBC.BackupProject.Process;
 using OLKI.Programme.QBC.Properties;
 using System;
 using System.ComponentModel;
@@ -94,11 +95,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// Element to copy items
         /// </summary>
-        private BackupProject.Process.CopyItems _copier;
+        private CopyItems _copier;
         /// <summary>
         /// Element to count items and bytes
         /// </summary>
-        private readonly BackupProject.Process.CountItems _counter = new BackupProject.Process.CountItems();
+        private readonly CountItems _counter = new CountItems();
         /// <summary>
         /// Dialog to browse to directorys
         /// </summary>
@@ -111,6 +112,10 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         /// The actual step of the current running process
         /// </summary>
         private ProcessStep _processStep = ProcessStep.None;
+        /// <summary>
+        /// The store for the progress
+        /// </summary>
+        private ProgressStore _progressStore = null;
         /// <summary>
         /// Save dialog for logfiles
         /// </summary>
@@ -351,63 +356,61 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             if (this.ProcessStarted != null) ProcessStarted(this, new EventArgs());
 
             //Initial Progress Store
+            this._progressStore = new ProgressStore();
             //The procedures use Invoke, otherwise the application will crash in some conditions.
             //This can also be prevented by replace this two function calls to the _worker_ProgressChanged function
-            this._uscProgress.ProgressStore.Initial();
             this._uscProgress.SetProgressStates.SetControlesValue.InitialControles();
 
             // Count Data
             if (this.chkCountItemsAndBytes.Checked)
             {
                 // Initial counter
-                this._counter.Progress = this._uscProgress.ProgressStore;
                 this._counter.Project = this._projectManager.ActiveProject;
 
                 //Start count progress
-                this._worker.ReportProgress((int)ProcessStep.Count_Start, FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcessStep.Count_Start, new ProgressState(true));
                 System.Diagnostics.Debug.Print("    this._mode::" + this._mode.ToString());
                 switch (this._mode)
                 {
                     //Start Counting in backup mode
                     case ControleMode.CreateBackup:
-                        this._counter.Backup(worker, e);
+                        this._counter.Backup(worker, e, this._progressStore);
                         break;
                     //Start Counting in restore mode
                     case ControleMode.RestoreBackup:
-                        this._counter.Restore(worker, e);
+                        this._counter.Restore(worker, e, this._progressStore);
                         break;
                     default:
                         throw new ArgumentException("uscControleProcess->worker_DoWork(Count)->Invalid value", nameof(this._mode));
                 }
-                worker.ReportProgress((int)ProcessStep.Count_Finish, FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcessStep.Count_Finish, new ProgressState(this._progressStore, true));
             }
 
             //Copy Data
             if (this.chkCopyData.Checked)
             {
                 // Initial copier
-                this._copier = new BackupProject.Process.CopyItems(this._mainForm)
+                this._copier = new CopyItems(this._mainForm)
                 {
-                    Progress = this._uscProgress.ProgressStore,
                     Project = this._projectManager.ActiveProject
                 };
 
                 //Start copy progress
-                this._worker.ReportProgress((int)ProcessStep.Copy_Start, FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcessStep.Copy_Start, new ProgressState(this._progressStore, true));
                 switch (this._mode)
                 {
                     //Start Counting in backup mode
                     case ControleMode.CreateBackup:
-                        this._copier.Backup(worker, e);
+                        this._copier.Backup(worker, e, this._progressStore);
                         break;
                     //Start Counting in restore mode
                     case ControleMode.RestoreBackup:
-                        this._copier.Restore(worker, e);
+                        this._copier.Restore(worker, e, this._progressStore);
                         break;
                     default:
                         throw new ArgumentException("uscControleProcess->worker_DoWork(CopyData)->Invalid value", nameof(this._mode));
                 }
-                if (!e.Cancel) worker.ReportProgress((int)ProcessStep.Copy_Finish, FORCE_REPORTING_FLAG);
+                if (!e.Cancel) worker.ReportProgress((int)ProcessStep.Copy_Finish, new ProgressState(true));
             }
             System.Diagnostics.Debug.Print("uscControleProcess::_worker_DoWork::FINISH");
         }
@@ -418,11 +421,10 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             // Use the progress in percentage to differ the different steps.
             // It looks a little bit stange. The real progress is stored in an member of this class.
             // Try to save the step in an member, lead to glitches. I used the ProgressPercentage as work around
-            bool ForceReport = false;
-            if (e.UserState != null && e.UserState.GetType().Equals(typeof(bool))) ForceReport = (bool)e.UserState;
+            ProgressState ProgressState = (ProgressState)e.UserState;
 
             // Report Progress by time Interval or if report is forced
-            if (ForceReport || this._uscProgress.CheckUpdateInterval(this._lastReportTime))
+            if (ProgressState.ForceReportProgress || this._uscProgress.CheckUpdateInterval(this._lastReportTime))
             {
                 this._lastReportTime = DateTime.Now;
 
@@ -434,16 +436,16 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                         this._uscProgress.SetProgressStates.SetProgress_CountStart();
                         break;
                     case ProcessStep.Count_Busy:
-                        this._uscProgress.SetProgressStates.SetPRogress_CountBusy();
+                        this._uscProgress.SetProgressStates.SetPRogress_CountBusy(ProgressState.ProgressStore);
                         break;
                     case ProcessStep.Count_Finish:
                         this._uscProgress.SetProgressStates.SetProgress_CountFinish();
                         break;
                     case ProcessStep.Copy_Start:
-                        this._uscProgress.SetProgressStates.SetProgress_CopyStart();
+                        this._uscProgress.SetProgressStates.SetProgress_CopyStart(ProgressState.ProgressStore);
                         break;
                     case ProcessStep.Copy_Busy:
-                        this._uscProgress.SetProgressStates.SetProgress_CopyBusy();
+                        this._uscProgress.SetProgressStates.SetProgress_CopyBusy(ProgressState.ProgressStore);
                         break;
                     case ProcessStep.Copy_Finish:
                         this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
@@ -452,7 +454,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                         this._uscProgress.SetProgressStates.SetProgress_Cancel();
                         break;
                     case ProcessStep.Exception:
-                        this._uscProgress.SetProgressStates.SetProgress_Exception();
+                        this._uscProgress.SetProgressStates.SetProgress_Exception(ProgressState.ProgressStore);
                         break;
                     default:
                         throw new ArgumentException("uscControleProcess->worker_ProgressChanged->Invalid value", nameof(this._processStep));
@@ -468,7 +470,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             if (this.ProcessFinishedCanceled != null) ProcessFinishedCanceled(this, new EventArgs());
 
             if (e.Cancelled) this._processStep = ProcessStep.Cancel;
-            if (this._uscProgress.ProgressStore.Exception.Exception != null) this._processStep = ProcessStep.Exception;
+            if (this._progressStore.Exception.Exception != null) this._processStep = ProcessStep.Exception;
 
             switch (this._processStep)
             {
@@ -487,7 +489,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
                 case ProcessStep.Exception:
-                    MessageBox.Show(this.ParentForm, string.Format(Stringtable._0x0008m, new object[] { this._uscProgress.ProgressStore.Exception.Exception.Message }), Stringtable._0x0008c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this.ParentForm, string.Format(Stringtable._0x0008m, new object[] { this._progressStore.Exception.Exception.Message }), Stringtable._0x0008c, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
                 default:

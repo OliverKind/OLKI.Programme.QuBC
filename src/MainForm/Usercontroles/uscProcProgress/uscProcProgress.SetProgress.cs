@@ -95,15 +95,15 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// <summary>
             /// Set controles for state: CountBusy
             /// </summary>
-            internal void SetPRogress_CountBusy()
+            internal void SetPRogress_CountBusy(ProgressStore progressStore)
             {
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0016);
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
 
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, this._progressControle.ProgressStore.TotalItems);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, this._progressControle.ProgressStore.TotalBytes);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllDir, null, this._progressControle.txtAllDirPer, this._progressControle.txtAllDirNum, null, this._progressControle.ProgressStore.DirectroyFiles);
-                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualDir, null, null, null, this._progressControle.ProgressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, progressStore.TotalItems);
+                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, progressStore.TotalBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllDir, null, this._progressControle.txtAllDirPer, this._progressControle.txtAllDirNum, null, progressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualDir, null, null, null, progressStore.DirectroyFiles);
             }
 
             /// <summary>
@@ -121,7 +121,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// Set controles for state: CopyStart
             /// Also set progress start time
             /// </summary>
-            internal void SetProgress_CopyStart()
+            internal void SetProgress_CopyStart(ProgressStore progressStore)
             {
                 DateTime StartTime = DateTime.Now;
                 this._progressControle._progressStart = StartTime;
@@ -136,7 +136,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, "");
 
                 TextBoxInv.Text(this._progressControle.txtCopyStart, StartTime.ToString(FORMAT_TIME));
-                if (this._progressControle.ProgressStore.TotalItems.MaxValue == null)
+                if (progressStore.TotalItems.MaxValue == null)
                 {
                     ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
                     ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
@@ -147,26 +147,26 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// <summary>
             /// Set controles for state: CopyBusy
             /// </summary>
-            internal void SetProgress_CopyBusy()
+            internal void SetProgress_CopyBusy(ProgressStore progressStore)
             {
-                System.Diagnostics.Debug.Print(this._progressControle.ProgressStore.DirectroyFiles.ElemenName);
+                System.Diagnostics.Debug.Print(progressStore.DirectroyFiles.ElemenName);
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0019);
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
-                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, this._progressControle.ProgressStore.TotalDirectories.ActualValue.ToString());
-                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, this._progressControle.ProgressStore.TotalFiles.ActualValue.ToString());
+                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, progressStore.TotalDirectories.ActualValue.ToString());
+                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, progressStore.TotalFiles.ActualValue.ToString());
                 TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
 
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, this._progressControle.ProgressStore.TotalItems);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, this._progressControle.ProgressStore.TotalBytes);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllDir, null, this._progressControle.txtAllDirPer, this._progressControle.txtAllDirNum, null, this._progressControle.ProgressStore.TotalDirectories);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaActualDirFiles, this._progressControle.txtActualDir, this._progressControle.txtActualDirFilesPer, this._progressControle.txtActualDirFilesNum, null, this._progressControle.ProgressStore.DirectroyFiles);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaActualFileByte, this._progressControle.txtActualFile, this._progressControle.txtActualFileBytePer, this._progressControle.txtActualFileByteNum, this._progressControle.cboActualFileByteNum, this._progressControle.ProgressStore.FileBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, progressStore.TotalItems);
+                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, progressStore.TotalBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllDir, null, this._progressControle.txtAllDirPer, this._progressControle.txtAllDirNum, null, progressStore.TotalDirectories);
+                this._setControleValue.SetProgressCluster(this._progressControle.pbaActualDirFiles, this._progressControle.txtActualDir, this._progressControle.txtActualDirFilesPer, this._progressControle.txtActualDirFilesNum, null, progressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(this._progressControle.pbaActualFileByte, this._progressControle.txtActualFile, this._progressControle.txtActualFileBytePer, this._progressControle.txtActualFileByteNum, this._progressControle.cboActualFileByteNum, progressStore.FileBytes);
 
                 // Get remaining time if counting was done
-                if (this._progressControle.ProgressStore.TotalItems.MaxValue != null && this._progressControle.ProgressStore.TotalItems.MaxValue > 0)
+                if (progressStore.TotalItems.MaxValue != null && progressStore.TotalItems.MaxValue > 0)
                 {
-                    TimeSpan RemainingTimeByte = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, this._progressControle.ProgressStore.TotalBytes.ActualValue, this._progressControle.ProgressStore.TotalBytes.MaxValue);
-                    TimeSpan RemainingTimeItem = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, this._progressControle.ProgressStore.TotalItems.ActualValue, this._progressControle.ProgressStore.TotalItems.MaxValue);
+                    TimeSpan RemainingTimeByte = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, progressStore.TotalBytes.ActualValue, progressStore.TotalBytes.MaxValue);
+                    TimeSpan RemainingTimeItem = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, progressStore.TotalItems.ActualValue, progressStore.TotalItems.MaxValue);
                     TimeSpan RemainingTime = RemainingTimeByte > RemainingTimeItem ? RemainingTimeByte : RemainingTimeItem;
                     if (RemainingTime.Days > 0)
                     {
@@ -190,8 +190,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 TextBoxInv.Text(this._progressControle.txtActualDir, "");
                 TextBoxInv.Text(this._progressControle.txtActualFile, "");
 
-                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, this._progressControle.ProgressStore.TotalDirectories.ActualValue.ToString());
-                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, this._progressControle.ProgressStore.TotalFiles.ActualValue.ToString());
                 TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
 
                 ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
@@ -221,9 +219,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             /// Set controles for state: Exception
             /// Add exception to ListView
             /// </summary>
-            internal void SetProgress_Exception()
+            internal void SetProgress_Exception(ProgressStore progressStore)
             {
-                ProcessException Exception = this._progressControle.ProgressStore.Exception;
+                ProcessException Exception = progressStore.Exception;
                 string ExceptionText = string.Empty;
 
                 if (!string.IsNullOrEmpty(Exception.Description) && string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText = Exception.Description;
@@ -256,6 +254,8 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 ExItem.SubItems.Add(Exception.Source);
                 ExItem.SubItems.Add(Exception.Target);
                 ExItem.SubItems.Add(ExceptionText);
+
+                //System.Diagnostics.Trace.WriteLine("__________________"+Exception.Source);
 
                 ListViewInv.AddItem(this._progressControle._exceptionListView, ExItem);
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, EXCEPTION_ICON_INDEX);

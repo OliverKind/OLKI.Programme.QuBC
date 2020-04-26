@@ -65,7 +65,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
         /// <summary>
         /// Contains all information for the Progress of a process
         /// </summary>
-        public BackupProject.Process.ProgressStore ProgressStore = new BackupProject.Process.ProgressStore();
+        //public BackupProject.Process.ProgressStore ProgressStore = new BackupProject.Process.ProgressStore();
         #endregion
 
         #region Properties

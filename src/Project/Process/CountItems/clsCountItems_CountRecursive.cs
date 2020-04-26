@@ -65,7 +65,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 // Report Progress
                 this._progress.TotalDirectories.MaxValue++;
                 this._progress.DirectroyFiles.ElemenName = directory.FullName;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress));
 
                 //Count Elements
                 switch (scope)
@@ -120,7 +120,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 this._progress.TotalBytes.MaxValue += FileItem.Length;
 
                 //Report Progress
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress));
             }
         }
 
@@ -163,7 +163,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     this._progress.TotalBytes.MaxValue += FileItem.Length;
                 }
                 //Report Progress
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress));
             }
         }
 #pragma warning restore IDE0060 // Remove unused parameter

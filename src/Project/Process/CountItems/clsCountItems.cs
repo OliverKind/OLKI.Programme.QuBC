@@ -40,16 +40,6 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// The progresstore for counting items
         /// </summary>
         private ProgressStore _progress = null;
-        /// <summary>
-        /// Set the progresstore for counting items
-        /// </summary>
-        internal ProgressStore Progress
-        {
-            set
-            {
-                this._progress = value;
-            }
-        }
 
         /// <summary>
         /// The project for counting items
@@ -80,16 +70,17 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// </summary>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        internal void Backup(BackgroundWorker worker, DoWorkEventArgs e)
+        internal void Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             // Initial Progress Store
+            this._progress = progressStore;
             this._progress.DirectroyFiles.ActualValue = 0;
             this._progress.DirectroyFiles.MaxValue = this._project.ToBackupDirectorys.Count;
             this._progress.TotalDirectories.MaxValue = 0;
             this._progress.TotalFiles.MaxValue = 0;
             this._progress.TotalBytes.MaxValue = 0;
 
-            worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, ProcControle.FORCE_REPORTING_FLAG);
+            worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress, true));
 
             // Count content of selected directories
             foreach (KeyValuePair<string, Project.DirectoryScope> item in this._project.ToBackupDirectorys.OrderBy(o => o.Key))
@@ -99,7 +90,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
 
                 //Report Directory
                 this._progress.DirectroyFiles.ElemenName = item.Key;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress, true));
 
                 // Search Recursive
                 this.CountRecursive(item.Key, item.Value, worker, e);
@@ -107,9 +98,9 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 //Report Progress
                 if (worker.CancellationPending) { e.Cancel = true; break; }
                 this._progress.DirectroyFiles.ActualValue++;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, ProcControle.FORCE_REPORTING_FLAG);
+                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress, true));
             }
-            worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, MainForm.Usercontroles.uscProcControle.ProcControle.FORCE_REPORTING_FLAG);
+            worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress, true));
         }
 
         /// <summary>
@@ -117,10 +108,11 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// </summary>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        internal void Restore(BackgroundWorker worker, DoWorkEventArgs e)
+        internal void Restore(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             if (worker is null) throw new ArgumentNullException(nameof(worker));
             if (e is null) throw new ArgumentNullException(nameof(e));
+            if (progressStore is null) throw new ArgumentNullException(nameof(progressStore));
             //TODO: ADD CODE --> in future version to restore Backup
             throw new Exception("OLKI.Programme.QBC.BackupProject.Process.CountItems.Restore has no active code");
         }
