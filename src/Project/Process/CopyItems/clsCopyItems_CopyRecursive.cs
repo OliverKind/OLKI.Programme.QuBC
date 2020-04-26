@@ -111,12 +111,15 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                     case Project.DirectoryScope.All:
                         if (this.CopyAllFiles(sourceDirectory, TargetDirectory, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
 
-                        // Copy files in sub directorys
-                        foreach (DirectoryInfo NextSourceDirectory in sourceDirectory.GetDirectories().OrderBy(o => o.Name))
+                        // Copy files in sub directorys if there is access to the directory
+                        if (Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(sourceDirectory))
                         {
-                            // Check for abbort
-                            if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
-                            if (this.CopyRecursive(copyMode, NextSourceDirectory, scope, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
+                            foreach (DirectoryInfo NextSourceDirectory in sourceDirectory.GetDirectories().OrderBy(o => o.Name))
+                            {
+                                // Check for abbort
+                                if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
+                                if (this.CopyRecursive(copyMode, NextSourceDirectory, scope, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
+                            }
                         }
                         break;
                     case Project.DirectoryScope.Nothing:
@@ -169,24 +172,42 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// <returns>Exception level of the copy process</returns>
         private ProcessException.ExceptionLevel CopyAllFiles(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
         {
-            exception = null;
-
-            // Search for files in selected directory
-            this._progress.DirectroyFiles.ActualValue = 0;
-            this._progress.DirectroyFiles.MaxValue = sourceDirectory.GetFiles().Count();
-            foreach (FileInfo FileItem in sourceDirectory.GetFiles().OrderBy(o => o.Name))
+            try
             {
-                // Check for abbort
-                if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
+                exception = null;
 
-                //Count up Files an Bytes
-                if (this.CopyFile(FileItem, targetDirectory, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
+                // Search for files in selected directory
+                this._progress.DirectroyFiles.ActualValue = 0;
+                this._progress.DirectroyFiles.MaxValue = sourceDirectory.GetFiles().Count();
+                foreach (FileInfo FileItem in sourceDirectory.GetFiles().OrderBy(o => o.Name))
+                {
+                    // Check for abbort
+                    if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
 
-                //Report Progress
-                this._progress.DirectroyFiles.ActualValue++;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
+                    //Count up Files an Bytes
+                    if (this.CopyFile(FileItem, targetDirectory, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
+
+                    //Report Progress
+                    this._progress.DirectroyFiles.ActualValue++;
+                    worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
+                }
+                return ProcessException.ExceptionLevel.NoException;
             }
-            return ProcessException.ExceptionLevel.NoException;
+            catch (Exception ex)
+            {
+                exception = ex;
+                this._progress.Exception = new ProcessException
+                {
+                    Description = Stringtable._0x000D,
+                    Exception = ex,
+                    Level = ProcessException.ExceptionLevel.Medium,
+                    Source = sourceDirectory.FullName,
+                    Target = targetDirectory.FullName
+                };
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
+
+                return ProcessException.ExceptionLevel.Medium;
+            }
         }
 
         /// <summary>
@@ -201,8 +222,26 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         private ProcessException.ExceptionLevel CopyNoFiles(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
         {
             //Absolutly nothing to do
-            exception = null;
-            return ProcessException.ExceptionLevel.NoException;
+            try
+            {
+                exception = null;
+                return ProcessException.ExceptionLevel.NoException;
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+                this._progress.Exception = new ProcessException
+                {
+                    Description = Stringtable._0x000D,
+                    Exception = ex,
+                    Level = ProcessException.ExceptionLevel.Critical,
+                    Source = sourceDirectory.FullName,
+                    Target = targetDirectory.FullName
+                };
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
+
+                return ProcessException.ExceptionLevel.Medium;
+            }
         }
 
         /// <summary>
@@ -216,31 +255,49 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         /// <returns>Exception level of the copy process</returns>
         private ProcessException.ExceptionLevel CopySelectedFiles(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
         {
-            exception = null;
-
-            //Leafe if the key didn't exists or if no files are selected
-            if (!this._project.ToBackupFiles.ContainsKey(sourceDirectory.FullName) || this._project.ToBackupFiles[sourceDirectory.FullName].Count == 0) return ProcessException.ExceptionLevel.NoException;
-
-            // Search for files in selected directory
-            this._progress.DirectroyFiles.ActualValue = 0;
-            this._progress.DirectroyFiles.MaxValue = this._project.ToBackupFiles[sourceDirectory.FullName].Count;
-            foreach (FileInfo FileItem in sourceDirectory.GetFiles().OrderBy(o => o.Name))
+            try
             {
-                // Check for abbort
-                if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
+                exception = null;
 
-                //Count up Files an Bytes if file is selected
-                if (this._project.ToBackupFiles[sourceDirectory.FullName].Contains(FileItem.FullName))
+                //Leafe if the key didn't exists or if no files are selected
+                if (!this._project.ToBackupFiles.ContainsKey(sourceDirectory.FullName) || this._project.ToBackupFiles[sourceDirectory.FullName].Count == 0) return ProcessException.ExceptionLevel.NoException;
+
+                // Search for files in selected directory
+                this._progress.DirectroyFiles.ActualValue = 0;
+                this._progress.DirectroyFiles.MaxValue = this._project.ToBackupFiles[sourceDirectory.FullName].Count;
+                foreach (FileInfo FileItem in sourceDirectory.GetFiles().OrderBy(o => o.Name))
                 {
-                    if (this.CopyFile(FileItem, targetDirectory, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
+                    // Check for abbort
                     if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
-                }
 
-                //Report Progress
-                this._progress.DirectroyFiles.ActualValue++;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
+                    //Count up Files an Bytes if file is selected
+                    if (this._project.ToBackupFiles[sourceDirectory.FullName].Contains(FileItem.FullName))
+                    {
+                        if (this.CopyFile(FileItem, targetDirectory, worker, e, out exception) == ProcessException.ExceptionLevel.Critical) return ProcessException.ExceptionLevel.Critical;
+                        if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
+                    }
+
+                    //Report Progress
+                    this._progress.DirectroyFiles.ActualValue++;
+                    worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress));
+                }
+                return ProcessException.ExceptionLevel.NoException;
             }
-            return ProcessException.ExceptionLevel.NoException;
+            catch (Exception ex)
+            {
+                exception = ex;
+                this._progress.Exception = new ProcessException
+                {
+                    Description = Stringtable._0x000D,
+                    Exception = ex,
+                    Level = ProcessException.ExceptionLevel.Critical,
+                    Source = sourceDirectory.FullName,
+                    Target = targetDirectory.FullName
+                };
+                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
+
+                return ProcessException.ExceptionLevel.Medium;
+            }
         }
 #pragma warning restore IDE0060 // Nicht verwendete Parameter entfernen
         #endregion
