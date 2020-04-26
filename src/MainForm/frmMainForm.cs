@@ -49,6 +49,7 @@ namespace OLKI.Programme.QBC.MainForm
         #endregion 
 
         #region Fields
+        private readonly string _conclusionTabPageOriginalText;
         /// <summary>
         /// Provides helper functions for the application MainForm
         /// </summary>
@@ -94,6 +95,7 @@ namespace OLKI.Programme.QBC.MainForm
             this.tabControlMain.Refresh();
 
             this.tabControlMain.SelectTab(DEBAULT_TAB_PAGE_INDEX);
+            this._conclusionTabPageOriginalText = this.tabPageConclusion.Text;
             this.Text = string.Format(this.Text, new object[] { ProductName });
 
             // Inital ProjectManager
@@ -385,7 +387,7 @@ namespace OLKI.Programme.QBC.MainForm
             // Set Explorer
             this.btnLsvExplorerChangeSelect.Enabled = this.rabSaveSelected.Checked;
             this.lsvDirectoryContent.BackColor = System.Drawing.SystemColors.Window;
-            if(this.rabSaveAll.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            if (this.rabSaveAll.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
             if (this.rabSaveNothing.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(255, 192, 192);
             if (this.rabSaveSelected.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 255);
 
@@ -516,6 +518,18 @@ namespace OLKI.Programme.QBC.MainForm
                 this.txtExceptionSourcePath.Text = string.Empty;
                 this.txtExceptionDestinationPath.Text = string.Empty;
                 this.txtExceptionMessage.Text = string.Empty;
+            }
+        }
+
+        private void txtExceptionCount_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.txtExceptionCount.Text) || this.txtExceptionCount.Text == "0")
+            {
+                this.tabPageConclusion.Text = this._conclusionTabPageOriginalText;
+            }
+            else
+            {
+                this.tabPageConclusion.Text = string.Format("{0}: {1}", new string[] { this._conclusionTabPageOriginalText, this.txtExceptionCount.Text });
             }
         }
         #endregion
