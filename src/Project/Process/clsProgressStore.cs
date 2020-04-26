@@ -1,7 +1,7 @@
 ﻿/*
  * QBC- QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -21,11 +21,6 @@
  * along with this program; if not check the GitHub-Repository.
  * 
  * */
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace OLKI.Programme.QBC.BackupProject.Process
 {
@@ -54,12 +49,18 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         #endregion
 
         #region Methodes
-        public void Initial()
+        public ProgressStore()
         {
             this.TotalBytes = new ProgressElement();
             this.TotalDirectories = new ProgressElement();
             this.TotalFiles = new ProgressElement();
             this.DirectroyFiles = new ProgressElement();
+        }
+
+        public ProgressStore Clone()
+        {
+            ProgressStore ThisClone = (ProgressStore)this.MemberwiseClone();
+            return ThisClone;
         }
         #endregion
 
