@@ -202,7 +202,7 @@ namespace OLKI.Programme.QBC.BackupProject
         private void SettingsChanged(object sender, EventArgs e)
         {
             this._changed = true;
-            this.ToggleProjectChanged(sender,e);
+            this.ToggleProjectChanged(sender, e);
         }
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace OLKI.Programme.QBC.BackupProject
         /// </summary>
         /// <param name="directory">A string that specifies the path of the directory to remove from directory list</param>
         /// <returns>True if the directory was removed sucessfull from directory list</returns>
-        internal void  DirectoryRemove(string directory)
+        internal void DirectoryRemove(string directory)
         {
             this.Changed = true;
             this._toBackupFiles.Remove(directory);
