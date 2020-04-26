@@ -255,8 +255,6 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 ExItem.SubItems.Add(Exception.Target);
                 ExItem.SubItems.Add(ExceptionText);
 
-                //System.Diagnostics.Trace.WriteLine("__________________"+Exception.Source);
-
                 ListViewInv.AddItem(this._progressControle._exceptionListView, ExItem);
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, EXCEPTION_ICON_INDEX);
                 TextBoxInv.Text(this._progressControle._exceptionCount, this._progressControle._exceptionListView.Items.Count.ToString());
