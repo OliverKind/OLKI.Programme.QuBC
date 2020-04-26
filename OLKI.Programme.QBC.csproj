@@ -101,6 +101,7 @@
     <Compile Include="src\Project\LogFileWriter\clsLogFile.cs" />
     <Compile Include="src\Project\LogFileWriter\clsLogFile.WriteLogLine.cs" />
     <Compile Include="src\Project\Process\clsActionException.cs" />
+    <Compile Include="src\Project\Process\clsProgressState.cs" />
     <Compile Include="src\Project\Process\CopyItems\clsDirectoryCreator.cs" />
     <Compile Include="src\Project\Process\CopyItems\clsCopyItems_CopyRecursive.cs" />
     <Compile Include="src\Project\Process\CopyItems\clsCopyItems.cs" />
