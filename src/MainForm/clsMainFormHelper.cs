@@ -180,6 +180,10 @@ namespace OLKI.Programme.QBC.MainForm
             {
                 return this._projectManager.ActiveProject.ToBackupFiles[directory].Contains(file);
             }
+            else if (this.DirectoryContentListView_GetDirectoryScope(directory) == BackupProject.Project.DirectoryScope.All)
+            {
+                return true;
+            }
             return false;
         }
         #endregion
