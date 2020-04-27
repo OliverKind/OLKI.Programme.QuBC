@@ -368,7 +368,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                 this._counter.Project = this._projectManager.ActiveProject;
 
                 //Start count progress
-                worker.ReportProgress((int)ProcessStep.Count_Start, new ProgressState(this._progressStore,true));
+                worker.ReportProgress((int)ProcessStep.Count_Start, new ProgressState(this._progressStore, true));
                 System.Diagnostics.Debug.Print("    this._mode::" + this._mode.ToString());
                 switch (this._mode)
                 {
@@ -460,6 +460,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                         throw new ArgumentException("uscControleProcess->worker_ProgressChanged->Invalid value", nameof(this._processStep));
                 }
             }
+            this._progressStore = ProgressState.ProgressStore;
             System.Diagnostics.Debug.Print("uscControleProcess::_worker_ProgressChanged::FINISH");
         }
 
@@ -470,7 +471,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
             if (this.ProcessFinishedCanceled != null) ProcessFinishedCanceled(this, new EventArgs());
 
             if (e.Cancelled) this._processStep = ProcessStep.Cancel;
-            if (this._progressStore.Exception.Exception != null) this._processStep = ProcessStep.Exception;
+            if (this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Exception != null) this._processStep = ProcessStep.Exception;
 
             switch (this._processStep)
             {
