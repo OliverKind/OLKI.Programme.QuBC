@@ -86,7 +86,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
 
 
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0015);
-                TextBoxInv.Text(this._progressControle.txtCopyStart, this._progressControle._progressStart.ToString(FORMAT_TIME));
+
+                DateTime ProgressStart = this._progressControle._progressStart;
+                TextBoxInv.Text(this._progressControle.txtCopyStart, ProgressStart.ToString(FORMAT_TIME));
                 ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
                 ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
                 ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
@@ -98,7 +100,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             internal void SetPRogress_CountBusy(ProgressStore progressStore)
             {
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0016);
-                TextBoxInv.Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
 
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, progressStore.TotalItems);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, progressStore.TotalBytes);
@@ -151,9 +153,9 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             {
                 System.Diagnostics.Debug.Print(progressStore.DirectroyFiles.ElemenName);
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0019);
+                TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, progressStore.TotalDirectories.ActualValue.ToString());
                 TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, progressStore.TotalFiles.ActualValue.ToString());
-                TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
 
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, progressStore.TotalItems);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, progressStore.TotalBytes);
@@ -161,30 +163,13 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaActualDirFiles, this._progressControle.txtActualDir, this._progressControle.txtActualDirFilesPer, this._progressControle.txtActualDirFilesNum, null, progressStore.DirectroyFiles);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaActualFileByte, this._progressControle.txtActualFile, this._progressControle.txtActualFileBytePer, this._progressControle.txtActualFileByteNum, this._progressControle.cboActualFileByteNum, progressStore.FileBytes);
 
-                //Set elapsed time
-                if (this._progressControle.ElapsedTime.Days > 0)
-                {
-                    TextBoxInv.Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME_WITH_DAYS));
-                }
-                else
-                {
-                    TextBoxInv.Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
-                }
-
                 // Get remaining time if counting was done
                 if (progressStore.TotalItems.MaxValue != null && progressStore.TotalItems.MaxValue > 0)
                 {
                     TimeSpan RemainingTimeByte = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, progressStore.TotalBytes.ActualValue, progressStore.TotalBytes.MaxValue);
                     TimeSpan RemainingTimeItem = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, progressStore.TotalItems.ActualValue, progressStore.TotalItems.MaxValue);
                     TimeSpan RemainingTime = RemainingTimeByte > RemainingTimeItem ? RemainingTimeByte : RemainingTimeItem;
-                    if (RemainingTime.Days > 0)
-                    {
-                        TextBoxInv.Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(FORMAT_TIME_WITH_DAYS));
-                    }
-                    else
-                    {
-                        TextBoxInv.Text(this._progressControle.txtCopyRemainTime, RemainingTime.ToString(FORMAT_TIME));
-                    }
+                    TextBoxInv.Text(this._progressControle.txtCopyRemainTime, this.TimeSpanForamt(RemainingTime));
                 }
             }
 
@@ -194,12 +179,13 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
             internal void SetProgress_CopyFinish()
             {
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x001A);
-                TextBoxInv.Text(this._progressControle.txtCopyStart, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
-                TextBoxInv.Text(this._progressControle.txtCopyElapsed, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                DateTime ProgressStart = this._progressControle._progressStart;
+                TextBoxInv.Text(this._progressControle.txtCopyStart, ProgressStart.ToString(FORMAT_TIME));
+                TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
                 TextBoxInv.Text(this._progressControle.txtActualDir, "");
                 TextBoxInv.Text(this._progressControle.txtActualFile, "");
 
-                TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, this._progressControle.ElapsedTime.ToString(FORMAT_TIME));
+                TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, this.TimeSpanForamt(this._progressControle.ElapsedTime));
 
                 ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
                 ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Blocks);
@@ -267,6 +253,17 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
                 ListViewInv.AddItem(this._progressControle._exceptionListView, ExItem);
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, EXCEPTION_ICON_INDEX);
                 TextBoxInv.Text(this._progressControle._exceptionCount, this._progressControle._exceptionListView.Items.Count.ToString());
+            }
+
+            /// <summary>
+            /// Formats the timespan to output format, distinguish to show dates.
+            /// </summary>
+            /// <param name="timeSpan"></param>
+            /// <returns></returns>
+            private string TimeSpanForamt(TimeSpan timeSpan)
+            {
+                if (timeSpan.Days > 0) return timeSpan.ToString(FORMAT_TIMESPAN_WITH_DAYS);
+                return timeSpan.ToString(FORMAT_TIMESPAN);
             }
             #endregion
             #endregion

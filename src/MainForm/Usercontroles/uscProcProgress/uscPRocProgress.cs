@@ -54,7 +54,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
         /// <summary>
         /// Defines the format to show time values with days
         /// </summary>
-        private const string FORMAT_TIME_WITH_DAYS = @"dd\.HH\:mm\:ss";
+        private const string FORMAT_TIMESPAN = @"hh\:mm\:ss";
+        /// <summary>
+        /// Defines the format to show time values with days
+        /// </summary>
+        private const string FORMAT_TIMESPAN_WITH_DAYS = @"dd\.hh\:mm\:ss";
         /// <summary>
         /// Defines the format for a string with a percentage number value
         /// </summary>
