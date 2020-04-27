@@ -52,7 +52,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
         }
         public ProgressState(ProgressStore progressStore, bool forceReportProgress)
         {
-            this._progressStore = progressStore.Clone();
+            if (progressStore != null) this._progressStore = progressStore.Clone();
             this.ForceReportProgress = forceReportProgress;
         }
         #endregion
