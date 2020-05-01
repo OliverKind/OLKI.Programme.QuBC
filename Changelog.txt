@@ -12,9 +12,13 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
-## [1.1.1.8] - 2020-04-19
+## [1.1.1.8] - 2020-05-01
 ### Fixed
+- Aborting copy files if there is no access to an directroy
+- Files not checked, if directroy scope is All
+- Scope not set correct for parent notes at explorer TreeView
 - Selection how to handle existing file dialog is not modal in any case
+- Progress not set correctly, specialy at exceptions
 
 ## [1.1.0.7] - 2020-04-16
 ### Changed
