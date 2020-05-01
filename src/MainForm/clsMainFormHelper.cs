@@ -286,46 +286,27 @@ namespace OLKI.Programme.QBC.MainForm
         /// Add or overwrite the specified directroy to the project, using a default scope and set the associated ExplorerTreeViewNode
         /// </summary>
         /// <param name="directory">Specifies the directory to add to project</param>
-        /// <param name="treeNode">Specifies the ExplorerTreeViewNode associated with the directory</param>
         internal void Project_AddDirectorysToProject(DirectoryInfo directory)
         {
-            this.Project_AddDirectorysToProject(directory, DEFAULT_ADD_DIRECTROY_TO_PROJECT_DIRECTORY_SCOPE, false);
+            this.Project_AddDirectorysToProject(directory, DEFAULT_ADD_DIRECTROY_TO_PROJECT_DIRECTORY_SCOPE);
         }
         /// <summary>
         /// Add or overwrite the specified directroy to the project, using a specified scope and set the associated ExplorerTreeViewNode
         /// </summary>
         /// <param name="directory">Specifies the directory to add to project</param>
-        /// <param name="treeNode">Specifies the ExplorerTreeViewNode associated with the directory</param>
         /// <param name="scope">Specifies the scope of the specified directroy to add to project</param>
         internal void Project_AddDirectorysToProject(DirectoryInfo directory, BackupProject.Project.DirectoryScope scope)
         {
-            this.Project_AddDirectorysToProject(directory, scope, true);
-        }
-        /// <summary>
-        /// Add or overwrite the specified directroy to the project, using a specified scope or keep existing scope and set the associated ExplorerTreeViewNode
-        /// </summary>
-        /// <param name="directory">Specifies the directory to add to project</param>
-        /// <param name="treeNode">Specifies the ExplorerTreeViewNode associated with the directory</param>
-        /// <param name="scope">Specifies the scope of the specified directroy to add to project</param>
-        /// <param name="overwriteExistingScope">Specifies if the scope of the directroy should been overwritte if directroy is allready in project</param>
-        private void Project_AddDirectorysToProject(DirectoryInfo directory, BackupProject.Project.DirectoryScope scope, bool overwriteExistingScope)
-        {
             if (directory == null) return;
 
-            if (this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(directory.FullName))
+            if (!this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(directory.FullName))
             {
-                //Add directory to ToDo list
-                this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = BackupProject.Project.DirectoryScope.Selected;
+                //Add directory to ToDo list and set scope
+                this._projectManager.ActiveProject.DirectoryAdd(directory, scope);
             }
             else
             {
-                //Add directory to ToDo list and set "todo" to "Selected" by default
-                this._projectManager.ActiveProject.DirectoryAdd(directory, DEFAULT_ADD_DIRECTROY_TO_PROJECT_SCOPE_IF_NOT_IN_PROJECT);
-            }
-
-            // Overwrite scope if requested, otherwise keep old scope
-            if (overwriteExistingScope)
-            {
+                //Set new scope
                 this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = scope;
             }
 
@@ -341,8 +322,9 @@ namespace OLKI.Programme.QBC.MainForm
         /// <param name="directory">Specifies the directroy to remove</param>
         internal void Project_RemoveDirectorysFromBackup(DirectoryInfo directory)
         {
-            foreach (KeyValuePair<string, QBC.BackupProject.Project.DirectoryScope> directoryItem in new Dictionary<string, BackupProject.Project.DirectoryScope>(this._projectManager.ActiveProject.ToBackupDirectorys).Where(A => A.Key.StartsWith(directory.FullName)))
+            foreach (KeyValuePair<string, BackupProject.Project.DirectoryScope> directoryItem in new Dictionary<string, BackupProject.Project.DirectoryScope>(this._projectManager.ActiveProject.ToBackupDirectorys).Where(A => A.Key.StartsWith(directory.FullName)))
             {
+                // Remove all directories starting with directroy path
                 this._projectManager.ActiveProject.DirectoryRemove(directoryItem.Key);
             }
             this._projectManager.ActiveProject.Changed = true;
