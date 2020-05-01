@@ -401,13 +401,9 @@ namespace OLKI.Programme.QBC.MainForm
                 if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, BackupProject.Project.DirectoryScope.Selected);
 
                 //Set TreeNodes
-                if (this.trvExplorer.LastSelectedNode.Parent == null)
+                if (this.trvExplorer.LastSelectedNode != null)
                 {
-                    this.trvExplorer.SetImageVariant(this.trvExplorer.LastSelectedNode.DirectoryInfo, true);
-                }
-                else
-                {
-                    this.trvExplorer.SetImageVariant(((ExtendedTreeNode)this.trvExplorer.LastSelectedNode.Parent).DirectoryInfo, true);
+                    this.trvExplorer.SetImageVariant(this.trvExplorer.LastSelectedNode.DirectoryInfo.Root, true);                
                 }
             }
         }
