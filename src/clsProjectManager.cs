@@ -43,7 +43,7 @@ namespace OLKI.Programme.QBC
         /// <summary>
         /// Occurs if a project was open from file or a new project was created
         /// </summary>
-        internal event EventHandler ProjecOpenOrNew__Event;
+        internal event EventHandler ProjecOpenOrNew;
         #endregion
 
         #region Properties
@@ -65,7 +65,7 @@ namespace OLKI.Programme.QBC
 
         #region Methodes
         /// <summary>
-        /// Initialise a new projectmanager
+        /// Initialise a new ProjectManager
         /// </summary>
         internal ProjectManager()
         {
@@ -89,7 +89,7 @@ namespace OLKI.Programme.QBC
         /// Check if there are unsaved changes in active project and ask if the sould been saved.
         /// </summary>
         /// <returns>True if the active project should been overwritten</returns>
-        internal bool GetOverwriteActiveProject()
+        internal bool GetSaveActiveProject()
         {
             if (this._activeProject.Changed)
             {
@@ -164,7 +164,7 @@ namespace OLKI.Programme.QBC
                 this._activeProject = NewProject;
                 this._activeProject.ProjectChanged += new EventHandler(this.ToggleActiveProjecChanged);
 
-                if (this.ProjecOpenOrNew__Event != null) ProjecOpenOrNew__Event(this, new EventArgs());
+                if (this.ProjecOpenOrNew != null) ProjecOpenOrNew(this, new EventArgs());
                 return true;
             }
             catch (Exception ex)

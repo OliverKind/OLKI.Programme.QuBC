@@ -101,7 +101,7 @@ namespace OLKI.Programme.QBC.MainForm
             // Inital ProjectManager
             this._projectManager = new ProjectManager();
             this._projectManager.ActiveProjecChanged += new EventHandler(this.ProjectManager_ProjectChanged);
-            this._projectManager.ProjecOpenOrNew__Event += new EventHandler(this.ProjectManager_ProjecOpenOrNew);
+            this._projectManager.ProjecOpenOrNew += new EventHandler(this.ProjectManager_ProjecOpenOrNew);
             this._mainFormHelper = new MainFormHelper(_projectManager);
 
             // Initial rectent files
@@ -534,14 +534,14 @@ namespace OLKI.Programme.QBC.MainForm
         #region Menue Events
         private void mnuMain_File_New_Click(object sender, EventArgs e)
         {
-            if (!this._projectManager.GetOverwriteActiveProject()) return;
+            if (!this._projectManager.GetSaveActiveProject()) return;
             this._projectManager.Project_New();
             this.ProjectManager_ProjectFileChanged(sender, e);
         }
 
         private void mnuMain_File_Open_Click(object sender, EventArgs e)
         {
-            if (!this._projectManager.GetOverwriteActiveProject()) return;
+            if (!this._projectManager.GetSaveActiveProject()) return;
             this._projectManager.Project_Open();
             this.ProjectManager_ProjectFileChanged(sender, e);
             this.SetRecentFilesSettingsAndMenue();
