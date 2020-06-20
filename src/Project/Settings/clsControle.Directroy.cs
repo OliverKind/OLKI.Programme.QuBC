@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -25,7 +25,7 @@
 using System;
 using System.ComponentModel;
 
-namespace OLKI.Programme.QBC.BackupProject.Settings.Controle
+namespace OLKI.Programme.QBC.src.Project.Settings.Controle
 {
     /// <summary>
     /// Class that provides the target for a backup or the source to restore it

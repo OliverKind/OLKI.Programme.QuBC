@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.QBC.MainForm
+﻿namespace OLKI.Programme.QBC.src.MainForm
 {
 	partial class MainForm
 	{
@@ -109,11 +109,11 @@
             this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.imlExceptionIcons = new System.Windows.Forms.ImageList(this.components);
-            this.trvExplorer = new OLKI.Programme.QBC.MainForm.ExplorerTreeView();
-            this.uscControleBackup = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle();
-            this.uscProgressBackup = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress();
-            this.uscControleRestore = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle();
-            this.uscProgressRestore = new OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress();
+            this.trvExplorer = new OLKI.Programme.QBC.src.MainForm.ExplorerTreeView();
+            this.uscControleBackup = new Usercontroles.uscProcControle.ProcControle();
+            this.uscProgressBackup = new Usercontroles.uscProgress.ProcProgress();
+            this.uscControleRestore = new Usercontroles.uscProcControle.ProcControle();
+            this.uscProgressRestore = new Usercontroles.uscProgress.ProcProgress();
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -836,7 +836,7 @@
             this.uscControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uscControleBackup.Location = new System.Drawing.Point(0, 17);
-            this.uscControleBackup.Mode = OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.CreateBackup;
+            this.uscControleBackup.Mode = Usercontroles.uscProcControle.ProcControle.ControleMode.CreateBackup;
             this.uscControleBackup.Name = "uscControleBackup";
             this.uscControleBackup.Size = new System.Drawing.Size(957, 235);
             this.uscControleBackup.TabIndex = 0;
@@ -855,7 +855,7 @@
             this.uscControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uscControleRestore.Location = new System.Drawing.Point(0, 17);
-            this.uscControleRestore.Mode = OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.RestoreBackup;
+            this.uscControleRestore.Mode = Usercontroles.uscProcControle.ProcControle.ControleMode.RestoreBackup;
             this.uscControleRestore.Name = "uscControleRestore";
             this.uscControleRestore.Size = new System.Drawing.Size(957, 235);
             this.uscControleRestore.TabIndex = 0;
@@ -961,8 +961,8 @@
         private System.Windows.Forms.GroupBox grbProgressRestore;
         private Usercontroles.uscProcControle.ProcControle uscControleBackup;
         private Usercontroles.uscProcControle.ProcControle uscControleRestore;
-        private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressBackup;
-        private OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress uscProgressRestore;
+        private Usercontroles.uscProgress.ProcProgress uscProgressBackup;
+        private Usercontroles.uscProgress.ProcProgress uscProgressRestore;
         private System.Windows.Forms.ImageList imlExceptionIcons;
         private ExplorerTreeView trvExplorer;
         private System.Windows.Forms.SplitContainer spcExplorer;

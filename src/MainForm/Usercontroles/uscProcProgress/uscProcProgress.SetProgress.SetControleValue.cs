@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -22,13 +22,13 @@
  * 
  * */
 
-using OLKI.Programme.QBC.BackupProject.Process;
+using OLKI.Programme.QBC.src.Project.Process;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using OLKI.Widgets.Invoke;
 using System;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
+namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProgress
 {
     public partial class ProcProgress
     {

@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -27,7 +27,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC
+namespace OLKI.Programme.QBC.src
 {
     /// <summary>
     /// Root object of the application
@@ -82,7 +82,7 @@ namespace OLKI.Programme.QBC
             }
 
             // Show MainForm
-            Application.Run(new QBC.MainForm.MainForm(args));
+            Application.Run(new MainForm.MainForm(args));
         }
 
         /// <summary>

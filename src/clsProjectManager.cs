@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -28,7 +28,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC
+namespace OLKI.Programme.QBC.src
 {
     /// <summary>
     /// Class that provide tools to manage the project
@@ -50,11 +50,11 @@ namespace OLKI.Programme.QBC
         /// <summary>
         /// An object with the active project
         /// </summary>
-        private BackupProject.Project _activeProject = null;
+        private Project.Project _activeProject = null;
         /// <summary>
         /// Get the active project
         /// </summary>
-        internal BackupProject.Project ActiveProject
+        internal Project.Project ActiveProject
         {
             get
             {
@@ -148,7 +148,7 @@ namespace OLKI.Programme.QBC
         {
             try
             {
-                BackupProject.Project NewProject = new BackupProject.Project(path);
+                Project.Project NewProject = new Project.Project(path);
                 // If it ist not an new project that should been loaded, ask for file to open or open the file if path is given
                 if (!newProject)
                 {

@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -22,14 +22,14 @@
  * 
  * */
 
-using OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle;
 using OLKI.Programme.QBC.Properties;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
 using System.ComponentModel;
 using System.IO;
 
-namespace OLKI.Programme.QBC.BackupProject.Process
+namespace OLKI.Programme.QBC.src.Project.Process
 {
     /// <summary>
     /// Provides tools to write logfiles
@@ -64,7 +64,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 ProcessException Exception = new ProcessException
                 {
-                    Description = Stringtable._0x001D,
+                    Description = Properties.Stringtable._0x001D,
                     Exception = ex,
                     Level = copyItemClass.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Medium),
                     Source = sourceDirectory.FullName,

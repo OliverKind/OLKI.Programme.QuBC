@@ -119,11 +119,11 @@
   </resheader>
   <data name="0x0001c" xml:space="preserve">
     <value>Inkompatible Datei!</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Project_FromXMLString_CheckVersion:IncopatibeVersion.Caption</comment>
+    <comment>OLKI.Programme.QBC.Project.Project_FromXMLString_CheckVersion:IncopatibeVersion.Caption</comment>
   </data>
   <data name="0x0001m" xml:space="preserve">
     <value>Die Projektdatei ist nicht mit dieser Progammversion kompatibel.</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Project_FromXMLString_CheckVersion:IncopatibeVersion.Message</comment>
+    <comment>OLKI.Programme.QBC.Project.Project_FromXMLString_CheckVersion:IncopatibeVersion.Message</comment>
   </data>
   <data name="0x0002c" xml:space="preserve">
     <value>Projekt speichern?</value>
@@ -291,12 +291,12 @@ Möchten Sie fortfahren?</value>
   </data>
   <data name="0x001Fc" xml:space="preserve">
     <value>Projekt Öffnen fehlgeschlagen</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Project.Project_FromXMLString:Exception.Caption</comment>
+    <comment>OLKI.Programme.QBC.Project.Project.Project_FromXMLString:Exception.Caption</comment>
   </data>
   <data name="0x001Fm" xml:space="preserve">
     <value>Fehler beim Lesen der Projektdatei.
 
 {0}</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Project.Project_FromXMLString:Exception.Message</comment>
+    <comment>OLKI.Programme.QBC.Project.Project.Project_FromXMLString:Exception.Message</comment>
   </data>
 </root>

@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress
+﻿namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProgress
 {
     partial class ProcProgress
     {

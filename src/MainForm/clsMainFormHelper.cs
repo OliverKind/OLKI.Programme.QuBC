@@ -1,5 +1,5 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
  * Copyright:   Oliver Kind - 2020
  * License:     LGPL
@@ -29,7 +29,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.MainForm
+namespace OLKI.Programme.QBC.src.MainForm
 {
     /// <summary>
     /// Tolls for handling the main form
@@ -40,11 +40,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <summary>
         /// Specifies the default scope of directroy add or overwrite to project
         /// </summary>
-        private const BackupProject.Project.DirectoryScope DEFAULT_ADD_DIRECTROY_TO_PROJECT_DIRECTORY_SCOPE = BackupProject.Project.DirectoryScope.Selected;
-        /// <summary>
-        /// Specifies the default scope to set for a directroy that has been added to project, because an sub directroy of this directroy was added to the project
-        /// </summary>
-        private const BackupProject.Project.DirectoryScope DEFAULT_ADD_DIRECTROY_TO_PROJECT_SCOPE_IF_NOT_IN_PROJECT = QBC.BackupProject.Project.DirectoryScope.Selected;
+        private const Project.Project.DirectoryScope DEFAULT_ADD_DIRECTROY_TO_PROJECT_DIRECTORY_SCOPE = Project.Project.DirectoryScope.Selected;
         /// <summary>
         /// Default check state to return by ExplorerTreeView_GetCheckStateDirectory if check state can not identified
         /// </summary>
@@ -86,7 +82,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <returns>True if the specified directory is listed to copy and  has to be checked in ListView</returns>
         internal bool DirectoryContentListView_GetDirectoryChecked(string path)
         {
-            return this.DirectoryContentListView_GetDirectoryScope(path) != BackupProject.Project.DirectoryScope.Nothing;
+            return this.DirectoryContentListView_GetDirectoryScope(path) != Project.Project.DirectoryScope.Nothing;
         }
         #endregion
 
@@ -96,7 +92,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="directory">Specifies the directory to check</param>
         /// <returns>The scope of  the specified directory</returns>
-        internal BackupProject.Project.DirectoryScope DirectoryContentListView_GetDirectoryScope(System.IO.DirectoryInfo directory)
+        internal Project.Project.DirectoryScope DirectoryContentListView_GetDirectoryScope(System.IO.DirectoryInfo directory)
         {
             return this.DirectoryContentListView_GetDirectoryScope(directory.FullName);
         }
@@ -105,7 +101,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="path">A string that specifies the path of the directory to check</param>
         /// <returns>The scope of  the specified directory</returns>
-        internal BackupProject.Project.DirectoryScope DirectoryContentListView_GetDirectoryScope(string path)
+        internal Project.Project.DirectoryScope DirectoryContentListView_GetDirectoryScope(string path)
         {
             if (this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(path))
             {
@@ -119,18 +115,18 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        private BackupProject.Project.DirectoryScope DirectoryContentListView_GetDirectoryScope_FromParent(string path)
+        private Project.Project.DirectoryScope DirectoryContentListView_GetDirectoryScope_FromParent(string path)
         {
             DirectoryInfo Parent = new DirectoryInfo(path).Parent;
-            if (Parent == null) return BackupProject.Project.DirectoryScope.Nothing;
+            if (Parent == null) return Project.Project.DirectoryScope.Nothing;
 
             if (this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(Parent.FullName))
             {
-                if (this._projectManager.ActiveProject.ToBackupDirectorys[Parent.FullName] == BackupProject.Project.DirectoryScope.All)
+                if (this._projectManager.ActiveProject.ToBackupDirectorys[Parent.FullName] == Project.Project.DirectoryScope.All)
                 {
-                    return BackupProject.Project.DirectoryScope.All;
+                    return Project.Project.DirectoryScope.All;
                 }
-                return BackupProject.Project.DirectoryScope.Nothing;
+                return Project.Project.DirectoryScope.Nothing;
             }
 
             return this.DirectoryContentListView_GetDirectoryScope_FromParent(Parent.FullName);
@@ -180,7 +176,7 @@ namespace OLKI.Programme.QBC.MainForm
             {
                 return this._projectManager.ActiveProject.ToBackupFiles[directory].Contains(file);
             }
-            else if (this.DirectoryContentListView_GetDirectoryScope(directory) == BackupProject.Project.DirectoryScope.All)
+            else if (this.DirectoryContentListView_GetDirectoryScope(directory) == Project.Project.DirectoryScope.All)
             {
                 return true;
             }
@@ -266,11 +262,11 @@ namespace OLKI.Programme.QBC.MainForm
             {
                 switch (this._projectManager.ActiveProject.ToBackupDirectorys[path])
                 {
-                    case BackupProject.Project.DirectoryScope.Nothing:
+                    case Project.Project.DirectoryScope.Nothing:
                         return ExtendedTreeNode.CheckedState.NotChecked;
-                    case BackupProject.Project.DirectoryScope.Selected:
+                    case Project.Project.DirectoryScope.Selected:
                         return ExtendedTreeNode.CheckedState.Intermediate;
-                    case BackupProject.Project.DirectoryScope.All:
+                    case Project.Project.DirectoryScope.All:
                         return ExtendedTreeNode.CheckedState.Checked;
                     default:
                         return DEFAULT_CHECK_STATE;
@@ -295,7 +291,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// </summary>
         /// <param name="directory">Specifies the directory to add to project</param>
         /// <param name="scope">Specifies the scope of the specified directroy to add to project</param>
-        internal void Project_AddDirectorysToProject(DirectoryInfo directory, BackupProject.Project.DirectoryScope scope)
+        internal void Project_AddDirectorysToProject(DirectoryInfo directory, Project.Project.DirectoryScope scope)
         {
             if (directory == null) return;
 
@@ -322,7 +318,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// <param name="directory">Specifies the directroy to remove</param>
         internal void Project_RemoveDirectorysFromBackup(DirectoryInfo directory)
         {
-            foreach (KeyValuePair<string, BackupProject.Project.DirectoryScope> directoryItem in new Dictionary<string, BackupProject.Project.DirectoryScope>(this._projectManager.ActiveProject.ToBackupDirectorys).Where(A => A.Key.StartsWith(directory.FullName)))
+            foreach (KeyValuePair<string, Project.Project.DirectoryScope> directoryItem in new Dictionary<string, Project.Project.DirectoryScope>(this._projectManager.ActiveProject.ToBackupDirectorys).Where(A => A.Key.StartsWith(directory.FullName)))
             {
                 // Remove all directories starting with directroy path
                 this._projectManager.ActiveProject.DirectoryRemove(directoryItem.Key);

@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -23,13 +23,13 @@
  * */
 
 using OLKI.Tools.CommonTools.DirectoryAndFile;
-using OLKI.Programme.QBC.BackupProject.Process;
+using OLKI.Programme.QBC.src.Project.Process;
 using OLKI.Programme.QBC.Properties;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
+namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
 {
     /// <summary>
     /// Controle to controle the backup or restore process
@@ -166,27 +166,27 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                 switch (value)
                 {
                     case ControleMode.CreateBackup:
-                        this._directoryBrowser.Description = src.MainForm.Usercontroles.uscProcControle.Stringtable.DirectoryBrowser_Description_Backup;
+                        this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Backup;
                         this._directoryBrowser.ShowNewFolderButton = true;
-                        this.btnProcessStart.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.btnProcessStart_Text__Backup;
-                        this.chkLogFileCreate.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.chkLogFileCreate_Text__Backup;
-                        this.chkLogFileAutoPath.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.chkLogFileAutoPath_Text__Backup;
-                        this.chkRootDirectory.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.chkRootDirectory_Text__Backup;
-                        this.lblDirectory.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.lblDirectory_Text__Backup;
-                        this._saveLogFile.Title = src.MainForm.Usercontroles.uscProcControle.Stringtable.SaveLogFile_Title_Backup;
+                        this.btnProcessStart.Text = Stringtable.btnProcessStart_Text__Backup;
+                        this.chkLogFileCreate.Text = Stringtable.chkLogFileCreate_Text__Backup;
+                        this.chkLogFileAutoPath.Text = Stringtable.chkLogFileAutoPath_Text__Backup;
+                        this.chkRootDirectory.Text = Stringtable.chkRootDirectory_Text__Backup;
+                        this.lblDirectory.Text = Stringtable.lblDirectory_Text__Backup;
+                        this._saveLogFile.Title = Stringtable.SaveLogFile_Title_Backup;
                         this.lblTargetDirectory.Visible = false;
                         this.txtTargetDirectory.Visible = false;
                         this.btnBrowseTargetDirectory.Visible = false;
                         break;
                     case ControleMode.RestoreBackup:
-                        this._directoryBrowser.Description = src.MainForm.Usercontroles.uscProcControle.Stringtable.DirectoryBrowser_Description_Restore;
+                        this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Restore;
                         this._directoryBrowser.ShowNewFolderButton = false;
-                        this.btnProcessStart.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.btnProcessStart_Text__Restore;
-                        this.chkLogFileCreate.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.chkLogFileCreate_Text__Restore;
-                        this.chkLogFileAutoPath.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.chkLogFileAutoPath_Text__Restore;
-                        this.chkRootDirectory.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.chkRootDirectory_Text__Restore;
-                        this.lblDirectory.Text = src.MainForm.Usercontroles.uscProcControle.Stringtable.lblDirectory_Text__Restore;
-                        this._saveLogFile.Title = src.MainForm.Usercontroles.uscProcControle.Stringtable.SaveLogFile_Title_Restore;
+                        this.btnProcessStart.Text = Stringtable.btnProcessStart_Text__Restore;
+                        this.chkLogFileCreate.Text = Stringtable.chkLogFileCreate_Text__Restore;
+                        this.chkLogFileAutoPath.Text = Stringtable.chkLogFileAutoPath_Text__Restore;
+                        this.chkRootDirectory.Text = Stringtable.chkRootDirectory_Text__Restore;
+                        this.lblDirectory.Text = Stringtable.lblDirectory_Text__Restore;
+                        this._saveLogFile.Title = Stringtable.SaveLogFile_Title_Restore;
                         this.lblTargetDirectory.Visible = true;
                         this.txtTargetDirectory.Visible = true;
                         this.btnBrowseTargetDirectory.Visible = true;
@@ -267,7 +267,7 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
         {
             this._projectManager.ActiveProject.Settings.RestrainChangedEvent = true;
 
-            BackupProject.Settings.Controle.Controle ControleSettings;
+            Project.Settings.Controle.Controle ControleSettings;
             switch (this._mode)
             {
                 case ControleMode.CreateBackup:
@@ -486,11 +486,11 @@ namespace OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle
                     this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
                     break;
                 case ProcessStep.Cancel:
-                    MessageBox.Show(this.ParentForm, Stringtable._0x0007m, Stringtable._0x0007m, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(this.ParentForm, Properties.Stringtable._0x0007m, Properties.Stringtable._0x0007m, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
                 case ProcessStep.Exception:
-                    MessageBox.Show(this.ParentForm, string.Format(Stringtable._0x0008m, new object[] { this._progressStore.Exception.Exception.Message }), Stringtable._0x0008c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this.ParentForm, string.Format(Properties.Stringtable._0x0008m, new object[] { this._progressStore.Exception.Exception.Message }), Properties.Stringtable._0x0008c, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
                 default:

@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -25,7 +25,7 @@
 using System;
 using System.ComponentModel;
 
-namespace OLKI.Programme.QBC.BackupProject.Settings
+namespace OLKI.Programme.QBC.src.Project.Settings
 {
     /// <summary>
     /// A class that provides project settings
@@ -80,7 +80,7 @@ namespace OLKI.Programme.QBC.BackupProject.Settings
         internal virtual void ToggleSettingsChanged(object sender, EventArgs e)
         {
             this._changed = true;
-            if (this.SettingsChanged != null) this.SettingsChanged(sender, e);
+            this.SettingsChanged?.Invoke(sender, e);
         }
         #endregion
     }

@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -24,7 +24,7 @@
 
 using System.IO;
 
-namespace OLKI.Programme.QBC.MainForm
+namespace OLKI.Programme.QBC.src.MainForm
 {
     /// <summary>
     /// Enhanced the TreeViewNode with an directroy info and and an half automatic icon

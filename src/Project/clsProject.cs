@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -31,7 +31,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace OLKI.Programme.QBC.BackupProject
+namespace OLKI.Programme.QBC.src.Project
 {
     /// <summary>
     /// A class that provides all information to handle and save backup project. Setting it true will raise the
@@ -146,7 +146,7 @@ namespace OLKI.Programme.QBC.BackupProject
         /// <summary>
         /// List with all directorys to copy in backup and backup scope of the directory
         /// </summary>
-        private Dictionary<string, DirectoryScope> _toBackupDirectorys = new Dictionary<string, QBC.BackupProject.Project.DirectoryScope>();
+        private Dictionary<string, DirectoryScope> _toBackupDirectorys = new Dictionary<string, Project.DirectoryScope>();
         /// <summary>
         /// Get or set the list with all directorys to copy in backup and backup scope of the directory
         /// </summary>

@@ -1,5 +1,5 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
  * Copyright:   Oliver Kind - 2020
  * License:     LGPL
@@ -21,8 +21,7 @@
  * along with this program; if not check the GitHub-Repository.
  * 
  * */
- 
-using OLKI.Programme.QBC.BackupProject;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,7 +29,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.MainForm
+namespace OLKI.Programme.QBC.src.MainForm
 {
     /// <summary>
     /// Explorer TreeView for the application
@@ -49,7 +48,7 @@ namespace OLKI.Programme.QBC.MainForm
         /// Directroylist with all directroys with states
         /// </summary>
         [Browsable(false)]
-        public Dictionary<string, Project.DirectoryScope> DirectoryList { get; set; }
+        public Dictionary<string, Project.Project.DirectoryScope> DirectoryList { get; set; }
 
         /// <summary>
         /// Get or set if subdirectries shold add to an TreeView node, if it ist expanded
@@ -307,20 +306,20 @@ namespace OLKI.Programme.QBC.MainForm
         public void SetImageVariant(ExtendedTreeNode treeNode)
         {
             ExtendedTreeNode.CheckedState ImageVariant = ExtendedTreeNode.CheckedState.NotChecked; ;
-            if (this.DirectoryList == null) this.DirectoryList = new Dictionary<string, Project.DirectoryScope>();
-            foreach (KeyValuePair<string, Project.DirectoryScope> Directroy in this.DirectoryList)
+            if (this.DirectoryList == null) this.DirectoryList = new Dictionary<string, Project.Project.DirectoryScope>();
+            foreach (KeyValuePair<string, Project.Project.DirectoryScope> Directroy in this.DirectoryList)
             {
                 if (Directroy.Key == treeNode.DirectoryInfo.FullName && !treeNode.IsDummy)
                 {
                     switch (Directroy.Value)
                     {
-                        case Project.DirectoryScope.All:
+                        case Project.Project.DirectoryScope.All:
                             ImageVariant = ExtendedTreeNode.CheckedState.Checked;
                             break;
-                        case Project.DirectoryScope.Nothing:
+                        case Project.Project.DirectoryScope.Nothing:
                             ImageVariant = ExtendedTreeNode.CheckedState.NotChecked;
                             break;
-                        case Project.DirectoryScope.Selected:
+                        case Project.Project.DirectoryScope.Selected:
                             ImageVariant = ExtendedTreeNode.CheckedState.Intermediate;
                             break;
                         default:

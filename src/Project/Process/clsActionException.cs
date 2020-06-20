@@ -1,5 +1,5 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
  * Copyright:   Oliver Kind - 2020
  * License:     LGPL
@@ -24,7 +24,7 @@
 
 using System;
 
-namespace OLKI.Programme.QBC.BackupProject.Process
+namespace OLKI.Programme.QBC.src.Project.Process
 {
     public class ProcessException
     {

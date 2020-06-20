@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -22,7 +22,7 @@
  * 
  * */
 
-using OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle;
 using OLKI.Programme.QBC.Properties;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
@@ -31,7 +31,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.BackupProject.Process
+namespace OLKI.Programme.QBC.src.Project.Process
 {
     /// <summary>
     /// Provides tools to write logfiles
@@ -81,7 +81,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 //Check for existing directory
                 if (!sourceDirectory.Exists)
                 {
-                    this._progress.Exception.Exception = new Exception(Stringtable._0x000C, null);
+                    this._progress.Exception.Exception = new Exception(Properties.Stringtable._0x000C, null);
                     worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
 
                     return ProcessException.ExceptionLevel.Slight;
@@ -146,7 +146,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 this._progress.Exception = new ProcessException
                 {
-                    Description = Stringtable._0x000D,
+                    Description = Properties.Stringtable._0x000D,
                     Exception = ex,
                     Level = ProcessException.ExceptionLevel.Critical,
                     Source = sourceDirectory.FullName,
@@ -198,7 +198,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 this._progress.Exception = new ProcessException
                 {
-                    Description = Stringtable._0x000D,
+                    Description = Properties.Stringtable._0x000D,
                     Exception = ex,
                     Level = ProcessException.ExceptionLevel.Medium,
                     Source = sourceDirectory.FullName,
@@ -232,7 +232,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 this._progress.Exception = new ProcessException
                 {
-                    Description = Stringtable._0x000D,
+                    Description = Properties.Stringtable._0x000D,
                     Exception = ex,
                     Level = ProcessException.ExceptionLevel.Critical,
                     Source = sourceDirectory.FullName,
@@ -288,7 +288,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 this._progress.Exception = new ProcessException
                 {
-                    Description = Stringtable._0x000D,
+                    Description = Properties.Stringtable._0x000D,
                     Exception = ex,
                     Level = ProcessException.ExceptionLevel.Critical,
                     Source = sourceDirectory.FullName,
@@ -376,7 +376,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 ProcessException.ExceptionLevel ReturnLevel = this.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Medium);
                 ProcessException Exception = new ProcessException
                 {
-                    Description = Stringtable._0x000E,
+                    Description = Properties.Stringtable._0x000E,
                     Exception = ex,
                     Level = ReturnLevel,
                     Source = sourceFile.FullName,
@@ -420,7 +420,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 ProcessException Exception = new ProcessException
                 {
-                    Description = Stringtable._0x000F,
+                    Description = Properties.Stringtable._0x000F,
                     Exception = ex,
                     Level = ProcessException.ExceptionLevel.Critical,
                     Source = sourceFile.FullName,
@@ -462,7 +462,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 ProcessException Exception = new ProcessException
                 {
-                    Description = Stringtable._0x0010,
+                    Description = Properties.Stringtable._0x0010,
                     Exception = ex,
                     Level = this.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Medium),
                     Source = sourceFile.FullName,
@@ -501,7 +501,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 ProcessException Exception = new ProcessException
                 {
-                    Description = Stringtable._0x0011,
+                    Description = Properties.Stringtable._0x0011,
                     Exception = ex,
                     Level = this.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Medium),
                     Source = sourceFile.FullName,
@@ -551,7 +551,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 ProcessException Exception = new ProcessException
                 {
-                    Description = Stringtable._0x0012,
+                    Description = Properties.Stringtable._0x0012,
                     Exception = ex,
                     Level = this.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Medium),
                     Source = sourceFile.FullName,
@@ -586,7 +586,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
             {
                 ProcessException Exception = new ProcessException
                 {
-                    Description = Stringtable._0x0013,
+                    Description = Properties.Stringtable._0x0013,
                     Exception = exception,
                     Level = this.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Slight),
                     Source = sourceFile.FullName,
@@ -620,7 +620,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 {
                     ProcessException Exception = new ProcessException
                     {
-                        Description = Stringtable._0x0014,
+                        Description = Properties.Stringtable._0x0014,
                         Exception = exception,
                         Level = this.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Slight),
                         Source = sourceFile.FullName,
@@ -638,7 +638,7 @@ namespace OLKI.Programme.QBC.BackupProject.Process
                 exception = ex;
                 ProcessException Exception = new ProcessException
                 {
-                    Description = Stringtable._0x0014,
+                    Description = Properties.Stringtable._0x0014,
                     Exception = ex,
                     Level = this.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Slight),
                     Source = sourceFile.FullName,

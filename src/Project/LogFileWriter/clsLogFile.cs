@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OLKI.Programme.QBC.BackupProject.LogFileWriter
+namespace OLKI.Programme.QBC.src.Project.LogFileWriter
 {
     public partial class LogFile
     {

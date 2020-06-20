@@ -1,5 +1,5 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
  * Copyright:   Oliver Kind - 2020
  * License:     LGPL
@@ -30,7 +30,7 @@ using System.IO;
 using System.Security.Principal;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.MainForm
+namespace OLKI.Programme.QBC.src.MainForm
 {
     /// <summary>
     /// The MainForm of the application
@@ -138,9 +138,9 @@ namespace OLKI.Programme.QBC.MainForm
 
             this.trvExplorer.LoadDrives();
             this.trvExplorer.DirectoryList = this._projectManager.ActiveProject.ToBackupDirectorys;
-            this.trvExplorer.ShowHiddenDirectories = Properties.Settings.Default.ListItems_ShowHidden;
-            this.trvExplorer.ShowDirectoriesWithoutAccess = Properties.Settings.Default.ListItems_ShowWithoutAccess;
-            this.trvExplorer.ShowSystemDirectories = Properties.Settings.Default.ListItems_ShowSystem;
+            this.trvExplorer.ShowHiddenDirectories = Settings.Default.ListItems_ShowHidden;
+            this.trvExplorer.ShowDirectoriesWithoutAccess = Settings.Default.ListItems_ShowWithoutAccess;
+            this.trvExplorer.ShowSystemDirectories = Settings.Default.ListItems_ShowSystem;
             this.trvExplorer.SetImageVariant();
 
             // Initial directory content area
@@ -349,13 +349,13 @@ namespace OLKI.Programme.QBC.MainForm
             // Search in project for an defined scrope or set default to nothing selected
             switch (this._mainFormHelper.DirectoryContentListView_GetDirectoryScope(this.trvExplorer.LastSelectedNode.DirectoryInfo))
             {
-                case BackupProject.Project.DirectoryScope.Nothing:
+                case Project.Project.DirectoryScope.Nothing:
                     this.rabSaveNothing.Checked = true;
                     break;
-                case BackupProject.Project.DirectoryScope.All:
+                case Project.Project.DirectoryScope.All:
                     this.rabSaveAll.Checked = true;
                     break;
-                case BackupProject.Project.DirectoryScope.Selected:
+                case Project.Project.DirectoryScope.Selected:
                     this.rabSaveSelected.Checked = true;
                     break;
                 default:
@@ -396,9 +396,9 @@ namespace OLKI.Programme.QBC.MainForm
             {
                 if (this.trvExplorer.LastSelectedNode == null) return;
 
-                if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, BackupProject.Project.DirectoryScope.All);
+                if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.All);
                 if (this.rabSaveNothing.Checked) this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
-                if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, BackupProject.Project.DirectoryScope.Selected);
+                if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.Selected);
 
                 //Set TreeNodes
                 if (this.trvExplorer.LastSelectedNode != null)
@@ -460,7 +460,7 @@ namespace OLKI.Programme.QBC.MainForm
 
                 if (e.Item.Checked)
                 {
-                    this._mainFormHelper.Project_AddDirectorysToProject(Directory, BackupProject.Project.DirectoryScope.All);
+                    this._mainFormHelper.Project_AddDirectorysToProject(Directory, Project.Project.DirectoryScope.All);
                     e.Item.ImageIndex = 18;
                 }
                 else
@@ -499,7 +499,7 @@ namespace OLKI.Programme.QBC.MainForm
         {
             if (this.lsvErrorLog.SelectedItems.Count > 0)
             {
-                BackupProject.Process.ProcessException Exception = (BackupProject.Process.ProcessException)this.lsvErrorLog.SelectedItems[0].Tag;
+                Project.Process.ProcessException Exception = (Project.Process.ProcessException)this.lsvErrorLog.SelectedItems[0].Tag;
                 string ExceptionText = "";
                 if (!string.IsNullOrEmpty(Exception.Description)) ExceptionText += Exception.Description;
                 if (!string.IsNullOrEmpty(Exception.Description) && !string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText += "\r\n\r\n";

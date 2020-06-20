@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -26,7 +26,7 @@ using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
 using System.ComponentModel;
 
-namespace OLKI.Programme.QBC.BackupProject.Settings.Common
+namespace OLKI.Programme.QBC.src.Project.Settings.Common
 {
     /// <summary>
     /// A class that provides project common settings for file handling

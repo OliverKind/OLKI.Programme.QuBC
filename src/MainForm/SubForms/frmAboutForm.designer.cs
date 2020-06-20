@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.QBC.MainForm.SubForms
+﻿namespace OLKI.Programme.QBC.src.MainForm.SubForms
 {
     partial class AboutForm
     {

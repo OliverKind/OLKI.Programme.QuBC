@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * QBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -26,7 +26,7 @@ using OLKI.Programme.QBC.Properties;
 using System;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.MainForm.SubForms
+namespace OLKI.Programme.QBC.src.MainForm.SubForms
 {
     /// <summary>
     /// A form to change the settings of the application

@@ -58,7 +58,7 @@
     <ApplicationIcon>Properties\Resources\ProgamIcons\program_symbol\Program_Symbol.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>OLKI.Programme.QBC.Program</StartupObject>
+    <StartupObject>OLKI.Programme.QBC.src.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
