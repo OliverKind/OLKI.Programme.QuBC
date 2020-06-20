@@ -1,7 +1,7 @@
-'QBC - 0.1.0.1' - QuickBackupCreator
+'QBC - 1.1.2.9' - QuickBackupCreator
 ************************************
 
-Copyright © 2019 OLKI - Oliver Kind
+Copyright © 2020 OLKI - Oliver Kind
 Alle Rechte vorbehalten.
 
 
@@ -40,7 +40,7 @@ Das Recht der Vermarktung fällt somit exklusiv dem Autor der Software zu.
 1 - Systemvoraussetzungen
 *************************
 
-Damit die Software 'QBC- QuickBackupCreator' einwandfrei läuft, muss
+Damit die Software 'QBC - QuickBackupCreator' einwandfrei läuft, muss
 das Computersystem folgende Voraussetzungen erfüllen:
 
 - Prozessor 1 GHz
@@ -66,7 +66,7 @@ Betriebssystem Unterschiede auftreten.
 **************************************************
 
 Stellen Sie sicher, dass folgende Voraussetzungen erfüllt sind,
-damit 'QBC- QuickBackupCreator' einwandfrei auf Ihrem Computer funktioniert:
+damit 'QBC - QuickBackupCreator' einwandfrei auf Ihrem Computer funktioniert:
 
 - Systemvoraussetzungen erfüllt
 - unter Umständen müssen Administrator-Rechte vorhanden sein
@@ -79,7 +79,7 @@ damit 'QBC- QuickBackupCreator' einwandfrei auf Ihrem Computer funktioniert:
 
 a) Erstinstallation
 -------------------
-Wird die Software "QBC- QuickBackupCreator" das erste mal, oder nach einer Deinstallation,
+Wird die Software "QBC - QuickBackupCreator" das erste mal, oder nach einer Deinstallation,
 installiert, so wird ein Verzeichnis angelegt in dem die  Benutzereinstellungen gespeichert werden.
 Der Pfad zu diesem Verzeichnis ist üblicherweise (Bei Windows 7 oder späteren Versionen):
 "C:\Users\[BENUTZERNAME]\AppData\Roaming\OLKI-Software\QBC"
@@ -89,7 +89,7 @@ Weitere Informationen zu diesem Verzeichnis und den enthaltenen Dateien finden S
 
 b) Wiederholinstallation
 ------------------------
-Wird die Software "QBC- QuickBackupCreator" installiert, ohne das vorher eine Deinstallation,
+Wird die Software "QBC - QuickBackupCreator" installiert, ohne das vorher eine Deinstallation,
 stattgefunden hat bleiben die Dateien im Einstellungsverzeichnis üblicherweise (Bei Windows 7 oder späteren
 Versionen) "C:\Users\[BENUTZERNAME]\AppData\Roaming\OLKI-Software\QBC" unbeeinflusst.
 Sollte es erwünscht sein das Diese Dateien neu erzeugt werden so müssen sie zuvor vom Benutzer gelöscht
@@ -97,7 +97,7 @@ werden oder das Programm deinstalliert werden.
 
 c) Erststart
 ------------
-Beim ersten Start der Software "QBC- QuickBackupCreator" wird überprüft ob die Projektdateien *.qbc
+Beim ersten Start der Software "QBC - QuickBackupCreator" wird überprüft ob die Projektdateien *.qbc
 mit dem Programm verknüpft sind. Ist dies nicht der Fall, so können die Projektdateien *.qbc mit der Software
 verknüpft werden. Entschließen Sie sich gegen die Verknüpfung so können Sie diese Überprüfung und Verknüpfung
 unter Menü->Extras->Optionen->"Dateizuordnung prüfen" wiederholen.
