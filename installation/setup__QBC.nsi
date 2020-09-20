@@ -1,4 +1,4 @@
-;NSIS Installer for QBC 1.1.1.8
+;NSIS Installer for QBC 1.1.2.9
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'QBC'
-  !define Version          '1.1.1.8'
+  !define Version          '1.1.2.9'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um schnell Datensicherungen zu erstellen'
   !define Copyright        '2020 - Oliver Kind'
@@ -113,13 +113,14 @@ Section ""
   File ".\..\bin\Release\AssociationTestfile.qbc"
   File ".\..\bin\Release\changelog.txt"
   File ".\..\bin\Release\QBC.exe"
+  File ".\..\bin\Release\OLKI.Tools.ColorAndPicture.dll"
   File ".\..\bin\Release\OLKI.Tools.CommonTools.dll"
   File ".\..\bin\Release\OLKI.Widgets.dll"
   File ".\..\bin\Release\doc\${EulaFile}"
   File ".\..\bin\Release\doc\${InformationFile}"
   File ".\..\bin\Release\doc\${ReadmeFile}"
-  File ".\..\bin\Release\Properties\Resources\ProgamIcons\project_symbol\Project_Symbol.ico"
-  File ".\..\bin\Release\Properties\Resources\ProgamIcons\program_symbol\Program_Symbol.ico"
+  File ".\..\bin\Release\Resources\ProgamIcons\project_symbol\Project_Symbol.ico"
+  File ".\..\bin\Release\Resources\ProgamIcons\program_symbol\Program_Symbol.ico"
   
   SetOutPath "$INSTDIR\Licenses"
   File ".\..\bin\Release\Licenses\LGPL-License.txt"

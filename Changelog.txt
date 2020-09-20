@@ -12,6 +12,13 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.1.2.9] - 2020-09-20
+### Fixed
+- Spellings
+
+### Changed
+- Code organisation
+
 ## [1.1.1.8] - 2020-05-01
 ### Fixed
 - Aborting copy files if there is no access to an directroy
