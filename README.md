@@ -8,9 +8,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* .NET Framework 4 or higher
+* .NET Framework 4.7.2 or higher
 
 > To compile the source code you need also the following repositories
+> * [OLKI.Tools.ColorAndPicture](https://github.com/OliverKind/OLKI.Tools.ColorAndPicture)
 > * [OLKI.Tools.CommonTools](https://github.com/OliverKind/OLKI.Tools.CommonTools)
 > * [OLKI.Widgets](https://github.com/OliverKind/OLKI.Widgets)
 
@@ -27,6 +28,7 @@ You can download the source code or use a installer of the last release, if you 
 
 Update the refereces to the additional required repositories
 ```C#
+OLKI.Tools.ColorAndPicture
 OLKI.Tools.CommonTools
 OLKI.Widgets
 ```
