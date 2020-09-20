@@ -203,6 +203,8 @@ namespace OLKI.Programme.QBC.src.MainForm
             if (!string.IsNullOrEmpty(this._recentFiles.FileList[index]))
             {
                 this._projectManager.Project_Open(this._recentFiles.FileList[index]);
+                this.ProjectManager_ProjectFileChanged(this, new EventArgs());
+                this.SetRecentFilesSettingsAndMenue();
             }
         }
 
