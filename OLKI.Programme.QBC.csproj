@@ -55,7 +55,7 @@
   <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup>
-    <ApplicationIcon>Properties\Resources\ProgamIcons\program_symbol\Program_Symbol.ico</ApplicationIcon>
+    <ApplicationIcon>Program_Symbol.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>OLKI.Programme.QBC.src.Program</StartupObject>
@@ -218,6 +218,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Icons\MenueToolStripIcons\Thumbs.db" />
     <None Include="src\Project\Settings\cdSettings.cd" />
   </ItemGroup>
   <ItemGroup>
@@ -231,64 +232,71 @@
     <Content Include="licenses\LGPL-License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Properties\Resources\Icons\eventlogWarn.ico" />
-    <Content Include="Properties\Resources\Icons\Icon original Files\075b_UpFolder.ico" />
-    <Content Include="Properties\Resources\Icons\Icon original Files\112_ArrowCurve_Blue_Left_16x16_72.png" />
-    <Content Include="Properties\Resources\Icons\Icon original Files\3.5_Disk_Drive.ico" />
-    <Content Include="Properties\Resources\Icons\Icon original Files\CD_Drive.ico" />
-    <Content Include="Properties\Resources\Icons\Icon original Files\File.ico" />
-    <Content Include="Properties\Resources\Icons\Icon original Files\folder.ico" />
-    <Content Include="Properties\Resources\Icons\Icon original Files\Hard_Drive.ico" />
-    <Content Include="Properties\Resources\Icons\Icon original Files\Network_Drive.ico" />
-    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\Help.png" />
-    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\New.png" />
-    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\Open.png" />
-    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\OpenFolder.png" />
-    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\Properties.png" />
-    <Content Include="Properties\Resources\Icons\MenueToolStripIcons\Save.png" />
-    <Content Include="Properties\Resources\ProgamIcons\program_symbol\Program_Symbol.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Properties\Resources\Icons\ButtonIcons\Delete.png" />
-    <Content Include="Properties\Resources\ProgamIcons\program_symbol\ProgSym_256.png" />
-    <Content Include="Properties\Resources\ProgamIcons\program_symbol\vorlagen\112_ArrowCurveBlue_Right.ico" />
-    <Content Include="Properties\Resources\ProgamIcons\program_symbol\vorlagen\Generic_Device.ico" />
-    <Content Include="Properties\Resources\ProgamIcons\program_symbol\vorlagen\Hard_Drive.ico" />
-    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Project_Symbol.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Project_Symbol.png" />
-    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Vorlagen\327_Options.ico" />
-    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Vorlagen\copy.ico" />
-    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Vorlagen\ProgSym.ico" />
-    <Content Include="Properties\Resources\ProgamIcons\project_symbol\Vorlagen\Settings.ico" />
     <Content Include="doc\ReadMe.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Properties\Resources\Icons\ButtonIcons\UpFolder.png" />
-    <None Include="Properties\Resources\Icons\ButtonIcons\OpenFolder.png" />
-    <None Include="Properties\Resources\Icons\ButtonIcons\112_RefreshArrow_Blue_16x16_72.png" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\00--3.5_Disk_Drive.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\01--3.5_Disk_Drive_NoCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\02--3.5_Disk_Drive_Check.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\03--3.5_Disk_Drive_IntCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\04--Hard_Drive.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\06--Hard_Drive_Check.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\05--Hard_Drive_NoCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\07--Hard_Drive_IntCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\08--CD_Drive.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\09--CD_Drive_NoCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\10--CD_Drive_Check.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\11-CD_Drive_IntCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\12--Network_Drive.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\13--Network_Drive_NoCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\14--Network_Drive_Check.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\15--Network_IntCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\16--folder.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\17--folder_NoCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\18--folder_Check.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\19--folder_IntCheck.ico" />
-    <Content Include="Properties\Resources\Icons\TreeViewIcons\20--File.ico" />
+    <Content Include="Program_Symbol.ico" />
+    <Content Include="Resources\Icons\ButtonIcons\112_RefreshArrow_Blue_16x16_72.png" />
+    <Content Include="Resources\Icons\ButtonIcons\Cancel.png" />
+    <Content Include="Resources\Icons\ButtonIcons\Delete.png" />
+    <Content Include="Resources\Icons\ButtonIcons\ExistingFiles.png" />
+    <Content Include="Resources\Icons\ButtonIcons\Open.png" />
+    <Content Include="Resources\Icons\ButtonIcons\OpenFolder.png" />
+    <Content Include="Resources\Icons\ButtonIcons\Run.png" />
+    <Content Include="Resources\Icons\ButtonIcons\SearchFolderHS.png" />
+    <Content Include="Resources\Icons\ButtonIcons\UpFolder.png" />
+    <Content Include="Resources\Icons\eventlogWarn.ico" />
+    <Content Include="Resources\Icons\Icon original Files\075b_UpFolder.ico" />
+    <Content Include="Resources\Icons\Icon original Files\112_ArrowCurve_Blue_Left_16x16_72.png" />
+    <Content Include="Resources\Icons\Icon original Files\3.5_Disk_Drive.ico" />
+    <Content Include="Resources\Icons\Icon original Files\CD_Drive.ico" />
+    <Content Include="Resources\Icons\Icon original Files\eventlogWarn.ico" />
+    <Content Include="Resources\Icons\Icon original Files\File.ico" />
+    <Content Include="Resources\Icons\Icon original Files\folder.ico" />
+    <Content Include="Resources\Icons\Icon original Files\Hard_Drive.ico" />
+    <Content Include="Resources\Icons\Icon original Files\Network_Drive.ico" />
+    <Content Include="Resources\Icons\MenueToolStripIcons\Help.png" />
+    <Content Include="Resources\Icons\MenueToolStripIcons\New.png" />
+    <Content Include="Resources\Icons\MenueToolStripIcons\Open.png" />
+    <Content Include="Resources\Icons\MenueToolStripIcons\OpenFolder.png" />
+    <Content Include="Resources\Icons\MenueToolStripIcons\Properties.png" />
+    <Content Include="Resources\Icons\MenueToolStripIcons\Save.png" />
+    <Content Include="Resources\Icons\TreeViewIcons\00--3.5_Disk_Drive.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\01--3.5_Disk_Drive_NoCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\02--3.5_Disk_Drive_Check.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\03--3.5_Disk_Drive_IntCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\04--Hard_Drive.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\05--Hard_Drive_NoCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\06--Hard_Drive_Check.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\07--Hard_Drive_IntCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\08--CD_Drive.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\09--CD_Drive_NoCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\10--CD_Drive_Check.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\11-CD_Drive_IntCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\12--Network_Drive.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\13--Network_Drive_NoCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\14--Network_Drive_Check.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\15--Network_IntCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\16--folder.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\17--folder_NoCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\18--folder_Check.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\19--folder_IntCheck.ico" />
+    <Content Include="Resources\Icons\TreeViewIcons\20--File.ico" />
+    <Content Include="Resources\ProgamIcons\program_symbol\Program_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ProgamIcons\program_symbol\ProgSym_256.png" />
+    <Content Include="Resources\ProgamIcons\program_symbol\vorlagen\112_ArrowCurveBlue_Right.ico" />
+    <Content Include="Resources\ProgamIcons\program_symbol\vorlagen\Generic_Device.ico" />
+    <Content Include="Resources\ProgamIcons\program_symbol\vorlagen\Hard_Drive.ico" />
+    <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.png" />
+    <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\327_Options.ico" />
+    <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\copy.ico" />
+    <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\ProgSym.ico" />
+    <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\Settings.ico" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
