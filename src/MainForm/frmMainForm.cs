@@ -243,6 +243,8 @@ namespace OLKI.Programme.QBC.src.MainForm
             // Load settings to controle
             this.uscControleBackup.LoadSettings();
             this.uscControleRestore.LoadSettings();
+            this.trvExplorer.DirectoryList = this._projectManager.ActiveProject.ToBackupDirectorys;
+            this.rabSaveXXX_CheckedChanged(this, new EventArgs());
         }
 
         private void ProjectManager_ProjecOpenOrNew(object sender, EventArgs e)
@@ -396,17 +398,18 @@ namespace OLKI.Programme.QBC.src.MainForm
             // Set Directory and TreeView
             if (!this._suppressControleEvents)
             {
-                if (this.trvExplorer.LastSelectedNode == null) return;
+                if (this.trvExplorer.LastSelectedNode == null)
+                {
+                    this.trvExplorer.SetImageVariant();
+                    return;
+                }
 
                 if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.All);
                 if (this.rabSaveNothing.Checked) this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
                 if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.Selected);
 
                 //Set TreeNodes
-                if (this.trvExplorer.LastSelectedNode != null)
-                {
-                    this.trvExplorer.SetImageVariant(this.trvExplorer.LastSelectedNode.DirectoryInfo.Root, true);                
-                }
+                this.trvExplorer.SetImageVariant(this.trvExplorer.LastSelectedNode.DirectoryInfo.Root, true);
             }
         }
 
