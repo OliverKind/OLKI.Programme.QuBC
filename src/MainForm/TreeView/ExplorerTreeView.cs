@@ -305,8 +305,11 @@ namespace OLKI.Programme.QBC.src.MainForm
         /// <param name="treeNode">TreeNode to search an set the image variant</param>
         public void SetImageVariant(ExtendedTreeNode treeNode)
         {
+            if (treeNode.IsDummy) return;
+
             ExtendedTreeNode.CheckedState ImageVariant = ExtendedTreeNode.CheckedState.NotChecked; ;
             if (this.DirectoryList == null) this.DirectoryList = new Dictionary<string, Project.Project.DirectoryScope>();
+
             foreach (KeyValuePair<string, Project.Project.DirectoryScope> Directroy in this.DirectoryList)
             {
                 if (Directroy.Key == treeNode.DirectoryInfo.FullName && !treeNode.IsDummy)
@@ -338,6 +341,7 @@ namespace OLKI.Programme.QBC.src.MainForm
         /// <param name="imageVariant">ImageVariant to set to TreeNode</param>
         public void SetImageVariant(ExtendedTreeNode treeNode, ExtendedTreeNode.CheckedState imageVariant)
         {
+            if (treeNode.IsDummy) return;
             treeNode.ImageVariant = imageVariant;
         }
 
@@ -349,7 +353,7 @@ namespace OLKI.Programme.QBC.src.MainForm
         {
             foreach (ExtendedTreeNode TreeNode in nodes)
             {
-                this.SetImageVariant(TreeNode);
+                if (!TreeNode.IsDummy) this.SetImageVariant(TreeNode);
                 if (TreeNode.Nodes.Count > 0) this.SetImageVariantRecursive(TreeNode.Nodes);
             }
         }
