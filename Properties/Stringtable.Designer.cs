@@ -302,7 +302,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Anlegen der Quelldatei???????????????????????????? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Anlegen der Zieldatei ähnelt.
         /// </summary>
         internal static string _0x0011 {
             get {

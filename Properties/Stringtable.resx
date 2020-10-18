@@ -234,7 +234,7 @@ Möchten Sie fortfahren?</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileOpenSource:GeneralExceptiona</comment>
   </data>
   <data name="0x0011" xml:space="preserve">
-    <value>Fehler beim Anlegen der Quelldatei????????????????????????????</value>
+    <value>Fehler beim Anlegen der Zieldatei</value>
     <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileCreateTarget:GeneralExceptiona</comment>
   </data>
   <data name="0x0012" xml:space="preserve">
