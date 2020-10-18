@@ -31,14 +31,7 @@ namespace OLKI.Programme.QBC.src.Project.Process
         #endregion
 
         #region Properties
-        private readonly ProgressStore _progressStore;
-        public ProgressStore ProgressStore
-        {
-            get
-            {
-                return this._progressStore;
-            }
-        }
+        public ProgressStore ProgressStore { get; }
 
         public bool ForceReportProgress { get; set; } = DEFAULT_FORCE_REPORT_PROGRRESS;
         #endregion
@@ -52,7 +45,7 @@ namespace OLKI.Programme.QBC.src.Project.Process
         }
         public ProgressState(ProgressStore progressStore, bool forceReportProgress)
         {
-            if (progressStore != null) this._progressStore = progressStore.Clone();
+            if (progressStore != null) this.ProgressStore = progressStore.Clone();
             this.ForceReportProgress = forceReportProgress;
         }
         #endregion
