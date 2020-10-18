@@ -180,21 +180,6 @@ namespace OLKI.Programme.QBC.src.MainForm
         }
 
         /// <summary>
-        /// Add a new item to recent file list and sets the menue item
-        /// </summary>
-        private void SetRecentFilesSettingsAndMenue()
-        {
-            if (this._projectManager.ActiveProject != null && this._projectManager.ActiveProject.File != null)
-            {
-                this._recentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
-                Settings.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
-            }
-
-            this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
-        }
-
-
-        /// <summary>
         /// Open a project from recent file list
         /// </summary>
         /// <param name="index">Index of file list to open</param>
@@ -208,6 +193,50 @@ namespace OLKI.Programme.QBC.src.MainForm
             }
         }
 
+        /// <summary>
+        /// Add a new item to recent file list and sets the menue item
+        /// </summary>
+        private void SetRecentFilesSettingsAndMenue()
+        {
+            if (this._projectManager.ActiveProject != null && this._projectManager.ActiveProject.File != null)
+            {
+                this._recentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
+                Settings.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
+            }
+
+            this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
+        }
+
+        /// <summary>
+        /// Set the controles for the tabPageSelect controles
+        /// </summary>
+        private void SetSelectionControles()
+        {
+            // Set Explorer
+            this.btnLsvExplorerChangeSelect.Enabled = this.rabSaveSelected.Checked;
+            this.lsvDirectoryContent.BackColor = System.Drawing.SystemColors.Window;
+            if (this.rabSaveAll.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            if (this.rabSaveNothing.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(255, 192, 192);
+            if (this.rabSaveSelected.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 255);
+
+            // Set Directory and TreeView
+            if (!this._suppressControleEvents)
+            {
+                if (this.trvExplorer.LastSelectedNode == null)
+                {
+                    this.trvExplorer.SetImageVariant();
+                    return;
+                }
+
+                if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.All);
+                if (this.rabSaveNothing.Checked) this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
+                if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.Selected);
+
+                //Set TreeNodes
+                this.trvExplorer.SetImageVariant(this.trvExplorer.LastSelectedNode.DirectoryInfo.Root, true);
+            }
+        }
+
         #region Projec Events
         private void ProjectManager_ProjectChanged(object sender, EventArgs e)
         {
@@ -218,6 +247,7 @@ namespace OLKI.Programme.QBC.src.MainForm
             }
             this.ProjectManager_ProjectFileChanged(sender, e);
         }
+        
         private void ProjectManager_ProjectFileChanged(object sender, EventArgs e)
         {
             if (this._suppressControleEvents)
@@ -244,7 +274,7 @@ namespace OLKI.Programme.QBC.src.MainForm
             this.uscControleBackup.LoadSettings();
             this.uscControleRestore.LoadSettings();
             this.trvExplorer.DirectoryList = this._projectManager.ActiveProject.ToBackupDirectorys;
-            this.rabSaveXXX_CheckedChanged(this, new EventArgs());
+            this.SetSelectionControles();
         }
 
         private void ProjectManager_ProjecOpenOrNew(object sender, EventArgs e)
@@ -367,7 +397,7 @@ namespace OLKI.Programme.QBC.src.MainForm
                     break;
             }
 
-            this.rabSaveXXX_CheckedChanged(sender, e);
+            this.SetSelectionControles();
             this._suppressControleEvents = false;
         }
 
@@ -388,29 +418,20 @@ namespace OLKI.Programme.QBC.src.MainForm
 
         private void rabSaveXXX_CheckedChanged(object sender, EventArgs e)
         {
-            // Set Explorer
-            this.btnLsvExplorerChangeSelect.Enabled = this.rabSaveSelected.Checked;
-            this.lsvDirectoryContent.BackColor = System.Drawing.SystemColors.Window;
-            if (this.rabSaveAll.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
-            if (this.rabSaveNothing.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(255, 192, 192);
-            if (this.rabSaveSelected.Checked) this.lsvDirectoryContent.BackColor = System.Drawing.Color.FromArgb(192, 255, 255);
-
-            // Set Directory and TreeView
-            if (!this._suppressControleEvents)
+            //Is Directory
+            if (!this._suppressControleEvents && this.trvExplorer.LastSelectedNode != null)
             {
-                if (this.trvExplorer.LastSelectedNode == null)
-                {
-                    this.trvExplorer.SetImageVariant();
-                    return;
-                }
+                Project.Project.DirectoryScope Scope = Project.Project.DirectoryScope.All;
 
-                if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.All);
-                if (this.rabSaveNothing.Checked) this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
-                if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.Selected);
+                if (this.rabSaveNothing.Checked) Scope = Project.Project.DirectoryScope.Nothing;
+                if (this.rabSaveAll.Checked) Scope = Project.Project.DirectoryScope.All;
+                if (this.rabSaveSelected.Checked) Scope = Project.Project.DirectoryScope.Selected;
 
-                //Set TreeNodes
-                this.trvExplorer.SetImageVariant(this.trvExplorer.LastSelectedNode.DirectoryInfo.Root, true);
+                this._projectManager.ActiveProject.ToBackupDirectorys[this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName] = Scope;
+                this._projectManager.ActiveProject.Changed = true;
+                this.ProjectManager_ProjectFileChanged(this, new EventArgs());
             }
+            this.SetSelectionControles();
         }
 
         private void btnLsvExplorerChangeSelect_Click(object sender, EventArgs e)
