@@ -164,7 +164,8 @@ namespace OLKI.Programme.QBC.src
                 this._activeProject = NewProject;
                 this._activeProject.ProjectChanged += new EventHandler(this.ToggleActiveProjecChanged);
 
-                if (this.ProjecOpenOrNew != null) ProjecOpenOrNew(this, new EventArgs());
+                this.ProjecOpenOrNew?.Invoke(this, new EventArgs());
+
                 return true;
             }
             catch (Exception ex)
