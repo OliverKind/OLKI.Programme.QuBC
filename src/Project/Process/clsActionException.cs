@@ -26,10 +26,19 @@ using System;
 
 namespace OLKI.Programme.QBC.src.Project.Process
 {
+    /// <summary>
+    /// Class that provide informations if an process (count or copy) throws an exception
+    /// </summary>
     public class ProcessException
     {
+        /// <summary>
+        /// Default exception level
+        /// </summary>
         private const ExceptionLevel DEFAULT_EXCEPTIOON_LEVEL = ExceptionLevel.NoException;
 
+        /// <summary>
+        /// The level of an exception
+        /// </summary>
         public enum ExceptionLevel
         {
             /// <summary>
@@ -76,6 +85,9 @@ namespace OLKI.Programme.QBC.src.Project.Process
         /// </summary>
         public string Description { get; set; } = "";
 
+        /// <summary>
+        /// Initialise a new ProcessException
+        /// </summary>
         public ProcessException()
         {
         }
