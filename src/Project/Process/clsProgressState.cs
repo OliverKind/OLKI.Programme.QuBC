@@ -24,25 +24,50 @@
 
 namespace OLKI.Programme.QBC.src.Project.Process
 {
+    /// <summary>
+    /// A class to send the progress state
+    /// </summary>
     public class ProgressState
     {
         #region Constants
+        /// <summary>
+        /// Defines if a progress report should been forced by default
+        /// </summary>
         private const bool DEFAULT_FORCE_REPORT_PROGRRESS = false;
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Get the stored progess data
+        /// </summary>
         public ProgressStore ProgressStore { get; }
 
+        /// <summary>
+        /// Get or set if the progress report should been forced
+        /// </summary>
         public bool ForceReportProgress { get; set; } = DEFAULT_FORCE_REPORT_PROGRRESS;
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// Iniital a new ProgressState with ProgressStore
+        /// </summary>
+        /// <param name="progressStore">The prograss store</param>
         public ProgressState(ProgressStore progressStore) : this(progressStore, DEFAULT_FORCE_REPORT_PROGRRESS)
         {
         }
+        /// <summary>
+        /// Iniital a new ProgressState withoud ProgressStore
+        /// </summary>
+        /// <param name="forceReportProgress">Should reporting the prgoress been forced</param>
         public ProgressState(bool forceReportProgress) : this(null, forceReportProgress)
         {
         }
+        /// <summary>
+        /// Iniital a new ProgressState with ProgressStore
+        /// </summary>
+        /// <param name="progressStore">The prograss store</param>
+        /// <param name="forceReportProgress">Should reporting the prgoress been forced</param>
         public ProgressState(ProgressStore progressStore, bool forceReportProgress)
         {
             if (progressStore != null) this.ProgressStore = progressStore.Clone();
