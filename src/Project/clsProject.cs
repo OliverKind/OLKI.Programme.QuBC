@@ -503,6 +503,9 @@ namespace OLKI.Programme.QBC.src.Project
             {
                 this._restrainChangedEvent = true;
 
+                this._toBackupDirectorys.Clear();
+                this._toBackupFiles.Clear();
+
                 //Check Fileversion
                 if (!this.Project_FromXMLString_CheckVersion(inputProject.Attribute("Version").Value)) return false;
                 //Read Directorys
@@ -520,7 +523,6 @@ namespace OLKI.Programme.QBC.src.Project
                 }
 
                 //Read Settings
-                //this._settings = new Settings.Settings();
                 this._settings.RestrainChangedEvent = true;
                 XElement Settings = inputProject.Element(XML_FILE_SETTINGS_NODE);
                 {

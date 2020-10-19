@@ -188,7 +188,9 @@ namespace OLKI.Programme.QBC.src.MainForm
             if (!string.IsNullOrEmpty(this._recentFiles.FileList[index]))
             {
                 this._projectManager.Project_Open(this._recentFiles.FileList[index]);
+                this._suppressControleEvents = true;
                 this.ProjectManager_ProjectFileChanged(this, new EventArgs());
+                this._suppressControleEvents = false;
                 this.SetRecentFilesSettingsAndMenue();
             }
         }
@@ -247,7 +249,7 @@ namespace OLKI.Programme.QBC.src.MainForm
             }
             this.ProjectManager_ProjectFileChanged(sender, e);
         }
-        
+
         private void ProjectManager_ProjectFileChanged(object sender, EventArgs e)
         {
             if (this._suppressControleEvents)
@@ -562,14 +564,18 @@ namespace OLKI.Programme.QBC.src.MainForm
         {
             if (!this._projectManager.GetSaveActiveProject()) return;
             this._projectManager.Project_New();
+            this._suppressControleEvents = true;
             this.ProjectManager_ProjectFileChanged(sender, e);
+            this._suppressControleEvents = false;
         }
 
         private void mnuMain_File_Open_Click(object sender, EventArgs e)
         {
             if (!this._projectManager.GetSaveActiveProject()) return;
-            this._projectManager.Project_Open();
+            if (!this._projectManager.Project_Open()) return;
+            this._suppressControleEvents = true;
             this.ProjectManager_ProjectFileChanged(sender, e);
+            this._suppressControleEvents = false;
             this.SetRecentFilesSettingsAndMenue();
         }
 
