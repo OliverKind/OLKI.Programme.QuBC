@@ -188,9 +188,7 @@ Die kopie ist wahrscheinlich unvollständig.
     <comment>OLKI.Programme.QBC.ProjectManager.GetOverwriteActiveProject:HasUnsavedChanges.Caption</comment>
   </data>
   <data name="0x0009m" xml:space="preserve">
-    <value>Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wenn Sie fortfahren gehen diese Änderungen verloren.
-
-Möchten Sie fortfahren?</value>
+    <value>Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wollen Sie diese jetzt speichern?</value>
     <comment>OLKI.Programme.QBC.ProjectManager.GetOverwriteActiveProject:HasUnsavedChanges.Message</comment>
   </data>
   <data name="0x000Ac" xml:space="preserve">

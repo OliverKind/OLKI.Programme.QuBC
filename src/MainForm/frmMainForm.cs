@@ -562,7 +562,7 @@ namespace OLKI.Programme.QBC.src.MainForm
         #region Menue Events
         private void mnuMain_File_New_Click(object sender, EventArgs e)
         {
-            if (!this._projectManager.GetSaveActiveProject()) return;
+            if (!this._projectManager.SaveUnchangedProjectGetContinue()) return;
             this._projectManager.Project_New();
             this._suppressControleEvents = true;
             this.ProjectManager_ProjectFileChanged(sender, e);
@@ -571,7 +571,7 @@ namespace OLKI.Programme.QBC.src.MainForm
 
         private void mnuMain_File_Open_Click(object sender, EventArgs e)
         {
-            if (!this._projectManager.GetSaveActiveProject()) return;
+            if (!this._projectManager.SaveUnchangedProjectGetContinue()) return;
             if (!this._projectManager.Project_Open()) return;
             this._suppressControleEvents = true;
             this.ProjectManager_ProjectFileChanged(sender, e);

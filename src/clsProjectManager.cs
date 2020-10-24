@@ -89,13 +89,20 @@ namespace OLKI.Programme.QBC.src
         /// Check if there are unsaved changes in active project and ask if the sould been saved.
         /// </summary>
         /// <returns>True if the active project should been overwritten</returns>
-        internal bool GetSaveActiveProject()
+        internal bool SaveUnchangedProjectGetContinue()
         {
             if (this._activeProject.Changed)
             {
-                if (MessageBox.Show(Stringtable._0x0009m, Stringtable._0x0009c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                switch (MessageBox.Show(Stringtable._0x0009m, Stringtable._0x0009c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1))
                 {
-                    return false;
+                    case DialogResult.Cancel:
+                        return false;
+                    case DialogResult.No:
+                        return true;
+                    case DialogResult.Yes:
+                        return this.Project_Save();
+                    default:
+                        return false;
                 }
             }
             return true;

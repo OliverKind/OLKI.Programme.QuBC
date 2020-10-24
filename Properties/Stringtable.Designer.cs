@@ -206,9 +206,7 @@ namespace OLKI.Programme.QBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wenn Sie fortfahren gehen diese Änderungen verloren.
-        ///
-        ///Möchten Sie fortfahren? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wollen Sie diese jetzt speichern? ähnelt.
         /// </summary>
         internal static string _0x0009m {
             get {
