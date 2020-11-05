@@ -196,6 +196,27 @@ namespace OLKI.Programme.QBC.src.MainForm
         }
 
         /// <summary>
+        /// Set the Title of the MainForm, with * as suffix, if the active project was changes
+        /// </summary>
+        private void SetFormTitle()
+        {
+            string ApplicationName = string.Empty;
+            object[] attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Reflection.AssemblyProductAttribute), false);
+            if (attributes.Length > 0)
+            {
+                ApplicationName = ((System.Reflection.AssemblyProductAttribute)attributes[0]).Product;
+            }
+            string ProjectName = Stringtable._0x0004;
+            if (this._projectManager.ActiveProject.File != null && !string.IsNullOrEmpty(this._projectManager.ActiveProject.File.Name))
+            {
+                ProjectName = this._projectManager.ActiveProject.File.Name;
+            }
+            string ProjectChanged = this._projectManager.ActiveProject.Changed ? "*" : string.Empty;
+            this.Text = string.Format(TITLE_LINE_FORMAT, new object[] { ApplicationName, ProjectName, ProjectChanged });
+        }
+
+
+        /// <summary>
         /// Add a new item to recent file list and sets the menue item
         /// </summary>
         private void SetRecentFilesSettingsAndMenue()
@@ -247,36 +268,38 @@ namespace OLKI.Programme.QBC.src.MainForm
                 if (this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
                 return;
             }
-            this.ProjectManager_ProjectFileChanged(sender, e);
+
+            //TODO: this.SetFormTitle() NEU HINZU, Dafür this.ProjectManager_ProjectFileChanged(sender, e) löschen?
+            this.SetFormTitle();
+
+            //this.ProjectManager_ProjectFileChanged(sender, e);
+            //TODO: this.SetSelectionControles();      ?
+            //this.SetSelectionControles();
         }
 
-        private void ProjectManager_ProjectFileChanged(object sender, EventArgs e)
+        //TODO: BEIDE DUMMY LÖSCEN
+        private void ProjectManager_ProjectFileChanged(object d1, object d2)
         {
-            if (this._suppressControleEvents)
-            {
-                if (this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
-                return;
-            }
+            //TODO: LÖSCHE MÜLL
 
-            string ApplicationName = string.Empty;
-            object[] attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Reflection.AssemblyProductAttribute), false);
-            if (attributes.Length > 0)
-            {
-                ApplicationName = ((System.Reflection.AssemblyProductAttribute)attributes[0]).Product;
-            }
-            string ProjectName = Stringtable._0x0004;
-            if (this._projectManager.ActiveProject.File != null && !string.IsNullOrEmpty(this._projectManager.ActiveProject.File.Name))
-            {
-                ProjectName = this._projectManager.ActiveProject.File.Name;
-            }
-            string ProjectChanged = this._projectManager.ActiveProject.Changed ? "*" : string.Empty;
-            this.Text = string.Format(TITLE_LINE_FORMAT, new object[] { ApplicationName, ProjectName, ProjectChanged });
+            //if (this._suppressControleEvents)
+            //{
+            //    if (this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
+            //    return;
+            //}
+            if (this._suppressControleEvents && this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
 
             // Load settings to controle
             this.uscControleBackup.LoadSettings();
             this.uscControleRestore.LoadSettings();
             this.trvExplorer.DirectoryList = this._projectManager.ActiveProject.ToBackupDirectorys;
+
+            this.SetFormTitle();
+            this.trvExplorer.SetImageVariant();
             this.SetSelectionControles();
+            //this.trvExplorer_AfterSelect(this, new TreeViewEventArgs(null));
+            //if (this._suppressControleEvents) return;
+
         }
 
         private void ProjectManager_ProjecOpenOrNew(object sender, EventArgs e)
