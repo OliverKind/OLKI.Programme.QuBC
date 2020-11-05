@@ -268,25 +268,11 @@ namespace OLKI.Programme.QBC.src.MainForm
                 if (this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
                 return;
             }
-
-            //TODO: this.SetFormTitle() NEU HINZU, Dafür this.ProjectManager_ProjectFileChanged(sender, e) löschen?
             this.SetFormTitle();
-
-            //this.ProjectManager_ProjectFileChanged(sender, e);
-            //TODO: this.SetSelectionControles();      ?
-            //this.SetSelectionControles();
         }
 
-        //TODO: BEIDE DUMMY LÖSCEN
-        private void ProjectManager_ProjectFileChanged(object d1, object d2)
+        private void ProjectManager_ProjectFileChanged(object sender, EventArgs e)
         {
-            //TODO: LÖSCHE MÜLL
-
-            //if (this._suppressControleEvents)
-            //{
-            //    if (this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
-            //    return;
-            //}
             if (this._suppressControleEvents && this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
 
             // Load settings to controle
@@ -297,8 +283,6 @@ namespace OLKI.Programme.QBC.src.MainForm
             this.SetFormTitle();
             this.trvExplorer.SetImageVariant();
             this.SetSelectionControles();
-            //this.trvExplorer_AfterSelect(this, new TreeViewEventArgs(null));
-            //if (this._suppressControleEvents) return;
 
         }
 
