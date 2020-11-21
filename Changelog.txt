@@ -12,12 +12,24 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
-## [1.1.2.9] - 2020-09-20
-### Fixed
-- Spellings
+## [1.1.3.10] - 2020-11-21
+### Changed
+- Inverted logic for save question while open a file or creating a new file, if the actual project hase unsaved changes
+- Change target, override options, tasks disabled while counting or copying files
 
+### Fixed
+- TreeView not resettet if new file or existing file open
+- Open a file, if a file is already open not working
+- Recent files not opend correct
+- TreeView has not correct Icons if file is not loaded at start up
+- Wrong text for exception
+
+## [1.1.2.9] - 2020-09-20
 ### Changed
 - Code organisation
+
+### Fixed
+- Spellings
 
 ## [1.1.1.8] - 2020-05-01
 ### Fixed
