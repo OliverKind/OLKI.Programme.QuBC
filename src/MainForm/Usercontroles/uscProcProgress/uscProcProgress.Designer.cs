@@ -404,12 +404,12 @@
             // lblStepText
             // 
             this.lblStepText.AutoSize = true;
+            this.lblStepText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblStepText.Location = new System.Drawing.Point(589, 29);
             this.lblStepText.Name = "lblStepText";
             this.lblStepText.Size = new System.Drawing.Size(165, 13);
             this.lblStepText.TabIndex = 10;
             this.lblStepText.Text = "Aktueller Vorgang - Beschreibung";
-            this.lblStepText.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtActualDir
             // 
