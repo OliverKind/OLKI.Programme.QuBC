@@ -344,6 +344,10 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
 
             this.btnProcessCancel.Enabled = true;
             this.btnProcessStart.Enabled = false;
+            this.pnlSourceAndTarget.Enabled = false;
+            this.grbHandleExistingFiles.Enabled = false;
+            this.grbLogFiles.Enabled = false;
+            this.grbToDo.Enabled = false;
 
             // Initial BackgroundWorker
             this._worker.RunWorkerAsync();
@@ -499,6 +503,10 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
 
             this.btnProcessCancel.Enabled = false;
             this.btnProcessStart.Enabled = true;
+            this.pnlSourceAndTarget.Enabled = true;
+            this.grbHandleExistingFiles.Enabled = true;
+            this.grbLogFiles.Enabled = true;
+            this.grbToDo.Enabled = true;
             System.Diagnostics.Debug.Print("uscControleProcess::_worker_RunWorkerCompleted::FINISH");
         }
         #endregion
