@@ -97,14 +97,15 @@ namespace OLKI.Programme.QBC.src.Project.Process
         /// <param name="e">Provides data for the BackgroundWorker</param>
         internal void Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
-            // Create main target directory
-            ProcessException CreateTargetDirectoryException = new ProcessException();
-            if (!this.CreateRootDirectory(this._project.Settings.ControleBackup.Directory.Path, worker, e)) return;
-
+            //Initial progress
             this._progress = progressStore;
             this._progress.TotalBytes.ActualValue = 0;
             this._progress.TotalDirectories.ActualValue = 0;
             this._progress.TotalFiles.ActualValue = 0;
+
+            // Create main target directory
+            ProcessException CreateTargetDirectoryException = new ProcessException();
+            if (!this.CreateRootDirectory(this._project.Settings.ControleBackup.Directory.Path, worker, e)) return;
 
             // Copy content of selected directories
             foreach (KeyValuePair<string, Project.DirectoryScope> item in this._project.ToBackupDirectorys.OrderBy(o => o.Key))
