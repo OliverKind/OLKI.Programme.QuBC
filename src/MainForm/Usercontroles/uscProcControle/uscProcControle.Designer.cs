@@ -266,7 +266,6 @@
             this.pnlSourceAndTarget.Controls.Add(this.chkRootDirectory);
             this.pnlSourceAndTarget.Controls.Add(this.lblDirectory);
             this.pnlSourceAndTarget.Controls.Add(this.txtDirectory);
-            this.pnlSourceAndTarget.Enabled = false;
             this.pnlSourceAndTarget.Location = new System.Drawing.Point(0, 0);
             this.pnlSourceAndTarget.Name = "pnlSourceAndTarget";
             this.pnlSourceAndTarget.Size = new System.Drawing.Size(957, 52);
