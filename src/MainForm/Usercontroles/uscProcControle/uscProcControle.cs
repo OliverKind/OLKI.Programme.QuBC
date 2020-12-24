@@ -175,8 +175,8 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
                         this.lblDirectory.Text = Stringtable.lblDirectory_Text__Backup;
                         this._saveLogFile.Title = Stringtable.SaveLogFile_Title_Backup;
                         this.lblTargetDirectory.Visible = false;
-                        this.txtTargetDirectory.Visible = false;
-                        this.btnBrowseTargetDirectory.Visible = false;
+                        this.txtRestoreTargetDirectory.Visible = false;
+                        this.btnBrowseRestoreTargetDirectory.Visible = false;
                         break;
                     case ControleMode.RestoreBackup:
                         this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Restore;
@@ -188,8 +188,8 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
                         this.lblDirectory.Text = Stringtable.lblDirectory_Text__Restore;
                         this._saveLogFile.Title = Stringtable.SaveLogFile_Title_Restore;
                         this.lblTargetDirectory.Visible = true;
-                        this.txtTargetDirectory.Visible = true;
-                        this.btnBrowseTargetDirectory.Visible = true;
+                        this.txtRestoreTargetDirectory.Visible = true;
+                        this.btnBrowseRestoreTargetDirectory.Visible = true;
                         break;
                     default:
                         break;
@@ -283,7 +283,7 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
             //Set Settings
             this.txtDirectory.Text = ControleSettings.Directory.Path;
             this.chkRootDirectory.Checked = ControleSettings.Directory.CreateDriveDirectroy;
-            this.txtTargetDirectory.Text = ControleSettings.Directory.RestoreTargetPath; //Not used if mode is CreateBackup
+            this.txtRestoreTargetDirectory.Text = ControleSettings.Directory.RestoreTargetPath; //Not used if mode is CreateBackup
             this.chkCountItemsAndBytes.Checked = ControleSettings.Action.CountItemsAndBytes;
             this.chkCopyData.Checked = ControleSettings.Action.CopyData;
             this.chkLogFileCreate.Checked = ControleSettings.Logfile.Create;
@@ -521,6 +521,11 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
             }
         }
 
+        private void btnBrowseRestoreTargetDirectory_Click(object sender, EventArgs e)
+        {
+            throw (new NotImplementedException("btnBrowseRestoreTargetDirectory_Click"));
+        }
+
         private void btnHandleExistingFile_SetDefault_Click(object sender, EventArgs e)
         {
             HandleExistingFilesForm HandleFilesDialog = new HandleExistingFilesForm(HandleExistingFilesForm.FormMode.DefaultSettings, null, null, this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.HandleExistingItem, this._projectManager.ActiveProject.Settings.Common.ExisitingFiles.AddTextToExistingFile, true);
@@ -587,8 +592,8 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
                 case ControleMode.RestoreBackup:
                     this._projectManager.ActiveProject.Settings.ControleRestore.Directory.CreateDriveDirectroy = this.chkRootDirectory.Checked;
                     this.lblTargetDirectory.Enabled = !this.chkRootDirectory.Checked;
-                    this.txtTargetDirectory.Enabled = !this.chkRootDirectory.Checked;
-                    this.btnBrowseTargetDirectory.Enabled = !this.chkRootDirectory.Checked;
+                    this.txtRestoreTargetDirectory.Enabled = !this.chkRootDirectory.Checked;
+                    this.btnBrowseRestoreTargetDirectory.Enabled = !this.chkRootDirectory.Checked;
                     break;
                 default:
                     break;
@@ -666,7 +671,12 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
             }
             this.ToggleSettingsChanged(sender, e);
         }
-        #endregion
+
+        private void txtRestoreTargetDirectory_TextChanged(object sender, EventArgs e)
+        {
+            throw (new NotImplementedException("txtRestoreTargetDirectory_TextChanged"));
+        }
+       #endregion
         #endregion
         #endregion
     }

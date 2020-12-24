@@ -48,8 +48,8 @@
             this.chkLogFileCreate = new System.Windows.Forms.CheckBox();
             this.pnlSourceAndTarget = new System.Windows.Forms.Panel();
             this.lblTargetDirectory = new System.Windows.Forms.Label();
-            this.txtTargetDirectory = new System.Windows.Forms.TextBox();
-            this.btnBrowseTargetDirectory = new System.Windows.Forms.Button();
+            this.txtRestoreTargetDirectory = new System.Windows.Forms.TextBox();
+            this.btnBrowseRestoreTargetDirectory = new System.Windows.Forms.Button();
             this.btnBrowseDirectory = new System.Windows.Forms.Button();
             this.chkRootDirectory = new System.Windows.Forms.CheckBox();
             this.lblDirectory = new System.Windows.Forms.Label();
@@ -232,6 +232,7 @@
             this.txtLogFilePath.Name = "txtLogFilePath";
             this.txtLogFilePath.Size = new System.Drawing.Size(415, 20);
             this.txtLogFilePath.TabIndex = 2;
+            this.txtLogFilePath.TextChanged += new System.EventHandler(this.txtLogFilePath_TextChanged);
             // 
             // lblLogFilePath
             // 
@@ -260,8 +261,8 @@
             this.pnlSourceAndTarget.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSourceAndTarget.Controls.Add(this.lblTargetDirectory);
-            this.pnlSourceAndTarget.Controls.Add(this.txtTargetDirectory);
-            this.pnlSourceAndTarget.Controls.Add(this.btnBrowseTargetDirectory);
+            this.pnlSourceAndTarget.Controls.Add(this.txtRestoreTargetDirectory);
+            this.pnlSourceAndTarget.Controls.Add(this.btnBrowseRestoreTargetDirectory);
             this.pnlSourceAndTarget.Controls.Add(this.btnBrowseDirectory);
             this.pnlSourceAndTarget.Controls.Add(this.chkRootDirectory);
             this.pnlSourceAndTarget.Controls.Add(this.lblDirectory);
@@ -281,29 +282,31 @@
             this.lblTargetDirectory.TabIndex = 11;
             this.lblTargetDirectory.Text = "Zielverzeichnis:";
             // 
-            // txtTargetDirectory
+            // txtRestoreTargetDirectory
             // 
-            this.txtTargetDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtRestoreTargetDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTargetDirectory.Enabled = false;
-            this.txtTargetDirectory.Location = new System.Drawing.Point(435, 32);
-            this.txtTargetDirectory.Name = "txtTargetDirectory";
-            this.txtTargetDirectory.Size = new System.Drawing.Size(383, 20);
-            this.txtTargetDirectory.TabIndex = 12;
+            this.txtRestoreTargetDirectory.Enabled = false;
+            this.txtRestoreTargetDirectory.Location = new System.Drawing.Point(435, 32);
+            this.txtRestoreTargetDirectory.Name = "txtRestoreTargetDirectory";
+            this.txtRestoreTargetDirectory.Size = new System.Drawing.Size(383, 20);
+            this.txtRestoreTargetDirectory.TabIndex = 12;
+            this.txtRestoreTargetDirectory.TextChanged += new System.EventHandler(this.txtRestoreTargetDirectory_TextChanged);
             // 
-            // btnBrowseTargetDirectory
+            // btnBrowseRestoreTargetDirectory
             // 
-            this.btnBrowseTargetDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowseTargetDirectory.Enabled = false;
-            this.btnBrowseTargetDirectory.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowseTargetDirectory.Image")));
-            this.btnBrowseTargetDirectory.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBrowseTargetDirectory.Location = new System.Drawing.Point(824, 30);
-            this.btnBrowseTargetDirectory.Name = "btnBrowseTargetDirectory";
-            this.btnBrowseTargetDirectory.Size = new System.Drawing.Size(130, 23);
-            this.btnBrowseTargetDirectory.TabIndex = 13;
-            this.btnBrowseTargetDirectory.Text = "Durchsuchen";
-            this.btnBrowseTargetDirectory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBrowseTargetDirectory.UseVisualStyleBackColor = true;
+            this.btnBrowseRestoreTargetDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowseRestoreTargetDirectory.Enabled = false;
+            this.btnBrowseRestoreTargetDirectory.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowseRestoreTargetDirectory.Image")));
+            this.btnBrowseRestoreTargetDirectory.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBrowseRestoreTargetDirectory.Location = new System.Drawing.Point(824, 30);
+            this.btnBrowseRestoreTargetDirectory.Name = "btnBrowseRestoreTargetDirectory";
+            this.btnBrowseRestoreTargetDirectory.Size = new System.Drawing.Size(130, 23);
+            this.btnBrowseRestoreTargetDirectory.TabIndex = 13;
+            this.btnBrowseRestoreTargetDirectory.Text = "Durchsuchen";
+            this.btnBrowseRestoreTargetDirectory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBrowseRestoreTargetDirectory.UseVisualStyleBackColor = true;
+            this.btnBrowseRestoreTargetDirectory.Click += new System.EventHandler(this.btnBrowseRestoreTargetDirectory_Click);
             // 
             // btnBrowseDirectory
             // 
@@ -317,6 +320,7 @@
             this.btnBrowseDirectory.Text = "Durchsuchen";
             this.btnBrowseDirectory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBrowseDirectory.UseVisualStyleBackColor = true;
+            this.btnBrowseDirectory.Click += new System.EventHandler(this.btnBrowseDirectory_Click);
             // 
             // chkRootDirectory
             // 
@@ -328,6 +332,7 @@
             this.chkRootDirectory.TabIndex = 10;
             this.chkRootDirectory.Text = "chkRootDirectory_Text__";
             this.chkRootDirectory.UseVisualStyleBackColor = true;
+            this.chkRootDirectory.CheckedChanged += new System.EventHandler(this.chkRootDirectory_CheckedChanged);
             // 
             // lblDirectory
             // 
@@ -346,6 +351,7 @@
             this.txtDirectory.Name = "txtDirectory";
             this.txtDirectory.Size = new System.Drawing.Size(722, 20);
             this.txtDirectory.TabIndex = 8;
+            this.txtDirectory.TextChanged += new System.EventHandler(this.txtDirectory_TextChanged);
             // 
             // ProcControle
             // 
@@ -393,8 +399,8 @@
         private System.Windows.Forms.Label lblLogFilePath;
         private System.Windows.Forms.Panel pnlSourceAndTarget;
         private System.Windows.Forms.Label lblTargetDirectory;
-        internal System.Windows.Forms.TextBox txtTargetDirectory;
-        private System.Windows.Forms.Button btnBrowseTargetDirectory;
+        internal System.Windows.Forms.TextBox txtRestoreTargetDirectory;
+        private System.Windows.Forms.Button btnBrowseRestoreTargetDirectory;
         private System.Windows.Forms.Button btnBrowseDirectory;
         internal System.Windows.Forms.CheckBox chkRootDirectory;
         private System.Windows.Forms.Label lblDirectory;
