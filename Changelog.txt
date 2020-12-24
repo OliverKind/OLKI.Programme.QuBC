@@ -12,6 +12,12 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.1.4.11] - 2020-12-25
+### Fixed
+- Crash if target directory can not be created
+- Target path not availible in some conditions
+- Target path change has no effect
+
 ## [1.1.3.10] - 2020-11-21
 ### Changed
 - Inverted logic for save question while open a file or creating a new file, if the actual project hase unsaved changes

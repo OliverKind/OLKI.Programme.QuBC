@@ -1,4 +1,4 @@
-;NSIS Installer for QBC 1.1.3.10
+;NSIS Installer for QBC 1.1.4.11
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'QBC'
-  !define Version          '1.1.3.10'
+  !define Version          '1.1.4.11'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um schnell Datensicherungen zu erstellen'
   !define Copyright        '2020 - Oliver Kind'
