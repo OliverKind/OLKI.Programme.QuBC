@@ -1,7 +1,7 @@
 ﻿/*
- * QBC - QuickBackupCreator
+ * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2020
+ * Copyright:   Oliver Kind - 2021
  * License:     LGPL
  * 
  * Desctiption:
@@ -22,8 +22,8 @@
  * 
  * */
 
-using OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle;
-using OLKI.Programme.QBC.Properties;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QuBC.Properties;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
 using System.ComponentModel;
@@ -31,7 +31,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Process
 {
     /// <summary>
     /// Provides tools to write logfiles

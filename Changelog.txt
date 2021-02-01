@@ -12,6 +12,10 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.1.5.12] - 2021-02-01
+### Changed
+- Change name to QuBC
+
 ## [1.1.4.11] - 2020-12-25
 ### Fixed
 - Crash if target directory can not be created

@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OLKI.Programme.QBC.Properties {
+namespace OLKI.Programme.QuBC.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -51,7 +51,7 @@ namespace OLKI.Programme.QBC.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("qbc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("qubc")]
         public string ProjectFile_DefaultExtension {
             get {
                 return ((string)(this["ProjectFile_DefaultExtension"]));
@@ -60,8 +60,8 @@ namespace OLKI.Programme.QBC.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Sicherungsvorlage (*.qbc)|*.qbc|Sicherungsvorlage (*.xml)|*.xml|Alle Dateien (*.*" +
-            ")|*.*")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Sicherungsvorlage (*.qubc)|*.qubc|Sicherungsvorlage (*.qbc)|*.qbc|Sicherungsvorla" +
+            "ge (*.xml)|*.xml|Alle Dateien (*.*)|*.*")]
         public string ProjectFile_FilterList {
             get {
                 return ((string)(this["ProjectFile_FilterList"]));
@@ -149,7 +149,7 @@ namespace OLKI.Programme.QBC.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("AssociationTestfile.qbc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("AssociationTestfile.qubc")]
         public string FileAssociation_TestFile {
             get {
                 return ((string)(this["FileAssociation_TestFile"]));
@@ -158,7 +158,7 @@ namespace OLKI.Programme.QBC.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QBC.Project")]
+        [global::System.Configuration.DefaultSettingValueAttribute("QuBC.Project")]
         public string FileAssociation_ExtensionFile {
             get {
                 return ((string)(this["FileAssociation_ExtensionFile"]));
@@ -167,7 +167,7 @@ namespace OLKI.Programme.QBC.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QBC Project")]
+        [global::System.Configuration.DefaultSettingValueAttribute("QuBC Project")]
         public string FileAssociation_ExtensionDescription {
             get {
                 return ((string)(this["FileAssociation_ExtensionDescription"]));

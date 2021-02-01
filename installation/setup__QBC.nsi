@@ -1,4 +1,4 @@
-;NSIS Installer for QBC 1.1.4.11
+;NSIS Installer for QuBC 1.1.5.12
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -20,12 +20,12 @@
 ;--------------------------------
 ;Defining
 
-  !define AppName          'QBC'
-  !define Version          '1.1.4.11'
+  !define AppName          'QuBC'
+  !define Version          '1.1.5.12'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um schnell Datensicherungen zu erstellen'
   !define Copyright        '2020 - Oliver Kind'
-  !define FinishFile       'QBC.exe'
+  !define FinishFile       'QuBC.exe'
   !define ReadmeFile       'ReadMe.txt'
   !define EulaFile         'Eula.rtf'
   !define InformationFile  'Information.rtf'
@@ -110,9 +110,9 @@ Section ""
   ; Set output path to the installation directory.
   SetOutPath $INSTDIR
 
-  File ".\..\bin\Release\AssociationTestfile.qbc"
+  File ".\..\bin\Release\AssociationTestfile.qubc"
   File ".\..\bin\Release\changelog.txt"
-  File ".\..\bin\Release\QBC.exe"
+  File ".\..\bin\Release\QuBC.exe"
   File ".\..\bin\Release\OLKI.Tools.ColorAndPicture.dll"
   File ".\..\bin\Release\OLKI.Tools.CommonTools.dll"
   File ".\..\bin\Release\OLKI.Widgets.dll"
@@ -126,13 +126,13 @@ Section ""
   File ".\..\bin\Release\Licenses\LGPL-License.txt"
 
   ;Create Desktop shortcut
-  CreateShortCut "$DESKTOP\${AppName}.lnk" "$INSTDIR\QBC.exe" ""
+  CreateShortCut "$DESKTOP\${AppName}.lnk" "$INSTDIR\QuBC.exe" ""
   
   ;Create Starmenue Entry
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\QBC.lnk" "$INSTDIR\QBC.exe"
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\QuBC.lnk" "$INSTDIR\QuBC.exe"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Readme.lnk" "$INSTDIR\${ReadmeFile}"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\EULA.lnk" "$INSTDIR\${EulaFile}"

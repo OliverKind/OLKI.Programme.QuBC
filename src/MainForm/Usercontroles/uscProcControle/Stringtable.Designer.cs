@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle {
+namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle.Stringtable", typeof(Stringtable).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.Stringtable", typeof(Stringtable).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

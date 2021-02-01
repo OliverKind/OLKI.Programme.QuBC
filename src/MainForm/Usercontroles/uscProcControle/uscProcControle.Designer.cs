@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle
+﻿namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
 {
     partial class ProcControle
     {

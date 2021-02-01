@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.src.Project.LogFileWriter
+namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
 {
     public partial class LogFile
     {

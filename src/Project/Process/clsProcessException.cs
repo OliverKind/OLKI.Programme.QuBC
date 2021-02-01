@@ -1,7 +1,7 @@
 ﻿/*
- * QBC - QuickBackupCreator
+ * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2020
+ * Copyright:   Oliver Kind - 2021
  * License:     LGPL
  * 
  * Desctiption:
@@ -24,7 +24,7 @@
 
 using System;
 
-namespace OLKI.Programme.QBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Process
 {
     /// <summary>
     /// Class that provide informations if an process (count or copy) throws an exception

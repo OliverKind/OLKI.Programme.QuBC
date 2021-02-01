@@ -1,7 +1,7 @@
 ﻿/*
- * QBC - QuickBackupCreator
+ * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2020
+ * Copyright:   Oliver Kind - 2021
  * License:     LGPL
  * 
  * Desctiption:
@@ -25,7 +25,7 @@
 using System;
 using System.ComponentModel;
 
-namespace OLKI.Programme.QBC.src.Project.Settings.Common
+namespace OLKI.Programme.QuBC.src.Project.Settings.Common
 {
     /// <summary>
     /// A class that provides project common settings

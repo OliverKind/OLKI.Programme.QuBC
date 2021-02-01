@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OLKI.Programme.QBC.Properties {
+namespace OLKI.Programme.QuBC.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace OLKI.Programme.QBC.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OLKI.Programme.QBC.Properties.Stringtable", typeof(Stringtable).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OLKI.Programme.QuBC.Properties.Stringtable", typeof(Stringtable).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -8,8 +8,8 @@
     <ProjectGuid>{8B6C8FF4-C9EC-4D0D-B46A-A1F13E9DED96}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OLKI.Programme.QBC</RootNamespace>
-    <AssemblyName>QBC</AssemblyName>
+    <RootNamespace>OLKI.Programme.QuBC</RootNamespace>
+    <AssemblyName>QuBC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -58,7 +58,7 @@
     <ApplicationIcon>Program_Symbol.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>OLKI.Programme.QBC.src.Program</StartupObject>
+    <StartupObject>OLKI.Programme.QuBC.src.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -199,7 +199,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="AssociationTestfile.qbc">
+    <None Include="AssociationTestfile.qubc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="doc\Eula.rtf">

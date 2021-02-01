@@ -1,7 +1,7 @@
 ﻿/*
- * QBC - QuickBackupCreator
+ * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2020
+ * Copyright:   Oliver Kind - 2021
  * License:     LGPL
  * 
  * Desctiption:
@@ -22,7 +22,7 @@
  * 
  * */
 
-using OLKI.Programme.QBC.Properties;
+using OLKI.Programme.QuBC.Properties;
 using OLKI.Tools.CommonTools;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ using System.IO;
 using System.Security.Principal;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QBC.src.MainForm
+namespace OLKI.Programme.QuBC.src.MainForm
 {
     /// <summary>
     /// The MainForm of the application

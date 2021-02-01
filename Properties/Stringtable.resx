@@ -119,61 +119,61 @@
   </resheader>
   <data name="0x0001c" xml:space="preserve">
     <value>Inkompatible Datei!</value>
-    <comment>OLKI.Programme.QBC.Project.Project_FromXMLString_CheckVersion:IncopatibeVersion.Caption</comment>
+    <comment>OLKI.Programme.QuBC.Project.Project_FromXMLString_CheckVersion:IncopatibeVersion.Caption</comment>
   </data>
   <data name="0x0001m" xml:space="preserve">
     <value>Die Projektdatei ist nicht mit dieser Progammversion kompatibel.</value>
-    <comment>OLKI.Programme.QBC.Project.Project_FromXMLString_CheckVersion:IncopatibeVersion.Message</comment>
+    <comment>OLKI.Programme.QuBC.Project.Project_FromXMLString_CheckVersion:IncopatibeVersion.Message</comment>
   </data>
   <data name="0x0002c" xml:space="preserve">
     <value>Projekt speichern?</value>
-    <comment>OLKI.Programme.QBC.MainForm.MainForm.MainForm_FormClosing:SaveChanges.Caption</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.MainForm.MainForm_FormClosing:SaveChanges.Caption</comment>
   </data>
   <data name="0x0002m" xml:space="preserve">
     <value>Änderungen an Projekt "{0}" vor dem Schließen speichern?
 
 Ihre Änderungen gehen verloren, wenn Sie diese nicht speichern.</value>
-    <comment>OLKI.Programme.QBC.MainForm.MainForm.MainForm_FormClosing:SaveChanges.Message</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.MainForm.MainForm_FormClosing:SaveChanges.Message</comment>
   </data>
   <data name="0x0003c" xml:space="preserve">
     <value>Bitte als Administrator ausführen.</value>
-    <comment>OLKI.Programme.QBC.MainForm.MainForm.MainForm_Shown:NotAdministrator.Caption</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.MainForm.MainForm_Shown:NotAdministrator.Caption</comment>
   </data>
   <data name="0x0003m" xml:space="preserve">
     <value>Sie sollten die Anwendung als Administrator ausführen um Fehler aufgrund verweigerter Zugriffsrechte zu vermeiden.</value>
-    <comment>OLKI.Programme.QBC.MainForm.MainForm.MainForm_Shown:NotAdministrator.Message</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.MainForm.MainForm_Shown:NotAdministrator.Message</comment>
   </data>
   <data name="0x0004" xml:space="preserve">
     <value>Neues Projekt</value>
-    <comment>OLKI.Programme.QBC.MainForm.MainForm:DefaultNameProjectName</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.MainForm:DefaultNameProjectName</comment>
   </data>
   <data name="0x0005c" xml:space="preserve">
     <value>Fehler beim Ordnerzugriff.</value>
-    <comment>OLKI.Programme.QBC.MainForm.MainFormHelper.DirectoryContentListView_ListDirectoryItems:ExceptionOpenDirectory.Caption</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.MainFormHelper.DirectoryContentListView_ListDirectoryItems:ExceptionOpenDirectory.Caption</comment>
   </data>
   <data name="0x0005m" xml:space="preserve">
     <value>Fehler beim Zugriff auf den Ordner.
 
 {0}</value>
-    <comment>OLKI.Programme.QBC.MainForm.MainFormHelper.DirectoryContentListView_ListDirectoryItems:ExceptionOpenDirectory.Message</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.MainFormHelper.DirectoryContentListView_ListDirectoryItems:ExceptionOpenDirectory.Message</comment>
   </data>
   <data name="0x0006" xml:space="preserve">
     <value>Standardordner der bei der Dateiauswahl angezeigt werden soll</value>
-    <comment>OLKI.Programme.QBC.MainForm.SubForms.ApplicationSettingsForm.btnDefaultPath_Browse_Click:FolderBrowserDialog.Description</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.SubForms.ApplicationSettingsForm.btnDefaultPath_Browse_Click:FolderBrowserDialog.Description</comment>
   </data>
   <data name="0x0007c" xml:space="preserve">
     <value>Vorgang abgebrochen!</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Cancel.Caption</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Cancel.Caption</comment>
   </data>
   <data name="0x0007m" xml:space="preserve">
     <value>Der Vorgang wurde durch den Nutzer abgebrochen.
 
 Die kopie ist wahrscheinlich unvollständig.</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Cancel.Message</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Cancel.Message</comment>
   </data>
   <data name="0x0008c" xml:space="preserve">
     <value>Es ist ein Fehler aufgetreten!</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Exception.Caption</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Exception.Caption</comment>
   </data>
   <data name="0x0008m" xml:space="preserve">
     <value>Der Vorgang kann aufgrund eines Fehlers nicht fortgesetzt werden.
@@ -181,120 +181,120 @@ Die kopie ist wahrscheinlich unvollständig.</value>
 Die kopie ist wahrscheinlich unvollständig.
 
 {0}</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Exception.Messsage</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Exception.Messsage</comment>
   </data>
   <data name="0x0009c" xml:space="preserve">
     <value>Ungespeicherte Änderungen!</value>
-    <comment>OLKI.Programme.QBC.ProjectManager.GetOverwriteActiveProject:HasUnsavedChanges.Caption</comment>
+    <comment>OLKI.Programme.QuBC.ProjectManager.GetOverwriteActiveProject:HasUnsavedChanges.Caption</comment>
   </data>
   <data name="0x0009m" xml:space="preserve">
     <value>Im aktuellen Projekt befinden sich ungespeicherte Änderungen. Wollen Sie diese jetzt speichern?</value>
-    <comment>OLKI.Programme.QBC.ProjectManager.GetOverwriteActiveProject:HasUnsavedChanges.Message</comment>
+    <comment>OLKI.Programme.QuBC.ProjectManager.GetOverwriteActiveProject:HasUnsavedChanges.Message</comment>
   </data>
   <data name="0x000Ac" xml:space="preserve">
     <value>Projekt öffnen fehlgeschlagen!</value>
-    <comment>OLKI.Programme.QBC.ProjectManager.Project_Open:Exceptions.Caption</comment>
+    <comment>OLKI.Programme.QuBC.ProjectManager.Project_Open:Exceptions.Caption</comment>
   </data>
   <data name="0x000Am" xml:space="preserve">
     <value>Die Datei "{0}" konnte nicht geöffnet werden.
 
 {1}</value>
-    <comment>OLKI.Programme.QBC.ProjectManager.Project_Open:Exceptions.Message</comment>
+    <comment>OLKI.Programme.QuBC.ProjectManager.Project_Open:Exceptions.Message</comment>
   </data>
   <data name="0x000Bc" xml:space="preserve">
     <value>Projekt speichern fehlgeschlagen!</value>
-    <comment>OLKI.Programme.QBC.ProjectManager.Project_Save:Exceptions.Caption</comment>
+    <comment>OLKI.Programme.QuBC.ProjectManager.Project_Save:Exceptions.Caption</comment>
   </data>
   <data name="0x000Bm" xml:space="preserve">
     <value>Das Projekt konnte nicht in die Datei "{0}" gespeichert werden.
 
 {1}</value>
-    <comment>OLKI.Programme.QBC.ProjectManager.Project_Save:Exceptions.Message</comment>
+    <comment>OLKI.Programme.QuBC.ProjectManager.Project_Save:Exceptions.Message</comment>
   </data>
   <data name="0x000C" xml:space="preserve">
     <value>Der Quellordner existiert nicht.</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecursive:NoSource</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyRecursive:NoSource</comment>
   </data>
   <data name="0x000D" xml:space="preserve">
     <value>Allgemeiner Fehler beim Kopieren von Dateien im Ordner.</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyRecursive:GeneralException</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyRecursive:GeneralException</comment>
   </data>
   <data name="0x000E" xml:space="preserve">
     <value>Allgemeiner Fehler beim Kopieren der Datei</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFile:GeneralExceptiona</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyFile:GeneralExceptiona</comment>
   </data>
   <data name="0x000F" xml:space="preserve">
     <value>Allgemeiner Fehler beim Kopieren der Datei</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileBufferd:GeneralExceptiona</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyFileBufferd:GeneralExceptiona</comment>
   </data>
   <data name="0x0010" xml:space="preserve">
     <value>Fehler beim Öffnen der Quelldatei</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileOpenSource:GeneralExceptiona</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyFileOpenSource:GeneralExceptiona</comment>
   </data>
   <data name="0x0011" xml:space="preserve">
     <value>Fehler beim Anlegen der Zieldatei</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileCreateTarget:GeneralExceptiona</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyFileCreateTarget:GeneralExceptiona</comment>
   </data>
   <data name="0x0012" xml:space="preserve">
     <value>Fehler beim Schreiben der Daten in die Zieldatei</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileWriteDate:GeneralExceptiona</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyFileWriteDate:GeneralExceptiona</comment>
   </data>
   <data name="0x0013" xml:space="preserve">
     <value>Fehler beim Entfernen von Attributen und Metadaten der bereits existierenden Zieldatei</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileRemoveMetadata:GeneralExceptiona</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyFileRemoveMetadata:GeneralExceptiona</comment>
   </data>
   <data name="0x0014" xml:space="preserve">
     <value>Fehler beim Schreiben der Attribute und Metadaten in die Zieldatei</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CopyFileWriteMetadata:GeneralExceptiona</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CopyFileWriteMetadata:GeneralExceptiona</comment>
   </data>
   <data name="0x0015" xml:space="preserve">
     <value>Zählen von Elementen und Daten wird gestartet</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetProgress_CountStart:lblStepText</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetProgress_CountStart:lblStepText</comment>
   </data>
   <data name="0x0016" xml:space="preserve">
     <value>Elemente und Daten werden gezählt</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CountBusy:lblStepText</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CountBusy:lblStepText</comment>
   </data>
   <data name="0x0017" xml:space="preserve">
     <value>Zählen von Elementen und Daten abgeschlossen</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CountFinish:lblStepText</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CountFinish:lblStepText</comment>
   </data>
   <data name="0x0018" xml:space="preserve">
     <value>Kopieren von Daten wird gestartet</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetProgress_CopytStart:lblStepText</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetProgress_CopytStart:lblStepText</comment>
   </data>
   <data name="0x0019" xml:space="preserve">
     <value>Elemente und Daten werden kopiert</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CopyBusy:lblStepText</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CopyBusy:lblStepText</comment>
   </data>
   <data name="0x001A" xml:space="preserve">
     <value>Kopieren von Elemente und Daten abgeschlossen</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CopyFinish:lblStepText</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetPRogress_CopyFinish:lblStepText</comment>
   </data>
   <data name="0x001B" xml:space="preserve">
     <value>Vorgang abgebrochen</value>
-    <comment>OLKI.Programme.QBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetProgress_Cancel:lblStepText</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.ProcProgress.SetProgress.SetProgress_Cancel:lblStepText</comment>
   </data>
   <data name="0x001C" xml:space="preserve">
     <value>Das eingegebene Datumsformat ist nicht gültig</value>
-    <comment>OLKI.Programme.QBC.MainForm.SubForms.ApplicationSettingsForm:ValidateDateFormats.InvalidFormat</comment>
+    <comment>OLKI.Programme.QuBC.MainForm.SubForms.ApplicationSettingsForm:ValidateDateFormats.InvalidFormat</comment>
   </data>
   <data name="0x001D" xml:space="preserve">
     <value>Der Zielordner konnte nicht angelegt werden</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.DirectoryCreator.TargetDirectory:Exception.Description</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.DirectoryCreator.TargetDirectory:Exception.Description</comment>
   </data>
   <data name="0x001E" xml:space="preserve">
     <value>Fehler beim Anlegen des Zielordners</value>
-    <comment>OLKI.Programme.QBC.BackupProject.Process.CopyItems.CreateRootDirectory:Exception.Description</comment>
+    <comment>OLKI.Programme.QuBC.BackupProject.Process.CopyItems.CreateRootDirectory:Exception.Description</comment>
   </data>
   <data name="0x001Fc" xml:space="preserve">
     <value>Projekt Öffnen fehlgeschlagen</value>
-    <comment>OLKI.Programme.QBC.Project.Project.Project_FromXMLString:Exception.Caption</comment>
+    <comment>OLKI.Programme.QuBC.Project.Project.Project_FromXMLString:Exception.Caption</comment>
   </data>
   <data name="0x001Fm" xml:space="preserve">
     <value>Fehler beim Lesen der Projektdatei.
 
 {0}</value>
-    <comment>OLKI.Programme.QBC.Project.Project.Project_FromXMLString:Exception.Message</comment>
+    <comment>OLKI.Programme.QuBC.Project.Project.Project_FromXMLString:Exception.Message</comment>
   </data>
 </root>

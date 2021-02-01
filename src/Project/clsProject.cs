@@ -1,7 +1,7 @@
 ﻿/*
- * QBC - QuickBackupCreator
+ * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2020
+ * Copyright:   Oliver Kind - 2021
  * License:     LGPL
  * 
  * Desctiption:
@@ -22,7 +22,7 @@
  * 
  * */
 
-using OLKI.Programme.QBC.Properties;
+using OLKI.Programme.QuBC.Properties;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
 using System.Collections.Generic;
@@ -31,7 +31,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace OLKI.Programme.QBC.src.Project
+namespace OLKI.Programme.QuBC.src.Project
 {
     /// <summary>
     /// A class that provides all information to handle and save backup project. Setting it true will raise the
@@ -404,7 +404,7 @@ namespace OLKI.Programme.QBC.src.Project
         /// <returns>An XML-format string that represents the project content</returns>
         internal string Project_ToXMLString()
         {
-            XElement ProjectRoot = new XElement("QBC_ProjectData");
+            XElement ProjectRoot = new XElement("QuBC_ProjectData");
             ProjectRoot.Add(new XAttribute("Version", "2"));
 
             //Get Directorys (get files)

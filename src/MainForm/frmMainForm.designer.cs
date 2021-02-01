@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.QBC.src.MainForm
+﻿namespace OLKI.Programme.QuBC.src.MainForm
 {
 	partial class MainForm
 	{
@@ -66,7 +66,7 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageSelect = new System.Windows.Forms.TabPage();
             this.spcExplorer = new System.Windows.Forms.SplitContainer();
-            this.trvExplorer = new OLKI.Programme.QBC.src.MainForm.ExplorerTreeView();
+            this.trvExplorer = new OLKI.Programme.QuBC.src.MainForm.ExplorerTreeView();
             this.imlTreeViewIcons = new System.Windows.Forms.ImageList(this.components);
             this.grbDirectoryScope = new System.Windows.Forms.GroupBox();
             this.rabSaveNothing = new System.Windows.Forms.RadioButton();
@@ -84,14 +84,14 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.tabPageBackup = new System.Windows.Forms.TabPage();
             this.grbControleProcessBackup = new System.Windows.Forms.GroupBox();
-            this.uscControleBackup = new OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle.ProcControle();
+            this.uscControleBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.ProcControle();
             this.grbProgressBackup = new System.Windows.Forms.GroupBox();
-            this.uscProgressBackup = new OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProgress.ProcProgress();
+            this.uscProgressBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.ProcProgress();
             this.tabPageRestore = new System.Windows.Forms.TabPage();
             this.grbControleProcessRestore = new System.Windows.Forms.GroupBox();
-            this.uscControleRestore = new OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle.ProcControle();
+            this.uscControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.ProcControle();
             this.grbProgressRestore = new System.Windows.Forms.GroupBox();
-            this.uscProgressRestore = new OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProgress.ProcProgress();
+            this.uscProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.ProcProgress();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
             this.lsvErrorLog = new OLKI.Widgets.SortListView();
@@ -578,7 +578,7 @@
             this.uscControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uscControleBackup.Location = new System.Drawing.Point(0, 17);
-            this.uscControleBackup.Mode = OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.CreateBackup;
+            this.uscControleBackup.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.CreateBackup;
             this.uscControleBackup.Name = "uscControleBackup";
             this.uscControleBackup.Size = new System.Drawing.Size(957, 235);
             this.uscControleBackup.TabIndex = 0;
@@ -633,7 +633,7 @@
             this.uscControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uscControleRestore.Location = new System.Drawing.Point(0, 17);
-            this.uscControleRestore.Mode = OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.RestoreBackup;
+            this.uscControleRestore.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.RestoreBackup;
             this.uscControleRestore.Name = "uscControleRestore";
             this.uscControleRestore.Size = new System.Drawing.Size(957, 235);
             this.uscControleRestore.TabIndex = 0;

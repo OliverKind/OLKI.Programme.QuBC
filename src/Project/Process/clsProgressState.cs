@@ -1,7 +1,7 @@
 ﻿/*
- * QBC - QuickBackupCreator
+ * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2020
+ * Copyright:   Oliver Kind - 2021
  * License:     LGPL
  * 
  * Desctiption:
@@ -22,7 +22,7 @@
  * 
  * */
 
-namespace OLKI.Programme.QBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Process
 {
     /// <summary>
     /// A class to send the progress state

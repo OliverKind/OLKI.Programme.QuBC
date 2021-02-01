@@ -1,7 +1,7 @@
 ﻿/*
- * QBC - QuickBackupCreator
+ * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2020
+ * Copyright:   Oliver Kind - 2021
  * License:     LGPL
  * 
  * Desctiption:
@@ -22,13 +22,13 @@
  * 
  * */
 
-using OLKI.Programme.QBC.src.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace OLKI.Programme.QBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Process
 {
     /// <summary>
     /// Provides tools to write logfiles
@@ -114,7 +114,7 @@ namespace OLKI.Programme.QBC.src.Project.Process
             if (e is null) throw new ArgumentNullException(nameof(e));
             if (progressStore is null) throw new ArgumentNullException(nameof(progressStore));
             //TODO: ADD CODE --> in future version to restore Backup
-            throw new Exception("OLKI.Programme.QBC.BackupProject.Process.CountItems.Restore has no active code");
+            throw new Exception("OLKI.Programme.QuBC.BackupProject.Process.CountItems.Restore has no active code");
         }
         #endregion
     }
