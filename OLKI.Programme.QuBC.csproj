@@ -199,9 +199,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="AssociationTestfile.qubc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="doc\Eula.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,4 +1,4 @@
-;NSIS Installer for QuBC 1.1.5.12
+;NSIS Installer for QuBC 1.1.6.13
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,10 +21,10 @@
 ;Defining
 
   !define AppName          'QuBC'
-  !define Version          '1.1.5.12'
+  !define Version          '1.1.6.13'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um schnell Datensicherungen zu erstellen'
-  !define Copyright        '2020 - Oliver Kind'
+  !define Copyright        '2021 - Oliver Kind'
   !define FinishFile       'QuBC.exe'
   !define ReadmeFile       'ReadMe.txt'
   !define EulaFile         'Eula.rtf'
@@ -110,7 +110,6 @@ Section ""
   ; Set output path to the installation directory.
   SetOutPath $INSTDIR
 
-  File ".\..\bin\Release\AssociationTestfile.qubc"
   File ".\..\bin\Release\changelog.txt"
   File ".\..\bin\Release\QuBC.exe"
   File ".\..\bin\Release\OLKI.Tools.ColorAndPicture.dll"
