@@ -25,7 +25,6 @@
 using OLKI.Programme.QuBC.src.Project.Process;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using OLKI.Widgets.Invoke;
-using System;
 using System.Windows.Forms;
 
 namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
@@ -250,8 +249,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                         ByteBase = FileSize.ByteBase.SI;
                         Dimension = (FileSize.Dimension)dimensionComboBox.SelectedIndex - FileSize.UnitPrefix_IEC.Length;
                     }
-                    //TODO: Not perfect, convert from longt, to stirng, to decimal. Fix it in FileSize.Convert library.
-                    return Convert.ToDecimal(FileSize.Convert(value, 2, ByteBase, Dimension, true));
+                    return FileSize.ConvertNum(value, 2, ByteBase, Dimension);
                 }
                 #endregion
                 #endregion
@@ -259,4 +257,4 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             }
         }
     }
-}
+}}
