@@ -307,11 +307,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 switch (MessageBox.Show(string.Format(Stringtable._0x0002m, new object[] { ProjectName }), Stringtable._0x0002c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1))
                 {
                     case DialogResult.Yes:
-                        //this.mnuMainFileSave_Click(sender, new EventArgs());
-                        if (!this._projectManager.Project_Save())
-                        {
-                            e.Cancel = true;
-                        }
+                        if (!this._projectManager.Project_Save()) e.Cancel = true;
                         break;
                     case DialogResult.No:
                         e.Cancel = false;
