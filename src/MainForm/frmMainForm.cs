@@ -328,11 +328,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             }
 
             // Check for file association
-            if (Settings.Default.FileAssociation_CheckOnStartup)
-            {
-                Program.CheckFileAssociationAndSet(false);
-                Settings.Default.FileAssociation_CheckOnStartup = false;
-            }
+            if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
         }
         #endregion
 
