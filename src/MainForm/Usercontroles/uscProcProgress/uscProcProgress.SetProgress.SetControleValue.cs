@@ -257,4 +257,4 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             }
         }
     }
-}}
+}

@@ -35,9 +35,6 @@
     <Setting Name="ListItems_ExpandTreeNodeOnSingleClick" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="FileAssociation_TestFile" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">AssociationTestfile.qubc</Value>
-    </Setting>
     <Setting Name="FileAssociation_ExtensionFile" Type="System.String" Scope="Application">
       <Value Profile="(Default)">QuBC.Project</Value>
     </Setting>

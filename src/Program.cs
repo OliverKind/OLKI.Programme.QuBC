@@ -91,12 +91,6 @@ namespace OLKI.Programme.QuBC.src
         /// <param name="showMessageIfAssociated">Specifies if a message should been shown if the application project file, specified in application stettings, is already associated with application</param>
         internal static void CheckFileAssociationAndSet(bool showMessageIfAssociated)
         {
-            // Get Path to Testfile
-            string TestFilePath = string.Empty;
-            TestFilePath += Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            TestFilePath += @"\";
-            TestFilePath += Settings.Default.FileAssociation_TestFile;
-
             // Get Path to Icon
             string IconPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             IconPath += @"\";
@@ -105,7 +99,7 @@ namespace OLKI.Programme.QuBC.src
             // Check File Association
             Tools.CommonTools.DirectoryAndFile.FileAssociation.CheckMatchWithApplicationAndSet(
                 Application.ExecutablePath,
-                TestFilePath,
+                "." + Settings.Default.ProjectFile_DefaultExtension,
                 Settings.Default.ProjectFile_DefaultExtension,
                 Settings.Default.FileAssociation_ExtensionFile,
                 Settings.Default.FileAssociation_ExtensionDescription,
