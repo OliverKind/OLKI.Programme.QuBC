@@ -23,7 +23,6 @@
  * */
 
 using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
-using OLKI.Programme.QuBC.Properties;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
 using System.ComponentModel;
@@ -46,7 +45,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <param name="copyMode">The copy mode</param>
         /// <param name="sourceDirectory">Source directroy to copy</param>
         /// <param name="scope">Scope of the directory</param>
-        /// <param name="worker">BackgroundWorker for count</param>
+        /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
         /// <param name="exception">Exception of the process</param>
         /// <returns>Exception level of the copy process</returns>
@@ -61,7 +60,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <param name="copyMode">The copy mode</param>
         /// <param name="sourceDirectory">Source directroy to copy</param>
         /// <param name="scope">Scope of the directory</param>
-        /// <param name="worker">BackgroundWorker for count</param>
+        /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
         /// <param name="exception">Exception of the process</param>
         /// <returns>Exception level of the copy process</returns>
@@ -325,7 +324,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             {
                 if (TargetFile.Exists)
                 {
-                    HandleExistingFiles.CheckResult HandleFile = HandleExistingFiles.GetOverwriteByAction(sourceFile, TargetFile, Properties.Settings.Default.Copy_FileExisitngAddTextDateFormat, this._project.Settings.Common.ExisitingFiles.HandleExistingItem, this._project.Settings.Common.ExisitingFiles.AddTextToExistingFile, false, out exception, this._mainFoorm);
+                    HandleExistingFiles.CheckResult HandleFile = HandleExistingFiles.GetOverwriteByAction(sourceFile, TargetFile, Properties.Settings.Default.Copy_FileExisitngAddTextDateFormat, this._project.Settings.Common.ExisitingFiles.HandleExistingItem, this._project.Settings.Common.ExisitingFiles.AddTextToExistingFile, false, out exception, this._mainForm);
                     if (HandleFile.FormResult == DialogResult.Cancel)
                     {
                         worker.ReportProgress((int)ProcControle.ProcessStep.Cancel, new ProgressState(true));

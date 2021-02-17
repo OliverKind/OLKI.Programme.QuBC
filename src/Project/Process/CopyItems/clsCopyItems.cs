@@ -47,7 +47,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <summary>
         /// The application MainForm
         /// </summary>
-        private readonly MainForm.MainForm _mainFoorm;
+        private readonly MainForm.MainForm _mainForm;
 
         /// <summary>
         /// The progresstore for copy items
@@ -85,9 +85,9 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <summary>
         /// Initialise an new copy item object
         /// </summary>
-        public CopyItems(MainForm.MainForm mainFoorm)
+        public CopyItems(MainForm.MainForm mainForm)
         {
-            this._mainFoorm = mainFoorm;
+            this._mainForm = mainForm;
         }
 
         /// <summary>
@@ -104,7 +104,6 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             this._progress.TotalFiles.ActualValue = 0;
 
             // Create main target directory
-            ProcessException CreateTargetDirectoryException = new ProcessException();
             if (!this.CreateRootDirectory(this._project.Settings.ControleBackup.Directory.Path, worker, e)) return;
 
             // Copy content of selected directories

@@ -32,7 +32,7 @@ using System.IO;
 namespace OLKI.Programme.QuBC.src.Project.Process
 {
     /// <summary>
-    /// Provides tools to write logfiles
+    /// Provides tools to create target directorys
     /// </summary>
     internal class DirectoryCreator
     {
@@ -95,7 +95,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                     RootSegment = projectSettings.ControleBackup.Directory.Path;
                     DriveNameSegment = projectSettings.ControleBackup.Directory.CreateDriveDirectroy ? sourceDirectory.Root.FullName.Remove(1, 2) : "";
                     SourceSegment = sourceDirectory.FullName.Remove(0, sourceDirectory.Root.FullName.Length);
-                    return this.BuildTargetFullNameResult(RootSegment, DriveNameSegment, SourceSegment);
+                    return this.BuildTargetFullName(RootSegment, DriveNameSegment, SourceSegment);
                 case CopyItems.CopyMode.Restore:
                     //TODO: ADD CODE --> in future version to restore Backup
                     //Use drive letter or use settings
@@ -116,7 +116,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <param name="driveNameSegment">Source drive name</param>
         /// <param name="sourceSegment">Source path witoud drive name</param>
         /// <returns>Combined target path</returns>
-        private string BuildTargetFullNameResult(string rootSegment, string driveNameSegment, string sourceSegment)
+        private string BuildTargetFullName(string rootSegment, string driveNameSegment, string sourceSegment)
         {
             string Result = "";
             Result += rootSegment;
