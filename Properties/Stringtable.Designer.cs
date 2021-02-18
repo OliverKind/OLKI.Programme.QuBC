@@ -166,7 +166,7 @@ namespace OLKI.Programme.QuBC.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Der Vorgang wurde durch den Nutzer abgebrochen.
         ///
-        ///Die kopie ist wahrscheinlich unvollständig. ähnelt.
+        ///Die Kopie ist wahrscheinlich unvollständig. ähnelt.
         /// </summary>
         internal static string _0x0007m {
             get {
@@ -186,7 +186,7 @@ namespace OLKI.Programme.QuBC.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Der Vorgang kann aufgrund eines Fehlers nicht fortgesetzt werden.
         ///
-        ///Die kopie ist wahrscheinlich unvollständig.
+        ///Die Kopie ist wahrscheinlich unvollständig.
         ///
         ///{0} ähnelt.
         /// </summary>

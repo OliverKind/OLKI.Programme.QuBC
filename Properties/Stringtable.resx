@@ -168,7 +168,7 @@ Ihre Änderungen gehen verloren, wenn Sie diese nicht speichern.</value>
   <data name="0x0007m" xml:space="preserve">
     <value>Der Vorgang wurde durch den Nutzer abgebrochen.
 
-Die kopie ist wahrscheinlich unvollständig.</value>
+Die Kopie ist wahrscheinlich unvollständig.</value>
     <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Cancel.Message</comment>
   </data>
   <data name="0x0008c" xml:space="preserve">
@@ -178,7 +178,7 @@ Die kopie ist wahrscheinlich unvollständig.</value>
   <data name="0x0008m" xml:space="preserve">
     <value>Der Vorgang kann aufgrund eines Fehlers nicht fortgesetzt werden.
 
-Die kopie ist wahrscheinlich unvollständig.
+Die Kopie ist wahrscheinlich unvollständig.
 
 {0}</value>
     <comment>OLKI.Programme.QuBC.MainForm.Usercontroles.uscProcControle.ProcControle.worker_RunWorkerCompleted:Exception.Messsage</comment>
