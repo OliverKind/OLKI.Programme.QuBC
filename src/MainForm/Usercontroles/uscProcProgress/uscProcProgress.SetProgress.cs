@@ -84,7 +84,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");
                 TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, "");
 
-
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0015);
 
                 DateTime ProgressStart = this._progressControle._progressStart;
@@ -195,6 +194,53 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 
                 ProgressBarInv.Value(this._progressControle.pbaActualDirFiles, 0);
                 ProgressBarInv.Value(this._progressControle.pbaActualFileByte, 0);
+            }
+            #endregion
+
+            #region Delte old items
+            /// <summary>
+            /// Set controles for state: DeleteStart
+            /// </summary>
+            internal void SetProgress_DeleteStart()
+            {
+                if (this._progressControle._progressStart == new DateTime(0)) this._progressControle._progressStart = DateTime.Now;
+
+                this._setControleValue.InitialControles();
+                ListViewInv.ClearItems(this._progressControle._exceptionListView);
+                TextBoxInv.Text(this._progressControle._exceptionCount, "0");
+                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
+                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
+                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");
+                TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, "");
+
+                LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0021);
+
+                DateTime ProgressStart = this._progressControle._progressStart;
+                TextBoxInv.Text(this._progressControle.txtCopyStart, ProgressStart.ToString(FORMAT_TIME));
+                ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
+                ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
+                ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
+            }
+
+            /// <summary>
+            /// Set controles for state: DeleteBusy
+            /// </summary>
+            internal void SetPRogress_DeleteBusy(ProgressStore progressStore)
+            {
+                LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0022);
+                TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
+
+                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualDir, null, null, null, progressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualFile, null, null, null, progressStore.DirectroyFiles);
+            }
+
+            /// <summary>
+            /// Set controles for state: DeleteFinish
+            /// </summary>
+            internal void SetProgress_DeleteFinish()
+            {
+                LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0023);
+                this._setControleValue.ResetAllProgressBars(true, false);
             }
             #endregion
 

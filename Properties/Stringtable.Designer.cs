@@ -444,5 +444,63 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x001Fm", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Löschen von alten Daiteien oder Ordnern. ähnelt.
+        /// </summary>
+        internal static string _0x0020 {
+            get {
+                return ResourceManager.GetString("0x0020", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Löschen von alten Dateien und Ordnern gestartet ähnelt.
+        /// </summary>
+        internal static string _0x0021 {
+            get {
+                return ResourceManager.GetString("0x0021", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Alten Dateien und Ordnern werden gelöscht ähnelt.
+        /// </summary>
+        internal static string _0x0022 {
+            get {
+                return ResourceManager.GetString("0x0022", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Löschen von alten Dateien und Ordnern abgeschlossen ähnelt.
+        /// </summary>
+        internal static string _0x0023 {
+            get {
+                return ResourceManager.GetString("0x0023", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Alte Dateien und Ordner löschen? ähnelt.
+        /// </summary>
+        internal static string _0x0024c {
+            get {
+                return ResourceManager.GetString("0x0024c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sie haben die Option &quot;Alte Dateien und Ordner löschen&quot; gewählt.
+        ///
+        ///Alle Dateien und Ordner die in der Sicherungskopie, jedoch nicht in den Quellen vorhanden sind, werden unwiederruflich gelöscht. Sie werden nicht in die Papierkorb verschoben. Es erfolgt keine weitere Abfrage.
+        ///
+        ///Sind Sie sicher das Sie diesen Vorgang durchführen möchten? ähnelt.
+        /// </summary>
+        internal static string _0x0024m {
+            get {
+                return ResourceManager.GetString("0x0024m", resourceCulture);
+            }
+        }
     }
 }

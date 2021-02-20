@@ -23,6 +23,7 @@
  * */
 
 using OLKI.Programme.QuBC.Properties;
+using OLKI.Tools.CommonTools;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
 using System.Collections.Generic;
@@ -405,7 +406,7 @@ namespace OLKI.Programme.QuBC.src.Project
         internal string Project_ToXMLString()
         {
             XElement ProjectRoot = new XElement("QuBC_ProjectData");
-            ProjectRoot.Add(new XAttribute("Version", "2"));
+            ProjectRoot.Add(new XAttribute("Version", "2;3"));
 
             //Get Directorys (get files)
             XElement DirectoryList = new XElement(XML_DIRECTORYS_ELEMENT_NAME);
@@ -450,7 +451,8 @@ namespace OLKI.Programme.QuBC.src.Project
                 new XElement("ControleBackup",
                     new XElement("Action",
                         new XElement("CopyData", this._settings.ControleBackup.Action.CopyData),
-                        new XElement("CountItemsAndBytes", this._settings.ControleBackup.Action.CountItemsAndBytes)
+                        new XElement("CountItemsAndBytes", this._settings.ControleBackup.Action.CountItemsAndBytes),
+                        new XElement("DeleteOldData", this._settings.ControleBackup.Action.DeleteOldData)
                     ),
                     new XElement("Directory",
                         new XElement("CreateDriveDirectroy", this._settings.ControleBackup.Directory.CreateDriveDirectroy),
@@ -512,7 +514,7 @@ namespace OLKI.Programme.QuBC.src.Project
                 foreach (XElement DirectoryItem in inputProject.Element(XML_DIRECTORYS_ELEMENT_NAME).Elements(XML_DIRECTORY_ITEM_NAME))
                 {
                     string DirectoryPath = DirectoryItem.Element(XML_DIRECTORY_ITEM_PATH_NAME).Value;
-                    DirectoryScope DirectoryScope = (DirectoryScope)System.Convert.ToInt32(DirectoryItem.Element(XML_DIRECTORY_ITEM_SCOPE_NAME).Value);
+                    DirectoryScope DirectoryScope = (DirectoryScope)Convert.ToInt32(DirectoryItem.Element(XML_DIRECTORY_ITEM_SCOPE_NAME).Value);
                     this.DirectoryAdd(DirectoryPath, DirectoryScope);
                     //Read Files
                     foreach (XElement FileItem in DirectoryItem.Element(XML_FILES_ELEMENT_NAME).Elements())
@@ -540,6 +542,7 @@ namespace OLKI.Programme.QuBC.src.Project
                         {
                             this._settings.ControleBackup.Action.CopyData = (bool)Action.Element("CopyData");
                             this._settings.ControleBackup.Action.CountItemsAndBytes = (bool)Action.Element("CountItemsAndBytes");
+                            this._settings.ControleBackup.Action.DeleteOldData = Serialize.GetFromXElement(Action, "DeleteOldData", false);
                         }
                         XElement Directory = ControleBackup.Element("Directory");
                         {

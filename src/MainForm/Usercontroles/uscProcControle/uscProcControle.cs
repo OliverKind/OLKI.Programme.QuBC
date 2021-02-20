@@ -86,6 +86,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             Copy_Start,
             Copy_Busy,
             Copy_Finish,
+            DeleteOldItems_Start,
+            DeleteOldItems_Busy,
+            DeleteOldItems_Finish,
             Cancel,
             Exception
         }
@@ -100,6 +103,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         /// Element to count items and bytes
         /// </summary>
         private readonly CountItems _counter = new CountItems();
+        /// <summary>
+        /// Element to delete old items
+        /// </summary>
+        private DeleteOldItems _deleter;
         /// <summary>
         /// Dialog to browse to directorys
         /// </summary>
@@ -169,6 +176,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                         this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Backup;
                         this._directoryBrowser.ShowNewFolderButton = true;
                         this.btnProcessStart.Text = Stringtable.btnProcessStart_Text__Backup;
+                        this.chkDeleteOld.Visible = true;
                         this.chkLogFileCreate.Text = Stringtable.chkLogFileCreate_Text__Backup;
                         this.chkLogFileAutoPath.Text = Stringtable.chkLogFileAutoPath_Text__Backup;
                         this.chkRootDirectory.Text = Stringtable.chkRootDirectory_Text__Backup;
@@ -182,6 +190,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                         this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Restore;
                         this._directoryBrowser.ShowNewFolderButton = false;
                         this.btnProcessStart.Text = Stringtable.btnProcessStart_Text__Restore;
+                        this.chkDeleteOld.Visible = false;
                         this.chkLogFileCreate.Text = Stringtable.chkLogFileCreate_Text__Restore;
                         this.chkLogFileAutoPath.Text = Stringtable.chkLogFileAutoPath_Text__Restore;
                         this.chkRootDirectory.Text = Stringtable.chkRootDirectory_Text__Restore;
@@ -286,6 +295,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             this.txtRestoreTargetDirectory.Text = ControleSettings.Directory.RestoreTargetPath; //Not used if mode is CreateBackup
             this.chkCountItemsAndBytes.Checked = ControleSettings.Action.CountItemsAndBytes;
             this.chkCopyData.Checked = ControleSettings.Action.CopyData;
+            this.chkDeleteOld.Checked = ControleSettings.Action.DeleteOldData;
             this.chkLogFileCreate.Checked = ControleSettings.Logfile.Create;
             this.chkLogFileAutoPath.Checked = ControleSettings.Logfile.AutoPath;
             this.txtLogFilePath.Text = ControleSettings.Logfile.Path;
@@ -338,8 +348,24 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
 
         private void btnProcessStart_Click(object sender, EventArgs e)
         {
+            if (this.Mode == ControleMode.CreateBackup && this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
+            {
+                switch (MessageBox.Show(this._mainForm, Properties.Stringtable._0x0024m, Properties.Stringtable._0x0024c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3))
+                {
+                    case DialogResult.Yes:
+                        break;
+                    case DialogResult.No:
+                        this.chkDeleteOld.Checked = false;
+                        break;
+                    case DialogResult.Cancel:
+                        return;
+                    default:
+                        return;
+                }
+            }
+
             // If Nothing to do, exit
-            if (!this.chkCountItemsAndBytes.Checked && !this.chkCopyData.Checked) return;
+            if (!this.chkCountItemsAndBytes.Checked && !this.chkCopyData.Checked && !this.chkDeleteOld.Checked) return;
             if (this._worker != null && this._worker.IsBusy) return;
 
             this.btnProcessCancel.Enabled = true;
@@ -416,6 +442,32 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 }
                 if (!e.Cancel) worker.ReportProgress((int)ProcessStep.Copy_Finish, new ProgressState(true));
             }
+
+            //Delete old Data at Backup Target
+            if (this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
+            {
+                // Initial deleter
+                this._deleter = new DeleteOldItems(this._mainForm)
+                {
+                    Project = this._projectManager.ActiveProject
+                };
+
+                //Start delete old items
+                worker.ReportProgress((int)ProcessStep.DeleteOldItems_Start, new ProgressState(this._progressStore, true));
+                switch (this._mode)
+                {
+                    //Start Counting in backup mode
+                    case ControleMode.CreateBackup:
+                        this._deleter.Backup(worker, e, this._progressStore);
+                        break;
+                    //Start Counting in restore mode
+                    case ControleMode.RestoreBackup:
+                        break;
+                    default:
+                        throw new ArgumentException("uscControleProcess->worker_DoWork(DeleteOld)->Invalid value", nameof(this._mode));
+                }
+                if (!e.Cancel) worker.ReportProgress((int)ProcessStep.DeleteOldItems_Finish, new ProgressState(true));
+            }
             System.Diagnostics.Debug.Print("uscControleProcess::_worker_DoWork::FINISH");
         }
 
@@ -454,6 +506,15 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                     case ProcessStep.Copy_Finish:
                         this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
                         break;
+                    case ProcessStep.DeleteOldItems_Start:
+                        this._uscProgress.SetProgressStates.SetProgress_DeleteStart();
+                        break;
+                    case ProcessStep.DeleteOldItems_Busy:
+                        this._uscProgress.SetProgressStates.SetPRogress_DeleteBusy(ProgressState.ProgressStore);
+                        break;
+                    case ProcessStep.DeleteOldItems_Finish:
+                        this._uscProgress.SetProgressStates.SetProgress_DeleteFinish();
+                        break;
                     case ProcessStep.Cancel:
                         this._uscProgress.SetProgressStates.SetProgress_Cancel();
                         break;
@@ -475,7 +536,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             if (this.ProcessFinishedCanceled != null) ProcessFinishedCanceled(this, new EventArgs());
 
             if (e.Cancelled) this._processStep = ProcessStep.Cancel;
-            if (this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Exception != null) this._processStep = ProcessStep.Exception;
+            if (!e.Cancelled && this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Exception != null) this._processStep = ProcessStep.Exception;
 
             switch (this._processStep)
             {
@@ -488,6 +549,11 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 case ProcessStep.Copy_Busy:
                 case ProcessStep.Copy_Finish:
                     this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
+                    break;
+                case ProcessStep.DeleteOldItems_Start:
+                case ProcessStep.DeleteOldItems_Busy:
+                case ProcessStep.DeleteOldItems_Finish:
+                    this._uscProgress.SetProgressStates.SetProgress_DeleteFinish();
                     break;
                 case ProcessStep.Cancel:
                     MessageBox.Show(this.ParentForm, Properties.Stringtable._0x0007m, Properties.Stringtable._0x0007m, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -582,12 +648,27 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             this.ToggleSettingsChanged(sender, e);
         }
 
+        private void chkDeleteOld_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (this._mode)
+            {
+                case ControleMode.CreateBackup:
+                    this._projectManager.ActiveProject.Settings.ControleBackup.Action.DeleteOldData = chkDeleteOld.Checked;
+                    break;
+                case ControleMode.RestoreBackup:
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void chkRootDirectory_CheckedChanged(object sender, EventArgs e)
         {
             switch (this._mode)
             {
                 case ControleMode.CreateBackup:
                     this._projectManager.ActiveProject.Settings.ControleBackup.Directory.CreateDriveDirectroy = this.chkRootDirectory.Checked;
+                    this.chkDeleteOld.Enabled = this.chkRootDirectory.Checked;
                     break;
                 case ControleMode.RestoreBackup:
                     this._projectManager.ActiveProject.Settings.ControleRestore.Directory.CreateDriveDirectroy = this.chkRootDirectory.Checked;
@@ -676,7 +757,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         {
             throw (new NotImplementedException("txtRestoreTargetDirectory_TextChanged"));
         }
-       #endregion
+        #endregion
         #endregion
         #endregion
     }

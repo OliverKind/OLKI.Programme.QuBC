@@ -79,5 +79,29 @@ namespace OLKI.Programme.QuBC.src.Project.Settings.Controle
                 base.ToggleSettingsChanged(this, new EventArgs());
             }
         }
+
+        /// <summary>
+        /// Specifies if the "Delete old data" step should been done
+        /// </summary>
+        private bool _deleteOldData = true;
+        /// <summary>
+        /// Get or set if the "Delete old data" step should been done
+        /// </summary>
+        [Category("Properties")]
+        [DefaultValue(true)]
+        [Description("Specifies if the \"Delete old data\" step should been done")]
+        [DisplayName("CopyData")]
+        public bool DeleteOldData
+        {
+            get
+            {
+                return this._deleteOldData;
+            }
+            set
+            {
+                this._deleteOldData = value;
+                base.ToggleSettingsChanged(this, new EventArgs());
+            }
+        }
     }
 }

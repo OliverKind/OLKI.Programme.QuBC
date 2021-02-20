@@ -37,6 +37,7 @@
             this.chkCountItemsAndBytes = new System.Windows.Forms.CheckBox();
             this.chkCopyData = new System.Windows.Forms.CheckBox();
             this.grbToDo = new System.Windows.Forms.GroupBox();
+            this.chkDeleteOld = new System.Windows.Forms.CheckBox();
             this.btnProcessStart = new System.Windows.Forms.Button();
             this.btnProcessCancel = new System.Windows.Forms.Button();
             this.grbLogFiles = new System.Windows.Forms.GroupBox();
@@ -140,6 +141,7 @@
             // 
             // grbToDo
             // 
+            this.grbToDo.Controls.Add(this.chkDeleteOld);
             this.grbToDo.Controls.Add(this.chkCopyData);
             this.grbToDo.Controls.Add(this.chkCountItemsAndBytes);
             this.grbToDo.Location = new System.Drawing.Point(3, 164);
@@ -148,6 +150,17 @@
             this.grbToDo.TabIndex = 9;
             this.grbToDo.TabStop = false;
             this.grbToDo.Text = "Umfang der Sicherungskopie";
+            // 
+            // chkDeleteOld
+            // 
+            this.chkDeleteOld.AutoSize = true;
+            this.chkDeleteOld.Location = new System.Drawing.Point(165, 42);
+            this.chkDeleteOld.Name = "chkDeleteOld";
+            this.chkDeleteOld.Size = new System.Drawing.Size(181, 17);
+            this.chkDeleteOld.TabIndex = 2;
+            this.chkDeleteOld.Text = "3. Lösche alte Daten und Ordner";
+            this.chkDeleteOld.UseVisualStyleBackColor = true;
+            this.chkDeleteOld.CheckedChanged += new System.EventHandler(this.chkDeleteOld_CheckedChanged);
             // 
             // btnProcessStart
             // 
@@ -405,5 +418,6 @@
         internal System.Windows.Forms.CheckBox chkRootDirectory;
         private System.Windows.Forms.Label lblDirectory;
         internal System.Windows.Forms.TextBox txtDirectory;
+        internal System.Windows.Forms.CheckBox chkDeleteOld;
     }
 }

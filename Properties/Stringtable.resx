@@ -297,4 +297,26 @@ Die Kopie ist wahrscheinlich unvollständig.
 {0}</value>
     <comment>OLKI.Programme.QuBC.Project.Project.Project_FromXMLString:Exception.Message</comment>
   </data>
+  <data name="0x0020" xml:space="preserve">
+    <value>Fehler beim Löschen von alten Daiteien oder Ordnern.</value>
+  </data>
+  <data name="0x0021" xml:space="preserve">
+    <value>Löschen von alten Dateien und Ordnern gestartet</value>
+  </data>
+  <data name="0x0022" xml:space="preserve">
+    <value>Alten Dateien und Ordnern werden gelöscht</value>
+  </data>
+  <data name="0x0023" xml:space="preserve">
+    <value>Löschen von alten Dateien und Ordnern abgeschlossen</value>
+  </data>
+  <data name="0x0024c" xml:space="preserve">
+    <value>Alte Dateien und Ordner löschen?</value>
+  </data>
+  <data name="0x0024m" xml:space="preserve">
+    <value>Sie haben die Option "Alte Dateien und Ordner löschen" gewählt.
+
+Alle Dateien und Ordner die in der Sicherungskopie, jedoch nicht in den Quellen vorhanden sind, werden unwiederruflich gelöscht. Sie werden nicht in die Papierkorb verschoben. Es erfolgt keine weitere Abfrage.
+
+Sind Sie sicher das Sie diesen Vorgang durchführen möchten?</value>
+  </data>
 </root>

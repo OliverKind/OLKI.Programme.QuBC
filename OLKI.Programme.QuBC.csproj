@@ -107,6 +107,7 @@
     <Compile Include="src\Project\Process\CopyItems\clsCopyItems.cs" />
     <Compile Include="src\Project\Process\CountItems\clsCountItems_CountRecursive.cs" />
     <Compile Include="src\Project\Process\CountItems\clsCountItems.cs" />
+    <Compile Include="src\Project\Process\DeleteOldItems\clsDeleteOldItems.cs" />
     <Compile Include="src\Project\Settings\clsControle.cs" />
     <Compile Include="src\Project\Settings\clsControle.Logile.cs" />
     <Compile Include="src\Project\Settings\clsControle.Action.cs" />
