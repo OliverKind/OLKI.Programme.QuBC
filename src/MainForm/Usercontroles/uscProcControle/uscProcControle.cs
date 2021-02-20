@@ -445,7 +445,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             if (this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
             {
                 // Initial deleter
-                this._deleter = new DeleteOldItems(this._mainForm)
+                this._deleter = new DeleteOldItems()
                 {
                     Project = this._projectManager.ActiveProject
                 };

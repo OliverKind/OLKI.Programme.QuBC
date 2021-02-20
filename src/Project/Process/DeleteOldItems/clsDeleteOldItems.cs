@@ -44,11 +44,6 @@ namespace OLKI.Programme.QuBC.src.Project.Process
 
         #region Properties
         /// <summary>
-        /// The application MainForm
-        /// </summary>
-        private readonly MainForm.MainForm _mainFoorm;
-
-        /// <summary>
         /// The progresstore for copy items
         /// </summary>
         private ProgressStore _progress = null;
@@ -84,9 +79,8 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <summary>
         /// Initialise an new copy item object
         /// </summary>
-        public DeleteOldItems(MainForm.MainForm mainFoorm)
+        public DeleteOldItems()
         {
-            this._mainFoorm = mainFoorm;
         }
 
         /// <summary>
