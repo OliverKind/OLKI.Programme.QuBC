@@ -243,7 +243,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print(ex.Message);
+                _ = ex.Message;
             }
             finally
             {

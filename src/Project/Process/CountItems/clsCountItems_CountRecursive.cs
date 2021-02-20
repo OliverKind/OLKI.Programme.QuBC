@@ -93,7 +93,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print(ex.Message);
+                _ = ex.Message;
             }
         }
 
