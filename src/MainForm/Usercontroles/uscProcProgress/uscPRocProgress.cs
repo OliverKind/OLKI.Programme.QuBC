@@ -88,12 +88,13 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
         /// <summary>
         /// Set TextBox to show copies files
         /// </summary>
-        public TextBox ConclusionFilesTextBox {
+        public TextBox ConclusionFilesTextBox
+        {
             set
             {
                 this._conclusionFilesTextBox = value;
             }
-        } 
+        }
 
         /// <summary>
         /// TextBox to show copies directuries
