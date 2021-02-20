@@ -62,7 +62,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 /// </summary>
                 public void InitialControles()
                 {
-                    System.Diagnostics.Debug.Print("uscProcess::InitialControles::START");
                     LabelInv.Text(this._progressControle.lblStepText, "");
 
                     TextBoxInv.Text(this._progressControle.txtCopyStart, "");
@@ -71,7 +70,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 
                     this.ResetAllTextBoxes();
                     this.ResetAllProgressBars(true, true);
-                    System.Diagnostics.Debug.Print("uscProcess::InitialControles::FINISH");
                 }
 
                 /// <summary>
@@ -79,7 +77,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 /// </summary>
                 private void ResetAllTextBoxes()
                 {
-                    System.Diagnostics.Debug.Print("    uscProcess::ResetProgressTextBoxes::START");
                     TextBoxInv.Text(this._progressControle.txtActualDir, "");
                     TextBoxInv.Text(this._progressControle.txtActualDirFilesNum, "");
                     TextBoxInv.Text(this._progressControle.txtActualDirFilesPer, "");
@@ -92,7 +89,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                     TextBoxInv.Text(this._progressControle.txtAllDirPer, "");
                     TextBoxInv.Text(this._progressControle.txtAllItemsNum, "");
                     TextBoxInv.Text(this._progressControle.txtAllItemsPer, "");
-                    System.Diagnostics.Debug.Print("    uscProcess::ResetProgressTextBoxes::FINISH");
                 }
 
                 /// <summary>
@@ -102,7 +98,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 /// <param name="setProgressToZero">Set ProgressBar values to zero if true</param>
                 public void ResetAllProgressBars(bool setBlockStyle, bool setProgressToZero)
                 {
-                    System.Diagnostics.Debug.Print("    uscProcess::ResetProgressBars::START");
                     if (setBlockStyle)
                     {
                         ProgressBarInv.Style(this._progressControle.pbaActualDirFiles, ProgressBarStyle.Blocks);
@@ -120,7 +115,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                         ProgressBarInv.Value(this._progressControle.pbaAllDir, 0);
                         ProgressBarInv.Value(this._progressControle.pbaAllItems, 0);
                     }
-                    System.Diagnostics.Debug.Print("    uscProcess::ResetProgressBars::FINISH");
                 }
                 #endregion
 

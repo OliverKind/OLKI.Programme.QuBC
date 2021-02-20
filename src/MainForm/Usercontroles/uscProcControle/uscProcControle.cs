@@ -381,7 +381,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            System.Diagnostics.Debug.Print("uscControleProcess::_worker_DoWork::START");
             BackgroundWorker worker = sender as BackgroundWorker;
             if (this.ProcessStarted != null) ProcessStarted(this, new EventArgs());
 
@@ -399,7 +398,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
 
                 //Start count progress
                 worker.ReportProgress((int)ProcessStep.Count_Start, new ProgressState(this._progressStore, true));
-                System.Diagnostics.Debug.Print("    this._mode::" + this._mode.ToString());
                 switch (this._mode)
                 {
                     //Start Counting in backup mode
@@ -468,12 +466,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 }
                 if (!e.Cancel) worker.ReportProgress((int)ProcessStep.DeleteOldItems_Finish, new ProgressState(true));
             }
-            System.Diagnostics.Debug.Print("uscControleProcess::_worker_DoWork::FINISH");
         }
 
         private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            System.Diagnostics.Debug.Print("uscControleProcess::_worker_ProgressChanged::START");
             // Use the progress in percentage to differ the different steps.
             // It looks a little bit stange. The real progress is stored in an member of this class.
             // Try to save the step in an member, lead to glitches. I used the ProgressPercentage as work around
@@ -485,7 +481,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 this._lastReportTime = DateTime.Now;
 
                 this._processStep = (ProcessStep)e.ProgressPercentage;
-                System.Diagnostics.Debug.Print("    this._controleStep::" + this._processStep.ToString());
                 switch (this._processStep)
                 {
                     case ProcessStep.Count_Start:
@@ -526,13 +521,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 }
             }
             this._progressStore = ProgressState.ProgressStore;
-            System.Diagnostics.Debug.Print("uscControleProcess::_worker_ProgressChanged::FINISH");
         }
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            System.Diagnostics.Debug.Print("uscControleProcess::_worker_RunWorkerCompleted::START");
-            System.Diagnostics.Debug.Print("    this._controleStep::" + this._processStep.ToString());
             if (this.ProcessFinishedCanceled != null) ProcessFinishedCanceled(this, new EventArgs());
 
             if (e.Cancelled) this._processStep = ProcessStep.Cancel;
@@ -573,7 +565,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             this.grbHandleExistingFiles.Enabled = true;
             this.grbLogFiles.Enabled = true;
             this.grbToDo.Enabled = true;
-            System.Diagnostics.Debug.Print("uscControleProcess::_worker_RunWorkerCompleted::FINISH");
         }
         #endregion
 

@@ -150,7 +150,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             /// </summary>
             internal void SetProgress_CopyBusy(ProgressStore progressStore)
             {
-                System.Diagnostics.Debug.Print(progressStore.DirectroyFiles.ElemenName);
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0019);
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, progressStore.TotalDirectories.ActualValue.ToString());
