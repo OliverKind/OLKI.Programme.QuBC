@@ -152,8 +152,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             {
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0019);
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
-                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, progressStore.TotalDirectories.ActualValue.ToString());
-                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, progressStore.TotalFiles.ActualValue.ToString());
+                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, string.Format(FORMAT_VALUE, progressStore.TotalDirectories.ActualValue));
+                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, string.Format(FORMAT_VALUE, progressStore.TotalFiles.ActualValue));
 
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, progressStore.TotalItems);
                 this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, progressStore.TotalBytes);
@@ -297,7 +297,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 
                 ListViewInv.AddItem(this._progressControle._exceptionListView, ExItem);
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, EXCEPTION_ICON_INDEX);
-                TextBoxInv.Text(this._progressControle._exceptionCount, this._progressControle._exceptionListView.Items.Count.ToString());
+                TextBoxInv.Text(this._progressControle._exceptionCount, string.Format(FORMAT_VALUE, this._progressControle._exceptionListView.Items.Count));
             }
 
             /// <summary>
