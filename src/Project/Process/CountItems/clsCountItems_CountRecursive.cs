@@ -107,8 +107,6 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <param name="e">Provides data for the BackgroundWorker</param>
         private void CountRecursive_All(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
-            //this._progress.TotalDirectories.MaxValue++;
-
             // Search for files in selected directory
             foreach (FileInfo FileItem in directory.GetFiles().OrderBy(o => o.Name))
             {
