@@ -259,17 +259,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             /// Set controles for state: Exception
             /// Add exception to ListView
             /// </summary>
-            internal void SetProgress_Exception(ProgressStore progressStore)
+            internal void SetProgress_Exception(ProcessException exception)
             {
-                ProcessException Exception = progressStore.Exception;
-                string ExceptionText = string.Empty;
-
-                if (!string.IsNullOrEmpty(Exception.Description) && string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText = Exception.Description;
-                if (string.IsNullOrEmpty(Exception.Description) && !string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText = Exception.Exception.Message;
-                if (!string.IsNullOrEmpty(Exception.Description) && !string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText = Exception.Description + ": " + Exception.Exception.Message;
-
                 System.Drawing.Color ItemBackground;
-                switch (Exception.Level)
+                switch (exception.Level)
                 {
                     case ProcessException.ExceptionLevel.Slight:
                         ItemBackground = System.Drawing.Color.FromArgb(255, 255, 192);
@@ -288,12 +281,12 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 ListViewItem ExItem = new ListViewItem
                 {
                     BackColor = ItemBackground,
-                    Tag = Exception,
+                    Tag = exception,
                     Text = (this._progressControle._exceptionListView.Items.Count + 1).ToString()
                 };
-                ExItem.SubItems.Add(Exception.Source);
-                ExItem.SubItems.Add(Exception.Target);
-                ExItem.SubItems.Add(ExceptionText);
+                ExItem.SubItems.Add(exception.Source);
+                ExItem.SubItems.Add(exception.Target);
+                ExItem.SubItems.Add(exception.Text);
 
                 ListViewInv.AddItem(this._progressControle._exceptionListView, ExItem);
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, EXCEPTION_ICON_INDEX);
