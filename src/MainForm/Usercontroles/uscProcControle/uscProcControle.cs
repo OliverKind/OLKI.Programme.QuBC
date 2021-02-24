@@ -514,7 +514,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                         this._uscProgress.SetProgressStates.SetProgress_Cancel();
                         break;
                     case ProcessStep.Exception:
-                        this._uscProgress.SetProgressStates.SetProgress_Exception(ProgressState.ProgressStore);
+                        this._uscProgress.SetProgressStates.SetProgress_Exception(ProgressState.ProgressStore.Exception);
                         break;
                     default:
                         throw new ArgumentException("uscControleProcess->worker_ProgressChanged->Invalid value", nameof(this._processStep));
