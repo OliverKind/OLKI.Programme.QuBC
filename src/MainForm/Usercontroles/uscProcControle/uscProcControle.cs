@@ -528,7 +528,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             if (this.ProcessFinishedCanceled != null) ProcessFinishedCanceled(this, new EventArgs());
 
             if (e.Cancelled) this._processStep = ProcessStep.Cancel;
-            if (!e.Cancelled && this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Exception != null) this._processStep = ProcessStep.Exception;
+            if (this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Exception != null && this._progressStore.Exception.Level == ProcessException.ExceptionLevel.Critical) this._processStep = ProcessStep.Exception;
 
             switch (this._processStep)
             {
