@@ -394,7 +394,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnHandleExistingFile_SetDefault;
-        private System.Windows.Forms.TextBox txtHandleExistingFileText;
         private System.Windows.Forms.TextBox txtAddTextToExistingFileText;
         private System.Windows.Forms.Label lblAddTextToExistingFileText;
         private System.Windows.Forms.GroupBox grbHandleExistingFiles;
@@ -419,5 +418,6 @@
         private System.Windows.Forms.Label lblDirectory;
         internal System.Windows.Forms.TextBox txtDirectory;
         internal System.Windows.Forms.CheckBox chkDeleteOld;
+        internal System.Windows.Forms.TextBox txtHandleExistingFileText;
     }
 }
