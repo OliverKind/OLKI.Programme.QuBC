@@ -81,6 +81,20 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         public string Target { get; set; } = "";
 
         /// <summary>
+        /// A Text to descrie the exception
+        /// </summary>
+        public string Text
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(this.Description) && string.IsNullOrEmpty(this.Exception.Message)) return this.Description;
+                if (string.IsNullOrEmpty(this.Description) && !string.IsNullOrEmpty(this.Exception.Message)) return this.Exception.Message;
+                if (!string.IsNullOrEmpty(this.Description) && !string.IsNullOrEmpty(this.Exception.Message)) return this.Description + ": " + this.Exception.Message;
+                return "";
+            }
+        }
+
+        /// <summary>
         /// Description of the exception
         /// </summary>
         public string Description { get; set; } = "";
