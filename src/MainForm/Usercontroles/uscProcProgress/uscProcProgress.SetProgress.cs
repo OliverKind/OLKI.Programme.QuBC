@@ -238,6 +238,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             /// </summary>
             internal void SetProgress_DeleteFinish()
             {
+                TextBoxInv.Text(this._progressControle.txtActualDir, "");
+                TextBoxInv.Text(this._progressControle.txtActualFile, "");
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0023);
                 this._setControleValue.ResetAllProgressBars(true, false);
             }
