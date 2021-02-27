@@ -25,6 +25,7 @@
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using OLKI.Programme.QuBC.src.Project.Process;
 using OLKI.Programme.QuBC.Properties;
+using OLKI.Programme.QuBC.src.Project.LogFileWriter;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -115,6 +116,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         /// The time where the last report where commited to process controle.
         /// </summary>
         private DateTime _lastReportTime = new DateTime();
+        /// <summary>
+        /// Write LogFiles
+        /// </summary>
+        private LogFile _logFile;
         /// <summary>
         /// The actual step of the current running process
         /// </summary>
@@ -251,9 +256,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         {
             InitializeComponent();
 
-            //TODO: ROMOVE --> future versions to write log files
-            this.grbLogFiles.Visible = false;
-
             // Initial BackgroundWorker
             this._worker = new BackgroundWorker
             {
@@ -375,6 +377,28 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             this.grbLogFiles.Enabled = false;
             this.grbToDo.Enabled = false;
 
+            // Create Automatic LogFilePath
+            if (this.chkLogFileAutoPath.Checked)
+            {
+                string LogFilePath = this.txtDirectory.Text;
+                LogFilePath += @"\";
+                switch (this._mode)
+                {
+                    case ControleMode.CreateBackup:
+                        LogFilePath += @"LogFile_Backup__";
+                        break;
+                    case ControleMode.RestoreBackup:
+                        LogFilePath += @"LogFile_Restore__";
+                        break;
+                    default:
+                        throw new ArgumentException("uscControleProcess->btnProcessStart_Click->Invalid value", nameof(this._mode));
+                }
+                LogFilePath += DateTime.Now.ToString("yyyy-MM-dd__HH-mm");
+                LogFilePath += ".log";
+
+                this.txtLogFilePath.Text = LogFilePath;
+            }
+
             // Initial BackgroundWorker
             this._worker.RunWorkerAsync();
         }
@@ -389,6 +413,12 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             //The procedures use Invoke, otherwise the application will crash in some conditions.
             //This can also be prevented by replace this two function calls to the _worker_ProgressChanged function
             this._uscProgress.SetProgressStates.SetControlesValue.InitialControles();
+
+            //Initial LogFile Writer
+            this._logFile = new LogFile(this, this._progressStore, this.chkLogFileCreate.Checked);
+            this._logFile.LogFilePath = this.txtLogFilePath.Text;
+
+            this._logFile.WriteHead();
 
             // Count Data
             if (this.chkCountItemsAndBytes.Checked)
@@ -484,36 +514,44 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 switch (this._processStep)
                 {
                     case ProcessStep.Count_Start:
+                        this._logFile.WriteCountStart();
                         this._uscProgress.SetProgressStates.SetProgress_CountStart();
                         break;
                     case ProcessStep.Count_Busy:
                         this._uscProgress.SetProgressStates.SetPRogress_CountBusy(ProgressState.ProgressStore);
                         break;
                     case ProcessStep.Count_Finish:
+                        this._logFile.WriteCountFinish();
                         this._uscProgress.SetProgressStates.SetProgress_CountFinish();
                         break;
                     case ProcessStep.Copy_Start:
+                        this._logFile.WriteCopyStart();
                         this._uscProgress.SetProgressStates.SetProgress_CopyStart(ProgressState.ProgressStore);
                         break;
                     case ProcessStep.Copy_Busy:
                         this._uscProgress.SetProgressStates.SetProgress_CopyBusy(ProgressState.ProgressStore);
                         break;
                     case ProcessStep.Copy_Finish:
+                        this._logFile.WriteCopyFinish();
                         this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
                         break;
                     case ProcessStep.DeleteOldItems_Start:
+                        this._logFile.WriteDeleteSart();
                         this._uscProgress.SetProgressStates.SetProgress_DeleteStart();
                         break;
                     case ProcessStep.DeleteOldItems_Busy:
                         this._uscProgress.SetProgressStates.SetPRogress_DeleteBusy(ProgressState.ProgressStore);
                         break;
                     case ProcessStep.DeleteOldItems_Finish:
+                        this._logFile.WriteDeleteFinish();
                         this._uscProgress.SetProgressStates.SetProgress_DeleteFinish();
                         break;
                     case ProcessStep.Cancel:
+                        this._logFile.WriteCancel();
                         this._uscProgress.SetProgressStates.SetProgress_Cancel();
                         break;
                     case ProcessStep.Exception:
+                        this._logFile.WriteException(ProgressState.ProgressStore.Exception);
                         this._uscProgress.SetProgressStates.SetProgress_Exception(ProgressState.ProgressStore.Exception);
                         break;
                     default:
@@ -565,6 +603,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             this.grbHandleExistingFiles.Enabled = true;
             this.grbLogFiles.Enabled = true;
             this.grbToDo.Enabled = true;
+
+            this._logFile.WriteFoot();
         }
         #endregion
 

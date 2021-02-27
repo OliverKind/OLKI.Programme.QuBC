@@ -58,9 +58,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
         {
             InitializeComponent();
             this.SetControlesFromSettings();
-
-            //TODO: ROMOVE --> future versions to write log files
-            this.grbLogFile.Visible = false;
         }
 
         /// <summary>
