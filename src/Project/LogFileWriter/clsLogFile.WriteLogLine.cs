@@ -1,7 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+ * QuBC - QuickBackupCreator
+ * 
+ * Copyright:   Oliver Kind - 2021
+ * License:     LGPL
+ * 
+ * Desctiption:
+ * Provide tool to write a new line to a log file
+ * 
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the LGPL General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * LGPL General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not check the GitHub-Repository.
+ * 
+ * */
+
+using System;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -62,23 +84,22 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
             // Write logfile
             try
             {
-                if (!string.IsNullOrEmpty(this._logFilePath))
+                if (string.IsNullOrEmpty(this.LogFilePath)) return;
+
+                using (StreamWriter sw = new StreamWriter(this.LogFilePath, true, Encoding.UTF8))
                 {
-                    using (StreamWriter sw = new StreamWriter(this._logFilePath, true, Encoding.UTF8))
-                    {
-                        sw.WriteLine(Indent + text);
-                    }
+                    sw.WriteLine(Indent + text);
                 }
             }
             catch (Exception ex)
             {
-                //if (!this._hideExceptionMessage)
-                //{
-                if (MessageBox.Show(string.Format("Beim Schreiben in die allgemeine Protokolldatei \"{0}\" ist ein Fehler aufgetreten.\n\n{1}\n\nSollen weitere Meldungen dieser Art unterdrückt werden?", new object[] { this._logFilePath, ex.Message }), "Fehler beim Schreiben in die Protokolldatei ", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if (this._showExceptionMessage)
                 {
-                    //this._hideExceptionMessage = true;
+                    if (MessageBox.Show(string.Format(Properties.Stringtable._0x0025m, new object[] { this.LogFilePath, ex.Message }), Properties.Stringtable._0x0025c, MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    {
+                        this._showExceptionMessage = false;
+                    }
                 }
-                //}
             }
         }
         #endregion
