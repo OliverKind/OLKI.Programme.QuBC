@@ -502,5 +502,27 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x0024m", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Schreiben in die Protokolldatei! ähnelt.
+        /// </summary>
+        internal static string _0x0025c {
+            get {
+                return ResourceManager.GetString("0x0025c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Beim Schreiben in die allgemeine Protokolldatei &quot;{0}&quot; ist ein Fehler aufgetreten.
+        ///
+        ///{1}
+        ///
+        ///Sollen weitere Meldungen dieser Art unterdrückt werden? ähnelt.
+        /// </summary>
+        internal static string _0x0025m {
+            get {
+                return ResourceManager.GetString("0x0025m", resourceCulture);
+            }
+        }
     }
 }
