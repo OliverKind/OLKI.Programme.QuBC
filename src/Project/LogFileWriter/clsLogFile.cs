@@ -53,7 +53,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// <summary>
         /// Should Logfiles been written. If it is false, no Logfiles will be created.
         /// </summary>
-        private bool _writeLogFile;
+        private readonly bool _writeLogFile;
         #endregion
 
         #region Properties

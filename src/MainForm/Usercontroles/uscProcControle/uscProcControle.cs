@@ -415,8 +415,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             this._uscProgress.SetProgressStates.SetControlesValue.InitialControles();
 
             //Initial LogFile Writer
-            this._logFile = new LogFile(this, this._progressStore, this.chkLogFileCreate.Checked);
-            this._logFile.LogFilePath = this.txtLogFilePath.Text;
+            this._logFile = new LogFile(this, this._progressStore, this.chkLogFileCreate.Checked)
+            {
+                LogFilePath = this.txtLogFilePath.Text
+            };
 
             this._logFile.WriteHead();
 
