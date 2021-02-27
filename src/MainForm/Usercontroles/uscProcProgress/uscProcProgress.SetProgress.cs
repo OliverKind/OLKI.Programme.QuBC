@@ -68,6 +68,12 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 this._setControleValue = new SetControleValue(parent);
             }
 
+            internal void ClearExceptionlog()
+            {
+                ListViewInv.ClearItems(this._progressControle._exceptionListView);
+                TextBoxInv.Text(this._progressControle._exceptionCount, "0");
+            }
+
             #region Progress count items
             /// <summary>
             /// Set controles for state: CountStart
@@ -77,8 +83,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 this._progressControle._progressStart = DateTime.Now;
 
                 this._setControleValue.InitialControles();
-                ListViewInv.ClearItems(this._progressControle._exceptionListView);
-                TextBoxInv.Text(this._progressControle._exceptionCount, "0");
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
                 TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");
@@ -128,8 +132,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 this._progressControle._progressStart = StartTime;
                 // Set controles
                 this._setControleValue.InitialControles();
-                ListViewInv.ClearItems(this._progressControle._exceptionListView);
-                TextBoxInv.Text(this._progressControle._exceptionCount, "0");
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0018);
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
@@ -205,8 +207,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 if (this._progressControle._progressStart == new DateTime(0)) this._progressControle._progressStart = DateTime.Now;
 
                 this._setControleValue.InitialControles();
-                ListViewInv.ClearItems(this._progressControle._exceptionListView);
-                TextBoxInv.Text(this._progressControle._exceptionCount, "0");
                 TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
                 TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");

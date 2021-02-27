@@ -422,6 +422,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
 
             this._logFile.WriteHead();
 
+            this._uscProgress.SetProgressStates.ClearExceptionlog();
+
             // Count Data
             if (this.chkCountItemsAndBytes.Checked)
             {
