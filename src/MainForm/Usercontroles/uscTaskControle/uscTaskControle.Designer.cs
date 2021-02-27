@@ -1,6 +1,6 @@
-﻿namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
+﻿namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 {
-    partial class ProcControle
+    partial class TaskControle
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcControle));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskControle));
             this.btnHandleExistingFile_SetDefault = new System.Windows.Forms.Button();
             this.txtHandleExistingFileText = new System.Windows.Forms.TextBox();
             this.txtAddTextToExistingFileText = new System.Windows.Forms.TextBox();
@@ -38,8 +38,8 @@
             this.chkCopyData = new System.Windows.Forms.CheckBox();
             this.grbToDo = new System.Windows.Forms.GroupBox();
             this.chkDeleteOld = new System.Windows.Forms.CheckBox();
-            this.btnProcessStart = new System.Windows.Forms.Button();
-            this.btnProcessCancel = new System.Windows.Forms.Button();
+            this.btnTaskStart = new System.Windows.Forms.Button();
+            this.btnTaskCancel = new System.Windows.Forms.Button();
             this.grbLogFiles = new System.Windows.Forms.GroupBox();
             this.pnlLogfilePath = new System.Windows.Forms.Panel();
             this.chkLogFileAutoPath = new System.Windows.Forms.CheckBox();
@@ -162,34 +162,34 @@
             this.chkDeleteOld.UseVisualStyleBackColor = true;
             this.chkDeleteOld.CheckedChanged += new System.EventHandler(this.chkDeleteOld_CheckedChanged);
             // 
-            // btnProcessStart
+            // btnTaskStart
             // 
-            this.btnProcessStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcessStart.Image = ((System.Drawing.Image)(resources.GetObject("btnProcessStart.Image")));
-            this.btnProcessStart.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProcessStart.Location = new System.Drawing.Point(359, 164);
-            this.btnProcessStart.Name = "btnProcessStart";
-            this.btnProcessStart.Size = new System.Drawing.Size(361, 68);
-            this.btnProcessStart.TabIndex = 10;
-            this.btnProcessStart.Text = "btnProcessStart_Text__";
-            this.btnProcessStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProcessStart.UseVisualStyleBackColor = true;
-            this.btnProcessStart.Click += new System.EventHandler(this.btnProcessStart_Click);
+            this.btnTaskStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaskStart.Image = ((System.Drawing.Image)(resources.GetObject("btnTaskStart.Image")));
+            this.btnTaskStart.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTaskStart.Location = new System.Drawing.Point(359, 164);
+            this.btnTaskStart.Name = "btnTaskStart";
+            this.btnTaskStart.Size = new System.Drawing.Size(361, 68);
+            this.btnTaskStart.TabIndex = 10;
+            this.btnTaskStart.Text = "btnTaskStart_Text__";
+            this.btnTaskStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTaskStart.UseVisualStyleBackColor = true;
+            this.btnTaskStart.Click += new System.EventHandler(this.btnTaskStart_Click);
             // 
-            // btnProcessCancel
+            // btnTaskCancel
             // 
-            this.btnProcessCancel.Enabled = false;
-            this.btnProcessCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnProcessCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnProcessCancel.Image")));
-            this.btnProcessCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProcessCancel.Location = new System.Drawing.Point(726, 164);
-            this.btnProcessCancel.Name = "btnProcessCancel";
-            this.btnProcessCancel.Size = new System.Drawing.Size(228, 68);
-            this.btnProcessCancel.TabIndex = 11;
-            this.btnProcessCancel.Text = "Abbrechen";
-            this.btnProcessCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProcessCancel.UseVisualStyleBackColor = true;
-            this.btnProcessCancel.Click += new System.EventHandler(this.btnProcessCancel_Click);
+            this.btnTaskCancel.Enabled = false;
+            this.btnTaskCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnTaskCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnTaskCancel.Image")));
+            this.btnTaskCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTaskCancel.Location = new System.Drawing.Point(726, 164);
+            this.btnTaskCancel.Name = "btnTaskCancel";
+            this.btnTaskCancel.Size = new System.Drawing.Size(228, 68);
+            this.btnTaskCancel.TabIndex = 11;
+            this.btnTaskCancel.Text = "Abbrechen";
+            this.btnTaskCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTaskCancel.UseVisualStyleBackColor = true;
+            this.btnTaskCancel.Click += new System.EventHandler(this.btnTaskCancel_Click);
             // 
             // grbLogFiles
             // 
@@ -366,17 +366,17 @@
             this.txtDirectory.TabIndex = 8;
             this.txtDirectory.TextChanged += new System.EventHandler(this.txtDirectory_TextChanged);
             // 
-            // ProcControle
+            // TaskControle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlSourceAndTarget);
             this.Controls.Add(this.grbLogFiles);
-            this.Controls.Add(this.btnProcessCancel);
-            this.Controls.Add(this.btnProcessStart);
+            this.Controls.Add(this.btnTaskCancel);
+            this.Controls.Add(this.btnTaskStart);
             this.Controls.Add(this.grbToDo);
             this.Controls.Add(this.grbHandleExistingFiles);
-            this.Name = "ProcControle";
+            this.Name = "TaskControle";
             this.Size = new System.Drawing.Size(957, 235);
             this.grbHandleExistingFiles.ResumeLayout(false);
             this.grbHandleExistingFiles.PerformLayout();
@@ -400,8 +400,8 @@
         internal System.Windows.Forms.CheckBox chkCountItemsAndBytes;
         internal System.Windows.Forms.CheckBox chkCopyData;
         private System.Windows.Forms.GroupBox grbToDo;
-        internal System.Windows.Forms.Button btnProcessStart;
-        internal System.Windows.Forms.Button btnProcessCancel;
+        internal System.Windows.Forms.Button btnTaskStart;
+        internal System.Windows.Forms.Button btnTaskCancel;
         private System.Windows.Forms.GroupBox grbLogFiles;
         internal System.Windows.Forms.CheckBox chkLogFileCreate;
         private System.Windows.Forms.Panel pnlLogfilePath;

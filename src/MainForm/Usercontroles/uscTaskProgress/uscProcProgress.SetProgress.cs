@@ -22,7 +22,7 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.Project.Process;
+using OLKI.Programme.QuBC.src.Project.Task;
 using OLKI.Programme.QuBC.Properties;
 using OLKI.Widgets.Invoke;
 using System;
@@ -30,7 +30,7 @@ using System.Windows.Forms;
 
 namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 {
-    public partial class ProcProgress
+    public partial class TaskProgress
     {
         public partial class SetProgress
         {
@@ -38,7 +38,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             /// <summary>
             /// Parent progress controle object
             /// </summary>
-            private readonly ProcProgress _progressControle = null;
+            private readonly TaskProgress _progressControle = null;
             #endregion
 
             #region Properties
@@ -62,7 +62,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             /// <summary>
             /// Inital a new SetProgres object
             /// </summary>
-            public SetProgress(ProcProgress parent)
+            public SetProgress(TaskProgress parent)
             {
                 this._progressControle = parent;
                 this._setControleValue = new SetControleValue(parent);
@@ -261,18 +261,18 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             /// Set controles for state: Exception
             /// Add exception to ListView
             /// </summary>
-            internal void SetProgress_Exception(ProcessException exception)
+            internal void SetProgress_Exception(TaskException exception)
             {
                 System.Drawing.Color ItemBackground;
                 switch (exception.Level)
                 {
-                    case ProcessException.ExceptionLevel.Slight:
+                    case TaskException.ExceptionLevel.Slight:
                         ItemBackground = System.Drawing.Color.FromArgb(255, 255, 192);
                         break;
-                    case ProcessException.ExceptionLevel.Medium:
+                    case TaskException.ExceptionLevel.Medium:
                         ItemBackground = System.Drawing.Color.FromArgb(255, 224, 192);
                         break;
-                    case ProcessException.ExceptionLevel.Critical:
+                    case TaskException.ExceptionLevel.Critical:
                         ItemBackground = System.Drawing.Color.FromArgb(255, 192, 192);
                         break;
                     default:

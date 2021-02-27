@@ -23,19 +23,19 @@
  * */
 
 using OLKI.Tools.CommonTools.DirectoryAndFile;
-using OLKI.Programme.QuBC.src.Project.Process;
+using OLKI.Programme.QuBC.src.Project.Task;
 using OLKI.Programme.QuBC.Properties;
 using OLKI.Programme.QuBC.src.Project.LogFileWriter;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
+namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 {
     /// <summary>
     /// Controle to controle the backup or restore process
     /// </summary>
-    public partial class ProcControle : UserControl
+    public partial class TaskControle : UserControl
     {
         #region Constants
         /// <summary>
@@ -50,13 +50,13 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         /// </summary>
         public event EventHandler SettingsChanged;
         /// <summary>
-        /// Raised if Process is finished or canceld
+        /// Raised if Task is finished or canceld
         /// </summary>
-        public event EventHandler ProcessFinishedCanceled;
+        public event EventHandler TaskFinishedCanceled;
         /// <summary>
         /// Raised if process is started
         /// </summary>
-        public event EventHandler ProcessStarted;
+        public event EventHandler TaskStarted;
         #endregion
 
         #region Enums
@@ -78,7 +78,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// An enomeration to indicate the step of an process
         /// </summary>
-        internal enum ProcessStep
+        internal enum TaskStep
         {
             None,
             Count_Start,
@@ -121,9 +121,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         /// </summary>
         private LogFile _logFile;
         /// <summary>
-        /// The actual step of the current running process
+        /// The actual step of the current running task
         /// </summary>
-        private ProcessStep _processStep = ProcessStep.None;
+        private TaskStep _taskStep = TaskStep.None;
         /// <summary>
         /// The store for the progress
         /// </summary>
@@ -180,7 +180,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                     case ControleMode.CreateBackup:
                         this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Backup;
                         this._directoryBrowser.ShowNewFolderButton = true;
-                        this.btnProcessStart.Text = Stringtable.btnProcessStart_Text__Backup;
+                        this.btnTaskStart.Text = Stringtable.btnTaskStart_Text__Backup;
                         this.chkDeleteOld.Visible = true;
                         this.chkLogFileCreate.Text = Stringtable.chkLogFileCreate_Text__Backup;
                         this.chkLogFileAutoPath.Text = Stringtable.chkLogFileAutoPath_Text__Backup;
@@ -194,7 +194,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                     case ControleMode.RestoreBackup:
                         this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Restore;
                         this._directoryBrowser.ShowNewFolderButton = false;
-                        this.btnProcessStart.Text = Stringtable.btnProcessStart_Text__Restore;
+                        this.btnTaskStart.Text = Stringtable.btnTaskStart_Text__Restore;
                         this.chkDeleteOld.Visible = false;
                         this.chkLogFileCreate.Text = Stringtable.chkLogFileCreate_Text__Restore;
                         this.chkLogFileAutoPath.Text = Stringtable.chkLogFileAutoPath_Text__Restore;
@@ -234,12 +234,12 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// Controle to show the progress of a process
         /// </summary>
-        private uscProgress.ProcProgress _uscProgress;
+        private uscProgress.TaskProgress _uscProgress;
         /// <summary>
         /// Set the controle to show the progress of a process
         /// </summary>
         [Browsable(false)]
-        public uscProgress.ProcProgress ProgressControle
+        public uscProgress.TaskProgress ProgressControle
         {
             set
             {
@@ -252,7 +252,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         /// <summary>
         /// Inital an new process controle
         /// </summary>
-        public ProcControle()
+        public TaskControle()
         {
             InitializeComponent();
 
@@ -288,7 +288,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                     ControleSettings = this._projectManager.ActiveProject.Settings.ControleRestore;
                     break;
                 default:
-                    throw new ArgumentException("uscControleProcess->LoadSettings->Invalid value", nameof(this._mode));
+                    throw new ArgumentException("uscTaskControle->LoadSettings->Invalid value", nameof(this._mode));
             }
 
             //Set Settings
@@ -342,13 +342,13 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
 
         #region Form User Events
         #region Progrcess Changed
-        private void btnProcessCancel_Click(object sender, EventArgs e)
+        private void btnTaskCancel_Click(object sender, EventArgs e)
         {
             if (!this._worker.IsBusy) return;
             this._worker.CancelAsync();
         }
 
-        private void btnProcessStart_Click(object sender, EventArgs e)
+        private void btnTaskStart_Click(object sender, EventArgs e)
         {
             if (this.Mode == ControleMode.CreateBackup && this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
             {
@@ -370,8 +370,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             if (!this.chkCountItemsAndBytes.Checked && !this.chkCopyData.Checked && !this.chkDeleteOld.Checked) return;
             if (this._worker != null && this._worker.IsBusy) return;
 
-            this.btnProcessCancel.Enabled = true;
-            this.btnProcessStart.Enabled = false;
+            this.btnTaskCancel.Enabled = true;
+            this.btnTaskStart.Enabled = false;
             this.pnlSourceAndTarget.Enabled = false;
             this.grbHandleExistingFiles.Enabled = false;
             this.grbLogFiles.Enabled = false;
@@ -391,7 +391,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                         LogFilePath += @"LogFile_Restore__";
                         break;
                     default:
-                        throw new ArgumentException("uscControleProcess->btnProcessStart_Click->Invalid value", nameof(this._mode));
+                        throw new ArgumentException("uscTaskCtronle->btnTaskStart_Click->Invalid value", nameof(this._mode));
                 }
                 LogFilePath += DateTime.Now.ToString("yyyy-MM-dd__HH-mm");
                 LogFilePath += ".log";
@@ -406,7 +406,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            if (this.ProcessStarted != null) ProcessStarted(this, new EventArgs());
+            if (this.TaskStarted != null) TaskStarted(this, new EventArgs());
 
             //Initial Progress Store
             this._progressStore = new ProgressStore();
@@ -431,7 +431,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 this._counter.Project = this._projectManager.ActiveProject;
 
                 //Start count progress
-                worker.ReportProgress((int)ProcessStep.Count_Start, new ProgressState(this._progressStore, true));
+                worker.ReportProgress((int)TaskStep.Count_Start, new ProgressState(this._progressStore, true));
                 switch (this._mode)
                 {
                     //Start Counting in backup mode
@@ -443,9 +443,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                         this._counter.Restore(worker, e, this._progressStore);
                         break;
                     default:
-                        throw new ArgumentException("uscControleProcess->worker_DoWork(Count)->Invalid value", nameof(this._mode));
+                        throw new ArgumentException("uscTaskControle->worker_DoWork(Count)->Invalid value", nameof(this._mode));
                 }
-                worker.ReportProgress((int)ProcessStep.Count_Finish, new ProgressState(this._progressStore, true));
+                worker.ReportProgress((int)TaskStep.Count_Finish, new ProgressState(this._progressStore, true));
             }
 
             //Copy Data
@@ -458,7 +458,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 };
 
                 //Start copy progress
-                worker.ReportProgress((int)ProcessStep.Copy_Start, new ProgressState(this._progressStore, true));
+                worker.ReportProgress((int)TaskStep.Copy_Start, new ProgressState(this._progressStore, true));
                 switch (this._mode)
                 {
                     //Start Counting in backup mode
@@ -470,9 +470,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                         this._copier.Restore(worker, e, this._progressStore);
                         break;
                     default:
-                        throw new ArgumentException("uscControleProcess->worker_DoWork(CopyData)->Invalid value", nameof(this._mode));
+                        throw new ArgumentException("uscTaskControle->worker_DoWork(CopyData)->Invalid value", nameof(this._mode));
                 }
-                if (!e.Cancel) worker.ReportProgress((int)ProcessStep.Copy_Finish, new ProgressState(true));
+                if (!e.Cancel) worker.ReportProgress((int)TaskStep.Copy_Finish, new ProgressState(true));
             }
 
             //Delete old Data at Backup Target
@@ -485,7 +485,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                 };
 
                 //Start delete old items
-                worker.ReportProgress((int)ProcessStep.DeleteOldItems_Start, new ProgressState(this._progressStore, true));
+                worker.ReportProgress((int)TaskStep.DeleteOldItems_Start, new ProgressState(this._progressStore, true));
                 switch (this._mode)
                 {
                     //Start Counting in backup mode
@@ -496,9 +496,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
                     case ControleMode.RestoreBackup:
                         break;
                     default:
-                        throw new ArgumentException("uscControleProcess->worker_DoWork(DeleteOld)->Invalid value", nameof(this._mode));
+                        throw new ArgumentException("uscTaskControle->worker_DoWork(DeleteOld)->Invalid value", nameof(this._mode));
                 }
-                if (!e.Cancel) worker.ReportProgress((int)ProcessStep.DeleteOldItems_Finish, new ProgressState(true));
+                if (!e.Cancel) worker.ReportProgress((int)TaskStep.DeleteOldItems_Finish, new ProgressState(true));
             }
         }
 
@@ -514,52 +514,52 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
             {
                 this._lastReportTime = DateTime.Now;
 
-                this._processStep = (ProcessStep)e.ProgressPercentage;
-                switch (this._processStep)
+                this._taskStep = (TaskStep)e.ProgressPercentage;
+                switch (this._taskStep)
                 {
-                    case ProcessStep.Count_Start:
+                    case TaskStep.Count_Start:
                         this._logFile.WriteCountStart();
                         this._uscProgress.SetProgressStates.SetProgress_CountStart();
                         break;
-                    case ProcessStep.Count_Busy:
+                    case TaskStep.Count_Busy:
                         this._uscProgress.SetProgressStates.SetPRogress_CountBusy(ProgressState.ProgressStore);
                         break;
-                    case ProcessStep.Count_Finish:
+                    case TaskStep.Count_Finish:
                         this._logFile.WriteCountFinish();
                         this._uscProgress.SetProgressStates.SetProgress_CountFinish();
                         break;
-                    case ProcessStep.Copy_Start:
+                    case TaskStep.Copy_Start:
                         this._logFile.WriteCopyStart();
                         this._uscProgress.SetProgressStates.SetProgress_CopyStart(ProgressState.ProgressStore);
                         break;
-                    case ProcessStep.Copy_Busy:
+                    case TaskStep.Copy_Busy:
                         this._uscProgress.SetProgressStates.SetProgress_CopyBusy(ProgressState.ProgressStore);
                         break;
-                    case ProcessStep.Copy_Finish:
+                    case TaskStep.Copy_Finish:
                         this._logFile.WriteCopyFinish();
                         this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
                         break;
-                    case ProcessStep.DeleteOldItems_Start:
+                    case TaskStep.DeleteOldItems_Start:
                         this._logFile.WriteDeleteSart();
                         this._uscProgress.SetProgressStates.SetProgress_DeleteStart();
                         break;
-                    case ProcessStep.DeleteOldItems_Busy:
+                    case TaskStep.DeleteOldItems_Busy:
                         this._uscProgress.SetProgressStates.SetPRogress_DeleteBusy(ProgressState.ProgressStore);
                         break;
-                    case ProcessStep.DeleteOldItems_Finish:
+                    case TaskStep.DeleteOldItems_Finish:
                         this._logFile.WriteDeleteFinish();
                         this._uscProgress.SetProgressStates.SetProgress_DeleteFinish();
                         break;
-                    case ProcessStep.Cancel:
+                    case TaskStep.Cancel:
                         this._logFile.WriteCancel();
                         this._uscProgress.SetProgressStates.SetProgress_Cancel();
                         break;
-                    case ProcessStep.Exception:
+                    case TaskStep.Exception:
                         this._logFile.WriteException(ProgressState.ProgressStore.Exception);
                         this._uscProgress.SetProgressStates.SetProgress_Exception(ProgressState.ProgressStore.Exception);
                         break;
                     default:
-                        throw new ArgumentException("uscControleProcess->worker_ProgressChanged->Invalid value", nameof(this._processStep));
+                        throw new ArgumentException("uscTaskControle->worker_ProgressChanged->Invalid value", nameof(this._taskStep));
                 }
             }
             this._progressStore = ProgressState.ProgressStore;
@@ -567,42 +567,42 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (this.ProcessFinishedCanceled != null) ProcessFinishedCanceled(this, new EventArgs());
+            if (this.TaskFinishedCanceled != null) TaskFinishedCanceled(this, new EventArgs());
 
-            if (e.Cancelled) this._processStep = ProcessStep.Cancel;
-            if (this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Exception != null && this._progressStore.Exception.Level == ProcessException.ExceptionLevel.Critical) this._processStep = ProcessStep.Exception;
+            if (e.Cancelled) this._taskStep = TaskStep.Cancel;
+            if (this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Exception != null && this._progressStore.Exception.Level == TaskException.ExceptionLevel.Critical) this._taskStep = TaskStep.Exception;
 
-            switch (this._processStep)
+            switch (this._taskStep)
             {
-                case ProcessStep.Count_Start:
-                case ProcessStep.Count_Busy:
-                case ProcessStep.Count_Finish:
+                case TaskStep.Count_Start:
+                case TaskStep.Count_Busy:
+                case TaskStep.Count_Finish:
                     this._uscProgress.SetProgressStates.SetProgress_CountFinish();
                     break;
-                case ProcessStep.Copy_Start:
-                case ProcessStep.Copy_Busy:
-                case ProcessStep.Copy_Finish:
+                case TaskStep.Copy_Start:
+                case TaskStep.Copy_Busy:
+                case TaskStep.Copy_Finish:
                     this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
                     break;
-                case ProcessStep.DeleteOldItems_Start:
-                case ProcessStep.DeleteOldItems_Busy:
-                case ProcessStep.DeleteOldItems_Finish:
+                case TaskStep.DeleteOldItems_Start:
+                case TaskStep.DeleteOldItems_Busy:
+                case TaskStep.DeleteOldItems_Finish:
                     this._uscProgress.SetProgressStates.SetProgress_DeleteFinish();
                     break;
-                case ProcessStep.Cancel:
+                case TaskStep.Cancel:
                     MessageBox.Show(this.ParentForm, Properties.Stringtable._0x0007m, Properties.Stringtable._0x0007m, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
-                case ProcessStep.Exception:
+                case TaskStep.Exception:
                     MessageBox.Show(this.ParentForm, string.Format(Properties.Stringtable._0x0008m, new object[] { this._progressStore.Exception.Exception.Message }), Properties.Stringtable._0x0008c, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this._uscProgress.SetProgressStates.SetProgress_Cancel();
                     break;
                 default:
-                    throw new ArgumentException("uscControleProcess->worker_RunWorkerCompleted->Invalid value", nameof(this._processStep));
+                    throw new ArgumentException("uscTaskControle->worker_RunWorkerCompleted->Invalid value", nameof(this._taskStep));
             }
 
-            this.btnProcessCancel.Enabled = false;
-            this.btnProcessStart.Enabled = true;
+            this.btnTaskCancel.Enabled = false;
+            this.btnTaskStart.Enabled = true;
             this.pnlSourceAndTarget.Enabled = true;
             this.grbHandleExistingFiles.Enabled = true;
             this.grbLogFiles.Enabled = true;

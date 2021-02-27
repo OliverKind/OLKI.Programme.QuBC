@@ -105,14 +105,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LogTemplates.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\Project\Process\clsProcessException.cs" />
-    <Compile Include="src\Project\Process\clsProgressState.cs" />
-    <Compile Include="src\Project\Process\CopyItems\clsDirectoryCreator.cs" />
-    <Compile Include="src\Project\Process\CopyItems\clsCopyItems_CopyRecursive.cs" />
-    <Compile Include="src\Project\Process\CopyItems\clsCopyItems.cs" />
-    <Compile Include="src\Project\Process\CountItems\clsCountItems_CountRecursive.cs" />
-    <Compile Include="src\Project\Process\CountItems\clsCountItems.cs" />
-    <Compile Include="src\Project\Process\DeleteOldItems\clsDeleteOldItems.cs" />
+    <Compile Include="src\Project\Task\clsTaskException.cs" />
+    <Compile Include="src\Project\Task\clsProgressState.cs" />
+    <Compile Include="src\Project\Task\CopyItems\clsDirectoryCreator.cs" />
+    <Compile Include="src\Project\Task\CopyItems\clsCopyItems_CopyRecursive.cs" />
+    <Compile Include="src\Project\Task\CopyItems\clsCopyItems.cs" />
+    <Compile Include="src\Project\Task\CountItems\clsCountItems_CountRecursive.cs" />
+    <Compile Include="src\Project\Task\CountItems\clsCountItems.cs" />
+    <Compile Include="src\Project\Task\DeleteOldItems\clsDeleteOldItems.cs" />
     <Compile Include="src\Project\Settings\clsControle.cs" />
     <Compile Include="src\Project\Settings\clsControle.Logile.cs" />
     <Compile Include="src\Project\Settings\clsControle.Action.cs" />
@@ -122,44 +122,44 @@
     <Compile Include="src\Project\Settings\clsCommon.cs" />
     <Compile Include="src\Project\clsProject.cs" />
     <Compile Include="src\Project\Settings\clsSettings.cs" />
-    <Compile Include="src\Project\Process\clsProgressStore.cs" />
-    <Compile Include="src\MainForm\Usercontroles\uscProcControle\Stringtable.Designer.cs">
+    <Compile Include="src\Project\Task\clsProgressStore.cs" />
+    <Compile Include="src\MainForm\Usercontroles\uscTaskControle\Stringtable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.SetProgress.SetControleValue.cs">
+    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.SetProgress.SetControleValue.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.SetProgress.cs">
+    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.SetProgress.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.cs">
+    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.Designer.cs">
+    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.Designer.cs">
       <DependentUpon>uscProcProgress.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscProcControle\uscProcControle.cs">
+    <Compile Include="src\MainForm\Usercontroles\uscTaskControle\uscTaskControle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscProcControle\uscProcControle.Designer.cs">
-      <DependentUpon>uscProcControle.cs</DependentUpon>
+    <Compile Include="src\MainForm\Usercontroles\uscTaskControle\uscTaskControle.Designer.cs">
+      <DependentUpon>uscTaskControle.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Stringtable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\MainForm\Usercontroles\uscProcControle\Stringtable.resx">
+    <EmbeddedResource Include="src\MainForm\Usercontroles\uscTaskControle\Stringtable.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\MainForm\Usercontroles\uscProcProgress\uscProcProgress.resx">
+    <EmbeddedResource Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.resx">
       <DependentUpon>uscProcProgress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\MainForm\Usercontroles\uscProcControle\uscProcControle.resx">
-      <DependentUpon>uscProcControle.cs</DependentUpon>
+    <EmbeddedResource Include="src\MainForm\Usercontroles\uscTaskControle\uscTaskControle.resx">
+      <DependentUpon>uscTaskControle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Stringtable.resx">
       <Generator>ResXFileCodeGenerator</Generator>

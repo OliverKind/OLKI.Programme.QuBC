@@ -22,8 +22,8 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
-using OLKI.Programme.QuBC.src.Project.Process;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
+using OLKI.Programme.QuBC.src.Project.Task;
 using System;
 
 namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
@@ -49,7 +49,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// <summary>
         /// Controle to controle the backup or restore process
         /// </summary>
-        private readonly ProcControle _procControle;
+        private readonly TaskControle _procControle;
         /// <summary>
         /// Should Logfiles been written. If it is false, no Logfiles will be created.
         /// </summary>
@@ -70,7 +70,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// <param name="procControle">Controle to controle the backup or restore process</param>
         /// <param name="progressStore">The store for the progress</param>
         /// <param name="writeLogFile">Should Logfiles been written. If it is false, no Logfiles will be created.</param>
-        public LogFile(ProcControle procControle, ProgressStore progressStore, bool writeLogFile)
+        public LogFile(TaskControle procControle, ProgressStore progressStore, bool writeLogFile)
         {
             this._progressStore = progressStore;
             this._procControle = procControle;
@@ -89,7 +89,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         }
 
         /// <summary>
-        /// Write Template-Text to logfile: Process Canceled
+        /// Write Template-Text to logfile: Task Canceled
         /// </summary>
         public void WriteCancel()
         {
@@ -164,10 +164,10 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         }
 
         /// <summary>
-        /// Write Template-Text to logfile: Process Exception
+        /// Write Template-Text to logfile: Task Exception
         /// </summary>
         /// <param name="exception">Exception that was thrown</param>
-        public void WriteException(ProcessException exception)
+        public void WriteException(TaskException exception)
         {
             if (!CheckWriteLine()) return;
             object[] Args = new object[4];
@@ -180,7 +180,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         }
 
         /// <summary>
-        /// Write Template-Text to logfile: Process Finished
+        /// Write Template-Text to logfile: Task Finished
         /// </summary>
         public void WriteFoot()
         {
@@ -189,7 +189,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         }
 
         /// <summary>
-        /// Write Template-Text to logfile: Process Started
+        /// Write Template-Text to logfile: Task Started
         /// </summary>
         public void WriteHead()
         {
@@ -197,7 +197,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
             object[] Args = new object[15];
             switch (this._procControle.Mode)
             {
-                case ProcControle.ControleMode.CreateBackup:
+                case TaskControle.ControleMode.CreateBackup:
                     Args[0] = "X";
                     Args[1] = " ";
                     Args[2] = DateTime.Now;
@@ -214,7 +214,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
                     Args[13] = " ";
                     Args[14] = " ";
                     break;
-                case ProcControle.ControleMode.RestoreBackup:
+                case TaskControle.ControleMode.RestoreBackup:
                     Args[0] = " ";
                     Args[1] = "X";
                     Args[2] = DateTime.Now;

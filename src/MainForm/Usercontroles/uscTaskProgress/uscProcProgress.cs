@@ -28,7 +28,7 @@ using System.Windows.Forms;
 
 namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 {
-    public partial class ProcProgress : UserControl
+    public partial class TaskProgress : UserControl
     {
         #region Constants
         /// <summary>
@@ -69,18 +69,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
         private const string FORMAT_VALUE = "{0:n0}";
         #endregion
 
-        #region Fields
-        /// <summary>
-        /// Contains all information for the Progress of a process
-        /// </summary>
-        //public BackupProject.Process.ProgressStore ProgressStore = new BackupProject.Process.ProgressStore();
-        #endregion
-
         #region Properties
-
-
-
-
         /// <summary>
         /// TextBox to show copies files
         /// </summary>
@@ -203,9 +192,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 
         #region Methodes
         /// <summary>
-        /// Initial a new ProcProgress controle
+        /// Initial a new TaskProgress controle
         /// </summary>
-        public ProcProgress()
+        public TaskProgress()
         {
             InitializeComponent();
 

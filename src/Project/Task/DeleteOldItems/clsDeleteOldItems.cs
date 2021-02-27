@@ -22,13 +22,13 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
 using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
-namespace OLKI.Programme.QuBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// Provides tools to delete old items ins target directory
@@ -104,16 +104,16 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                 if (worker.CancellationPending) { e.Cancel = true; return; }
 
                 this._progress.DirectroyFiles.ElemenName = DriveDirectory.FullName;
-                worker.ReportProgress((int)ProcControle.ProcessStep.DeleteOldItems_Busy, new ProgressState(this._progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.DeleteOldItems_Busy, new ProgressState(this._progress, true));
 
-                if (this.DeleteRecursive(DriveDirectory.Name, DriveDirectory, PathStartIndex, worker, e, out Exception ex) == ProcessException.ExceptionLevel.Critical)
+                if (this.DeleteRecursive(DriveDirectory.Name, DriveDirectory, PathStartIndex, worker, e, out Exception ex) == TaskException.ExceptionLevel.Critical)
                 {
                     e.Cancel = true;
                     worker.CancelAsync();
                     return;
                 }
             }
-            worker.ReportProgress((int)ProcControle.ProcessStep.DeleteOldItems_Busy, new ProgressState(this._progress, true));
+            worker.ReportProgress((int)TaskControle.TaskStep.DeleteOldItems_Busy, new ProgressState(this._progress, true));
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <param name="e">Provides data for the BackgroundWorker</param>
         /// <param name="exception">Exception of the process</param>
         /// <returns>Exception level of the delete process</returns>
-        private ProcessException.ExceptionLevel DeleteRecursive(string driveName, DirectoryInfo targetDirectory, int pathStartIndex, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
+        private TaskException.ExceptionLevel DeleteRecursive(string driveName, DirectoryInfo targetDirectory, int pathStartIndex, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
         {
             exception = null;
             DirectoryInfo CheckDirectory;
@@ -134,20 +134,20 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             string SourcePath = driveName + @":\";
             try
             {
-                if (!new DirectoryInfo(SourcePath).Exists) return ProcessException.ExceptionLevel.NoException;
+                if (!new DirectoryInfo(SourcePath).Exists) return TaskException.ExceptionLevel.NoException;
                 if (targetDirectory.FullName.Length >= pathStartIndex) SourcePath += targetDirectory.FullName.Substring(pathStartIndex);
 
                 this._progress.DirectroyFiles.ElemenName = targetDirectory.FullName;
-                worker.ReportProgress((int)ProcControle.ProcessStep.DeleteOldItems_Busy, new ProgressState(this._progress, false));
+                worker.ReportProgress((int)TaskControle.TaskStep.DeleteOldItems_Busy, new ProgressState(this._progress, false));
 
                 // Search for files in selected directory
                 foreach (FileInfo FileItem in targetDirectory.GetFiles().OrderBy(o => o.Name))
                 {
                     // Check for abbort
-                    if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
+                    if (worker.CancellationPending) { e.Cancel = true; return TaskException.ExceptionLevel.NoException; }
 
                     this._progress.FileBytes.ElemenName = FileItem.FullName;
-                    worker.ReportProgress((int)ProcControle.ProcessStep.DeleteOldItems_Busy, new ProgressState(this._progress, false));
+                    worker.ReportProgress((int)TaskControle.TaskStep.DeleteOldItems_Busy, new ProgressState(this._progress, false));
 
                     CheckFile = new FileInfo(OLKI.Tools.CommonTools.DirectoryAndFile.Path.Repair(SourcePath + @"\" + FileItem.Name));
                     if (!CheckFile.Exists)
@@ -160,7 +160,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                 foreach (DirectoryInfo DirectoryItem in targetDirectory.GetDirectories().OrderBy(o => o.Name))
                 {
                     // Check for abbort
-                    if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
+                    if (worker.CancellationPending) { e.Cancel = true; return TaskException.ExceptionLevel.NoException; }
 
                     // If dirextory exists deeper, sonst löschjem
                     CheckDirectory = new DirectoryInfo(OLKI.Tools.CommonTools.DirectoryAndFile.Path.Repair(SourcePath + @"\" + DirectoryItem.Name));
@@ -175,23 +175,23 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                 }
 
                 // Check for abbort
-                if (worker.CancellationPending) { e.Cancel = true; return ProcessException.ExceptionLevel.NoException; }
-                return ProcessException.ExceptionLevel.NoException;
+                if (worker.CancellationPending) { e.Cancel = true; return TaskException.ExceptionLevel.NoException; }
+                return TaskException.ExceptionLevel.NoException;
             }
             catch (Exception ex)
             {
                 exception = ex;
-                this._progress.Exception = new ProcessException
+                this._progress.Exception = new TaskException
                 {
                     Description = Properties.Stringtable._0x0020,
                     Exception = ex,
-                    Level = ProcessException.ExceptionLevel.Critical,
+                    Level = TaskException.ExceptionLevel.Critical,
                     Source = targetDirectory.FullName,
                     Target = ""
                 };
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
 
-                return ProcessException.ExceptionLevel.Critical;
+                return TaskException.ExceptionLevel.Critical;
             }
         }
 
@@ -209,16 +209,16 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             }
             catch (Exception ex)
             {
-                ProcessException Exception = new ProcessException
+                TaskException Exception = new TaskException
                 {
                     Description = Properties.Stringtable._0x0020,
                     Exception = ex,
-                    Level = ProcessException.ExceptionLevel.Slight,
+                    Level = TaskException.ExceptionLevel.Slight,
                     Source = file.FullName,
                     Target = ""
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
             }
         }
 
@@ -236,16 +236,16 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             }
             catch (Exception ex)
             {
-                ProcessException Exception = new ProcessException
+                TaskException Exception = new TaskException
                 {
                     Description = Properties.Stringtable._0x0020,
                     Exception = ex,
-                    Level = ProcessException.ExceptionLevel.Slight,
+                    Level = TaskException.ExceptionLevel.Slight,
                     Source = directory.FullName,
                     Target = ""
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
             }
         }
     }

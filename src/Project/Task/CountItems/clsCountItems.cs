@@ -22,13 +22,13 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace OLKI.Programme.QuBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// Provides tools to write logfiles
@@ -80,7 +80,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             this._progress.TotalFiles.MaxValue = 0;
             this._progress.TotalBytes.MaxValue = 0;
 
-            worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress, true));
+            worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
 
             // Count content of selected directories
             foreach (KeyValuePair<string, Project.DirectoryScope> item in this._project.ToBackupDirectorys.OrderBy(o => o.Key))
@@ -90,7 +90,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
 
                 //Report Directory
                 this._progress.DirectroyFiles.ElemenName = item.Key;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
 
                 // Search Recursive
                 this.CountRecursive(item.Key, item.Value, worker, e);
@@ -98,9 +98,9 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                 //Report Progress
                 if (worker.CancellationPending) { e.Cancel = true; break; }
                 this._progress.DirectroyFiles.ActualValue++;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
             }
-            worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress, true));
+            worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             if (e is null) throw new ArgumentNullException(nameof(e));
             if (progressStore is null) throw new ArgumentNullException(nameof(progressStore));
             //TODO: ADD CODE --> in future version to restore Backup
-            throw new Exception("OLKI.Programme.QuBC.BackupProject.Process.CountItems.Restore has no active code");
+            throw new Exception("OLKI.Programme.QuBC.BackupProject.Task.CountItems.Restore has no active code");
         }
         #endregion
     }

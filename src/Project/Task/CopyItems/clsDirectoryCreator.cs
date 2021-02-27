@@ -22,14 +22,14 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
 using OLKI.Programme.QuBC.Properties;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using System;
 using System.ComponentModel;
 using System.IO;
 
-namespace OLKI.Programme.QuBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// Provides tools to create target directorys
@@ -47,7 +47,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <param name="exception">Exception of the process</param>
         /// <param name="copyItemClass">CcopyItem to use the GetFullDiscExceptionReturnCode function</param>
         /// <returns>Exception level of the copy process</returns>
-        public ProcessException.ExceptionLevel TargetDirectory(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, BackgroundWorker worker, ProgressStore progress, out Exception exception, CopyItems copyItemClass)
+        public TaskException.ExceptionLevel TargetDirectory(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, BackgroundWorker worker, ProgressStore progress, out Exception exception, CopyItems copyItemClass)
         {
             exception = null;
             try
@@ -57,21 +57,21 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                     targetDirectory.Create();
                     HandleAttributes.Direcotry.Remove(targetDirectory);
                 }
-                return ProcessException.ExceptionLevel.NoException;
+                return TaskException.ExceptionLevel.NoException;
             }
             catch (Exception ex)
             {
                 exception = ex;
-                ProcessException Exception = new ProcessException
+                TaskException Exception = new TaskException
                 {
                     Description = Properties.Stringtable._0x001D,
                     Exception = ex,
-                    Level = copyItemClass.GetFullDiscExceptionReturnCode(exception, ProcessException.ExceptionLevel.Medium),
+                    Level = copyItemClass.GetFullDiscExceptionReturnCode(exception, TaskException.ExceptionLevel.Medium),
                     Source = sourceDirectory.FullName,
                     Target = targetDirectory.FullName
                 };
                 progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(progress, true));
 
                 return Exception.Level;
             }

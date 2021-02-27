@@ -22,13 +22,13 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
 using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
-namespace OLKI.Programme.QuBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// Provides tools to write logfiles
@@ -65,7 +65,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                 // Report Progress
                 this._progress.TotalDirectories.MaxValue++;
                 this._progress.DirectroyFiles.ElemenName = directory.FullName;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress));
+                worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress));
 
                 //Count Elements
                 switch (scope)
@@ -118,7 +118,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                 this._progress.TotalBytes.MaxValue += FileItem.Length;
 
                 //Report Progress
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress));
+                worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress));
             }
         }
 
@@ -161,7 +161,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                     this._progress.TotalBytes.MaxValue += FileItem.Length;
                 }
                 //Report Progress
-                worker.ReportProgress((int)ProcControle.ProcessStep.Count_Busy, new ProgressState(this._progress));
+                worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress));
             }
         }
 #pragma warning restore IDE0060 // Remove unused parameter

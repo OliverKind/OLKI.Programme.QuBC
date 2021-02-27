@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle {
+namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.Stringtable", typeof(Stringtable).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.Stringtable", typeof(Stringtable).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,18 +63,18 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Sicherungskopie starten ähnelt.
         /// </summary>
-        internal static string btnProcessStart_Text__Backup {
+        internal static string btnTaskStart_Text__Backup {
             get {
-                return ResourceManager.GetString("btnProcessStart_Text__Backup", resourceCulture);
+                return ResourceManager.GetString("btnTaskStart_Text__Backup", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Datenwiederherstellung starten ähnelt.
         /// </summary>
-        internal static string btnProcessStart_Text__Restore {
+        internal static string btnTaskStart_Text__Restore {
             get {
-                return ResourceManager.GetString("btnProcessStart_Text__Restore", resourceCulture);
+                return ResourceManager.GetString("btnTaskStart_Text__Restore", resourceCulture);
             }
         }
         

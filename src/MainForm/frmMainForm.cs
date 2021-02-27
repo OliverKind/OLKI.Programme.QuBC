@@ -116,19 +116,19 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this._saveLogFileDialog.FilterIndex = Settings.Default._UNUSED_Logfile_FilterIndex;
             this._saveLogFileDialog.InitialDirectory = Settings.Default.ProjectFile_DefaultPath;
 
-            this.uscProgressBackup.ConclusionDirectoriesTextBox = this.txtConclusionDirectories;
-            this.uscProgressBackup.ConclusionDurationTextBox = this.txtConclusionDuration;
-            this.uscProgressBackup.ConclusionFilesTextBox = this.txtConclusionFiles;
-            this.uscProgressBackup.ConclusionTabPage = this.tabPageConclusion;
-            this.uscProgressBackup.ExceptionListView = this.lsvErrorLog;
-            this.uscProgressBackup.ExceptionCount = this.txtExceptionCount;
+            this.uscTaskProgressBackup.ConclusionDirectoriesTextBox = this.txtConclusionDirectories;
+            this.uscTaskProgressBackup.ConclusionDurationTextBox = this.txtConclusionDuration;
+            this.uscTaskProgressBackup.ConclusionFilesTextBox = this.txtConclusionFiles;
+            this.uscTaskProgressBackup.ConclusionTabPage = this.tabPageConclusion;
+            this.uscTaskProgressBackup.ExceptionListView = this.lsvErrorLog;
+            this.uscTaskProgressBackup.ExceptionCount = this.txtExceptionCount;
 
-            this.uscControleBackup.ProgressControle = this.uscProgressBackup;
-            this.uscControleBackup.ProjectManager = this._projectManager;
-            this.uscControleBackup.MainForm = this;
-            this.uscControleRestore.ProgressControle = this.uscProgressRestore;
-            this.uscControleRestore.ProjectManager = this._projectManager;
-            this.uscControleRestore.MainForm = this;
+            this.uscTaskControleBackup.ProgressControle = this.uscTaskProgressBackup;
+            this.uscTaskControleBackup.ProjectManager = this._projectManager;
+            this.uscTaskControleBackup.MainForm = this;
+            this.uscTaskControleRestore.ProgressControle = this.uscTaskProgressRestore;
+            this.uscTaskControleRestore.ProjectManager = this._projectManager;
+            this.uscTaskControleRestore.MainForm = this;
 
             // Intital helper
             this._mainFormHelper = new MainFormHelper(this._projectManager);
@@ -276,8 +276,8 @@ namespace OLKI.Programme.QuBC.src.MainForm
             if (this._suppressControleEvents && this._projectManager.ActiveProject != null) this._projectManager.ActiveProject.Changed = false;
 
             // Load settings to controle
-            this.uscControleBackup.LoadSettings();
-            this.uscControleRestore.LoadSettings();
+            this.uscTaskControleBackup.LoadSettings();
+            this.uscTaskControleRestore.LoadSettings();
             this.trvExplorer.DirectoryList = this._projectManager.ActiveProject.ToBackupDirectorys;
 
             this.SetFormTitle();
@@ -526,7 +526,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
         {
             if (this.lsvErrorLog.SelectedItems.Count > 0)
             {
-                Project.Process.ProcessException Exception = (Project.Process.ProcessException)this.lsvErrorLog.SelectedItems[0].Tag;
+                Project.Task.TaskException Exception = (Project.Task.TaskException)this.lsvErrorLog.SelectedItems[0].Tag;
                 string ExceptionText = "";
                 if (!string.IsNullOrEmpty(Exception.Description)) ExceptionText += Exception.Description;
                 if (!string.IsNullOrEmpty(Exception.Description) && !string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText += "\r\n\r\n";

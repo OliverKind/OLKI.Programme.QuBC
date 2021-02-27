@@ -24,12 +24,12 @@
 
 using System;
 
-namespace OLKI.Programme.QuBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// Class that provide informations if an process (count or copy) throws an exception
     /// </summary>
-    public class ProcessException
+    public class TaskException
     {
         /// <summary>
         /// Default exception level
@@ -98,11 +98,13 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// Description of the exception
         /// </summary>
         public string Description { get; set; } = "";
+        #endregion
 
+        #region Methodes
         /// <summary>
-        /// Initialise a new ProcessException
+        /// Initialise a new TaskException
         /// </summary>
-        public ProcessException()
+        public TaskException()
         {
         }
         #endregion

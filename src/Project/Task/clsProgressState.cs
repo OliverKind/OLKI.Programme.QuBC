@@ -22,7 +22,7 @@
  * 
  * */
 
-namespace OLKI.Programme.QuBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// A class to send the progress state

@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnProcessStart_Text__Backup" xml:space="preserve">
+  <data name="btnTaskStart_Text__Backup" xml:space="preserve">
     <value>Sicherungskopie starten</value>
   </data>
-  <data name="btnProcessStart_Text__Restore" xml:space="preserve">
+  <data name="btnTaskStart_Text__Restore" xml:space="preserve">
     <value>Datenwiederherstellung starten</value>
   </data>
   <data name="chkLogFileAutoPath_Text__Backup" xml:space="preserve">

@@ -22,7 +22,7 @@
  * 
  * */
 
-namespace OLKI.Programme.QuBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// A class to store the progess of an backup or restore process
@@ -73,7 +73,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
         /// <summary>
         /// Exception while copy or count a item
         /// </summary>
-        public ProcessException Exception { get; set; } = new ProcessException();
+        public TaskException Exception { get; set; } = new TaskException();
         #endregion
 
         #region Methodes

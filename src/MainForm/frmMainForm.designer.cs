@@ -8,7 +8,7 @@
 		private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.MenuStrip mnuMain;
         private System.Windows.Forms.TabPage tabPageSelect;
-        private System.Windows.Forms.GroupBox grbProgressBackup;
+        private System.Windows.Forms.GroupBox grbTaskProgressBackup;
 		private System.Windows.Forms.ToolStripMenuItem mnuMain_File;
 		private System.Windows.Forms.ToolStripMenuItem mnuMain_File_New;
 		private System.Windows.Forms.ToolStripMenuItem mnuMain_File_Open;
@@ -83,15 +83,15 @@
             this.btnGoToFolder = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.tabPageBackup = new System.Windows.Forms.TabPage();
-            this.grbControleProcessBackup = new System.Windows.Forms.GroupBox();
-            this.uscControleBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.ProcControle();
-            this.grbProgressBackup = new System.Windows.Forms.GroupBox();
-            this.uscProgressBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.ProcProgress();
+            this.grbTaskControleBackup = new System.Windows.Forms.GroupBox();
+            this.uscTaskControleBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
+            this.grbTaskProgressBackup = new System.Windows.Forms.GroupBox();
+            this.uscTaskProgressBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageRestore = new System.Windows.Forms.TabPage();
-            this.grbControleProcessRestore = new System.Windows.Forms.GroupBox();
-            this.uscControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.ProcControle();
-            this.grbProgressRestore = new System.Windows.Forms.GroupBox();
-            this.uscProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.ProcProgress();
+            this.grbTaskControleRestore = new System.Windows.Forms.GroupBox();
+            this.uscTaskControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
+            this.grbTaskProgressRestore = new System.Windows.Forms.GroupBox();
+            this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
             this.lsvErrorLog = new OLKI.Widgets.SortListView();
@@ -123,11 +123,11 @@
             this.spcExplorer.SuspendLayout();
             this.grbDirectoryScope.SuspendLayout();
             this.tabPageBackup.SuspendLayout();
-            this.grbControleProcessBackup.SuspendLayout();
-            this.grbProgressBackup.SuspendLayout();
+            this.grbTaskControleBackup.SuspendLayout();
+            this.grbTaskProgressBackup.SuspendLayout();
             this.tabPageRestore.SuspendLayout();
-            this.grbControleProcessRestore.SuspendLayout();
-            this.grbProgressRestore.SuspendLayout();
+            this.grbTaskControleRestore.SuspendLayout();
+            this.grbTaskProgressRestore.SuspendLayout();
             this.tabPageConclusion.SuspendLayout();
             this.grbException.SuspendLayout();
             this.SuspendLayout();
@@ -551,8 +551,8 @@
             // 
             // tabPageBackup
             // 
-            this.tabPageBackup.Controls.Add(this.grbControleProcessBackup);
-            this.tabPageBackup.Controls.Add(this.grbProgressBackup);
+            this.tabPageBackup.Controls.Add(this.grbTaskControleBackup);
+            this.tabPageBackup.Controls.Add(this.grbTaskProgressBackup);
             this.tabPageBackup.Location = new System.Drawing.Point(4, 23);
             this.tabPageBackup.Name = "tabPageBackup";
             this.tabPageBackup.Padding = new System.Windows.Forms.Padding(3);
@@ -561,53 +561,53 @@
             this.tabPageBackup.Text = "Sicherung - Ausführen";
             this.tabPageBackup.UseVisualStyleBackColor = true;
             // 
-            // grbControleProcessBackup
+            // grbTaskControleBackup
             // 
-            this.grbControleProcessBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grbTaskControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbControleProcessBackup.Controls.Add(this.uscControleBackup);
-            this.grbControleProcessBackup.Location = new System.Drawing.Point(6, 6);
-            this.grbControleProcessBackup.Name = "grbControleProcessBackup";
-            this.grbControleProcessBackup.Size = new System.Drawing.Size(963, 258);
-            this.grbControleProcessBackup.TabIndex = 21;
-            this.grbControleProcessBackup.TabStop = false;
-            this.grbControleProcessBackup.Text = "Sicherungsoptionen";
+            this.grbTaskControleBackup.Controls.Add(this.uscTaskControleBackup);
+            this.grbTaskControleBackup.Location = new System.Drawing.Point(6, 6);
+            this.grbTaskControleBackup.Name = "grbTaskControleBackup";
+            this.grbTaskControleBackup.Size = new System.Drawing.Size(963, 258);
+            this.grbTaskControleBackup.TabIndex = 21;
+            this.grbTaskControleBackup.TabStop = false;
+            this.grbTaskControleBackup.Text = "Sicherungsoptionen";
             // 
-            // uscControleBackup
+            // uscTaskControleBackup
             // 
-            this.uscControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.uscTaskControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscControleBackup.Location = new System.Drawing.Point(0, 17);
-            this.uscControleBackup.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.CreateBackup;
-            this.uscControleBackup.Name = "uscControleBackup";
-            this.uscControleBackup.Size = new System.Drawing.Size(957, 235);
-            this.uscControleBackup.TabIndex = 0;
+            this.uscTaskControleBackup.Location = new System.Drawing.Point(0, 17);
+            this.uscTaskControleBackup.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.CreateBackup;
+            this.uscTaskControleBackup.Name = "uscTaskControleBackup";
+            this.uscTaskControleBackup.Size = new System.Drawing.Size(957, 235);
+            this.uscTaskControleBackup.TabIndex = 0;
             // 
-            // grbProgressBackup
+            // grbTaskProgressBackup
             // 
-            this.grbProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grbTaskProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbProgressBackup.Controls.Add(this.uscProgressBackup);
-            this.grbProgressBackup.Location = new System.Drawing.Point(6, 270);
-            this.grbProgressBackup.Name = "grbProgressBackup";
-            this.grbProgressBackup.Size = new System.Drawing.Size(963, 296);
-            this.grbProgressBackup.TabIndex = 20;
-            this.grbProgressBackup.TabStop = false;
-            this.grbProgressBackup.Text = "Sicherungsvorgang";
+            this.grbTaskProgressBackup.Controls.Add(this.uscTaskProgressBackup);
+            this.grbTaskProgressBackup.Location = new System.Drawing.Point(6, 270);
+            this.grbTaskProgressBackup.Name = "grbTaskProgressBackup";
+            this.grbTaskProgressBackup.Size = new System.Drawing.Size(963, 296);
+            this.grbTaskProgressBackup.TabIndex = 20;
+            this.grbTaskProgressBackup.TabStop = false;
+            this.grbTaskProgressBackup.Text = "Sicherungsvorgang";
             // 
-            // uscProgressBackup
+            // uscTaskProgressBackup
             // 
-            this.uscProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.uscTaskProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscProgressBackup.Location = new System.Drawing.Point(6, 20);
-            this.uscProgressBackup.Name = "uscProgressBackup";
-            this.uscProgressBackup.Size = new System.Drawing.Size(951, 270);
-            this.uscProgressBackup.TabIndex = 0;
+            this.uscTaskProgressBackup.Location = new System.Drawing.Point(6, 20);
+            this.uscTaskProgressBackup.Name = "uscTaskProgressBackup";
+            this.uscTaskProgressBackup.Size = new System.Drawing.Size(951, 270);
+            this.uscTaskProgressBackup.TabIndex = 0;
             // 
             // tabPageRestore
             // 
-            this.tabPageRestore.Controls.Add(this.grbControleProcessRestore);
-            this.tabPageRestore.Controls.Add(this.grbProgressRestore);
+            this.tabPageRestore.Controls.Add(this.grbTaskControleRestore);
+            this.tabPageRestore.Controls.Add(this.grbTaskProgressRestore);
             this.tabPageRestore.Location = new System.Drawing.Point(4, 23);
             this.tabPageRestore.Name = "tabPageRestore";
             this.tabPageRestore.Padding = new System.Windows.Forms.Padding(3);
@@ -616,48 +616,48 @@
             this.tabPageRestore.Text = "Sicherung - Wiederherstellen";
             this.tabPageRestore.UseVisualStyleBackColor = true;
             // 
-            // grbControleProcessRestore
+            // grbTaskControleRestore
             // 
-            this.grbControleProcessRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grbTaskControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbControleProcessRestore.Controls.Add(this.uscControleRestore);
-            this.grbControleProcessRestore.Location = new System.Drawing.Point(6, 6);
-            this.grbControleProcessRestore.Name = "grbControleProcessRestore";
-            this.grbControleProcessRestore.Size = new System.Drawing.Size(963, 258);
-            this.grbControleProcessRestore.TabIndex = 30;
-            this.grbControleProcessRestore.TabStop = false;
-            this.grbControleProcessRestore.Text = "Wiederherstellungsoptionen";
+            this.grbTaskControleRestore.Controls.Add(this.uscTaskControleRestore);
+            this.grbTaskControleRestore.Location = new System.Drawing.Point(6, 6);
+            this.grbTaskControleRestore.Name = "grbTaskControleRestore";
+            this.grbTaskControleRestore.Size = new System.Drawing.Size(963, 258);
+            this.grbTaskControleRestore.TabIndex = 30;
+            this.grbTaskControleRestore.TabStop = false;
+            this.grbTaskControleRestore.Text = "Wiederherstellungsoptionen";
             // 
-            // uscControleRestore
+            // uscTaskControleRestore
             // 
-            this.uscControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.uscTaskControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscControleRestore.Location = new System.Drawing.Point(0, 17);
-            this.uscControleRestore.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle.ProcControle.ControleMode.RestoreBackup;
-            this.uscControleRestore.Name = "uscControleRestore";
-            this.uscControleRestore.Size = new System.Drawing.Size(957, 235);
-            this.uscControleRestore.TabIndex = 0;
+            this.uscTaskControleRestore.Location = new System.Drawing.Point(0, 17);
+            this.uscTaskControleRestore.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.RestoreBackup;
+            this.uscTaskControleRestore.Name = "uscTaskControleRestore";
+            this.uscTaskControleRestore.Size = new System.Drawing.Size(957, 235);
+            this.uscTaskControleRestore.TabIndex = 0;
             // 
-            // grbProgressRestore
+            // grbTaskProgressRestore
             // 
-            this.grbProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grbTaskProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbProgressRestore.Controls.Add(this.uscProgressRestore);
-            this.grbProgressRestore.Location = new System.Drawing.Point(6, 270);
-            this.grbProgressRestore.Name = "grbProgressRestore";
-            this.grbProgressRestore.Size = new System.Drawing.Size(963, 296);
-            this.grbProgressRestore.TabIndex = 21;
-            this.grbProgressRestore.TabStop = false;
-            this.grbProgressRestore.Text = "Wiederherstellung";
+            this.grbTaskProgressRestore.Controls.Add(this.uscTaskProgressRestore);
+            this.grbTaskProgressRestore.Location = new System.Drawing.Point(6, 270);
+            this.grbTaskProgressRestore.Name = "grbTaskProgressRestore";
+            this.grbTaskProgressRestore.Size = new System.Drawing.Size(963, 296);
+            this.grbTaskProgressRestore.TabIndex = 21;
+            this.grbTaskProgressRestore.TabStop = false;
+            this.grbTaskProgressRestore.Text = "Wiederherstellung";
             // 
-            // uscProgressRestore
+            // uscTaskProgressRestore
             // 
-            this.uscProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.uscTaskProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscProgressRestore.Location = new System.Drawing.Point(6, 20);
-            this.uscProgressRestore.Name = "uscProgressRestore";
-            this.uscProgressRestore.Size = new System.Drawing.Size(951, 270);
-            this.uscProgressRestore.TabIndex = 0;
+            this.uscTaskProgressRestore.Location = new System.Drawing.Point(6, 20);
+            this.uscTaskProgressRestore.Name = "uscTaskProgressRestore";
+            this.uscTaskProgressRestore.Size = new System.Drawing.Size(951, 270);
+            this.uscTaskProgressRestore.TabIndex = 0;
             // 
             // tabPageConclusion
             // 
@@ -896,11 +896,11 @@
             this.spcExplorer.ResumeLayout(false);
             this.grbDirectoryScope.ResumeLayout(false);
             this.tabPageBackup.ResumeLayout(false);
-            this.grbControleProcessBackup.ResumeLayout(false);
-            this.grbProgressBackup.ResumeLayout(false);
+            this.grbTaskControleBackup.ResumeLayout(false);
+            this.grbTaskProgressBackup.ResumeLayout(false);
             this.tabPageRestore.ResumeLayout(false);
-            this.grbControleProcessRestore.ResumeLayout(false);
-            this.grbProgressRestore.ResumeLayout(false);
+            this.grbTaskControleRestore.ResumeLayout(false);
+            this.grbTaskProgressRestore.ResumeLayout(false);
             this.tabPageConclusion.ResumeLayout(false);
             this.tabPageConclusion.PerformLayout();
             this.grbException.ResumeLayout(false);
@@ -956,13 +956,13 @@
         internal System.Windows.Forms.TextBox txtConclusionFiles;
         internal System.Windows.Forms.TextBox txtConclusionDirectories;
         private System.Windows.Forms.Label lbltxtCopiedDirectories;
-        private System.Windows.Forms.GroupBox grbControleProcessBackup;
-        private System.Windows.Forms.GroupBox grbControleProcessRestore;
-        private System.Windows.Forms.GroupBox grbProgressRestore;
-        private Usercontroles.uscProcControle.ProcControle uscControleBackup;
-        private Usercontroles.uscProcControle.ProcControle uscControleRestore;
-        private Usercontroles.uscProgress.ProcProgress uscProgressBackup;
-        private Usercontroles.uscProgress.ProcProgress uscProgressRestore;
+        private System.Windows.Forms.GroupBox grbTaskControleBackup;
+        private System.Windows.Forms.GroupBox grbTaskControleRestore;
+        private System.Windows.Forms.GroupBox grbTaskProgressRestore;
+        private Usercontroles.uscTaskControle.TaskControle uscTaskControleBackup;
+        private Usercontroles.uscTaskControle.TaskControle uscTaskControleRestore;
+        private Usercontroles.uscProgress.TaskProgress uscTaskProgressBackup;
+        private Usercontroles.uscProgress.TaskProgress uscTaskProgressRestore;
         private System.Windows.Forms.ImageList imlExceptionIcons;
         private ExplorerTreeView trvExplorer;
         private System.Windows.Forms.SplitContainer spcExplorer;

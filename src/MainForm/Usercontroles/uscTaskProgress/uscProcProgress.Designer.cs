@@ -1,6 +1,6 @@
 ﻿namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 {
-    partial class ProcProgress
+    partial class TaskProgress
     {
         /// <summary> 
         /// Erforderliche Designervariable.

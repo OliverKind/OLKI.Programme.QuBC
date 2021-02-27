@@ -22,14 +22,14 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.Project.Process;
+using OLKI.Programme.QuBC.src.Project.Task;
 using OLKI.Tools.CommonTools.DirectoryAndFile;
 using OLKI.Widgets.Invoke;
 using System.Windows.Forms;
 
 namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 {
-    public partial class ProcProgress
+    public partial class TaskProgress
     {
         public partial class SetProgress
         {
@@ -42,7 +42,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 /// <summary>
                 /// Parent progress controle object
                 /// </summary>
-                private readonly ProcProgress _progressControle = null;
+                private readonly TaskProgress _progressControle = null;
                 #endregion
 
                 #region Functions
@@ -50,7 +50,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 /// Inital a new class to the values to controles
                 /// </summary>
                 /// <param name="parent"></param>
-                public SetControleValue(ProcProgress parent)
+                public SetControleValue(TaskProgress parent)
                 {
                     this._progressControle = parent;
                 }

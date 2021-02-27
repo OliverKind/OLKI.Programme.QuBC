@@ -22,14 +22,14 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProcControle;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
-namespace OLKI.Programme.QuBC.src.Project.Process
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// Provides tools to write logfiles
@@ -113,15 +113,15 @@ namespace OLKI.Programme.QuBC.src.Project.Process
                 if (worker.CancellationPending) { e.Cancel = true; return; }
 
                 // Copy Recursive    item.Key => sourceDirectory    item.Value = scope
-                if (this.CopyRecursive(CopyMode.Backup, item.Key, item.Value, worker, e, out Exception ex) == ProcessException.ExceptionLevel.Critical)
+                if (this.CopyRecursive(CopyMode.Backup, item.Key, item.Value, worker, e, out Exception ex) == TaskException.ExceptionLevel.Critical)
                 {
                     e.Cancel = true;
                     worker.CancelAsync();
                     return;
                 }
-                worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
             }
-            worker.ReportProgress((int)ProcControle.ProcessStep.Copy_Busy, new ProgressState(this._progress, true));
+            worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             if (e is null) throw new ArgumentNullException(nameof(e));
             if (progressStore is null) throw new ArgumentNullException(nameof(progressStore));
             //TODO: ADD CODE --> in future version to restore Backup
-            throw new Exception("OLKI.Programme.QuBC.BackupProject.Process.CopyItems.Restore has no active code");
+            throw new Exception("OLKI.Programme.QuBC.BackupProject.Task.CopyItems.Restore has no active code");
         }
 
         #region Create Root Directorys Items
@@ -155,16 +155,16 @@ namespace OLKI.Programme.QuBC.src.Project.Process
             }
             catch (Exception ex)
             {
-                ProcessException Exception = new ProcessException
+                TaskException Exception = new TaskException
                 {
                     Description = Properties.Stringtable._0x001E,
                     Exception = ex,
-                    Level = ProcessException.ExceptionLevel.Critical,
+                    Level = TaskException.ExceptionLevel.Critical,
                     Source = "",
                     Target = targetDirectory
                 };
                 this._progress.Exception = Exception;
-                worker.ReportProgress((int)ProcControle.ProcessStep.Exception, new ProgressState(this._progress, true));
+                worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
 
                 e.Cancel = true;
                 worker.CancelAsync();
