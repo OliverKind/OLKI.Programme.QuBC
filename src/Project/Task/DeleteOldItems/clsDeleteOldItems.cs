@@ -37,9 +37,9 @@ namespace OLKI.Programme.QuBC.src.Project.Task
     {
         #region Constants
         /// <summary>
-        /// Exception code for full disc
+        /// Dummy for a drive directory
         /// </summary>
-        public const int EXCEPTION_FULL_DISC = unchecked((int)0x80070070);
+        private const string DUMMY_DRIVE_PATH = @"\a\";
         #endregion
 
         #region Properties
@@ -90,14 +90,12 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// <param name="e">Provides data for the BackgroundWorker</param>
         internal void Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
-            string DummyDrivePath = @"\a\";
-
             //Initial progress
             this._progress = progressStore;
 
             DirectoryInfo Target = new DirectoryInfo(this._project.Settings.ControleBackup.Directory.Path);
 
-            int PathStartIndex = Tools.CommonTools.DirectoryAndFile.Path.Repair(Target.FullName + DummyDrivePath).Length;
+            int PathStartIndex = Tools.CommonTools.DirectoryAndFile.Path.Repair(Target.FullName + DUMMY_DRIVE_PATH).Length;
             foreach (DirectoryInfo DriveDirectory in Target.GetDirectories().OrderBy(o => o.Name))
             {
                 // Check for abbort
