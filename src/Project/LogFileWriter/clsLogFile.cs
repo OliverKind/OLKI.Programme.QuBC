@@ -41,7 +41,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// <summary>
         /// Should an exception message been shown, if an exception was thrown
         /// </summary>
-        private bool _showExceptionMessage = false;
+        private bool _showExceptionMessage = true;
         /// <summary>
         /// The store for the progress
         /// </summary>
