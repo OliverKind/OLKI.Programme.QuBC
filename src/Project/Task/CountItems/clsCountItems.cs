@@ -26,6 +26,7 @@ using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 
 namespace OLKI.Programme.QuBC.src.Project.Task
@@ -110,11 +111,40 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// <param name="e">Provides data for the BackgroundWorker</param>
         internal void Restore(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
-            if (worker is null) throw new ArgumentNullException(nameof(worker));
-            if (e is null) throw new ArgumentNullException(nameof(e));
-            if (progressStore is null) throw new ArgumentNullException(nameof(progressStore));
-            //TODO: ADD CODE --> in future version to restore Backup
-            throw new Exception("OLKI.Programme.QuBC.BackupProject.Task.CountItems.Restore has no active code");
+            // Initial Progress Store
+            this._progress = progressStore;
+            this._progress.TotalDirectories.MaxValue = 0;
+            this._progress.TotalFiles.MaxValue = 0;
+            this._progress.TotalBytes.MaxValue = 0;
+
+            worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
+
+            if (this._project.Settings.ControleRestore.Directory.CreateDriveDirectroy)
+            {
+                DirectoryInfo Source = new DirectoryInfo(this._project.Settings.ControleRestore.Directory.Path);
+                foreach (DirectoryInfo DriveDirectory in Source.GetDirectories().OrderBy(o => o.Name))
+                {
+                    // Check for abbort
+                    if (worker.CancellationPending) { e.Cancel = true; return; }
+
+                    //Report Directory
+                    this._progress.DirectroyFiles.ElemenName = DriveDirectory.FullName;
+                    worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
+
+                    // Search Recursive
+                    this.CountRecursive(DriveDirectory.FullName, Project.DirectoryScope.All, worker, e);
+
+                    //Report Progress
+                    if (worker.CancellationPending) { e.Cancel = true; break; }
+                    this._progress.DirectroyFiles.ActualValue++;
+                    worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
+                }
+            }
+            else
+            {
+                this.CountRecursive(this._project.Settings.ControleRestore.Directory.Path, Project.DirectoryScope.All, worker, e);
+            }
+            worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
         }
         #endregion
     }

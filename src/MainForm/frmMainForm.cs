@@ -89,11 +89,6 @@ namespace OLKI.Programme.QuBC.src.MainForm
         {
             InitializeComponent();
 
-            //TODO: REMOVE --> future versions to restore backups
-            //tabPageRestore
-            this.tabControlMain.TabPages.Remove(this.tabPageRestore);
-            this.tabControlMain.Refresh();
-
             this.tabControlMain.SelectTab(DEBAULT_TAB_PAGE_INDEX);
             this._conclusionTabPageOriginalText = this.tabPageConclusion.Text;
             this.Text = string.Format(this.Text, new object[] { ProductName });
@@ -123,9 +118,17 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.uscTaskProgressBackup.ExceptionListView = this.lsvErrorLog;
             this.uscTaskProgressBackup.ExceptionCount = this.txtExceptionCount;
 
+            this.uscTaskProgressRestore.ConclusionDirectoriesTextBox = this.txtConclusionDirectories;
+            this.uscTaskProgressRestore.ConclusionDurationTextBox = this.txtConclusionDuration;
+            this.uscTaskProgressRestore.ConclusionFilesTextBox = this.txtConclusionFiles;
+            this.uscTaskProgressRestore.ConclusionTabPage = this.tabPageConclusion;
+            this.uscTaskProgressRestore.ExceptionListView = this.lsvErrorLog;
+            this.uscTaskProgressRestore.ExceptionCount = this.txtExceptionCount;
+
             this.uscTaskControleBackup.ProgressControle = this.uscTaskProgressBackup;
             this.uscTaskControleBackup.ProjectManager = this._projectManager;
             this.uscTaskControleBackup.MainForm = this;
+
             this.uscTaskControleRestore.ProgressControle = this.uscTaskProgressRestore;
             this.uscTaskControleRestore.ProjectManager = this._projectManager;
             this.uscTaskControleRestore.MainForm = this;
