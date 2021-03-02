@@ -476,7 +476,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             }
 
             //Delete old Data at Backup Target
-            if (this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
+            if (this._mode == ControleMode.CreateBackup && this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
             {
                 // Initial deleter
                 this._deleter = new DeleteOldItems()
@@ -486,18 +486,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
                 //Start delete old items
                 worker.ReportProgress((int)TaskStep.DeleteOldItems_Start, new ProgressState(this._progressStore, true));
-                switch (this._mode)
-                {
-                    //Start Counting in backup mode
-                    case ControleMode.CreateBackup:
-                        this._deleter.Backup(worker, e, this._progressStore);
-                        break;
-                    //Start Counting in restore mode
-                    case ControleMode.RestoreBackup:
-                        break;
-                    default:
-                        throw new ArgumentException("uscTaskControle->worker_DoWork(DeleteOld)->Invalid value", nameof(this._mode));
-                }
+                this._deleter.Backup(worker, e, this._progressStore);
                 if (!e.Cancel) worker.ReportProgress((int)TaskStep.DeleteOldItems_Finish, new ProgressState(true));
             }
         }
