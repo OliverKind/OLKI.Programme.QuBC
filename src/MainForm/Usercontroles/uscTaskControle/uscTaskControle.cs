@@ -419,75 +419,89 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             {
                 LogFilePath = this.txtLogFilePath.Text
             };
-
             this._logFile.WriteHead();
 
             this._uscProgress.SetProgressStates.ClearExceptionlog();
 
-            // Count Data
-            if (this.chkCountItemsAndBytes.Checked)
+            try
             {
-                // Initial counter
-                this._counter.Project = this._projectManager.ActiveProject;
-
-                //Start count progress
-                worker.ReportProgress((int)TaskStep.Count_Start, new ProgressState(this._progressStore, true));
-                switch (this._mode)
+                // Count Data
+                if (this.chkCountItemsAndBytes.Checked)
                 {
-                    //Start Counting in backup mode
-                    case ControleMode.CreateBackup:
-                        this._counter.Backup(worker, e, this._progressStore);
-                        break;
-                    //Start Counting in restore mode
-                    case ControleMode.RestoreBackup:
-                        this._counter.Restore(worker, e, this._progressStore);
-                        break;
-                    default:
-                        throw new ArgumentException("uscTaskControle->worker_DoWork(Count)->Invalid value", nameof(this._mode));
+                    // Initial counter
+                    this._counter.Project = this._projectManager.ActiveProject;
+
+                    //Start count progress
+                    worker.ReportProgress((int)TaskStep.Count_Start, new ProgressState(this._progressStore, true));
+                    switch (this._mode)
+                    {
+                        //Start Counting in backup mode
+                        case ControleMode.CreateBackup:
+                            this._counter.Backup(worker, e, this._progressStore);
+                            break;
+                        //Start Counting in restore mode
+                        case ControleMode.RestoreBackup:
+                            this._counter.Restore(worker, e, this._progressStore);
+                            break;
+                        default:
+                            throw new ArgumentException("uscTaskControle->worker_DoWork(Count)->Invalid value", nameof(this._mode));
+                    }
+                    worker.ReportProgress((int)TaskStep.Count_Finish, new ProgressState(this._progressStore, true));
                 }
-                worker.ReportProgress((int)TaskStep.Count_Finish, new ProgressState(this._progressStore, true));
-            }
 
-            //Copy Data
-            if (this.chkCopyData.Checked)
-            {
-                // Initial copier
-                this._copier = new CopyItems(this._mainForm)
+                //Copy Data
+                if (this.chkCopyData.Checked)
                 {
-                    Project = this._projectManager.ActiveProject
-                };
+                    // Initial copier
+                    this._copier = new CopyItems(this._mainForm)
+                    {
+                        Project = this._projectManager.ActiveProject
+                    };
 
-                //Start copy progress
-                worker.ReportProgress((int)TaskStep.Copy_Start, new ProgressState(this._progressStore, true));
-                switch (this._mode)
-                {
-                    //Start Counting in backup mode
-                    case ControleMode.CreateBackup:
-                        this._copier.Backup(worker, e, this._progressStore);
-                        break;
-                    //Start Counting in restore mode
-                    case ControleMode.RestoreBackup:
-                        this._copier.Restore(worker, e, this._progressStore);
-                        break;
-                    default:
-                        throw new ArgumentException("uscTaskControle->worker_DoWork(CopyData)->Invalid value", nameof(this._mode));
+                    //Start copy progress
+                    worker.ReportProgress((int)TaskStep.Copy_Start, new ProgressState(this._progressStore, true));
+                    switch (this._mode)
+                    {
+                        //Start Counting in backup mode
+                        case ControleMode.CreateBackup:
+                            this._copier.Backup(worker, e, this._progressStore);
+                            break;
+                        //Start Counting in restore mode
+                        case ControleMode.RestoreBackup:
+                            this._copier.Restore(worker, e, this._progressStore);
+                            break;
+                        default:
+                            throw new ArgumentException("uscTaskControle->worker_DoWork(CopyData)->Invalid value", nameof(this._mode));
+                    }
+                    if (!e.Cancel) worker.ReportProgress((int)TaskStep.Copy_Finish, new ProgressState(true));
                 }
-                if (!e.Cancel) worker.ReportProgress((int)TaskStep.Copy_Finish, new ProgressState(true));
-            }
 
-            //Delete old Data at Backup Target
-            if (this._mode == ControleMode.CreateBackup && this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
-            {
-                // Initial deleter
-                this._deleter = new DeleteOldItems()
+                //Delete old Data at Backup Target
+                if (this._mode == ControleMode.CreateBackup && this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
                 {
-                    Project = this._projectManager.ActiveProject
-                };
+                    // Initial deleter
+                    this._deleter = new DeleteOldItems()
+                    {
+                        Project = this._projectManager.ActiveProject
+                    };
 
-                //Start delete old items
-                worker.ReportProgress((int)TaskStep.DeleteOldItems_Start, new ProgressState(this._progressStore, true));
-                this._deleter.Backup(worker, e, this._progressStore);
-                if (!e.Cancel) worker.ReportProgress((int)TaskStep.DeleteOldItems_Finish, new ProgressState(true));
+                    //Start delete old items
+                    worker.ReportProgress((int)TaskStep.DeleteOldItems_Start, new ProgressState(this._progressStore, true));
+                    this._deleter.Backup(worker, e, this._progressStore);
+                    if (!e.Cancel) worker.ReportProgress((int)TaskStep.DeleteOldItems_Finish, new ProgressState(true));
+                }
+            }
+            catch (Exception ex)
+            {
+                this._progressStore.Exception = new TaskException
+                {
+                    Description = "",
+                    Exception = ex,
+                    Level = TaskException.ExceptionLevel.Critical,
+                    Source = "",
+                    Target = ""
+                };
+                worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progressStore, true));
             }
         }
 
@@ -546,6 +560,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                     case TaskStep.Exception:
                         this._logFile.WriteException(ProgressState.ProgressStore.Exception);
                         this._uscProgress.SetProgressStates.SetProgress_Exception(ProgressState.ProgressStore.Exception);
+                        if (ProgressState.ProgressStore.Exception.Level != TaskException.ExceptionLevel.Critical) ProgressState.ProgressStore.Exception = null;
                         break;
                     default:
                         throw new ArgumentException("uscTaskControle->worker_ProgressChanged->Invalid value", nameof(this._taskStep));
@@ -559,7 +574,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             if (this.TaskFinishedCanceled != null) TaskFinishedCanceled(this, new EventArgs());
 
             if (e.Cancelled) this._taskStep = TaskStep.Cancel;
-            if (this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Exception != null && this._progressStore.Exception.Level == TaskException.ExceptionLevel.Critical) this._taskStep = TaskStep.Exception;
+            if (this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Level == TaskException.ExceptionLevel.Critical) this._taskStep = TaskStep.Exception;
 
             switch (this._taskStep)
             {
