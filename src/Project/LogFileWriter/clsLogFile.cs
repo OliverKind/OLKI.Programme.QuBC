@@ -39,9 +39,9 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
 
         #region Fields
         /// <summary>
-        /// Should an exception message been shown, if an exception was thrown
+        /// Logfile Mode, create or restore a backup
         /// </summary>
-        private bool _showExceptionMessage = true;
+        readonly TaskControle.ControleMode _mode;
         /// <summary>
         /// The store for the progress
         /// </summary>
@@ -49,7 +49,11 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// <summary>
         /// Controle to controle the backup or restore process
         /// </summary>
-        private readonly TaskControle _procControle;
+        private readonly Settings.Settings _procControle;
+        /// <summary>
+        /// Should an exception message been shown, if an exception was thrown
+        /// </summary>
+        private bool _showExceptionMessage = true;
         /// <summary>
         /// Should Logfiles been written. If it is false, no Logfiles will be created.
         /// </summary>
@@ -68,10 +72,12 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// Initial a new LogFile-Writer
         /// </summary>
         /// <param name="procControle">Controle to controle the backup or restore process</param>
+        /// <param name="procControle">Logfile Mode, create or restore a backup</param>
         /// <param name="progressStore">The store for the progress</param>
         /// <param name="writeLogFile">Should Logfiles been written. If it is false, no Logfiles will be created.</param>
-        public LogFile(TaskControle procControle, ProgressStore progressStore, bool writeLogFile)
+        public LogFile(Settings.Settings procControle, TaskControle.ControleMode mode, ProgressStore progressStore, bool writeLogFile)
         {
+            this._mode = mode;
             this._progressStore = progressStore;
             this._procControle = procControle;
             this._writeLogFile = writeLogFile;
@@ -191,22 +197,23 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// <summary>
         /// Write Template-Text to logfile: Task Started
         /// </summary>
-        public void WriteHead()
+        /// <param name="handleExistingFileText">Text how to handle existing files</param>
+        public void WriteHead(string handleExistingFileText)
         {
             if (!CheckWriteLine()) return;
             object[] Args = new object[15];
-            switch (this._procControle.Mode)
+            switch (this._mode)
             {
                 case TaskControle.ControleMode.CreateBackup:
                     Args[0] = "X";
                     Args[1] = " ";
                     Args[2] = DateTime.Now;
-                    Args[3] = this._procControle.txtDirectory.Text;
-                    Args[4] = this._procControle.chkRootDirectory.Checked ? "X" : " ";
-                    Args[5] = this._procControle.txtHandleExistingFileText.Text;
-                    Args[6] = this._procControle.chkCountItemsAndBytes.Checked ? "X" : " ";
-                    Args[7] = this._procControle.chkCopyData.Checked ? "X" : " ";
-                    Args[8] = this._procControle.chkDeleteOld.Checked ? "X" : " ";
+                    Args[3] = this._procControle.ControleBackup.Directory.Path;
+                    Args[4] = this._procControle.ControleBackup.Directory.CreateDriveDirectroy ? "X" : " ";
+                    Args[5] = handleExistingFileText;
+                    Args[6] = this._procControle.ControleBackup.Action.CountItemsAndBytes ? "X" : " ";
+                    Args[7] = this._procControle.ControleBackup.Action.CopyData ? "X" : " ";
+                    Args[8] = this._procControle.ControleBackup.Action.DeleteOldData ? "X" : " ";
                     Args[9] = "";
                     Args[10] = " ";
                     Args[11] = "";
@@ -224,12 +231,12 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
                     Args[6] = " ";
                     Args[7] = " ";
                     Args[8] = " ";
-                    Args[9] = this._procControle.txtDirectory.Text;
-                    Args[10] = this._procControle.chkRootDirectory.Checked ? "X" : " ";
-                    Args[11] = this._procControle.txtRestoreTargetDirectory.Text;
-                    Args[12] = this._procControle.txtHandleExistingFileText.Text;
-                    Args[13] = this._procControle.chkCountItemsAndBytes.Checked ? "X" : " ";
-                    Args[14] = this._procControle.chkCopyData.Checked ? "X" : " ";
+                    Args[9] = this._procControle.ControleRestore.Directory.Path;
+                    Args[10] = this._procControle.ControleBackup.Directory.CreateDriveDirectroy ? "X" : " ";
+                    Args[11] = this._procControle.ControleRestore.Directory.RestoreTargetPath;
+                    Args[12] = handleExistingFileText;
+                    Args[13] = this._procControle.ControleBackup.Action.CountItemsAndBytes ? "X" : " ";
+                    Args[14] = this._procControle.ControleBackup.Action.CopyData ? "X" : " ";
                     break;
                 default:
                     throw new ArgumentException();
