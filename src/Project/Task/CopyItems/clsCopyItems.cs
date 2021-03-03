@@ -38,6 +38,10 @@ namespace OLKI.Programme.QuBC.src.Project.Task
     {
         #region Constants
         /// <summary>
+        /// Dummy for a drive directory
+        /// </summary>
+        private const string DUMMY_DRIVE_PATH = @"\a\";
+        /// <summary>
         /// Exception code for full disc
         /// </summary>
         public const int EXCEPTION_FULL_DISC = unchecked((int)0x80070070);
@@ -95,6 +99,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// </summary>
         /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
+        /// <param name="progressStore">Progress data storage</param>
         internal void Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             //Initial progress
@@ -129,13 +134,47 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// </summary>
         /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
+        /// <param name="progressStore">Progress data storage</param>
         internal void Restore(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
-            if (worker is null) throw new ArgumentNullException(nameof(worker));
-            if (e is null) throw new ArgumentNullException(nameof(e));
-            if (progressStore is null) throw new ArgumentNullException(nameof(progressStore));
-            //TODO: ADD CODE --> in future version to restore Backup
-            throw new Exception("OLKI.Programme.QuBC.BackupProject.Task.CopyItems.Restore has no active code");
+            //Initial progress
+            this._progress = progressStore;
+            this._progress.TotalBytes.ActualValue = 0;
+            this._progress.TotalDirectories.ActualValue = 0;
+            this._progress.TotalFiles.ActualValue = 0;
+
+            worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
+
+            if (this._project.Settings.ControleRestore.Directory.CreateDriveDirectroy)
+            {
+                DirectoryInfo Source = new DirectoryInfo(this._project.Settings.ControleRestore.Directory.Path);
+                DirectoryInfo Target = new DirectoryInfo(this._project.Settings.ControleBackup.Directory.Path);
+                int PathStartIndex = Tools.CommonTools.DirectoryAndFile.Path.Repair(Target.FullName + DUMMY_DRIVE_PATH).Length;
+                foreach (DirectoryInfo DriveDirectory in Source.GetDirectories().OrderBy(o => o.Name))
+                {
+                    // Check for abbort
+                    if (worker.CancellationPending) { e.Cancel = true; return; }
+
+                    if (this.CopyRecursive(CopyMode.Restore, DriveDirectory, Project.DirectoryScope.All, worker, e, out Exception ex) == TaskException.ExceptionLevel.Critical)
+                    {
+                        e.Cancel = true;
+                        worker.CancelAsync();
+                        return;
+                    }
+                    worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
+                }
+            }
+            else
+            {
+                if (this.CopyRecursive(CopyMode.Restore, this._project.Settings.ControleRestore.Directory.Path, Project.DirectoryScope.All, worker, e, out Exception ex) == TaskException.ExceptionLevel.Critical)
+                {
+                    e.Cancel = true;
+                    worker.CancelAsync();
+                    return;
+                }
+                worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
+            }
+            worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
         }
 
         #region Create Root Directorys Items

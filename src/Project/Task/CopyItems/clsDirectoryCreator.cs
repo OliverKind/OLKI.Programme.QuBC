@@ -97,12 +97,20 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     SourceSegment = sourceDirectory.FullName.Remove(0, sourceDirectory.Root.FullName.Length);
                     return this.BuildTargetFullName(RootSegment, DriveNameSegment, SourceSegment);
                 case CopyItems.CopyMode.Restore:
-                    //TODO: ADD CODE --> in future version to restore Backup
-                    //Use drive letter or use settings
-                    RootSegment = "";
-                    DriveNameSegment = "";
-                    SourceSegment = "";
-                    return RootSegment + DriveNameSegment + SourceSegment;
+                    DirectoryInfo Source = new DirectoryInfo(projectSettings.ControleRestore.Directory.Path);
+                    if (projectSettings.ControleRestore.Directory.CreateDriveDirectroy)
+                    {
+                        RootSegment = sourceDirectory.FullName.Substring(Source.FullName.Length + 1);
+                        return Tools.CommonTools.DirectoryAndFile.Path.Repair(RootSegment.Insert(1, @":\"));
+                    }
+                    else
+                    {
+                        SourceSegment = "";
+                        if (sourceDirectory.FullName.Length > Source.FullName.Length + 1) SourceSegment = sourceDirectory.FullName.Substring(Source.FullName.Length + 1);
+                        RootSegment = projectSettings.ControleRestore.Directory.RestoreTargetPath;
+                        RootSegment += @"\" + SourceSegment;
+                        return Tools.CommonTools.DirectoryAndFile.Path.Repair(RootSegment);
+                    }
                 default:
                     break;
             }

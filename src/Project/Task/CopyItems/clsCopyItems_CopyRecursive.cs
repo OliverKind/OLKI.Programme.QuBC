@@ -132,7 +132,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 }
 
                 //Copy attributes from source to target
-                if (Properties.Settings.Default.Copy_DirectoryAttributes && !Tools.CommonTools.DirectoryAndFile.Path.IsDrive(sourceDirectory)) HandleAttributes.Direcotry.Set(TargetDirectory, sourceDirectory.Attributes);
+                if (Properties.Settings.Default.Copy_DirectoryAttributes && !Tools.CommonTools.DirectoryAndFile.Path.IsDrive(sourceDirectory) && !Tools.CommonTools.DirectoryAndFile.Path.IsDrive(TargetDirectory)) HandleAttributes.Direcotry.Set(TargetDirectory, sourceDirectory.Attributes);
 
                 // Report Progress
                 this._progress.TotalDirectories.ActualValue++;
@@ -149,7 +149,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     Exception = ex,
                     Level = TaskException.ExceptionLevel.Critical,
                     Source = sourceDirectory.FullName,
-                    Target = TargetDirectory.FullName
+                    Target = (TargetDirectory != null ? TargetDirectory.FullName : "")
                 };
                 worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
 

@@ -628,7 +628,11 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
         private void btnBrowseRestoreTargetDirectory_Click(object sender, EventArgs e)
         {
-            throw (new NotImplementedException("btnBrowseRestoreTargetDirectory_Click"));
+            this._directoryBrowser.SelectedPath = this.txtRestoreTargetDirectory.Text;
+            if (this._directoryBrowser.ShowDialog() == DialogResult.OK)
+            {
+                this.txtRestoreTargetDirectory.Text = this._directoryBrowser.SelectedPath;
+            }
         }
 
         private void btnHandleExistingFile_SetDefault_Click(object sender, EventArgs e)
@@ -794,7 +798,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
         private void txtRestoreTargetDirectory_TextChanged(object sender, EventArgs e)
         {
-            throw (new NotImplementedException("txtRestoreTargetDirectory_TextChanged"));
+            this._projectManager.ActiveProject.Settings.ControleRestore.Directory.RestoreTargetPath = this.txtRestoreTargetDirectory.Text;
         }
         #endregion
         #endregion
