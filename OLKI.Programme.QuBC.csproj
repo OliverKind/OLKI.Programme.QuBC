@@ -128,17 +128,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.SetProgress.SetControleValue.cs">
+    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscTaskProgress.SetProgress.SetControleValue.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.SetProgress.cs">
+    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscTaskProgress.SetProgress.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.cs">
+    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscTaskProgress.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.Designer.cs">
-      <DependentUpon>uscProcProgress.cs</DependentUpon>
+    <Compile Include="src\MainForm\Usercontroles\uscTaskProgress\uscTaskProgress.Designer.cs">
+      <DependentUpon>uscTaskProgress.cs</DependentUpon>
     </Compile>
     <Compile Include="src\MainForm\Usercontroles\uscTaskControle\uscTaskControle.cs">
       <SubType>UserControl</SubType>
@@ -155,8 +155,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\MainForm\Usercontroles\uscTaskProgress\uscProcProgress.resx">
-      <DependentUpon>uscProcProgress.cs</DependentUpon>
+    <EmbeddedResource Include="src\MainForm\Usercontroles\uscTaskProgress\uscTaskProgress.resx">
+      <DependentUpon>uscTaskProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\MainForm\Usercontroles\uscTaskControle\uscTaskControle.resx">
       <DependentUpon>uscTaskControle.cs</DependentUpon>
