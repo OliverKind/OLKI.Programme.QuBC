@@ -66,7 +66,6 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageSelect = new System.Windows.Forms.TabPage();
             this.spcExplorer = new System.Windows.Forms.SplitContainer();
-            this.trvExplorer = new OLKI.Programme.QuBC.src.MainForm.ExplorerTreeView();
             this.imlTreeViewIcons = new System.Windows.Forms.ImageList(this.components);
             this.grbDirectoryScope = new System.Windows.Forms.GroupBox();
             this.rabSaveNothing = new System.Windows.Forms.RadioButton();
@@ -84,14 +83,10 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.tabPageBackup = new System.Windows.Forms.TabPage();
             this.grbTaskControleBackup = new System.Windows.Forms.GroupBox();
-            this.uscTaskControleBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
             this.grbTaskProgressBackup = new System.Windows.Forms.GroupBox();
-            this.uscTaskProgressBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageRestore = new System.Windows.Forms.TabPage();
             this.grbTaskControleRestore = new System.Windows.Forms.GroupBox();
-            this.uscTaskControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
             this.grbTaskProgressRestore = new System.Windows.Forms.GroupBox();
-            this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
             this.lsvErrorLog = new OLKI.Widgets.SortListView();
@@ -114,6 +109,12 @@
             this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.imlExceptionIcons = new System.Windows.Forms.ImageList(this.components);
+            this.imlListViewIcon = new System.Windows.Forms.ImageList(this.components);
+            this.trvExplorer = new OLKI.Programme.QuBC.src.MainForm.ExplorerTreeView();
+            this.uscTaskControleBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
+            this.uscTaskProgressBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
+            this.uscTaskControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
+            this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -354,22 +355,6 @@
             this.spcExplorer.SplitterDistance = 230;
             this.spcExplorer.TabIndex = 11;
             // 
-            // trvExplorer
-            // 
-            this.trvExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.trvExplorer.DirectoryList = null;
-            this.trvExplorer.ImageIndex = 16;
-            this.trvExplorer.ImageList = this.imlTreeViewIcons;
-            this.trvExplorer.Location = new System.Drawing.Point(3, 3);
-            this.trvExplorer.Name = "trvExplorer";
-            this.trvExplorer.SelectedImageIndex = 0;
-            this.trvExplorer.ShowNodeToolTips = true;
-            this.trvExplorer.Size = new System.Drawing.Size(225, 559);
-            this.trvExplorer.TabIndex = 10;
-            this.trvExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer_AfterSelect);
-            // 
             // imlTreeViewIcons
             // 
             this.imlTreeViewIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlTreeViewIcons.ImageStream")));
@@ -473,7 +458,7 @@
             this.lsvDirectoryContent.MultiSelect = false;
             this.lsvDirectoryContent.Name = "lsvDirectoryContent";
             this.lsvDirectoryContent.Size = new System.Drawing.Size(479, 386);
-            this.lsvDirectoryContent.SmallImageList = this.imlTreeViewIcons;
+            this.lsvDirectoryContent.SmallImageList = this.imlListViewIcon;
             this.lsvDirectoryContent.TabIndex = 3;
             this.lsvDirectoryContent.UseCompatibleStateImageBehavior = false;
             this.lsvDirectoryContent.View = System.Windows.Forms.View.Details;
@@ -573,16 +558,6 @@
             this.grbTaskControleBackup.TabStop = false;
             this.grbTaskControleBackup.Text = "Sicherungsoptionen";
             // 
-            // uscTaskControleBackup
-            // 
-            this.uscTaskControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscTaskControleBackup.Location = new System.Drawing.Point(0, 17);
-            this.uscTaskControleBackup.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.CreateBackup;
-            this.uscTaskControleBackup.Name = "uscTaskControleBackup";
-            this.uscTaskControleBackup.Size = new System.Drawing.Size(957, 235);
-            this.uscTaskControleBackup.TabIndex = 0;
-            // 
             // grbTaskProgressBackup
             // 
             this.grbTaskProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -594,15 +569,6 @@
             this.grbTaskProgressBackup.TabIndex = 20;
             this.grbTaskProgressBackup.TabStop = false;
             this.grbTaskProgressBackup.Text = "Sicherungsvorgang";
-            // 
-            // uscTaskProgressBackup
-            // 
-            this.uscTaskProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscTaskProgressBackup.Location = new System.Drawing.Point(6, 20);
-            this.uscTaskProgressBackup.Name = "uscTaskProgressBackup";
-            this.uscTaskProgressBackup.Size = new System.Drawing.Size(951, 270);
-            this.uscTaskProgressBackup.TabIndex = 0;
             // 
             // tabPageRestore
             // 
@@ -628,16 +594,6 @@
             this.grbTaskControleRestore.TabStop = false;
             this.grbTaskControleRestore.Text = "Wiederherstellungsoptionen";
             // 
-            // uscTaskControleRestore
-            // 
-            this.uscTaskControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscTaskControleRestore.Location = new System.Drawing.Point(0, 17);
-            this.uscTaskControleRestore.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.RestoreBackup;
-            this.uscTaskControleRestore.Name = "uscTaskControleRestore";
-            this.uscTaskControleRestore.Size = new System.Drawing.Size(957, 235);
-            this.uscTaskControleRestore.TabIndex = 0;
-            // 
             // grbTaskProgressRestore
             // 
             this.grbTaskProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -649,15 +605,6 @@
             this.grbTaskProgressRestore.TabIndex = 21;
             this.grbTaskProgressRestore.TabStop = false;
             this.grbTaskProgressRestore.Text = "Wiederherstellung";
-            // 
-            // uscTaskProgressRestore
-            // 
-            this.uscTaskProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscTaskProgressRestore.Location = new System.Drawing.Point(6, 20);
-            this.uscTaskProgressRestore.Name = "uscTaskProgressRestore";
-            this.uscTaskProgressRestore.Size = new System.Drawing.Size(951, 270);
-            this.uscTaskProgressRestore.TabIndex = 0;
             // 
             // tabPageConclusion
             // 
@@ -869,6 +816,69 @@
             this.imlExceptionIcons.TransparentColor = System.Drawing.Color.Transparent;
             this.imlExceptionIcons.Images.SetKeyName(0, "eventlogWarn.ico");
             // 
+            // imlListViewIcon
+            // 
+            this.imlListViewIcon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlListViewIcon.ImageStream")));
+            this.imlListViewIcon.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlListViewIcon.Images.SetKeyName(0, "16--folder.ico");
+            this.imlListViewIcon.Images.SetKeyName(1, "17--folder_NoCheck.ico");
+            this.imlListViewIcon.Images.SetKeyName(2, "18--folder_Check.ico");
+            this.imlListViewIcon.Images.SetKeyName(3, "19--folder_IntCheck.ico");
+            // 
+            // trvExplorer
+            // 
+            this.trvExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trvExplorer.DirectoryList = null;
+            this.trvExplorer.ImageIndex = 16;
+            this.trvExplorer.ImageList = this.imlTreeViewIcons;
+            this.trvExplorer.Location = new System.Drawing.Point(3, 3);
+            this.trvExplorer.Name = "trvExplorer";
+            this.trvExplorer.SelectedImageIndex = 0;
+            this.trvExplorer.ShowNodeToolTips = true;
+            this.trvExplorer.Size = new System.Drawing.Size(225, 559);
+            this.trvExplorer.TabIndex = 10;
+            this.trvExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer_AfterSelect);
+            // 
+            // uscTaskControleBackup
+            // 
+            this.uscTaskControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscTaskControleBackup.Location = new System.Drawing.Point(0, 17);
+            this.uscTaskControleBackup.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.CreateBackup;
+            this.uscTaskControleBackup.Name = "uscTaskControleBackup";
+            this.uscTaskControleBackup.Size = new System.Drawing.Size(957, 235);
+            this.uscTaskControleBackup.TabIndex = 0;
+            // 
+            // uscTaskProgressBackup
+            // 
+            this.uscTaskProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscTaskProgressBackup.Location = new System.Drawing.Point(6, 20);
+            this.uscTaskProgressBackup.Name = "uscTaskProgressBackup";
+            this.uscTaskProgressBackup.Size = new System.Drawing.Size(951, 270);
+            this.uscTaskProgressBackup.TabIndex = 0;
+            // 
+            // uscTaskControleRestore
+            // 
+            this.uscTaskControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscTaskControleRestore.Location = new System.Drawing.Point(0, 17);
+            this.uscTaskControleRestore.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.RestoreBackup;
+            this.uscTaskControleRestore.Name = "uscTaskControleRestore";
+            this.uscTaskControleRestore.Size = new System.Drawing.Size(957, 235);
+            this.uscTaskControleRestore.TabIndex = 0;
+            // 
+            // uscTaskProgressRestore
+            // 
+            this.uscTaskProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscTaskProgressRestore.Location = new System.Drawing.Point(6, 20);
+            this.uscTaskProgressRestore.Name = "uscTaskProgressRestore";
+            this.uscTaskProgressRestore.Size = new System.Drawing.Size(951, 270);
+            this.uscTaskProgressRestore.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -966,5 +976,6 @@
         private System.Windows.Forms.ImageList imlExceptionIcons;
         private ExplorerTreeView trvExplorer;
         private System.Windows.Forms.SplitContainer spcExplorer;
+        private System.Windows.Forms.ImageList imlListViewIcon;
     }
 }

@@ -25,6 +25,7 @@
 using OLKI.Programme.QuBC.Properties;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -185,11 +186,32 @@ namespace OLKI.Programme.QuBC.src.MainForm
         #endregion
 
         /// <summary>
+        /// Add the System Icon for the definded File to an ImageList. File-Extension is used as key.
+        /// </summary>
+        /// <param name="file">Path to a file to get the System Icon from</param>
+        /// <param name="iconList">List to save Icon to</param>
+        private void AddFileIconToList(FileInfo file, ImageList iconList)
+        {
+            if (!iconList.Images.ContainsKey(file.Extension)) iconList.Images.Add(file.Extension, this.GetIcon(file));
+        }
+
+        /// <summary>
+        /// Get the Sytem Icon for the definded file
+        /// </summary>
+        /// <param name="file">Path to a file to get the System Icon from</param>
+        /// <returns>Icon for the definded File</returns>
+        private Icon GetIcon(FileInfo file)
+        {
+            return Icon.ExtractAssociatedIcon(file.FullName);
+        }
+
+        /// <summary>
         /// List the sub directories and files of the specified directroy to the directroy contenct list
         /// </summary>
         /// <param name="directory">Specifies the directory to lust sub directories and files</param>
         /// <param name="directoryContentList">Specifies the LitView where the content should been listet to</param>
-        internal void DirectoryContentListView_ListDirectoryItems(DirectoryInfo directory, ListView directoryContentList)
+        /// <param name="iconList">Imagelist with icons for files and directories</param>
+        internal void DirectoryContentListView_ListDirectoryItems(DirectoryInfo directory, ListView directoryContentList, ImageList iconList)
         {
             try
             {
@@ -203,7 +225,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
                         ListViewItem NewItem = new ListViewItem
                         {
                             Checked = this.DirectoryContentListView_GetDirectoryChecked(Directory),
-                            ImageIndex = 16 + (int)this.DirectoryContentListView_GetCheckState(Directory.FullName),
+                            ImageIndex = (int)this.DirectoryContentListView_GetCheckState(Directory.FullName),
                             Tag = Directory,
                             Text = Directory.Name
                         };
@@ -218,10 +240,13 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
                 foreach (FileInfo File in new DirectoryInfo(directory.FullName).GetFiles().OrderBy(o => o.Name))
                 {
+                    this.AddFileIconToList(File, iconList);
+
                     ListViewItem NewItem = new ListViewItem
                     {
                         Checked = this.DirectoryContentListView_GetFileChecked(directory, File),
-                        ImageIndex = 20,
+                        ImageKey = File.Extension,
+                        //ImageIndex = 20,
                         Tag = File,
                         Text = File.Name
                     };

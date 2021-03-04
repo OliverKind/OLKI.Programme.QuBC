@@ -382,7 +382,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.txtExplorerPath.Text = this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName;
 
             //List directrory items
-            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this.trvExplorer.LastSelectedNode.DirectoryInfo, this.lsvDirectoryContent);
+            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this.trvExplorer.LastSelectedNode.DirectoryInfo, this.lsvDirectoryContent, this.imlListViewIcon);
 
             // Search in project for an defined scrope or set default to nothing selected
             switch (this._mainFormHelper.DirectoryContentListView_GetDirectoryScope(this.trvExplorer.LastSelectedNode.DirectoryInfo))
@@ -478,7 +478,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this.trvExplorer.LastSelectedNode.DirectoryInfo, this.lsvDirectoryContent);
+            this._mainFormHelper.DirectoryContentListView_ListDirectoryItems(this.trvExplorer.LastSelectedNode.DirectoryInfo, this.lsvDirectoryContent, this.imlListViewIcon);
         }
 
         private void lsvExplorer_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -491,12 +491,12 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 if (e.Item.Checked)
                 {
                     this._mainFormHelper.Project_AddDirectorysToProject(Directory, Project.Project.DirectoryScope.All);
-                    e.Item.ImageIndex = 18;
+                    e.Item.ImageIndex = (int)ExtendedTreeNode.CheckedState.Checked;
                 }
                 else
                 {
                     this._mainFormHelper.Project_RemoveDirectorysFromBackup(Directory);
-                    e.Item.ImageIndex = 17;
+                    e.Item.ImageIndex = (int)ExtendedTreeNode.CheckedState.NotChecked;
                 }
             }
 
