@@ -70,6 +70,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 
             internal void ClearExceptionlog()
             {
+                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
                 ListViewInv.ClearItems(this._progressControle._exceptionListView);
                 TextBoxInv.Text(this._progressControle._exceptionCount, "0");
             }
@@ -83,10 +84,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 this._progressControle._progressStart = DateTime.Now;
 
                 this._setControleValue.InitialControles();
-                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
-                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
-                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");
-                TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, "");
 
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0015);
 
@@ -133,10 +130,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 // Set controles
                 this._setControleValue.InitialControles();
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0018);
-                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
-                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
-                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");
-                TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, "");
 
                 TextBoxInv.Text(this._progressControle.txtCopyStart, StartTime.ToString(FORMAT_TIME));
                 if (progressStore.TotalItems.MaxValue == null)
@@ -207,10 +200,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 if (this._progressControle._progressStart == new DateTime(0)) this._progressControle._progressStart = DateTime.Now;
 
                 this._setControleValue.InitialControles();
-                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
-                TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, "");
-                TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, "");
-                TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, "");
+                this._setControleValue.InitialControles();
 
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0021);
 
