@@ -133,14 +133,14 @@
 ..</value>
   </data>
   <data name="WriteCountFinish" xml:space="preserve">
-    <value>{0}: Ermittelen Anzahl von Dateien, Ordnern und Bytes zum kopieren abgeschlossen
+    <value>{0}: Ermittle Anzahl von Dateien, Ordnern und Bytes zum Kopieren abgeschlossen
     Ordner:  {1:n0}
     Dateien: {2:n0}
     Bytes:   {3:n0}
 ..</value>
   </data>
   <data name="WriteCountStart" xml:space="preserve">
-    <value>{0}: Ermittel Anzahl von Dateien, Ordnern und Bytes zum kopieren gestartet
+    <value>{0}: Ermittle Anzahl von Dateien, Ordnern und Bytes zum Kopieren gestartet
 ..</value>
   </data>
   <data name="WriteDeleteFinish" xml:space="preserve">
@@ -179,11 +179,11 @@ Gewählte Optionen zur Datensicherung:
     Umgang mit vorhandenen Dateien: {5}
     [{6}] Aufgabenumfang ermitteln
     [{7}] Daten kopieren
-    [{8}] Alte Daten und Ordner im Sicherugnsziel löschen
+    [{8}] Alte Daten und Ordner im Sicherungsziel löschen
 
 Gewählte Optionen zur Datensicherung:
     Quelle für Datenwiederherstellung: {9}
-    [{10}] Oberster Ordner gibt Ziellaufwerk anOrdner für Laufwerk anlegen
+    [{10}] Oberster Ordner gibt Ziellaufwerk an
     Ziel für Datenwiederherstellung: {11}
     Umgang mit vorhandenen Dateien: {12}
     [{13}] Aufgabenumfang ermitteln

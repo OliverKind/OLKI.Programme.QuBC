@@ -94,7 +94,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {0}: Ermittelen Anzahl von Dateien, Ordnern und Bytes zum kopieren abgeschlossen
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0}: Ermittle Anzahl von Dateien, Ordnern und Bytes zum Kopieren abgeschlossen
         ///    Ordner:  {1:n0}
         ///    Dateien: {2:n0}
         ///    Bytes:   {3:n0}
@@ -107,7 +107,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {0}: Ermittel Anzahl von Dateien, Ordnern und Bytes zum kopieren gestartet
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0}: Ermittle Anzahl von Dateien, Ordnern und Bytes zum Kopieren gestartet
         ///.. ähnelt.
         /// </summary>
         internal static string WriteCountStart {
@@ -176,7 +176,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter {
         ///    Umgang mit vorhandenen Dateien: {5}
         ///    [{6}] Aufgabenumfang ermitteln
         ///    [{7}] Daten kopieren
-        ///    [{8}] Alte Daten und Ordner im Sicherugnsziel löschen
+        ///    [{8}] Alte Daten und Ordner im Sicherungsziel löschen
         ///
         ///Gewählte Option [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>

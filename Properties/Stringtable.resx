@@ -264,7 +264,7 @@ Die Kopie ist wahrscheinlich unvollständig.
 {0}</value>
   </data>
   <data name="0x0020" xml:space="preserve">
-    <value>Fehler beim Löschen von alten Daiteien oder Ordnern.</value>
+    <value>Fehler beim Löschen von alten Dateien und Ordnern.</value>
   </data>
   <data name="0x0021" xml:space="preserve">
     <value>Löschen von alten Dateien und Ordnern gestartet</value>
@@ -289,7 +289,7 @@ Sind Sie sicher das Sie diesen Vorgang durchführen möchten?</value>
     <value>Fehler beim Schreiben in die Protokolldatei!</value>
   </data>
   <data name="0x0025m" xml:space="preserve">
-    <value>Beim Schreiben in die allgemeine Protokolldatei "{0}" ist ein Fehler aufgetreten.
+    <value>Beim Schreiben in die Protokolldatei "{0}" ist ein Fehler aufgetreten.
 
 {1}
 

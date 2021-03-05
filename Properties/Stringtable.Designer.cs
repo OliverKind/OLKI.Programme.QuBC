@@ -446,7 +446,7 @@ namespace OLKI.Programme.QuBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Löschen von alten Daiteien oder Ordnern. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Löschen von alten Dateien und Ordnern. ähnelt.
         /// </summary>
         internal static string _0x0020 {
             get {
@@ -513,7 +513,7 @@ namespace OLKI.Programme.QuBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Beim Schreiben in die allgemeine Protokolldatei &quot;{0}&quot; ist ein Fehler aufgetreten.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Beim Schreiben in die Protokolldatei &quot;{0}&quot; ist ein Fehler aufgetreten.
         ///
         ///{1}
         ///
