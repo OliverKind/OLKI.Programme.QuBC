@@ -12,6 +12,20 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
+## [2.0.0.14] - 2021-03-05
+### Added
+- Delete old files and directroys in backup target
+- Restore from Backups
+- Write Logfiles
+
+### Changed
+- Formated numbers at conclusion
+- Show System Icons for Files
+
+### Fixed
+- Information from conclusion Tab dissapear, if step Changed
+- Unwandet clearing of exception list if task step changed
+
 ## [1.1.6.13] - 2021-02-06
 ### Fixed
 - Check for file association is unreliable
