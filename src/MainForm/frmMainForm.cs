@@ -107,8 +107,8 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
             // Initial save dialog
             this._saveLogFileDialog.DefaultExt = Settings.Default.ProjectFile_DefaultExtension;
-            this._saveLogFileDialog.Filter = Settings.Default._UNUSED_Logfile_FilterList;
-            this._saveLogFileDialog.FilterIndex = Settings.Default._UNUSED_Logfile_FilterIndex;
+            this._saveLogFileDialog.Filter = Settings.Default.Logfile_FilterList;
+            this._saveLogFileDialog.FilterIndex = Settings.Default.Logfile_FilterIndex;
             this._saveLogFileDialog.InitialDirectory = Settings.Default.ProjectFile_DefaultPath;
 
             this.uscTaskProgressBackup.ConclusionDirectoriesTextBox = this.txtConclusionDirectories;

@@ -20,13 +20,13 @@
     <Setting Name="ProjectFile_DefaultPath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="_UNUSED_Logfile_DateFormat" Roaming="true" Type="System.String" Scope="User">
+    <Setting Name="Logfile_DateFormat" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">yyyy-MM-dd__HH-mm-ss</Value>
     </Setting>
-    <Setting Name="_UNUSED_Logfile_FilterList" Type="System.String" Scope="Application">
+    <Setting Name="Logfile_FilterList" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Logdatei (*.log)|*.log|Textdatei (*.txt)|*.txt|Alle Dateien (*.*)|*.*</Value>
     </Setting>
-    <Setting Name="_UNUSED_Logfile_FilterIndex" Type="System.Int32" Scope="Application">
+    <Setting Name="Logfile_FilterIndex" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="Startup_DefaultFileOpen" Roaming="true" Type="System.String" Scope="User">

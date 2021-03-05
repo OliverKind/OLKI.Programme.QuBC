@@ -71,7 +71,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.chkShowDirectorysWithoutAccess.Checked = Settings.Default.ListItems_ShowWithoutAccess;
             this.chkShowSystemDirectory.Checked = Settings.Default.ListItems_ShowSystem;
             this.chkEypandTreeNodeOnClick.Checked = Settings.Default.ListItems_ExpandTreeNodeOnSingleClick;
-            this.txtLogfileDateFormat.Text = Settings.Default._UNUSED_Logfile_DateFormat;
+            this.txtLogfileDateFormat.Text = Settings.Default.Logfile_DateFormat;
 
             this.txtAddTextToFileDefaultText.Text = Settings.Default.Copy_FileExisitngAddTextDefault;
             this.txtAddTextToFileDateFormat.Text = Settings.Default.Copy_FileExisitngAddTextDateFormat;
@@ -170,7 +170,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             Settings.Default.ListItems_ShowWithoutAccess = this.chkShowDirectorysWithoutAccess.Checked;
             Settings.Default.ListItems_ShowSystem = this.chkShowSystemDirectory.Checked;
             Settings.Default.ListItems_ExpandTreeNodeOnSingleClick = this.chkEypandTreeNodeOnClick.Checked;
-            Settings.Default._UNUSED_Logfile_DateFormat = this.txtLogfileDateFormat.Text;
+            Settings.Default.Logfile_DateFormat = this.txtLogfileDateFormat.Text;
 
             Settings.Default.Save();
             this.DialogResult = DialogResult.OK;

@@ -393,7 +393,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                     default:
                         throw new ArgumentException("uscTaskCtronle->btnTaskStart_Click->Invalid value", nameof(this._mode));
                 }
-                LogFilePath += DateTime.Now.ToString("yyyy-MM-dd__HH-mm");
+                LogFilePath += DateTime.Now.ToString(Settings.Default.Logfile_DateFormat);
                 LogFilePath += ".log";
 
                 this.txtLogFilePath.Text = LogFilePath;
@@ -649,9 +649,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
         private void btnLogFilePath_Click(object sender, EventArgs e)
         {
-            this._saveLogFile.FileName = this.txtLogFilePath.Text;
-            this._saveLogFile.Filter = Settings.Default._UNUSED_Logfile_FilterList;
-            this._saveLogFile.FilterIndex = Settings.Default._UNUSED_Logfile_FilterIndex;
+            //this._saveLogFile.FileName = this.txtLogFilePath.Text;
+            this._saveLogFile.Filter = Settings.Default.Logfile_FilterList;
+            this._saveLogFile.FilterIndex = Settings.Default.Logfile_FilterIndex;
             if (this._saveLogFile.ShowDialog() == DialogResult.OK)
             {
                 this.txtLogFilePath.Text = this._saveLogFile.FileName;

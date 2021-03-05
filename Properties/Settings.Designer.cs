@@ -94,30 +94,30 @@ namespace OLKI.Programme.QuBC.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("yyyy-MM-dd__HH-mm-ss")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public string _UNUSED_Logfile_DateFormat {
+        public string Logfile_DateFormat {
             get {
-                return ((string)(this["_UNUSED_Logfile_DateFormat"]));
+                return ((string)(this["Logfile_DateFormat"]));
             }
             set {
-                this["_UNUSED_Logfile_DateFormat"] = value;
+                this["Logfile_DateFormat"] = value;
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Logdatei (*.log)|*.log|Textdatei (*.txt)|*.txt|Alle Dateien (*.*)|*.*")]
-        public string _UNUSED_Logfile_FilterList {
+        public string Logfile_FilterList {
             get {
-                return ((string)(this["_UNUSED_Logfile_FilterList"]));
+                return ((string)(this["Logfile_FilterList"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int _UNUSED_Logfile_FilterIndex {
+        public int Logfile_FilterIndex {
             get {
-                return ((int)(this["_UNUSED_Logfile_FilterIndex"]));
+                return ((int)(this["Logfile_FilterIndex"]));
             }
         }
         
