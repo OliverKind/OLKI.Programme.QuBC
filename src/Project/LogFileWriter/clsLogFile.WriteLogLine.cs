@@ -81,11 +81,16 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
             {
                 Indent += " ";
             }
-            // Write logfile
+            //Write to Logfile
             try
             {
                 if (string.IsNullOrEmpty(this.LogFilePath)) return;
 
+                //Create Logfile Direcotry if needet
+                DirectoryInfo LogfileDirecotry = new FileInfo(this.LogFilePath).Directory;
+                if (!LogfileDirecotry.Exists) LogfileDirecotry.Create();
+
+                //Write line to Logfile
                 using (StreamWriter sw = new StreamWriter(this.LogFilePath, true, Encoding.UTF8))
                 {
                     sw.WriteLine(Indent + text);
