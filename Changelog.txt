@@ -12,6 +12,11 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
+## [2.0.1.15] - 2021-03-06
+### Fixed
+- File not shown while delete old Files and Directories
+- Project is taged as changed, if Logfile path is created automatically
+
 ## [2.0.0.14] - 2021-03-05
 ### Added
 - Delete old files and directroys in backup target
