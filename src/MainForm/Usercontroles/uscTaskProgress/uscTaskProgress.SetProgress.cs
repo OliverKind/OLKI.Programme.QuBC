@@ -220,7 +220,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
 
                 this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualDir, null, null, null, progressStore.DirectroyFiles);
-                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualFile, null, null, null, progressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualFile, null, null, null, progressStore.FileBytes);
             }
 
             /// <summary>
