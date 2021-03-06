@@ -121,6 +121,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
         /// </summary>
         private LogFile _logFile;
         /// <summary>
+        /// Path, where to write the Logfile to
+        /// </summary>
+        private string _logFilePath;
+        /// <summary>
         /// The actual step of the current running task
         /// </summary>
         private TaskStep _taskStep = TaskStep.None;
@@ -396,6 +400,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                 LogFilePath += DateTime.Now.ToString(Settings.Default.Logfile_DateFormat);
                 LogFilePath += ".log";
 
+                this._logFilePath = LogFilePath;
                 this.txtLogFilePath.Text = LogFilePath;
             }
 
@@ -417,7 +422,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             //Initial LogFile Writer
             this._logFile = new LogFile(this._projectManager.ActiveProject.Settings, this.Mode, this._progressStore, this.chkLogFileCreate.Checked)
             {
-                LogFilePath = this.txtLogFilePath.Text
+                LogFilePath = this._logFilePath
             };
             this._logFile.WriteHead(this.txtHandleExistingFileText.Text);
 
@@ -782,6 +787,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
         private void txtLogFilePath_TextChanged(object sender, EventArgs e)
         {
+            if (!this.chkLogFileCreate.Checked || this.chkLogFileAutoPath.Checked) return;
             switch (this._mode)
             {
                 case ControleMode.CreateBackup:
