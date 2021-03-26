@@ -559,7 +559,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                         this._uscProgress.SetProgressStates.SetProgress_DeleteFinish();
                         break;
                     case TaskStep.Cancel:
-                        this._logFile.WriteCancel();
                         this._uscProgress.SetProgressStates.SetProgress_Cancel();
                         break;
                     case TaskStep.Exception:
@@ -617,7 +616,15 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             this.grbLogFiles.Enabled = true;
             this.grbToDo.Enabled = true;
 
-            this._logFile.WriteFoot();
+            //Write log file foot
+            if (this._taskStep == TaskStep.Cancel)
+            {
+                this._logFile.WriteCancel();
+            }
+            else
+            {
+                this._logFile.WriteFoot();
+            }
         }
         #endregion
 
