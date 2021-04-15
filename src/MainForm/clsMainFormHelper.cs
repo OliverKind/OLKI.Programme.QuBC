@@ -330,10 +330,6 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 //Set new scope
                 this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = scope;
             }
-
-            // Set parents
-            //TOTO: Scope richtig berechnen und dann setzen    this.Project_AddDirectorysToProject(directory.Parent);
-
         }
         #endregion
 
@@ -350,6 +346,27 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 this._projectManager.ActiveProject.DirectoryRemove(directoryItem.Key);
             }
             this._projectManager.ActiveProject.Changed = true;
+        }
+
+
+        internal void Project_RemoveSubDirectorysAndFilesFromBackup(DirectoryInfo directory)
+        {
+            foreach (KeyValuePair<string, Project.Project.DirectoryScope> directoryItem in new Dictionary<string, Project.Project.DirectoryScope>(this._projectManager.ActiveProject.ToBackupDirectorys))
+            {
+                if (!directoryItem.Key.Equals(directory.FullName, StringComparison.OrdinalIgnoreCase) && directoryItem.Key.Contains(directory.FullName))
+                {
+                    this._projectManager.ActiveProject.DirectoryRemove(directoryItem.Key);
+                }
+            }
+
+            foreach (KeyValuePair<string, List<string>> fileItem in new Dictionary<string, List<string>>(this._projectManager.ActiveProject.ToBackupFiles))
+            {
+                if (fileItem.Key.Contains(directory.FullName))
+                {
+                    this._projectManager.ActiveProject.ToBackupFiles.Remove(fileItem.Key);
+                }
+            }
+            this._projectManager.ActiveProject.ToggleProjectChanged(this, new EventArgs());
         }
         #endregion
         #endregion

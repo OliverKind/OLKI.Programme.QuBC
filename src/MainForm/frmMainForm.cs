@@ -24,9 +24,11 @@
 
 using OLKI.Programme.QuBC.Properties;
 using OLKI.Tools.CommonTools;
+using OLKI.Tools.CommonTools.UpdateApp;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Security.Principal;
 using System.Windows.Forms;
 
@@ -218,7 +220,6 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.Text = string.Format(TITLE_LINE_FORMAT, new object[] { ApplicationName, ProjectName, ProjectChanged });
         }
 
-
         /// <summary>
         /// Add a new item to recent file list and sets the menue item
         /// </summary>
@@ -265,32 +266,23 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 {
                     case Project.Project.DirectoryScope.All:
                         this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.All);
-
-                        //TODO: CLEAN UP PROJECT (Remove sub directorys and files)
-                        this.RemoveSubDirectorysAndFilesFromCopyList("");
+                        this._mainFormHelper.Project_RemoveSubDirectorysAndFilesFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
                         break;
                     case Project.Project.DirectoryScope.Nothing:
                         this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
-
-                        //TODO: ?CLEAN UP PROJECT (Remove sub directorys and files)
-                        this.RemoveSubDirectorysAndFilesFromCopyList("");
+                        this._mainFormHelper.Project_RemoveSubDirectorysAndFilesFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
                         break;
                     case Project.Project.DirectoryScope.Selected:
                         this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.Selected);
-
-                        //TODO: Add selected subdirectories and fiels
-                        this.TansfairCheckStateToCopyList();
+                        //Add selected subdirectories and fiels or remove unselected
+                        foreach (ListViewItem Item in this.lsvDirectoryContent.Items)
+                        {
+                            this.lsvExplorer_ItemChecked(this, new ItemCheckedEventArgs(Item));
+                        }
                         break;
                     default:
                         throw new ArgumentException();
                 }
-
-
-
-                //TODO: Vielleicht ein schlechter platz hier? Oder Funktion besser bennen
-                //TODO: REMOVE --> if (this.rabSaveAll.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.All);
-                //TODO: REMOVE --> if (this.rabSaveNothing.Checked) this._mainFormHelper.Project_RemoveDirectorysFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
-                //TODO: REMOVE --> if (this.rabSaveSelected.Checked) this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.Selected);
 
                 //Set TreeNodes
                 this.trvExplorer.SetImageVariant(this.trvExplorer.LastSelectedNode.DirectoryInfo.Root, true);
@@ -461,140 +453,32 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
         private void rabSaveNothing_CheckedChanged(object sender, EventArgs e)
         {
-            if (!this._suppressControleEvents && this.rabSaveNothing.Checked) this.rabSaveXXX_CheckedChanged(sender, e);
+            if (!this._suppressControleEvents && this.rabSaveNothing.Checked)
+            {
+                this.SaveDirectoryScopSetSelectionControles();
+                this._projectManager.ActiveProject.Changed = true;
+                this.ProjectManager_ProjectFileChanged(this, new EventArgs());
+            }
         }
 
         private void rabSaveAll_CheckedChanged(object sender, EventArgs e)
         {
-            if (!this._suppressControleEvents && this.rabSaveAll.Checked) this.rabSaveXXX_CheckedChanged(sender, e);
+            if (!this._suppressControleEvents && this.rabSaveAll.Checked)
+            {
+                this.SaveDirectoryScopSetSelectionControles();
+                this._projectManager.ActiveProject.Changed = true;
+                this.ProjectManager_ProjectFileChanged(this, new EventArgs());
+            }
         }
 
         private void rabSaveSelected_CheckedChanged(object sender, EventArgs e)
         {
-            if (!this._suppressControleEvents && this.rabSaveSelected.Checked) this.rabSaveXXX_CheckedChanged(sender, e);
-        }
-
-        private void rabSaveXXX_CheckedChanged(object sender, EventArgs e)
-        {
-            //TODO: REMOVE WHOLE REGION?
-            //Is Directory
-            if (!this._suppressControleEvents && this.trvExplorer.LastSelectedNode != null)
+            if (!this._suppressControleEvents && this.rabSaveSelected.Checked)
             {
-                Project.Project.DirectoryScope Scope = Project.Project.DirectoryScope.All;
-
-                if (this.rabSaveNothing.Checked) Scope = Project.Project.DirectoryScope.Nothing;
-                if (this.rabSaveAll.Checked) Scope = Project.Project.DirectoryScope.All;
-                if (this.rabSaveSelected.Checked) Scope = Project.Project.DirectoryScope.Selected;
-
-                //---->Behin: New Code<--------------------------------
-                //TODO: SET ROOT DIRECOTRIES
-                //                this.SetRootDirecotryScoopRecursive(this.trvExplorer.LastSelectedNode.DirectoryInfo);
-
-                switch (Scope)
-                {
-                    case Project.Project.DirectoryScope.All:
-                        //TODO: CLEAN UP PROJECT (Remove sub directorys and files)
-                        this.RemoveSubDirectorysAndFilesFromCopyList("");
-                        break;
-                    case Project.Project.DirectoryScope.Nothing:
-                        //TODO: ?CLEAN UP PROJECT (Remove sub directorys and files)
-                        this.RemoveSubDirectorysAndFilesFromCopyList("");
-                        break;
-                    case Project.Project.DirectoryScope.Selected:
-                        //TODO: Add selected subdirectories and fiels
-                        this.TansfairCheckStateToCopyList();
-                        break;
-                    default:
-                        throw new ArgumentException();
-                }
-
-                    // TODO: Remove subirctory scope if needed
-                    if (Scope == Project.Project.DirectoryScope.Nothing)
-                {
-                    //foreach( KeyValuePair<string, Project.Project.DirectoryScope> DirectoryItem in this._projectManager.ActiveProject.ToBackupDirectorys)
-                    //{
-                    //    if (DirectoryItem.Key.StartsWith(this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName))
-                    //    {
-                    //        this._projectManager.ActiveProject.DirectoryRemove(DirectoryItem.Key);
-                    //    }
-                    //}
-                }
-
-                //TODO: RESET TREE VIEW
-
-
-
-                //---->End: New Code<--------------------------------
-                //TODO: LÖSCHEN? this._projectManager.ActiveProject.ToBackupDirectorys[this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName] = Scope;
-                //TODO: LÖSCHEN? this._projectManager.ActiveProject.Changed = true;
-                //TODO: LÖSCHEN? this.ProjectManager_ProjectFileChanged(this, new EventArgs());
+                this.SaveDirectoryScopSetSelectionControles();
+                this._projectManager.ActiveProject.Changed = true;
+                this.ProjectManager_ProjectFileChanged(this, new EventArgs());
             }
-            this.SaveDirectoryScopSetSelectionControles();
-            //NEU HINZU
-            this._projectManager.ActiveProject.Changed = true;
-            this.ProjectManager_ProjectFileChanged(this, new EventArgs());
-        }
-
-        private void RemoveSubDirectorysAndFilesFromCopyList(string directory)
-        {
-
-        }
-
-        private void TansfairCheckStateToCopyList()
-        {
-            foreach (ListViewItem Item in this.lsvDirectoryContent.Items)
-            {
-                if (Item.Checked)
-                {
-
-                }
-                else
-                {
-
-                }
-            }
-
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sourceDirectory"></param>
-        /// <param name=""></param>
-        //TODO: REMOVE?
-        private void SetRootDirecotryScoopRecursive(DirectoryInfo sourceDirectory)
-        {
-            // Leave if directroy is drive
-            if (OLKI.Tools.CommonTools.DirectoryAndFile.Path.IsDrive(sourceDirectory)) return;
-
-            // Get scope of root directory
-            Project.Project.DirectoryScope RootDirecotryScope;
-            if (!this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(sourceDirectory.Root.FullName))
-            {
-                RootDirecotryScope = Project.Project.DirectoryScope.Selected;
-            } else
-            {
-                RootDirecotryScope = this._projectManager.ActiveProject.ToBackupDirectorys[sourceDirectory.Root.FullName];
-            }
-
-            switch(this._projectManager.ActiveProject.ToBackupDirectorys[sourceDirectory.FullName])
-            {
-                case Project.Project.DirectoryScope.All:
-                    if (RootDirecotryScope == Project.Project.DirectoryScope.Nothing) RootDirecotryScope = Project.Project.DirectoryScope.Selected;
-                    break;
-                case Project.Project.DirectoryScope.Nothing:
-                    if (RootDirecotryScope == Project.Project.DirectoryScope.All) RootDirecotryScope = Project.Project.DirectoryScope.Selected;
-                    break;
-                case Project.Project.DirectoryScope.Selected:
-                    if (RootDirecotryScope == Project.Project.DirectoryScope.Nothing) RootDirecotryScope = Project.Project.DirectoryScope.Selected;
-                    break;
-                default:
-                    throw new ArgumentException();
-            }
-            this._projectManager.ActiveProject.ToBackupDirectorys[sourceDirectory.Root.FullName] = RootDirecotryScope;
-            
-            this.SetRootDirecotryScoopRecursive(sourceDirectory.Root);
         }
 
         private void btnLsvExplorerChangeSelect_Click(object sender, EventArgs e)
