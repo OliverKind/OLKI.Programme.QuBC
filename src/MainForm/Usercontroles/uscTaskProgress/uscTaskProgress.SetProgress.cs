@@ -24,7 +24,7 @@
 
 using OLKI.Programme.QuBC.src.Project.Task;
 using OLKI.Programme.QuBC.Properties;
-using OLKI.Widgets.Invoke;
+using OLKI.Toolbox.Widgets.Invoke;
 using System;
 using System.Windows.Forms;
 
@@ -159,8 +159,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 // Get remaining time if counting was done
                 if (progressStore.TotalItems.MaxValue != null && progressStore.TotalItems.MaxValue > 0)
                 {
-                    TimeSpan RemainingTimeByte = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, progressStore.TotalBytes.ActualValue, progressStore.TotalBytes.MaxValue);
-                    TimeSpan RemainingTimeItem = Tools.CommonTools.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, progressStore.TotalItems.ActualValue, progressStore.TotalItems.MaxValue);
+                    TimeSpan RemainingTimeByte = OLKI.Toolbox.Common.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, progressStore.TotalBytes.ActualValue, progressStore.TotalBytes.MaxValue);
+                    TimeSpan RemainingTimeItem = OLKI.Toolbox.Common.Matehmatics.RemainingTime(this._progressControle.ElapsedTime, progressStore.TotalItems.ActualValue, progressStore.TotalItems.MaxValue);
                     TimeSpan RemainingTime = RemainingTimeByte > RemainingTimeItem ? RemainingTimeByte : RemainingTimeItem;
                     TextBoxInv.Text(this._progressControle.txtCopyRemainTime, this.TimeSpanForamt(RemainingTime));
                 }

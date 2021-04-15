@@ -183,7 +183,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             if (isDummy) return DUMMY_IDENTIFIER;
 
             // Node is drive
-            if (Tools.CommonTools.DirectoryAndFile.Path.IsDrive(directoryInfo))
+            if (OLKI.Toolbox.DirectoryAndFile.Path.IsDrive(directoryInfo))
             {
                 DriveInfo Drive = new DriveInfo(directoryInfo.FullName);
                 return string.Format(DRIVE_NAME_FORMAT, new object[] { Drive.IsReady ? Drive.VolumeLabel : string.Empty, Drive.Name });

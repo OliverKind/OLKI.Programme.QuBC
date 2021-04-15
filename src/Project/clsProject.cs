@@ -23,8 +23,8 @@
  * */
 
 using OLKI.Programme.QuBC.Properties;
-using OLKI.Tools.CommonTools;
-using OLKI.Tools.CommonTools.DirectoryAndFile;
+using OLKI.Toolbox.Common;
+using OLKI.Toolbox.DirectoryAndFile;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -211,7 +211,7 @@ namespace OLKI.Programme.QuBC.src.Project
         /// </summary>
         /// <param name="sender">Sender of changed event</param>
         /// <param name="e">EventArgs of changed event</param>
-        private void ToggleProjectChanged(object sender, EventArgs e)
+        internal void ToggleProjectChanged(object sender, EventArgs e)
         {
             if (!this._restrainChangedEvent && this.ProjectChanged != null) ProjectChanged(this, new EventArgs());
         }

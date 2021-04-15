@@ -23,8 +23,8 @@
  * */
 
 using OLKI.Programme.QuBC.src.Project.Task;
-using OLKI.Tools.CommonTools.DirectoryAndFile;
-using OLKI.Widgets.Invoke;
+using OLKI.Toolbox.DirectoryAndFile;
+using OLKI.Toolbox.Widgets.Invoke;
 using System.Windows.Forms;
 
 namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress

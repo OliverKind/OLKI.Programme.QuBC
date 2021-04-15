@@ -23,7 +23,7 @@
  * */
 
 using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
-using OLKI.Tools.CommonTools.DirectoryAndFile;
+using OLKI.Toolbox.DirectoryAndFile;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -111,7 +111,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                         if (this.CopyAllFiles(sourceDirectory, TargetDirectory, worker, e, out exception) == TaskException.ExceptionLevel.Critical) return TaskException.ExceptionLevel.Critical;
 
                         // Copy files in sub directorys if there is access to the directory
-                        if (Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(sourceDirectory))
+                        if (OLKI.Toolbox.DirectoryAndFile.Directory.CheckAccess(sourceDirectory))
                         {
                             foreach (DirectoryInfo NextSourceDirectory in sourceDirectory.GetDirectories().OrderBy(o => o.Name))
                             {
@@ -132,7 +132,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 }
 
                 //Copy attributes from source to target
-                if (Properties.Settings.Default.Copy_DirectoryAttributes && !Tools.CommonTools.DirectoryAndFile.Path.IsDrive(sourceDirectory) && !Tools.CommonTools.DirectoryAndFile.Path.IsDrive(TargetDirectory)) HandleAttributes.Direcotry.Set(TargetDirectory, sourceDirectory.Attributes);
+                if (Properties.Settings.Default.Copy_DirectoryAttributes && !OLKI.Toolbox.DirectoryAndFile.Path.IsDrive(sourceDirectory) && !OLKI.Toolbox.DirectoryAndFile.Path.IsDrive(TargetDirectory)) HandleAttributes.Direcotry.Set(TargetDirectory, sourceDirectory.Attributes);
 
                 // Report Progress
                 this._progress.TotalDirectories.ActualValue++;

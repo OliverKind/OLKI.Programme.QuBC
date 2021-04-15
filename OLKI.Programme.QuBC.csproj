@@ -305,7 +305,12 @@
     <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\ProgSym.ico" />
     <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\Settings.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\OLKI.Toolbox\repository\OLKI.Toolbox.csproj">
+      <Project>{577d63e4-bd67-4316-9442-81b67f4b9f4a}</Project>
+      <Name>OLKI.Toolbox</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
@@ -327,16 +332,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\OLKI.Tools\CommonTools\repository\OLKI.Tools.CommonTools.csproj">
-      <Project>{eacf8cee-e449-4591-aaf1-ecdda827ad8a}</Project>
-      <Name>OLKI.Tools.CommonTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\OLKI.Widgets\repository\OLKI.Widgets.csproj">
-      <Project>{913126dd-a263-49aa-8f0a-b6460d0d4a1a}</Project>
-      <Name>OLKI.Widgets</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

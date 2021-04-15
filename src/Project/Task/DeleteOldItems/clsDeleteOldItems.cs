@@ -95,7 +95,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
 
             DirectoryInfo Target = new DirectoryInfo(this._project.Settings.ControleBackup.Directory.Path);
 
-            int PathStartIndex = Tools.CommonTools.DirectoryAndFile.Path.Repair(Target.FullName + DUMMY_DRIVE_PATH).Length;
+            int PathStartIndex = OLKI.Toolbox.DirectoryAndFile.Path.Repair(Target.FullName + DUMMY_DRIVE_PATH).Length;
             foreach (DirectoryInfo DriveDirectory in Target.GetDirectories().OrderBy(o => o.Name))
             {
                 // Check for abbort
@@ -147,7 +147,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     this._progress.FileBytes.ElemenName = FileItem.FullName;
                     worker.ReportProgress((int)TaskControle.TaskStep.DeleteOldItems_Busy, new ProgressState(this._progress, false));
 
-                    CheckFile = new FileInfo(OLKI.Tools.CommonTools.DirectoryAndFile.Path.Repair(SourcePath + @"\" + FileItem.Name));
+                    CheckFile = new FileInfo(OLKI.Toolbox.DirectoryAndFile.Path.Repair(SourcePath + @"\" + FileItem.Name));
                     if (!CheckFile.Exists)
                     {
                         this.DeleteFile(FileItem, worker);
@@ -161,7 +161,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     if (worker.CancellationPending) { e.Cancel = true; return TaskException.ExceptionLevel.NoException; }
 
                     // If dirextory exists deeper, sonst löschjem
-                    CheckDirectory = new DirectoryInfo(OLKI.Tools.CommonTools.DirectoryAndFile.Path.Repair(SourcePath + @"\" + DirectoryItem.Name));
+                    CheckDirectory = new DirectoryInfo(OLKI.Toolbox.DirectoryAndFile.Path.Repair(SourcePath + @"\" + DirectoryItem.Name));
                     if (!CheckDirectory.Exists)
                     {
                         this.DeleteDirectory(DirectoryItem, worker);

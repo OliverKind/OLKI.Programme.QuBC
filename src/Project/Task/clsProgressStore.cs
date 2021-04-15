@@ -131,7 +131,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     int Percentage = 0;
                     if (this.MaxValue != null && this.ActualValue != null)
                     {
-                        Percentage = (int)OLKI.Tools.CommonTools.Matehmatics.Percentages((long)this.ActualValue, (long)this.MaxValue);
+                        Percentage = (int) OLKI.Toolbox.Common.Matehmatics.Percentages((long)this.ActualValue, (long)this.MaxValue);
                     }
                     if (Percentage > 100) Percentage = 100;
                     return Percentage;

@@ -74,12 +74,12 @@
             this.rabSaveAll = new System.Windows.Forms.RadioButton();
             this.rabSaveSelected = new System.Windows.Forms.RadioButton();
             this.lblDirectoryScopeDisabled = new System.Windows.Forms.Label();
-            this.lsvDirectoryContent = new OLKI.Widgets.SortListView();
+            this.lsvDirectoryContent = new OLKI.Toolbox.Widgets.SortListView();
             this.chLsvExplorer_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLsvExplorer_Length = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLsvExplorer_LastChange = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imlListViewIcon = new System.Windows.Forms.ImageList(this.components);
-            this.prgItemProperty = new OLKI.Widgets.ReadOnlyPropertyGrid();
+            this.prgItemProperty = new OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid();
             this.txtExplorerPath = new System.Windows.Forms.TextBox();
             this.btnExplorerGoTop = new System.Windows.Forms.Button();
             this.btnGoToFolder = new System.Windows.Forms.Button();
@@ -96,7 +96,7 @@
             this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
-            this.lsvErrorLog = new OLKI.Widgets.SortListView();
+            this.lsvErrorLog = new OLKI.Toolbox.Widgets.SortListView();
             this.chLsvErrorLog_Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLsvErrorLog_Source = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLsvErrorLog_Target = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -116,6 +116,7 @@
             this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.imlExceptionIcons = new System.Windows.Forms.ImageList(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -339,6 +340,7 @@
             // 
             // spcExplorer.Panel1
             // 
+            this.spcExplorer.Panel1.Controls.Add(this.button1);
             this.spcExplorer.Panel1.Controls.Add(this.trvExplorer);
             this.spcExplorer.Panel1MinSize = 230;
             // 
@@ -897,6 +899,16 @@
             this.imlExceptionIcons.TransparentColor = System.Drawing.Color.Transparent;
             this.imlExceptionIcons.Images.SetKeyName(0, "eventlogWarn.ico");
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(64, 87);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 180);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -938,8 +950,8 @@
             this.PerformLayout();
 
         }
-        private OLKI.Widgets.ReadOnlyPropertyGrid prgItemProperty;
-        private OLKI.Widgets.SortListView lsvDirectoryContent;
+        private OLKI.Toolbox.Widgets.ReadOnlyPropertyGrid prgItemProperty;
+        private OLKI.Toolbox.Widgets.SortListView lsvDirectoryContent;
         private System.Windows.Forms.ColumnHeader chLsvExplorer_Name;
         private System.Windows.Forms.ColumnHeader chLsvExplorer_Length;
         private System.Windows.Forms.ColumnHeader chLsvExplorer_LastChange;
@@ -966,7 +978,7 @@
         internal System.Windows.Forms.TabPage tabPageRestore;
         internal System.Windows.Forms.TabPage tabPageConclusion;
         private System.Windows.Forms.GroupBox grbException;
-        internal Widgets.SortListView lsvErrorLog;
+        internal OLKI.Toolbox.Widgets.SortListView lsvErrorLog;
         private System.Windows.Forms.ColumnHeader chLsvErrorLog_Number;
         private System.Windows.Forms.ColumnHeader chLsvErrorLog_Source;
         private System.Windows.Forms.ColumnHeader chLsvErrorLog_Target;
@@ -997,5 +1009,6 @@
         private System.Windows.Forms.SplitContainer spcExplorer;
         private System.Windows.Forms.ImageList imlListViewIcon;
         private System.Windows.Forms.Label lblDirectoryScopeDisabled;
+        private System.Windows.Forms.Button button1;
     }
 }

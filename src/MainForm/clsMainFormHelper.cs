@@ -220,7 +220,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
                 foreach (DirectoryInfo Directory in new DirectoryInfo(directory.FullName).GetDirectories().OrderBy(o => o.Name))
                 {
-                    if ((Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(Directory) || Settings.Default.ListItems_ShowWithoutAccess) && (Settings.Default.ListItems_ShowSystem || (Directory.Attributes & FileAttributes.System) != FileAttributes.System))
+                    if ((OLKI.Toolbox.DirectoryAndFile.Directory.CheckAccess(Directory) || Settings.Default.ListItems_ShowWithoutAccess) && (Settings.Default.ListItems_ShowSystem || (Directory.Attributes & FileAttributes.System) != FileAttributes.System))
                     {
                         ListViewItem NewItem = new ListViewItem
                         {
@@ -251,7 +251,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
                         Text = File.Name
                     };
                     NewItem.SubItems[0].Tag = "F_" + File.Name;
-                    NewItem.SubItems.Add(Tools.CommonTools.DirectoryAndFile.FileSize.Convert(File));
+                    NewItem.SubItems.Add(OLKI.Toolbox.DirectoryAndFile.FileSize.Convert(File));
                     NewItem.SubItems[1].Tag = File.Length;
                     NewItem.SubItems.Add(File.LastWriteTime.ToString());
                     NewItem.SubItems[2].Tag = File.LastWriteTime;

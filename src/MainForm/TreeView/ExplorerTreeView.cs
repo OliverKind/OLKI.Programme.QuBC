@@ -175,7 +175,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
         private bool CheckShowDirectroyInTreeView(DirectoryInfo Directory)
         {
             // Check for directories withoud access
-            if ((!OLKI.Tools.CommonTools.DirectoryAndFile.Directory.CheckAccess(Directory) && !this.ShowDirectoriesWithoutAccess)) return false;
+            if ((!OLKI.Toolbox.DirectoryAndFile.Directory.CheckAccess(Directory) && !this.ShowDirectoriesWithoutAccess)) return false;
 
             // Check for system directrories
             if ((Directory.Attributes & FileAttributes.System) == FileAttributes.System && !this.ShowSystemDirectories) return false;

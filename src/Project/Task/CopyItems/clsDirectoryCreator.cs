@@ -23,8 +23,7 @@
  * */
 
 using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
-using OLKI.Programme.QuBC.Properties;
-using OLKI.Tools.CommonTools.DirectoryAndFile;
+using OLKI.Toolbox.DirectoryAndFile;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -52,7 +51,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
             exception = null;
             try
             {
-                if (!targetDirectory.Exists && !Tools.CommonTools.DirectoryAndFile.Path.IsDrive(targetDirectory))
+                if (!targetDirectory.Exists && !OLKI.Toolbox.DirectoryAndFile.Path.IsDrive(targetDirectory))
                 {
                     targetDirectory.Create();
                     HandleAttributes.Direcotry.Remove(targetDirectory);
@@ -101,7 +100,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     if (projectSettings.ControleRestore.Directory.CreateDriveDirectroy)
                     {
                         RootSegment = sourceDirectory.FullName.Substring(Source.FullName.Length + 1);
-                        return Tools.CommonTools.DirectoryAndFile.Path.Repair(RootSegment.Insert(1, @":\"));
+                        return OLKI.Toolbox.DirectoryAndFile.Path.Repair(RootSegment.Insert(1, @":\"));
                     }
                     else
                     {
@@ -109,7 +108,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                         if (sourceDirectory.FullName.Length > Source.FullName.Length + 1) SourceSegment = sourceDirectory.FullName.Substring(Source.FullName.Length + 1);
                         RootSegment = projectSettings.ControleRestore.Directory.RestoreTargetPath;
                         RootSegment += @"\" + SourceSegment;
-                        return Tools.CommonTools.DirectoryAndFile.Path.Repair(RootSegment);
+                        return OLKI.Toolbox.DirectoryAndFile.Path.Repair(RootSegment);
                     }
                 default:
                     break;

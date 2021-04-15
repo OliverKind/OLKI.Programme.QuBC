@@ -23,8 +23,8 @@
  * */
 
 using OLKI.Programme.QuBC.Properties;
-using OLKI.Tools.CommonTools;
-using OLKI.Tools.CommonTools.UpdateApp;
+using OLKI.Toolbox.Common;
+using OLKI.Toolbox.UpdateApp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -386,7 +386,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
             // Show directroy properties
             bool DirectroyAccess;
-            if (Tools.CommonTools.DirectoryAndFile.Path.IsDrive(this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName))
+            if (OLKI.Toolbox.DirectoryAndFile.Path.IsDrive(this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName))
             {
                 DriveInfo SelectedDrive = new DriveInfo(this.trvExplorer.LastSelectedNode.DirectoryInfo.Name);
                 DirectroyAccess = SelectedDrive.IsReady;
@@ -516,7 +516,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
         private void btnGoToFolder_Click(object sender, EventArgs e)
         {
-            OLKI.Tools.CommonTools.DirectoryAndFile.Directory.Open(this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName, false, string.Empty);
+            OLKI.Toolbox.DirectoryAndFile.Directory.Open(this.trvExplorer.LastSelectedNode.DirectoryInfo.FullName, false, string.Empty);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -682,5 +682,23 @@ namespace OLKI.Programme.QuBC.src.MainForm
         #endregion
         #endregion
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //var Y = U.GetLastReleaseDataAsync("OliverKind", "OLKI.Programme.QuBC", "Changelog.txt", "QuBC__v{0}__Setup.exe");
+            ReleaseData LastReleaseData = new UpdateApp().GetLastReleaseData("OliverKind", "OLKI.Programme.QuBC", "Changelog.txt", Settings.Default.AppUpdate_RememberSetupSearchPattern);
+            ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
+            if (LastReleaseData.Version.Compare(ActualVersion) == ReleaseVersion.VersionCompare.Higher)
+            {
+                UpdateForm Upd = new UpdateForm(LastReleaseData, ActualVersion.TagName, Settings.Default.AppUpdate_RememberDays);
+                Upd.ShowDialog(this);
+                //MessageBox.Show(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            };
+
+
+
+            //_ = x;
+        }
     }
 }
