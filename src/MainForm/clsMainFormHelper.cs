@@ -332,7 +332,8 @@ namespace OLKI.Programme.QuBC.src.MainForm
             }
 
             // Set parents
-            this.Project_AddDirectorysToProject(directory.Parent);
+            //TOTO: Scope richtig berechnen und dann setzen    this.Project_AddDirectorysToProject(directory.Parent);
+
         }
         #endregion
 
