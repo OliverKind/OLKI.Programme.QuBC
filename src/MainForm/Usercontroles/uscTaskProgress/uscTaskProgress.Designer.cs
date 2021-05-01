@@ -235,7 +235,7 @@
             this.expActualDir.MinimumSize = new System.Drawing.Size(300, 23);
             this.expActualDir.Name = "expActualDir";
             this.expActualDir.ShowDimensionComboBox = false;
-            this.expActualDir.Size = new System.Drawing.Size(729, 49);
+            this.expActualDir.Size = new System.Drawing.Size(765, 49);
             this.expActualDir.TabIndex = 44;
             this.expActualDir.Value = ((long)(-1));
             // 
@@ -244,11 +244,11 @@
             this.expActualFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.expActualFile.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
-            this.expActualFile.Location = new System.Drawing.Point(235, 220);
+            this.expActualFile.Location = new System.Drawing.Point(196, 220);
             this.expActualFile.MaxValue = ((long)(0));
             this.expActualFile.MinimumSize = new System.Drawing.Size(300, 23);
             this.expActualFile.Name = "expActualFile";
-            this.expActualFile.Size = new System.Drawing.Size(470, 49);
+            this.expActualFile.Size = new System.Drawing.Size(755, 49);
             this.expActualFile.TabIndex = 43;
             this.expActualFile.Value = ((long)(-1));
             // 
@@ -257,13 +257,13 @@
             this.expAllDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.expAllDir.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
-            this.expAllDir.Location = new System.Drawing.Point(235, 136);
+            this.expAllDir.Location = new System.Drawing.Point(196, 136);
             this.expAllDir.MaxValue = ((long)(0));
             this.expAllDir.MinimumSize = new System.Drawing.Size(300, 23);
             this.expAllDir.Name = "expAllDir";
             this.expAllDir.ShowDescriptionText = false;
             this.expAllDir.ShowDimensionComboBox = false;
-            this.expAllDir.Size = new System.Drawing.Size(470, 23);
+            this.expAllDir.Size = new System.Drawing.Size(755, 23);
             this.expAllDir.TabIndex = 41;
             this.expAllDir.Value = ((long)(-1));
             // 
@@ -272,12 +272,12 @@
             this.expAllByte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.expAllByte.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
-            this.expAllByte.Location = new System.Drawing.Point(235, 107);
+            this.expAllByte.Location = new System.Drawing.Point(196, 107);
             this.expAllByte.MaxValue = ((long)(0));
             this.expAllByte.MinimumSize = new System.Drawing.Size(300, 23);
             this.expAllByte.Name = "expAllByte";
             this.expAllByte.ShowDescriptionText = false;
-            this.expAllByte.Size = new System.Drawing.Size(470, 23);
+            this.expAllByte.Size = new System.Drawing.Size(755, 23);
             this.expAllByte.TabIndex = 40;
             this.expAllByte.Value = ((long)(-1));
             // 
