@@ -209,9 +209,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="doc\Eula.rtf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="doc\Information.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -233,6 +230,7 @@
     <Content Include="Changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="doc\LGPL-License.txt" />
     <Content Include="licenses\COPL-License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

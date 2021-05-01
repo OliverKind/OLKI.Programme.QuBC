@@ -27,7 +27,7 @@
   !define Copyright        '2021 - Oliver Kind'
   !define FinishFile       'QuBC.exe'
   !define ReadmeFile       'ReadMe.txt'
-  !define EulaFile         'Eula.rtf'
+  !define EulaFile         'LGPL-License.txt'
   !define InformationFile  'Information.rtf'
 
 ;--------------------------------
@@ -112,10 +112,7 @@ Section ""
 
   File ".\..\bin\Release\changelog.txt"
   File ".\..\bin\Release\QuBC.exe"
-  File ".\..\bin\Release\OLKI.Tools.ColorAndPicture.dll"
-  File ".\..\bin\Release\OLKI.Tools.CommonTools.dll"
-  File ".\..\bin\Release\OLKI.Widgets.dll"
-  File ".\..\bin\Release\doc\${EulaFile}"
+  File ".\..\bin\Release\OLKI.Toolbox.dll"
   File ".\..\bin\Release\doc\${InformationFile}"
   File ".\..\bin\Release\doc\${ReadmeFile}"
   File ".\..\bin\Release\Resources\ProgamIcons\project_symbol\Project_Symbol.ico"
