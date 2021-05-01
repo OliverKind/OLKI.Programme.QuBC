@@ -22,8 +22,8 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.Project.Task;
 using OLKI.Programme.QuBC.Properties;
+using OLKI.Programme.QuBC.src.Project.Task;
 using OLKI.Toolbox.Widgets.Invoke;
 using System;
 using System.Windows.Forms;
@@ -89,9 +89,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 
                 DateTime ProgressStart = this._progressControle._progressStart;
                 TextBoxInv.Text(this._progressControle.txtCopyStart, ProgressStart.ToString(FORMAT_TIME));
-                ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
-                ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
-                ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
+                ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Marquee);
+                ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Marquee);
+                ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Marquee);
             }
 
             /// <summary>
@@ -102,10 +102,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0016);
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
 
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, progressStore.TotalItems);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, progressStore.TotalBytes);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllDir, null, this._progressControle.txtAllDirPer, this._progressControle.txtAllDirNum, null, progressStore.DirectroyFiles);
-                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualDir, null, null, null, progressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(this._progressControle.expAllItems, progressStore.TotalItems);
+                this._setControleValue.SetProgressCluster(this._progressControle.expAllByte, progressStore.TotalBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.expAllDir, progressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.DirectroyFiles);
             }
 
             /// <summary>
@@ -134,9 +134,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 TextBoxInv.Text(this._progressControle.txtCopyStart, StartTime.ToString(FORMAT_TIME));
                 if (progressStore.TotalItems.MaxValue == null)
                 {
-                    ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
-                    ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
-                    ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
+                    ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Marquee);
+                    ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Marquee);
+                    this._progressControle.expAllItems.Style = ProgressBarStyle.Marquee;
                 }
             }
 
@@ -150,11 +150,11 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 TextBoxInv.Text(this._progressControle._conclusionDirectoriesTextBox, string.Format(FORMAT_VALUE, progressStore.TotalDirectories.ActualValue));
                 TextBoxInv.Text(this._progressControle._conclusionFilesTextBox, string.Format(FORMAT_VALUE, progressStore.TotalFiles.ActualValue));
 
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllItems, null, this._progressControle.txtAllItemsPer, this._progressControle.txtAllItemsNum, null, progressStore.TotalItems);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllByte, null, this._progressControle.txtAllBytePer, this._progressControle.txtAllByteNum, this._progressControle.cboAllByteNum, progressStore.TotalBytes);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaAllDir, null, this._progressControle.txtAllDirPer, this._progressControle.txtAllDirNum, null, progressStore.TotalDirectories);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaActualDirFiles, this._progressControle.txtActualDir, this._progressControle.txtActualDirFilesPer, this._progressControle.txtActualDirFilesNum, null, progressStore.DirectroyFiles);
-                this._setControleValue.SetProgressCluster(this._progressControle.pbaActualFileByte, this._progressControle.txtActualFile, this._progressControle.txtActualFileBytePer, this._progressControle.txtActualFileByteNum, this._progressControle.cboActualFileByteNum, progressStore.FileBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.expAllItems, progressStore.TotalItems);
+                this._setControleValue.SetProgressCluster(this._progressControle.expAllByte, progressStore.TotalBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.expAllDir, progressStore.TotalDirectories);
+                this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.FileBytes);
 
                 // Get remaining time if counting was done
                 if (progressStore.TotalItems.MaxValue != null && progressStore.TotalItems.MaxValue > 0)
@@ -175,19 +175,16 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 DateTime ProgressStart = this._progressControle._progressStart;
                 TextBoxInv.Text(this._progressControle.txtCopyStart, ProgressStart.ToString(FORMAT_TIME));
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
-                TextBoxInv.Text(this._progressControle.txtActualDir, "");
-                TextBoxInv.Text(this._progressControle.txtActualFile, "");
+                this._progressControle.expActualDir.DescriptionText = "";
 
                 TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, this.TimeSpanForamt(this._progressControle.ElapsedTime));
 
-                ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
-                ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Blocks);
-                ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Blocks);
-                ProgressBarInv.Style(this._progressControle.pbaActualDirFiles, ProgressBarStyle.Blocks);
-                ProgressBarInv.Style(this._progressControle.pbaActualFileByte, ProgressBarStyle.Blocks);
-
-                ProgressBarInv.Value(this._progressControle.pbaActualDirFiles, 0);
-                ProgressBarInv.Value(this._progressControle.pbaActualFileByte, 0);
+                ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Style(this._progressControle.expActualDir, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Value(this._progressControle.expActualDir, 0);
+                ExtProgrBarInv.Value(this._progressControle.expActualDir, 0);
             }
             #endregion
 
@@ -200,15 +197,14 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 if (this._progressControle._progressStart == new DateTime(0)) this._progressControle._progressStart = DateTime.Now;
 
                 this._setControleValue.InitialControles();
-                this._setControleValue.InitialControles();
 
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0021);
 
                 DateTime ProgressStart = this._progressControle._progressStart;
                 TextBoxInv.Text(this._progressControle.txtCopyStart, ProgressStart.ToString(FORMAT_TIME));
-                ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Marquee);
-                ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Marquee);
-                ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Marquee);
+                ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Marquee);
+                ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Marquee);
+                ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Marquee);
             }
 
             /// <summary>
@@ -219,8 +215,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0022);
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
 
-                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualDir, null, null, null, progressStore.DirectroyFiles);
-                this._setControleValue.SetProgressCluster(null, this._progressControle.txtActualFile, null, null, null, progressStore.FileBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.DirectroyFiles);
+                this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.FileBytes);
             }
 
             /// <summary>
@@ -228,8 +224,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             /// </summary>
             internal void SetProgress_DeleteFinish()
             {
-                TextBoxInv.Text(this._progressControle.txtActualDir, "");
-                TextBoxInv.Text(this._progressControle.txtActualFile, "");
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0023);
                 this._setControleValue.ResetAllProgressBars(true, false);
             }
@@ -242,9 +236,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             internal void SetProgress_Cancel()
             {
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x001B);
-                ProgressBarInv.Style(this._progressControle.pbaAllItems, ProgressBarStyle.Blocks);
-                ProgressBarInv.Style(this._progressControle.pbaAllByte, ProgressBarStyle.Blocks);
-                ProgressBarInv.Style(this._progressControle.pbaAllDir, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Blocks);
             }
 
             /// <summary>

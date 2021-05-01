@@ -22,7 +22,6 @@
  * 
  * */
 
-using OLKI.Toolbox.DirectoryAndFile;
 using System;
 using System.Windows.Forms;
 
@@ -31,22 +30,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
     public partial class TaskProgress : UserControl
     {
         #region Constants
-        /// <summary>
-        /// Defines the SelectedIndex of this.cboAllByteNum by default
-        /// </summary>
-        private const int DEBAULT_COMBOBOX_ALL_BYTE_NUM_SELECTED_INDEX = 3;
-        /// <summary>
-        /// Defines the SelectedIndex of this.cboActualFileByteNum by default
-        /// </summary>
-        private const int DEBAULT_COMBOBOX_ACTUAL_BYTE_NUM_SELECTED_INDEX = 1;
-        /// <summary>
-        /// Defines the icon index for exception item on conclusion TabPage
-        /// </summary>
         private const int EXCEPTION_ICON_INDEX = 0;
-        /// <summary>
-        /// Defines the format for a actual and maximum value
-        /// </summary>
-        private const string FORMAT_ACTUAL_MAX_VALUE = "{0} / {1}";
         /// <summary>
         /// Defines the format to show time values
         /// </summary>
@@ -59,10 +43,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
         /// Defines the format to show time values with days
         /// </summary>
         private const string FORMAT_TIMESPAN_WITH_DAYS = @"dd\.hh\:mm\:ss";
-        /// <summary>
-        /// Defines the format for a string with a percentage number value
-        /// </summary>
-        private const string FORMAT_PERCENTAGE = @"{0}%";
         /// <summary>
         /// Defines the format for a string with a value number value
         /// </summary>
@@ -199,12 +179,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
             InitializeComponent();
 
             this._setProgressStates = new SetProgress(this);
-
-            // Initial size dimension comboboxes
-            FileSize.SetDimensionlistToComboBox(this.cboActualFileByteNum, FileSize.ByteBase.IEC, FileSize.ByteBase.SI, true, true);
-            this.cboActualFileByteNum.SelectedIndex = DEBAULT_COMBOBOX_ACTUAL_BYTE_NUM_SELECTED_INDEX;
-            FileSize.SetDimensionlistToComboBox(this.cboAllByteNum, FileSize.ByteBase.IEC, FileSize.ByteBase.SI, true, true);
-            this.cboAllByteNum.SelectedIndex = DEBAULT_COMBOBOX_ALL_BYTE_NUM_SELECTED_INDEX;
             this.lblStepText.Text = string.Empty;
         }
 
