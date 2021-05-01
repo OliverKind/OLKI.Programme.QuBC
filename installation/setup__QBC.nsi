@@ -112,6 +112,7 @@ Section ""
 
   File ".\..\bin\Release\changelog.txt"
   File ".\..\bin\Release\QuBC.exe"
+  File ".\..\bin\Release\Octokit.dll"
   File ".\..\bin\Release\OLKI.Toolbox.dll"
   File ".\..\bin\Release\doc\${InformationFile}"
   File ".\..\bin\Release\doc\${ReadmeFile}"
