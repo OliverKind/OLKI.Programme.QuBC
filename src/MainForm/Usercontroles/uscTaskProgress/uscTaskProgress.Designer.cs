@@ -229,13 +229,14 @@
             // 
             this.expActualDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.expActualDir.AutoByteDimension = false;
             this.expActualDir.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
             this.expActualDir.Location = new System.Drawing.Point(196, 165);
             this.expActualDir.MaxValue = ((long)(0));
             this.expActualDir.MinimumSize = new System.Drawing.Size(300, 23);
             this.expActualDir.Name = "expActualDir";
             this.expActualDir.ShowDimensionComboBox = false;
-            this.expActualDir.Size = new System.Drawing.Size(765, 49);
+            this.expActualDir.Size = new System.Drawing.Size(755, 49);
             this.expActualDir.TabIndex = 44;
             this.expActualDir.Value = ((long)(-1));
             // 
@@ -256,6 +257,7 @@
             // 
             this.expAllDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.expAllDir.AutoByteDimension = false;
             this.expAllDir.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
             this.expAllDir.Location = new System.Drawing.Point(196, 136);
             this.expAllDir.MaxValue = ((long)(0));
@@ -285,6 +287,7 @@
             // 
             this.expAllItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.expAllItems.AutoByteDimension = false;
             this.expAllItems.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
             this.expAllItems.Location = new System.Drawing.Point(196, 78);
             this.expAllItems.MaxValue = ((long)(0));

@@ -68,20 +68,7 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
                     TextBoxInv.Text(this._progressControle.txtCopyElapsed, "");
                     TextBoxInv.Text(this._progressControle.txtCopyRemainTime, "");
 
-                    this.ResetAllProgressIndicator();
-                }
-
-                /// <summary>
-                /// Set all textboxes to blank
-                /// </summary>
-                private void ResetAllProgressIndicator()
-                {
-                    this._progressControle.expActualDir.Clear();
-                    this._progressControle.expActualDir.Clear();
-                    this._progressControle.expAllDir.Clear();
-                    this._progressControle.expAllByte.Clear();
-                    this._progressControle.expAllItems.Clear();
-                    this._progressControle.expActualFile.Clear();
+                    this.ResetAllProgressBars(true, true);
                 }
 
                 /// <summary>

@@ -206,6 +206,7 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
                 TextBoxInv.Text(this._progressControle.txtCopyStart, ProgressStart.ToString(FORMAT_TIME));
                 ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Marquee);
                 ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Marquee);
+                ExtProgrBarInv.Style(this._progressControle.expActualDir, ProgressBarStyle.Marquee);
                 ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Marquee);
             }
 
