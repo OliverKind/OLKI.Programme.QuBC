@@ -242,6 +242,8 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
                 ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Blocks);
                 ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Blocks);
                 ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Style(this._progressControle.expActualDir, ProgressBarStyle.Blocks);
+                ExtProgrBarInv.Style(this._progressControle.expActualFile, ProgressBarStyle.Blocks);
             }
 
             /// <summary>
