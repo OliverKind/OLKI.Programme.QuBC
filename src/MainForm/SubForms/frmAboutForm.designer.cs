@@ -159,7 +159,7 @@
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(446, 17);
             this.lblCopyright.TabIndex = 2;
-            this.lblCopyright.Text = "Copyright: {0}";
+            this.lblCopyright.Text = "Copyright: {0}    -    LGPL";
             this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCompanyName
