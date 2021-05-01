@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * Set the progress in progress controle
@@ -23,12 +23,12 @@
  * */
 
 using OLKI.Programme.QuBC.Properties;
-using OLKI.Programme.QuBC.src.Project.Task;
+using OLKI.Programme.QuBC.Project.Task;
 using OLKI.Toolbox.Widgets.Invoke;
 using System;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
+namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
 {
     public partial class TaskProgress
     {

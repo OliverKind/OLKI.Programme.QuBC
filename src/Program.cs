@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * Root object of the application
@@ -27,7 +27,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src
+namespace OLKI.Programme.QuBC
 {
     /// <summary>
     /// Root object of the application

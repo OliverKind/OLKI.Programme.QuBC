@@ -58,7 +58,7 @@
     <ApplicationIcon>Program_Symbol.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>OLKI.Programme.QuBC.src.Program</StartupObject>
+    <StartupObject>OLKI.Programme.QuBC.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>

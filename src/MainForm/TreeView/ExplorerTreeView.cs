@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * Explorer TreeView for the application
@@ -29,7 +29,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src.MainForm
+namespace OLKI.Programme.QuBC.MainForm
 {
     /// <summary>
     /// Explorer TreeView for the application

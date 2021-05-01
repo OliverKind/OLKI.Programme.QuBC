@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * A class that provides all information to handle and save backup project.
@@ -32,7 +32,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace OLKI.Programme.QuBC.src.Project
+namespace OLKI.Programme.QuBC.Project
 {
     /// <summary>
     /// A class that provides all information to handle and save backup project. Setting it true will raise the

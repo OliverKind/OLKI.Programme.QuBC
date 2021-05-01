@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * The MainForm of the application
@@ -32,7 +32,7 @@ using System.Reflection;
 using System.Security.Principal;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src.MainForm
+namespace OLKI.Programme.QuBC.MainForm
 {
     /// <summary>
     /// The MainForm of the application

@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * Class that provide tools to manage the project
@@ -28,7 +28,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src
+namespace OLKI.Programme.QuBC
 {
     /// <summary>
     /// Class that provide tools to manage the project

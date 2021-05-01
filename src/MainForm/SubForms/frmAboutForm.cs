@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * A form to show informations about the application
@@ -26,7 +26,7 @@ using System;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src.MainForm.SubForms
+namespace OLKI.Programme.QuBC.MainForm.SubForms
 {
     /// <summary>
     /// A form to show informations about the application

@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * Count recursive all items and bytes to write an backup or resture it
@@ -22,13 +22,13 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
+using OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle;
 using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
-namespace OLKI.Programme.QuBC.src.Project.Task
+namespace OLKI.Programme.QuBC.Project.Task
 {
     /// <summary>
     /// Provides tools to write logfiles

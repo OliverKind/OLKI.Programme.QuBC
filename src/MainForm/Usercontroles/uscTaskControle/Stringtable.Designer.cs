@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle {
+namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle {
     using System;
     
     

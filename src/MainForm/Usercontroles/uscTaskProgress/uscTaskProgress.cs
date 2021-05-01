@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * User defined controle to show the progress of creating a backup or restore it
@@ -25,7 +25,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
+namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
 {
     public partial class TaskProgress : UserControl
     {

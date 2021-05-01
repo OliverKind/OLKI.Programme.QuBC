@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * Provide tool to write a new line to a log file
@@ -27,7 +27,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
+namespace OLKI.Programme.QuBC.Project.LogFileWriter
 {
     public partial class LogFile
     {

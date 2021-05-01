@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * Directory settings for process
@@ -25,7 +25,7 @@
 using System;
 using System.ComponentModel;
 
-namespace OLKI.Programme.QuBC.src.Project.Settings.Controle
+namespace OLKI.Programme.QuBC.Project.Settings.Controle
 {
     /// <summary>
     /// Class that provides the target for a backup or the source to restore it

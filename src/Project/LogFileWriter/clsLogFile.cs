@@ -1,8 +1,8 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2021
- * License:     LGPL
+ * Initial Author: Oliver Kind - 2021
+ * License:        LGPL
  * 
  * Desctiption:
  * Provide tools to write a Logfile for create an backup or restore it
@@ -22,11 +22,11 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
-using OLKI.Programme.QuBC.src.Project.Task;
+using OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle;
+using OLKI.Programme.QuBC.Project.Task;
 using System;
 
-namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
+namespace OLKI.Programme.QuBC.Project.LogFileWriter
 {
     public partial class LogFile
     {
