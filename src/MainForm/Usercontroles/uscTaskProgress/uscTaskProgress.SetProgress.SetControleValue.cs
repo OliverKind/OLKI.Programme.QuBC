@@ -81,15 +81,19 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
                     this._progressControle.expAllDir.Clear();
                     this._progressControle.expAllByte.Clear();
                     this._progressControle.expAllItems.Clear();
+                    this._progressControle.expActualFile.Clear();
                 }
 
                 /// <summary>
                 /// Set ProgressBars to blockstyle an zero if requested
                 /// </summary>
                 /// <param name="setBlockStyle">Set ProgressBars blockstyle if true</param>
-                /// <param name="setProgressToZero">Set ProgressBar values to zero if true</param>
-                public void ResetAllProgressBars(bool setBlockStyle, bool setProgressToZero)
+                /// <param name="clearProgressBars">Set ProgressBar values to zero if true</param>
+                public void ResetAllProgressBars(bool setBlockStyle, bool clearProgressBars)
                 {
+                    ExtProgrBarInv.DescriptionText(this._progressControle.expActualDir, "");
+                    ExtProgrBarInv.DescriptionText(this._progressControle.expActualFile, "");
+
                     if (setBlockStyle)
                     {
                         ExtProgrBarInv.Style(this._progressControle.expActualDir, ProgressBarStyle.Blocks);
@@ -97,15 +101,17 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
                         ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Blocks);
                         ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Blocks);
                         ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Blocks);
+                        ExtProgrBarInv.Style(this._progressControle.expActualFile, ProgressBarStyle.Blocks);
                     }
 
-                    if (setProgressToZero)
+                    if (clearProgressBars)
                     {
-                        ExtProgrBarInv.Value(this._progressControle.expActualDir, 0);
-                        ExtProgrBarInv.Value(this._progressControle.expActualDir, 0);
-                        ExtProgrBarInv.Value(this._progressControle.expAllByte, 0);
-                        ExtProgrBarInv.Value(this._progressControle.expAllDir, 0);
-                        ExtProgrBarInv.Value(this._progressControle.expAllItems, 0);
+                        ExtProgrBarInv.Value(this._progressControle.expActualDir, null);
+                        ExtProgrBarInv.Value(this._progressControle.expActualDir, null);
+                        ExtProgrBarInv.Value(this._progressControle.expAllByte, null);
+                        ExtProgrBarInv.Value(this._progressControle.expAllDir, null);
+                        ExtProgrBarInv.Value(this._progressControle.expAllItems, null);
+                        ExtProgrBarInv.Value(this._progressControle.expActualFile, null);
                     }
                 }
                 #endregion

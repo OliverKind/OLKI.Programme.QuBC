@@ -154,7 +154,7 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
                 this._setControleValue.SetProgressCluster(this._progressControle.expAllByte, progressStore.TotalBytes);
                 this._setControleValue.SetProgressCluster(this._progressControle.expAllDir, progressStore.TotalDirectories);
                 this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.DirectroyFiles);
-                this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.FileBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.expActualFile, progressStore.FileBytes);
 
                 // Get remaining time if counting was done
                 if (progressStore.TotalItems.MaxValue != null && progressStore.TotalItems.MaxValue > 0)
@@ -179,12 +179,14 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
 
                 TextBoxInv.Text(this._progressControle._conclusionDurationTextBox, this.TimeSpanForamt(this._progressControle.ElapsedTime));
 
+                ExtProgrBarInv.DescriptionText(this._progressControle.expActualDir, "");
+                ExtProgrBarInv.DescriptionText(this._progressControle.expActualFile, "");
                 ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Blocks);
                 ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Blocks);
                 ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Blocks);
                 ExtProgrBarInv.Style(this._progressControle.expActualDir, ProgressBarStyle.Blocks);
-                ExtProgrBarInv.Value(this._progressControle.expActualDir, 0);
-                ExtProgrBarInv.Value(this._progressControle.expActualDir, 0);
+                ExtProgrBarInv.Value(this._progressControle.expActualDir, null);
+                ExtProgrBarInv.Value(this._progressControle.expActualFile, null);
             }
             #endregion
 
@@ -216,7 +218,7 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
                 TextBoxInv.Text(this._progressControle.txtCopyElapsed, this.TimeSpanForamt(this._progressControle.ElapsedTime));
 
                 this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.DirectroyFiles);
-                this._setControleValue.SetProgressCluster(this._progressControle.expActualDir, progressStore.FileBytes);
+                this._setControleValue.SetProgressCluster(this._progressControle.expActualFile, progressStore.FileBytes);
             }
 
             /// <summary>
@@ -225,7 +227,7 @@ namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
             internal void SetProgress_DeleteFinish()
             {
                 LabelInv.Text(this._progressControle.lblStepText, Stringtable._0x0023);
-                this._setControleValue.ResetAllProgressBars(true, false);
+                this._setControleValue.ResetAllProgressBars(true, true);
             }
             #endregion
 
