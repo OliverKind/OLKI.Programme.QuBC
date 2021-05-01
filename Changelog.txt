@@ -1,16 +1,16 @@
+# QuBC - QuickBackupCreator
+
 # Change Log
 All notable changes to this project will be documented in this file.
 
-
-## [Unreleased]
+## [2.1.0.16] - 2021-05-01
 ### Added
-- N/A
-
-### Changed
-- N/A
+- Update function
 
 ### Fixed
-- N/A
+- "Process Canceled" not written to Logfile
+- Some direcotry and files missed from copying at some conditions
+- Files and subdirectorys missing from copying, if scope is changed from All to Selected
 
 ## [2.0.1.15] - 2021-03-06
 ### Fixed
