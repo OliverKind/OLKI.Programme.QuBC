@@ -330,5 +330,54 @@ namespace OLKI.Programme.QuBC.Properties {
                 this["ListItems_ShowHidden"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("QuBC__v{0}__Setup.exe")]
+        public string AppUpdate_SetupSearchPattern {
+            get {
+                return ((string)(this["AppUpdate_SetupSearchPattern"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool AppUpdate_CheckAtStartUp {
+            get {
+                return ((bool)(this["AppUpdate_CheckAtStartUp"]));
+            }
+            set {
+                this["AppUpdate_CheckAtStartUp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OliverKind")]
+        public string AppUpdate_Owner {
+            get {
+                return ((string)(this["AppUpdate_Owner"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OLKI.Programme.QuBC")]
+        public string AppUpdate_Name {
+            get {
+                return ((string)(this["AppUpdate_Name"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Changelog.txt")]
+        public string AppUpdate_ChangeLog {
+            get {
+                return ((string)(this["AppUpdate_ChangeLog"]));
+            }
+        }
     }
 }

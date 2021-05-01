@@ -62,6 +62,7 @@
             this.txtAddTextToFileDateFormat = new System.Windows.Forms.TextBox();
             this.chkAutoCheckFileAssociation = new System.Windows.Forms.CheckBox();
             this.erpDateFormat = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -74,7 +75,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(590, 324);
+            this.btnCancel.Location = new System.Drawing.Point(590, 340);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 23);
             this.btnCancel.TabIndex = 9;
@@ -84,7 +85,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(12, 324);
+            this.btnOk.Location = new System.Drawing.Point(12, 340);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 23);
             this.btnOk.TabIndex = 8;
@@ -98,7 +99,7 @@
             this.tolApplicationSettings.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tolApplicationSettings.Location = new System.Drawing.Point(703, 0);
             this.tolApplicationSettings.Name = "tolApplicationSettings";
-            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 359);
+            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 375);
             this.tolApplicationSettings.TabIndex = 10;
             this.tolApplicationSettings.Text = "toolStrip1";
             // 
@@ -385,13 +386,24 @@
             this.erpDateFormat.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.erpDateFormat.ContainerControl = this;
             // 
+            // chkCheckForUpdates
+            // 
+            this.chkCheckForUpdates.AutoSize = true;
+            this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 317);
+            this.chkCheckForUpdates.Name = "chkCheckForUpdates";
+            this.chkCheckForUpdates.Size = new System.Drawing.Size(245, 17);
+            this.chkCheckForUpdates.TabIndex = 11;
+            this.chkCheckForUpdates.Text = "Auf neue Progammversionen beim Start prüfen";
+            this.chkCheckForUpdates.UseVisualStyleBackColor = true;
+            // 
             // ApplicationSettingsForm
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(729, 359);
+            this.ClientSize = new System.Drawing.Size(729, 375);
+            this.Controls.Add(this.chkCheckForUpdates);
             this.Controls.Add(this.chkAutoCheckFileAssociation);
             this.Controls.Add(this.grbAddTextToFiile);
             this.Controls.Add(this.btnSetDefaults);
@@ -461,5 +473,6 @@
         private System.Windows.Forms.TextBox txtAddTextToFileDefaultText;
         private System.Windows.Forms.CheckBox chkAutoCheckFileAssociation;
         private System.Windows.Forms.ErrorProvider erpDateFormat;
+        private System.Windows.Forms.CheckBox chkCheckForUpdates;
     }
 }

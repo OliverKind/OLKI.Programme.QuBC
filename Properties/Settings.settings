@@ -83,5 +83,20 @@
     <Setting Name="ListItems_ShowHidden" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="AppUpdate_SetupSearchPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QuBC__v{0}__Setup.exe</Value>
+    </Setting>
+    <Setting Name="AppUpdate_CheckAtStartUp" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AppUpdate_Owner" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">OliverKind</Value>
+    </Setting>
+    <Setting Name="AppUpdate_Name" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">OLKI.Programme.QuBC</Value>
+    </Setting>
+    <Setting Name="AppUpdate_ChangeLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Changelog.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

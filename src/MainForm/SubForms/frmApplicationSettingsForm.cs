@@ -68,6 +68,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.txtDefaultPath.Text = Settings.Default.ProjectFile_DefaultPath;
             this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
             this.chkAutoCheckFileAssociation.Checked = Settings.Default.FileAssociation_CheckOnStartup;
+            this.chkCheckForUpdates.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
             this.chkShowDirectorysWithoutAccess.Checked = Settings.Default.ListItems_ShowWithoutAccess;
             this.chkShowSystemDirectory.Checked = Settings.Default.ListItems_ShowSystem;
             this.chkEypandTreeNodeOnClick.Checked = Settings.Default.ListItems_ExpandTreeNodeOnSingleClick;
@@ -164,6 +165,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Settings.Default.AppUpdate_CheckAtStartUp = this.chkCheckForUpdates.Checked;
             Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
             Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;

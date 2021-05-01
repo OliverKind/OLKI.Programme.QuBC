@@ -153,6 +153,25 @@ namespace OLKI.Programme.QuBC.src.MainForm
         }
 
         /// <summary>
+        /// Check for Updates for the Apllication and Install them if available
+        /// </summary>
+        private void AutoUpdate()
+        {
+            ReleaseData LastReleaseData = new UpdateApp().GetLastReleaseData(
+                Settings.Default.AppUpdate_Owner,
+                Settings.Default.AppUpdate_Name,
+                Settings.Default.AppUpdate_ChangeLog,
+                Settings.Default.AppUpdate_SetupSearchPattern);
+            ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
+            if (LastReleaseData.Version.Compare(ActualVersion) == ReleaseVersion.VersionCompare.Higher)
+            {
+                UpdateForm UpdateForm = new UpdateForm(LastReleaseData, ActualVersion.TagName);
+                if (UpdateForm.ShowDialog(this) == DialogResult.OK) Application.Exit();
+            }
+        }
+
+        /// <summary>
         /// Load the project on application startup. In the priority from args, from default settings, empy project
         /// </summary>
         /// <param name="args">Application start up arguments</param>
@@ -206,10 +225,10 @@ namespace OLKI.Programme.QuBC.src.MainForm
         private void SetFormTitle()
         {
             string ApplicationName = string.Empty;
-            object[] attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Reflection.AssemblyProductAttribute), false);
+            object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Reflection.AssemblyProductAttribute), false);
             if (attributes.Length > 0)
             {
-                ApplicationName = ((System.Reflection.AssemblyProductAttribute)attributes[0]).Product;
+                ApplicationName = ((AssemblyProductAttribute)attributes[0]).Product;
             }
             string ProjectName = Stringtable._0x0004;
             if (this._projectManager.ActiveProject.File != null && !string.IsNullOrEmpty(this._projectManager.ActiveProject.File.Name))
@@ -358,6 +377,9 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
             // Check for file association
             if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
+
+            // Check for Updates for the Apllication
+            if (Settings.Default.AppUpdate_CheckAtStartUp) this.AutoUpdate();
         }
         #endregion
 
@@ -675,30 +697,19 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.trvExplorer.ShowSystemDirectories = Properties.Settings.Default.ListItems_ShowSystem;
         }
 
+        private void mnuMain_Help_CheckUpdate_Click(object sender, EventArgs e)
+        {
+            this.AutoUpdate();
+        }
+
         private void mnuMain_Help_About_Click(object sender, EventArgs e)
         {
             this._frmAbout.ShowDialog(this);
         }
         #endregion
+
         #endregion
+
         #endregion
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //var Y = U.GetLastReleaseDataAsync("OliverKind", "OLKI.Programme.QuBC", "Changelog.txt", "QuBC__v{0}__Setup.exe");
-            ReleaseData LastReleaseData = new UpdateApp().GetLastReleaseData("OliverKind", "OLKI.Programme.QuBC", "Changelog.txt", Settings.Default.AppUpdate_RememberSetupSearchPattern);
-            ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
-
-            if (LastReleaseData.Version.Compare(ActualVersion) == ReleaseVersion.VersionCompare.Higher)
-            {
-                UpdateForm Upd = new UpdateForm(LastReleaseData, ActualVersion.TagName, Settings.Default.AppUpdate_RememberDays);
-                Upd.ShowDialog(this);
-                //MessageBox.Show(Assembly.GetExecutingAssembly().GetName().Version.ToString());
-            };
-
-
-
-            //_ = x;
-        }
     }
 }

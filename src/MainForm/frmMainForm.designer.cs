@@ -62,6 +62,8 @@
             this.mnuMain_Extras = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_Extras_Options = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_Help = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain_Help_CheckUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain_Help_SepAbout = new System.Windows.Forms.ToolStripSeparator();
             this.mnuMain_Help_About = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageSelect = new System.Windows.Forms.TabPage();
@@ -116,7 +118,6 @@
             this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.imlExceptionIcons = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -282,12 +283,24 @@
             // mnuMain_Help
             // 
             this.mnuMain_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuMain_Help_CheckUpdate,
+            this.mnuMain_Help_SepAbout,
             this.mnuMain_Help_About});
             this.mnuMain_Help.Name = "mnuMain_Help";
-            this.mnuMain_Help.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.S)));
             this.mnuMain_Help.Size = new System.Drawing.Size(44, 20);
             this.mnuMain_Help.Text = "&Hilfe";
+            // 
+            // mnuMain_Help_CheckUpdate
+            // 
+            this.mnuMain_Help_CheckUpdate.Name = "mnuMain_Help_CheckUpdate";
+            this.mnuMain_Help_CheckUpdate.Size = new System.Drawing.Size(226, 22);
+            this.mnuMain_Help_CheckUpdate.Text = "Nach Updates Suchen";
+            this.mnuMain_Help_CheckUpdate.Click += new System.EventHandler(this.mnuMain_Help_CheckUpdate_Click);
+            // 
+            // mnuMain_Help_SepAbout
+            // 
+            this.mnuMain_Help_SepAbout.Name = "mnuMain_Help_SepAbout";
+            this.mnuMain_Help_SepAbout.Size = new System.Drawing.Size(223, 6);
             // 
             // mnuMain_Help_About
             // 
@@ -340,7 +353,6 @@
             // 
             // spcExplorer.Panel1
             // 
-            this.spcExplorer.Panel1.Controls.Add(this.button1);
             this.spcExplorer.Panel1.Controls.Add(this.trvExplorer);
             this.spcExplorer.Panel1MinSize = 230;
             // 
@@ -899,16 +911,6 @@
             this.imlExceptionIcons.TransparentColor = System.Drawing.Color.Transparent;
             this.imlExceptionIcons.Images.SetKeyName(0, "eventlogWarn.ico");
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(64, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 180);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1009,6 +1011,7 @@
         private System.Windows.Forms.SplitContainer spcExplorer;
         private System.Windows.Forms.ImageList imlListViewIcon;
         private System.Windows.Forms.Label lblDirectoryScopeDisabled;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem mnuMain_Help_CheckUpdate;
+        private System.Windows.Forms.ToolStripSeparator mnuMain_Help_SepAbout;
     }
 }
