@@ -524,5 +524,23 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x0025m", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Auf Aktualisierung prüfen. ähnelt.
+        /// </summary>
+        internal static string _0x0026c {
+            get {
+                return ResourceManager.GetString("0x0026c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ihre Progammversion ist aktuell. ähnelt.
+        /// </summary>
+        internal static string _0x0026m {
+            get {
+                return ResourceManager.GetString("0x0026m", resourceCulture);
+            }
+        }
     }
 }

@@ -155,7 +155,7 @@ namespace OLKI.Programme.QuBC.MainForm
         /// <summary>
         /// Check for Updates for the Apllication and Install them if available
         /// </summary>
-        private void AutoUpdate()
+        private void AutoUpdate(bool messageIfNoUpToDate)
         {
             ReleaseData LastReleaseData = new UpdateApp().GetLastReleaseData(
                 Settings.Default.AppUpdate_Owner,
@@ -168,6 +168,10 @@ namespace OLKI.Programme.QuBC.MainForm
             {
                 UpdateForm UpdateForm = new UpdateForm(LastReleaseData, ActualVersion.TagName);
                 if (UpdateForm.ShowDialog(this) == DialogResult.OK) Application.Exit();
+            }
+            else
+            {
+                if (messageIfNoUpToDate) MessageBox.Show(this, Stringtable._0x0026m, Stringtable._0x0026c, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -379,7 +383,7 @@ namespace OLKI.Programme.QuBC.MainForm
             if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
 
             // Check for Updates for the Apllication
-            if (Settings.Default.AppUpdate_CheckAtStartUp) this.AutoUpdate();
+            if (Settings.Default.AppUpdate_CheckAtStartUp) this.AutoUpdate(false);
         }
         #endregion
 
@@ -692,14 +696,14 @@ namespace OLKI.Programme.QuBC.MainForm
                 this._recentFiles.FileList.Clear();
                 this.SetRecentFilesSettingsAndMenue();
             }
-            this.trvExplorer.ShowHiddenDirectories = Properties.Settings.Default.ListItems_ShowHidden;
-            this.trvExplorer.ShowDirectoriesWithoutAccess = Properties.Settings.Default.ListItems_ShowWithoutAccess;
-            this.trvExplorer.ShowSystemDirectories = Properties.Settings.Default.ListItems_ShowSystem;
+            this.trvExplorer.ShowHiddenDirectories = Settings.Default.ListItems_ShowHidden;
+            this.trvExplorer.ShowDirectoriesWithoutAccess = Settings.Default.ListItems_ShowWithoutAccess;
+            this.trvExplorer.ShowSystemDirectories = Settings.Default.ListItems_ShowSystem;
         }
 
         private void mnuMain_Help_CheckUpdate_Click(object sender, EventArgs e)
         {
-            this.AutoUpdate();
+            this.AutoUpdate(true);
         }
 
         private void mnuMain_Help_About_Click(object sender, EventArgs e)
@@ -707,9 +711,7 @@ namespace OLKI.Programme.QuBC.MainForm
             this._frmAbout.ShowDialog(this);
         }
         #endregion
-
         #endregion
-
         #endregion
     }
 }

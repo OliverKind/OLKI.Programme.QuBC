@@ -295,4 +295,10 @@ Sind Sie sicher das Sie diesen Vorgang durchführen möchten?</value>
 
 Sollen weitere Meldungen dieser Art unterdrückt werden?</value>
   </data>
+  <data name="0x0026c" xml:space="preserve">
+    <value>Auf Aktualisierung prüfen.</value>
+  </data>
+  <data name="0x0026m" xml:space="preserve">
+    <value>Ihre Progammversion ist aktuell.</value>
+  </data>
 </root>
