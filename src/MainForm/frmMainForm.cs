@@ -154,15 +154,27 @@ namespace OLKI.Programme.QuBC.MainForm
 
         /// <summary>
         /// Check for Updates for the Apllication and Install them if available
+        /// <paramref name="hideMessages"/>Hide Messages for no update or if update data can't be determinated</paramref>
         /// </summary>
-        private void AutoUpdate(bool messageIfNoUpToDate)
+        private void AutoUpdate(bool hideMessages)
         {
             ReleaseData LastReleaseData = new UpdateApp().GetLastReleaseData(
                 Settings.Default.AppUpdate_Owner,
                 Settings.Default.AppUpdate_Name,
                 Settings.Default.AppUpdate_ChangeLog,
-                Settings.Default.AppUpdate_SetupSearchPattern);
+                Settings.Default.AppUpdate_SetupSearchPattern,
+                out Exception GetDataEx);
             ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
+            if (LastReleaseData == null && GetDataEx != null && !hideMessages)
+            {
+                string ExMessage = GetDataEx.Message;
+                ExMessage += this.IntterExceptionMessageRecursive(GetDataEx);
+                MessageBox.Show(this, string.Format(Stringtable._0x0027m, new object[] { ExMessage }), Stringtable._0x0027c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //Exit if failed to determinate last release data
+            if (LastReleaseData == null) return;
 
             if (LastReleaseData.Version.Compare(ActualVersion) == ReleaseVersion.VersionCompare.Higher)
             {
@@ -171,8 +183,22 @@ namespace OLKI.Programme.QuBC.MainForm
             }
             else
             {
-                if (messageIfNoUpToDate) MessageBox.Show(this, Stringtable._0x0026m, Stringtable._0x0026c, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!hideMessages) MessageBox.Show(this, Stringtable._0x0026m, Stringtable._0x0026c, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        /// <summary>
+        /// Get inner InnerException Messages recursive
+        /// </summary>
+        /// <param name="exception">Exception to get InnerException Messages from</param>
+        /// <returns>InnerException Messages. A new line for every Message, beginnen with an -.</returns>
+        private string IntterExceptionMessageRecursive(Exception exception)
+        {
+            if (exception.InnerException != null)
+            {
+                return "\n- " + exception.InnerException.Message + IntterExceptionMessageRecursive(exception.InnerException);
+            }
+            return "";
         }
 
         /// <summary>
@@ -284,7 +310,6 @@ namespace OLKI.Programme.QuBC.MainForm
                 if (this.rabSaveAll.Checked) Scope = Project.Project.DirectoryScope.All;
                 if (this.rabSaveSelected.Checked) Scope = Project.Project.DirectoryScope.Selected;
 
-
                 switch (Scope)
                 {
                     case Project.Project.DirectoryScope.All:
@@ -383,7 +408,7 @@ namespace OLKI.Programme.QuBC.MainForm
             if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
 
             // Check for Updates for the Apllication
-            if (Settings.Default.AppUpdate_CheckAtStartUp) this.AutoUpdate(false);
+            if (Settings.Default.AppUpdate_CheckAtStartUp) this.AutoUpdate(true);
         }
         #endregion
 
@@ -703,7 +728,7 @@ namespace OLKI.Programme.QuBC.MainForm
 
         private void mnuMain_Help_CheckUpdate_Click(object sender, EventArgs e)
         {
-            this.AutoUpdate(true);
+            this.AutoUpdate(false);
         }
 
         private void mnuMain_Help_About_Click(object sender, EventArgs e)

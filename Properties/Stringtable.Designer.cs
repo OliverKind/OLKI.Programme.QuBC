@@ -526,7 +526,7 @@ namespace OLKI.Programme.QuBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Auf Aktualisierung prüfen. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Auf Aktualisierungen prüfen. ähnelt.
         /// </summary>
         internal static string _0x0026c {
             get {
@@ -535,11 +535,31 @@ namespace OLKI.Programme.QuBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Ihre Progammversion ist aktuell. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sie verwenden die aktuelle Version dieser Software. ähnelt.
         /// </summary>
         internal static string _0x0026m {
             get {
                 return ResourceManager.GetString("0x0026m", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Prüfen auf Aktualisierungen. ähnelt.
+        /// </summary>
+        internal static string _0x0027c {
+            get {
+                return ResourceManager.GetString("0x0027c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Beim Prüfen auf neue Versionen des Programms ist ein Fehler aufgetreten.
+        ///
+        ///{0} ähnelt.
+        /// </summary>
+        internal static string _0x0027m {
+            get {
+                return ResourceManager.GetString("0x0027m", resourceCulture);
             }
         }
     }

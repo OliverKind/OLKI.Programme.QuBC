@@ -296,9 +296,17 @@ Sind Sie sicher das Sie diesen Vorgang durchführen möchten?</value>
 Sollen weitere Meldungen dieser Art unterdrückt werden?</value>
   </data>
   <data name="0x0026c" xml:space="preserve">
-    <value>Auf Aktualisierung prüfen.</value>
+    <value>Auf Aktualisierungen prüfen.</value>
   </data>
   <data name="0x0026m" xml:space="preserve">
-    <value>Ihre Progammversion ist aktuell.</value>
+    <value>Sie verwenden die aktuelle Version dieser Software.</value>
+  </data>
+  <data name="0x0027c" xml:space="preserve">
+    <value>Fehler beim Prüfen auf Aktualisierungen.</value>
+  </data>
+  <data name="0x0027m" xml:space="preserve">
+    <value>Beim Prüfen auf neue Versionen des Programms ist ein Fehler aufgetreten.
+
+{0}</value>
   </data>
 </root>
