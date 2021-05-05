@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.QuBC.MainForm.SubForms
+﻿namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 {
     internal partial class ApplicationSettingsForm
     {

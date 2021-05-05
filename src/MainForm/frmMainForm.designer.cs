@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.QuBC.MainForm
+﻿namespace OLKI.Programme.QuBC.src.MainForm
 {
 	partial class MainForm
 	{
@@ -68,7 +68,7 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageSelect = new System.Windows.Forms.TabPage();
             this.spcExplorer = new System.Windows.Forms.SplitContainer();
-            this.trvExplorer = new OLKI.Programme.QuBC.MainForm.ExplorerTreeView();
+            this.trvExplorer = new OLKI.Programme.QuBC.src.MainForm.ExplorerTreeView();
             this.imlTreeViewIcons = new System.Windows.Forms.ImageList(this.components);
             this.grbDirectoryScope = new System.Windows.Forms.GroupBox();
             this.rabSaveNothing = new System.Windows.Forms.RadioButton();
@@ -88,14 +88,14 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.tabPageBackup = new System.Windows.Forms.TabPage();
             this.grbTaskControleBackup = new System.Windows.Forms.GroupBox();
-            this.uscTaskControleBackup = new OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle.TaskControle();
+            this.uscTaskControleBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
             this.grbTaskProgressBackup = new System.Windows.Forms.GroupBox();
-            this.uscTaskProgressBackup = new OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.TaskProgress();
+            this.uscTaskProgressBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageRestore = new System.Windows.Forms.TabPage();
             this.grbTaskControleRestore = new System.Windows.Forms.GroupBox();
-            this.uscTaskControleRestore = new OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle.TaskControle();
+            this.uscTaskControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
             this.grbTaskProgressRestore = new System.Windows.Forms.GroupBox();
-            this.uscTaskProgressRestore = new OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress.TaskProgress();
+            this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
             this.lsvErrorLog = new OLKI.Toolbox.Widgets.SortListView();
@@ -620,7 +620,7 @@
             this.uscTaskControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uscTaskControleBackup.Location = new System.Drawing.Point(0, 17);
-            this.uscTaskControleBackup.Mode = OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.CreateBackup;
+            this.uscTaskControleBackup.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.CreateBackup;
             this.uscTaskControleBackup.Name = "uscTaskControleBackup";
             this.uscTaskControleBackup.Size = new System.Drawing.Size(957, 235);
             this.uscTaskControleBackup.TabIndex = 0;
@@ -675,7 +675,7 @@
             this.uscTaskControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uscTaskControleRestore.Location = new System.Drawing.Point(0, 17);
-            this.uscTaskControleRestore.Mode = OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.RestoreBackup;
+            this.uscTaskControleRestore.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.RestoreBackup;
             this.uscTaskControleRestore.Name = "uscTaskControleRestore";
             this.uscTaskControleRestore.Size = new System.Drawing.Size(957, 235);
             this.uscTaskControleRestore.TabIndex = 0;

@@ -29,7 +29,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.MainForm
+namespace OLKI.Programme.QuBC.src.MainForm
 {
     /// <summary>
     /// Explorer TreeView for the application

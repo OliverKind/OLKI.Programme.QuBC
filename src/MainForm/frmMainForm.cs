@@ -32,7 +32,7 @@ using System.Reflection;
 using System.Security.Principal;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.MainForm
+namespace OLKI.Programme.QuBC.src.MainForm
 {
     /// <summary>
     /// The MainForm of the application
@@ -156,9 +156,10 @@ namespace OLKI.Programme.QuBC.MainForm
         /// Check for Updates for the Apllication and Install them if available
         /// <paramref name="hideMessages"/>Hide Messages for no update or if update data can't be determinated</paramref>
         /// </summary>
-        private void AutoUpdate(bool hideMessages)
+        private void CheckForUpdate(bool hideMessages)
         {
-            ReleaseData LastReleaseData = new UpdateApp().GetLastReleaseData(
+            UpdateApp AppUpdater = new UpdateApp();
+            ReleaseData LastReleaseData = AppUpdater.GetLastReleaseData(
                 Settings.Default.AppUpdate_Owner,
                 Settings.Default.AppUpdate_Name,
                 Settings.Default.AppUpdate_ChangeLog,
@@ -166,39 +167,8 @@ namespace OLKI.Programme.QuBC.MainForm
                 out Exception GetDataEx);
             ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
-            if (LastReleaseData == null && GetDataEx != null && !hideMessages)
-            {
-                string ExMessage = GetDataEx.Message;
-                ExMessage += this.IntterExceptionMessageRecursive(GetDataEx);
-                MessageBox.Show(this, string.Format(Stringtable._0x0027m, new object[] { ExMessage }), Stringtable._0x0027c, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            //Exit if failed to determinate last release data
-            if (LastReleaseData == null) return;
-
-            if (LastReleaseData.Version.Compare(ActualVersion) == ReleaseVersion.VersionCompare.Higher)
-            {
-                UpdateForm UpdateForm = new UpdateForm(LastReleaseData, ActualVersion.TagName);
-                if (UpdateForm.ShowDialog(this) == DialogResult.OK) Application.Exit();
-            }
-            else
-            {
-                if (!hideMessages) MessageBox.Show(this, Stringtable._0x0026m, Stringtable._0x0026c, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        /// <summary>
-        /// Get inner InnerException Messages recursive
-        /// </summary>
-        /// <param name="exception">Exception to get InnerException Messages from</param>
-        /// <returns>InnerException Messages. A new line for every Message, beginnen with an -.</returns>
-        private string IntterExceptionMessageRecursive(Exception exception)
-        {
-            if (exception.InnerException != null)
-            {
-                return "\n- " + exception.InnerException.Message + IntterExceptionMessageRecursive(exception.InnerException);
-            }
-            return "";
+            // Exit application if update was downloaded
+            if (AppUpdater.UpdateDownload(this, ActualVersion, LastReleaseData, GetDataEx, hideMessages)) Application.Exit();
         }
 
         /// <summary>
@@ -408,7 +378,7 @@ namespace OLKI.Programme.QuBC.MainForm
             if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
 
             // Check for Updates for the Apllication
-            if (Settings.Default.AppUpdate_CheckAtStartUp) this.AutoUpdate(true);
+            if (Settings.Default.AppUpdate_CheckAtStartUp) this.CheckForUpdate(true);
         }
         #endregion
 
@@ -728,7 +698,7 @@ namespace OLKI.Programme.QuBC.MainForm
 
         private void mnuMain_Help_CheckUpdate_Click(object sender, EventArgs e)
         {
-            this.AutoUpdate(false);
+            this.CheckForUpdate(false);
         }
 
         private void mnuMain_Help_About_Click(object sender, EventArgs e)

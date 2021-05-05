@@ -22,7 +22,7 @@
  * 
  * */
 
-namespace OLKI.Programme.QuBC.Project.Task
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// A class to store the progess of an backup or restore process

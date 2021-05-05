@@ -23,14 +23,14 @@
  * */
 
 using OLKI.Toolbox.DirectoryAndFile;
-using OLKI.Programme.QuBC.Project.Task;
+using OLKI.Programme.QuBC.src.Project.Task;
 using OLKI.Programme.QuBC.Properties;
-using OLKI.Programme.QuBC.Project.LogFileWriter;
+using OLKI.Programme.QuBC.src.Project.LogFileWriter;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle
+namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 {
     /// <summary>
     /// Controle to controle the backup or restore process

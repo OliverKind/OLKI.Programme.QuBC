@@ -28,7 +28,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC
+namespace OLKI.Programme.QuBC.src
 {
     /// <summary>
     /// Class that provide tools to manage the project

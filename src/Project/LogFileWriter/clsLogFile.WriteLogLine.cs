@@ -27,7 +27,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.Project.LogFileWriter
+namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
 {
     public partial class LogFile
     {

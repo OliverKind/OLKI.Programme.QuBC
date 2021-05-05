@@ -25,7 +25,7 @@
 using System;
 using System.ComponentModel;
 
-namespace OLKI.Programme.QuBC.Project.Settings.Controle
+namespace OLKI.Programme.QuBC.src.Project.Settings.Controle
 {
     /// <summary>
     /// Class that provides the target for a backup or the source to restore it

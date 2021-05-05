@@ -26,7 +26,7 @@ using OLKI.Programme.QuBC.Properties;
 using System;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.MainForm.SubForms
+namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 {
     /// <summary>
     /// A form to change the settings of the application

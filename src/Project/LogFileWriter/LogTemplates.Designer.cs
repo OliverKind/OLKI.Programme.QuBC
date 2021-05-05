@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OLKI.Programme.QuBC.Project.LogFileWriter {
+namespace OLKI.Programme.QuBC.src.Project.LogFileWriter {
     using System;
     
     

@@ -24,7 +24,7 @@
 
 using System;
 
-namespace OLKI.Programme.QuBC.Project.Task
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// Class that provide informations if an process (count or copy) throws an exception

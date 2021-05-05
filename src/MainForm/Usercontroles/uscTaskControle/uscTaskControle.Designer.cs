@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle
+﻿namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 {
     partial class TaskControle
     {

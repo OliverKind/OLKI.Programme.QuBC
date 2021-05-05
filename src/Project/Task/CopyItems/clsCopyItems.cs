@@ -22,14 +22,14 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
-namespace OLKI.Programme.QuBC.Project.Task
+namespace OLKI.Programme.QuBC.src.Project.Task
 {
     /// <summary>
     /// Provides tools to write logfiles

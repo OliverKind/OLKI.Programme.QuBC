@@ -25,7 +25,7 @@
 using System;
 using System.ComponentModel;
 
-namespace OLKI.Programme.QuBC.Project.Settings
+namespace OLKI.Programme.QuBC.src.Project.Settings
 {
     /// <summary>
     /// A class that provides project settings

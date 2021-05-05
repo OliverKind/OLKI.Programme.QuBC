@@ -23,12 +23,12 @@
  * */
 
 using OLKI.Programme.QuBC.Properties;
-using OLKI.Programme.QuBC.Project.Task;
+using OLKI.Programme.QuBC.src.Project.Task;
 using OLKI.Toolbox.Widgets.Invoke;
 using System;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.MainForm.Usercontroles.uscProgress
+namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 {
     public partial class TaskProgress
     {

@@ -27,7 +27,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC
+namespace OLKI.Programme.QuBC.src
 {
     /// <summary>
     /// Root object of the application

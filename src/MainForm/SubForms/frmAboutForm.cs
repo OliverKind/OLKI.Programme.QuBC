@@ -26,7 +26,7 @@ using System;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.MainForm.SubForms
+namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 {
     /// <summary>
     /// A form to show informations about the application

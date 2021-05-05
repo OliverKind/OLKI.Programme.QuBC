@@ -26,7 +26,7 @@ using OLKI.Toolbox.DirectoryAndFile;
 using System;
 using System.ComponentModel;
 
-namespace OLKI.Programme.QuBC.Project.Settings.Common
+namespace OLKI.Programme.QuBC.src.Project.Settings.Common
 {
     /// <summary>
     /// A class that provides project common settings for file handling

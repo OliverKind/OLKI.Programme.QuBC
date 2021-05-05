@@ -32,7 +32,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace OLKI.Programme.QuBC.Project
+namespace OLKI.Programme.QuBC.src.Project
 {
     /// <summary>
     /// A class that provides all information to handle and save backup project. Setting it true will raise the

@@ -30,7 +30,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.QuBC.MainForm
+namespace OLKI.Programme.QuBC.src.MainForm
 {
     /// <summary>
     /// Tolls for handling the main form

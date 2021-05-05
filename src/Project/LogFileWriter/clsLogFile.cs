@@ -22,11 +22,11 @@
  * 
  * */
 
-using OLKI.Programme.QuBC.MainForm.Usercontroles.uscTaskControle;
-using OLKI.Programme.QuBC.Project.Task;
+using OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle;
+using OLKI.Programme.QuBC.src.Project.Task;
 using System;
 
-namespace OLKI.Programme.QuBC.Project.LogFileWriter
+namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
 {
     public partial class LogFile
     {
