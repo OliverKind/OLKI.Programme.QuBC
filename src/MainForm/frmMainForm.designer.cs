@@ -294,7 +294,7 @@
             // 
             this.mnuMain_Help_CheckUpdate.Name = "mnuMain_Help_CheckUpdate";
             this.mnuMain_Help_CheckUpdate.Size = new System.Drawing.Size(226, 22);
-            this.mnuMain_Help_CheckUpdate.Text = "Nach Updates Suchen";
+            this.mnuMain_Help_CheckUpdate.Text = "Nach Updates suchen";
             this.mnuMain_Help_CheckUpdate.Click += new System.EventHandler(this.mnuMain_Help_CheckUpdate_Click);
             // 
             // mnuMain_Help_SepAbout
