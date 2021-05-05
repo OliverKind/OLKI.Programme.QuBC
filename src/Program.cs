@@ -23,8 +23,11 @@
  * */
 
 using OLKI.Programme.QuBC.Properties;
+using OLKI.Toolbox.DirectoryAndFile;
+using OLKI.Toolbox.UpdateApp;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace OLKI.Programme.QuBC.src
@@ -92,12 +95,12 @@ namespace OLKI.Programme.QuBC.src
         internal static void CheckFileAssociationAndSet(bool showMessageIfAssociated)
         {
             // Get Path to Icon
-            string IconPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string IconPath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             IconPath += @"\";
             IconPath += Settings.Default.FileAssociation_ExtensionIconFile;
 
             // Check File Association
-            OLKI.Toolbox.DirectoryAndFile.FileAssociation.CheckMatchWithApplicationAndSet(
+            FileAssociation.CheckMatchWithApplicationAndSet(
                 Application.ExecutablePath,
                 "." + Settings.Default.ProjectFile_DefaultExtension,
                 Settings.Default.ProjectFile_DefaultExtension,
@@ -105,6 +108,26 @@ namespace OLKI.Programme.QuBC.src
                 Settings.Default.FileAssociation_ExtensionDescription,
                 IconPath,
                 showMessageIfAssociated);
+        }
+
+        /// <summary>
+        /// Check for Updates for the Apllication and Install them if available
+        /// <param name="mainForm">MainForm of the Application</param>
+        /// <paramref name="hideMessages"/>Hide Messages for no update or if update data can't be determinated</paramref>
+        /// </summary>
+        internal static void CheckForUpdate(IWin32Window mainForm, bool hideMessages)
+        {
+            UpdateApp AppUpdater = new UpdateApp();
+            ReleaseData LastReleaseData = AppUpdater.GetLastReleaseData(
+                Settings.Default.AppUpdate_Owner,
+                Settings.Default.AppUpdate_Name,
+                Settings.Default.AppUpdate_ChangeLog,
+                Settings.Default.AppUpdate_SetupSearchPattern,
+                out Exception GetDataEx);
+            ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
+            // Exit application if update was downloaded
+            if (AppUpdater.UpdateDownload(mainForm, ActualVersion, LastReleaseData, GetDataEx, hideMessages)) Application.Exit();
         }
         #endregion
     }

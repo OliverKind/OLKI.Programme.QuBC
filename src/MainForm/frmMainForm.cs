@@ -24,7 +24,6 @@
 
 using OLKI.Programme.QuBC.Properties;
 using OLKI.Toolbox.Common;
-using OLKI.Toolbox.UpdateApp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -150,25 +149,6 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
             // Initial directory content area
             this.trvExplorer_AfterSelect(this, new TreeViewEventArgs(null));
-        }
-
-        /// <summary>
-        /// Check for Updates for the Apllication and Install them if available
-        /// <paramref name="hideMessages"/>Hide Messages for no update or if update data can't be determinated</paramref>
-        /// </summary>
-        private void CheckForUpdate(bool hideMessages)
-        {
-            UpdateApp AppUpdater = new UpdateApp();
-            ReleaseData LastReleaseData = AppUpdater.GetLastReleaseData(
-                Settings.Default.AppUpdate_Owner,
-                Settings.Default.AppUpdate_Name,
-                Settings.Default.AppUpdate_ChangeLog,
-                Settings.Default.AppUpdate_SetupSearchPattern,
-                out Exception GetDataEx);
-            ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
-
-            // Exit application if update was downloaded
-            if (AppUpdater.UpdateDownload(this, ActualVersion, LastReleaseData, GetDataEx, hideMessages)) Application.Exit();
         }
 
         /// <summary>
@@ -378,7 +358,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             if (Settings.Default.FileAssociation_CheckOnStartup) Program.CheckFileAssociationAndSet(false);
 
             // Check for Updates for the Apllication
-            if (Settings.Default.AppUpdate_CheckAtStartUp) this.CheckForUpdate(true);
+            if (Settings.Default.AppUpdate_CheckAtStartUp) Program.CheckForUpdate(this, true);
         }
         #endregion
 
@@ -698,7 +678,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
         private void mnuMain_Help_CheckUpdate_Click(object sender, EventArgs e)
         {
-            this.CheckForUpdate(false);
+            Program.CheckForUpdate(this, false);
         }
 
         private void mnuMain_Help_About_Click(object sender, EventArgs e)
