@@ -1,7 +1,9 @@
 # QuBC - QuickBackupCreator
 
-# Change Log
-All notable changes to this project will be documented in this file.
+## [2.1.1.17] - 2021-05-09
+### Fixed
+- Remove unhandlet Exceptions while seeking for Apllication updates
+- Remove useless decimal digits at ProgressBars
 
 ## [2.1.0.16] - 2021-05-01
 ### Added

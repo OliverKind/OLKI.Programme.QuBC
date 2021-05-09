@@ -1,4 +1,4 @@
-;NSIS Installer for QuBC 2.1.0.16
+;NSIS Installer for QuBC 2.1.1.17
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'QuBC'
-  !define Version          '2.1.0.16'
+  !define Version          '2.1.1.17'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um schnell Datensicherungen zu erstellen'
   !define Copyright        '2021 - Oliver Kind'
@@ -54,7 +54,7 @@
   ;Install Pages
   !insertmacro MUI_PAGE_WELCOME
     !define MUI_LICENSEPAGE_RADIOBUTTONS
-  !insertmacro MUI_PAGE_LICENSE .\..\doc\${EulaFile}
+  !insertmacro MUI_PAGE_LICENSE .\..\bin\Release\licenses\${EulaFile}
     !define MUI_PAGE_HEADER_TEXT "Installationshinweise"
     !define MUI_PAGE_HEADER_SUBTEXT "Bitte lesen Sie die Hinweise zur Installation der Software"
   !insertmacro MUI_PAGE_LICENSE .\..\doc\${InformationFile}
