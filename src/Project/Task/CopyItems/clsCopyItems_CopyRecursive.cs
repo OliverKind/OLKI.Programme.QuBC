@@ -81,6 +81,9 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 if (!sourceDirectory.Exists)
                 {
                     this._progress.Exception.Exception = new Exception(Properties.Stringtable._0x000C, null);
+                    this._progress.Exception.Level = TaskException.ExceptionLevel.Slight;
+                    this._progress.Exception.Source = sourceDirectory.FullName;
+                    this._progress.Exception.Target = TargetDirectory.FullName;
                     worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
 
                     return TaskException.ExceptionLevel.Slight;
