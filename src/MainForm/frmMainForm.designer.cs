@@ -48,6 +48,7 @@
             this.mnuMain_File = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_File_New = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_File_Open = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain_File_Clean = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_File_SepSave = new System.Windows.Forms.ToolStripSeparator();
             this.mnuMain_File_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain_File_SaveAs = new System.Windows.Forms.ToolStripMenuItem();
@@ -153,6 +154,7 @@
             this.mnuMain_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuMain_File_New,
             this.mnuMain_File_Open,
+            this.mnuMain_File_Clean,
             this.mnuMain_File_SepSave,
             this.mnuMain_File_Save,
             this.mnuMain_File_SaveAs,
@@ -181,6 +183,16 @@
             this.mnuMain_File_Open.Size = new System.Drawing.Size(291, 22);
             this.mnuMain_File_Open.Text = "Profil &öffnen";
             this.mnuMain_File_Open.Click += new System.EventHandler(this.mnuMain_File_Open_Click);
+            // 
+            // mnuMain_File_Clean
+            // 
+            this.mnuMain_File_Clean.Image = ((System.Drawing.Image)(resources.GetObject("mnuMain_File_Clean.Image")));
+            this.mnuMain_File_Clean.Name = "mnuMain_File_Clean";
+            this.mnuMain_File_Clean.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.C)));
+            this.mnuMain_File_Clean.Size = new System.Drawing.Size(291, 22);
+            this.mnuMain_File_Clean.Text = "Projektdatei &bereinigen";
+            this.mnuMain_File_Clean.Click += new System.EventHandler(this.mnuMain_File_Clean_Click);
             // 
             // mnuMain_File_SepSave
             // 
@@ -1013,5 +1025,6 @@
         private System.Windows.Forms.Label lblDirectoryScopeDisabled;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_Help_CheckUpdate;
         private System.Windows.Forms.ToolStripSeparator mnuMain_Help_SepAbout;
+        private System.Windows.Forms.ToolStripMenuItem mnuMain_File_Clean;
     }
 }

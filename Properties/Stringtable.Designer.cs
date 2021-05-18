@@ -562,5 +562,47 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x0027m", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Projektdatei bereinigen? ähnelt.
+        /// </summary>
+        internal static string _0x0028c {
+            get {
+                return ResourceManager.GetString("0x0028c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Projektdatei wird bereinig.
+        ///    1. Alle nicht vorhandenen Verweise auf Quellordner werden aus dem Projekt entfernt.
+        ///    2. Alle nicht vorhandenen Verweise auf Quelldateien werden aus dem Projekt entfernt.
+        ///
+        ///Möchten Sie fortfahren? ähnelt.
+        /// </summary>
+        internal static string _0x0028m {
+            get {
+                return ResourceManager.GetString("0x0028m", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Projektdatei bereinigt. ähnelt.
+        /// </summary>
+        internal static string _0x0029c {
+            get {
+                return ResourceManager.GetString("0x0029c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Projektdatei wurde bereinigt.
+        ///    {0} gelöschte Ordnerverweise
+        ///    {1} gelöschte Dateiverweise ähnelt.
+        /// </summary>
+        internal static string _0x0029m {
+            get {
+                return ResourceManager.GetString("0x0029m", resourceCulture);
+            }
+        }
     }
 }

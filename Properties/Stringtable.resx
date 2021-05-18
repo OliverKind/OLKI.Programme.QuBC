@@ -309,4 +309,22 @@ Sollen weitere Meldungen dieser Art unterdrückt werden?</value>
 
 {0}</value>
   </data>
+  <data name="0x0028c" xml:space="preserve">
+    <value>Projektdatei bereinigen?</value>
+  </data>
+  <data name="0x0028m" xml:space="preserve">
+    <value>Die Projektdatei wird bereinig.
+    1. Alle nicht vorhandenen Verweise auf Quellordner werden aus dem Projekt entfernt.
+    2. Alle nicht vorhandenen Verweise auf Quelldateien werden aus dem Projekt entfernt.
+
+Möchten Sie fortfahren?</value>
+  </data>
+  <data name="0x0029c" xml:space="preserve">
+    <value>Projektdatei bereinigt.</value>
+  </data>
+  <data name="0x0029m" xml:space="preserve">
+    <value>Die Projektdatei wurde bereinigt.
+    {0} gelöschte Ordnerverweise
+    {1} gelöschte Dateiverweise</value>
+  </data>
 </root>

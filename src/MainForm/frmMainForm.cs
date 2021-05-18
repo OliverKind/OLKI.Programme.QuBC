@@ -27,6 +27,7 @@ using OLKI.Toolbox.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
 using System.Windows.Forms;
@@ -608,6 +609,62 @@ namespace OLKI.Programme.QuBC.src.MainForm
         #endregion
 
         #region Menue Events
+        private void mnuMain_File_Clean_Click(object sender, EventArgs e)
+        {
+            if (this._projectManager.ActiveProject == null) return;
+            if (MessageBox.Show(this, Stringtable._0x0028m, Stringtable._0x0028c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3) == DialogResult.Yes)
+            {
+                int DeletedD = 0;
+                int DeletedF = 0;
+                this.Enabled = false;
+                Cursor.Current = Cursors.WaitCursor;
+
+                List<string> Deleted = new List<string>();
+
+                //Delete not existing directory-references
+                foreach (KeyValuePair<string, Project.Project.DirectoryScope> itemD in this._projectManager.ActiveProject.ToBackupDirectorys.OrderBy(o => o.Key))
+                {
+                    if (!new DirectoryInfo(itemD.Key).Exists)
+                    {
+                        DeletedD++;
+                        Deleted.Add(itemD.Key);
+                        this._projectManager.ActiveProject.ToBackupDirectorys.Remove(itemD.Key);
+                    }
+                }
+
+                //Delete not existing file-references
+                foreach (KeyValuePair<string, List<string>> itemDF in this._projectManager.ActiveProject.ToBackupFiles.OrderBy(o => o.Key))
+                {
+                    if (!this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(itemDF.Key))
+                    {
+                        DeletedF += this._projectManager.ActiveProject.ToBackupFiles[itemDF.Key].Count;
+                        Deleted.AddRange(this._projectManager.ActiveProject.ToBackupFiles[itemDF.Key]);
+                        this._projectManager.ActiveProject.ToBackupFiles.Remove(itemDF.Key);
+                    }
+                    else
+                    {
+                        foreach (string itemF in itemDF.Value.OrderBy(o => o))
+                        {
+                            if (!new FileInfo(itemF).Exists)
+                            {
+                                DeletedF++;
+                                Deleted.Add(itemF);
+                                this._projectManager.ActiveProject.ToBackupFiles[itemDF.Key].Remove(itemF);
+                            }
+                        }
+                    }
+                }
+
+                this._projectManager.ActiveProject.Changed = true;
+                this._projectManager.ActiveProject.ToggleProjectChanged(this, new EventArgs());
+                Cursor.Current = Cursors.Default;
+                this.Enabled = true;
+
+                _ = Deleted;
+                MessageBox.Show(this, string.Format(Stringtable._0x0029m, new object[] { DeletedD, DeletedF }), Stringtable._0x0029c, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void mnuMain_File_New_Click(object sender, EventArgs e)
         {
             if (!this._projectManager.SaveUnchangedProjectGetContinue()) return;
