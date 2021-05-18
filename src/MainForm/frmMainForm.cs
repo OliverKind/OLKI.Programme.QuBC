@@ -606,6 +606,34 @@ namespace OLKI.Programme.QuBC.src.MainForm
             }
         }
         #endregion
+
+        private void uscTaskControleBackup_TaskFinishedCanceled(object sender, EventArgs e)
+        {
+            this.spcExplorer.Enabled = true;
+            this.grbTaskControleRestore.Enabled = true;
+            this.grbTaskProgressRestore.Enabled = true;
+        }
+
+        private void uscTaskControleBackup_TaskStarted(object sender, EventArgs e)
+        {
+            this.spcExplorer.Enabled = false;
+            this.grbTaskControleRestore.Enabled = false;
+            this.grbTaskProgressRestore.Enabled = false;
+        }
+
+        private void uscTaskControleRestore_TaskFinishedCanceled(object sender, EventArgs e)
+        {
+            this.spcExplorer.Enabled = true;
+            this.grbTaskControleBackup.Enabled = true;
+            this.grbTaskProgressBackup.Enabled = true;
+        }
+
+        private void uscTaskControleRestore_TaskStarted(object sender, EventArgs e)
+        {
+            this.spcExplorer.Enabled = false;
+            this.grbTaskControleBackup.Enabled = false;
+            this.grbTaskProgressBackup.Enabled = false;
+        }
         #endregion
 
         #region Menue Events

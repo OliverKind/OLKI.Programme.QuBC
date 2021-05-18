@@ -405,13 +405,13 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             }
 
             // Initial BackgroundWorker
+            if (this.TaskStarted != null) this.TaskStarted(this, new EventArgs());
             this._worker.RunWorkerAsync();
         }
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            if (this.TaskStarted != null) TaskStarted(this, new EventArgs());
 
             //Initial Progress Store
             this._progressStore = new ProgressStore();
@@ -523,6 +523,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                 this._lastReportTime = DateTime.Now;
 
                 this._taskStep = (TaskStep)e.ProgressPercentage;
+                if (this._taskStep != TaskStep.Copy_Busy) { 
+                    _ = this._taskStep; 
+                }
                 switch (this._taskStep)
                 {
                     case TaskStep.Count_Start:
@@ -575,8 +578,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (this.TaskFinishedCanceled != null) TaskFinishedCanceled(this, new EventArgs());
-
             if (e.Cancelled) this._taskStep = TaskStep.Cancel;
             if (this._progressStore != null && this._progressStore.Exception != null && this._progressStore.Exception.Level == TaskException.ExceptionLevel.Critical) this._taskStep = TaskStep.Exception;
 
@@ -625,6 +626,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             {
                 this._logFile.WriteFoot();
             }
+            if (this.TaskFinishedCanceled != null) this.TaskFinishedCanceled(this, new EventArgs());
         }
         #endregion
 

@@ -636,6 +636,8 @@
             this.uscTaskControleBackup.Name = "uscTaskControleBackup";
             this.uscTaskControleBackup.Size = new System.Drawing.Size(957, 235);
             this.uscTaskControleBackup.TabIndex = 0;
+            this.uscTaskControleBackup.TaskFinishedCanceled += new System.EventHandler(this.uscTaskControleBackup_TaskFinishedCanceled);
+            this.uscTaskControleBackup.TaskStarted += new System.EventHandler(this.uscTaskControleBackup_TaskStarted);
             // 
             // grbTaskProgressBackup
             // 
@@ -691,6 +693,8 @@
             this.uscTaskControleRestore.Name = "uscTaskControleRestore";
             this.uscTaskControleRestore.Size = new System.Drawing.Size(957, 235);
             this.uscTaskControleRestore.TabIndex = 0;
+            this.uscTaskControleRestore.TaskFinishedCanceled += new System.EventHandler(this.uscTaskControleRestore_TaskFinishedCanceled);
+            this.uscTaskControleRestore.TaskStarted += new System.EventHandler(this.uscTaskControleRestore_TaskStarted);
             // 
             // grbTaskProgressRestore
             // 
