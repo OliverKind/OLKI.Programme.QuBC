@@ -37,6 +37,13 @@ namespace OLKI.Programme.QuBC.src.Project.Task
     /// </summary>
     internal partial class CopyItems
     {
+        #region Constants
+        /// <summary>
+        /// Buffer size while writing files
+        /// </summary>
+        private const int WRITE_BUFFER_SIZE = 524288;
+        #endregion
+
         #region Methodes
         #region CopyRecursive
         /// <summary>
@@ -162,7 +169,6 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         #endregion
 
         #region Copy by scope
-#pragma warning disable IDE0060 // Nicht verwendete Parameter entfernen
         /// <summary>
         /// Copy all files in directroy 
         /// </summary>
@@ -227,6 +233,9 @@ namespace OLKI.Programme.QuBC.src.Project.Task
             try
             {
                 exception = null;
+
+                // Check for abbort
+                if (worker.CancellationPending) { e.Cancel = true; return TaskException.ExceptionLevel.NoException; }
                 return TaskException.ExceptionLevel.NoException;
             }
             catch (Exception ex)
@@ -301,7 +310,6 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 return TaskException.ExceptionLevel.Medium;
             }
         }
-#pragma warning restore IDE0060 // Nicht verwendete Parameter entfernen
         #endregion
 
         #region Copy file buffered
@@ -401,7 +409,6 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// <returns>Exception level of the copy process</returns>
         public bool CopyFileBufferd(FileInfo sourceFile, FileInfo targetFile, BackgroundWorker worker, DoWorkEventArgs e, out Exception exception)
         {
-            int BufferSize = (int)Math.Pow(2, 19);
             BinaryReader Reader = null;
             BinaryWriter Writer = null;
             try
@@ -409,9 +416,9 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 // Remove target file attributes
                 this.CopyFileRemoveMetadata(sourceFile, targetFile, worker, out exception);
 
-                if (!this.CopyFileOpenSource(sourceFile, targetFile, BufferSize, out Reader, worker, out exception)) return false; ;
-                if (!this.CopyFileCreateTarget(sourceFile, targetFile, BufferSize, out Writer, worker, out exception)) return false;
-                if (!this.CopyFileWriteDate(sourceFile, targetFile, BufferSize, Reader, Writer, worker, e, out exception)) return false;
+                if (!this.CopyFileOpenSource(sourceFile, targetFile, WRITE_BUFFER_SIZE, out Reader, worker, out exception)) return false; ;
+                if (!this.CopyFileCreateTarget(sourceFile, targetFile, WRITE_BUFFER_SIZE, out Writer, worker, out exception)) return false;
+                if (!this.CopyFileWriteDate(sourceFile, targetFile, WRITE_BUFFER_SIZE, Reader, Writer, worker, e, out exception)) return false;
 
                 if (!this.CopyFileWriteMetadata(sourceFile, targetFile, worker, out exception)) return false;
                 if (worker.CancellationPending) { e.Cancel = true; return true; }
@@ -471,9 +478,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     Target = targetFile.FullName
                 };
                 this._progress.Exception = Exception;
-                //System.Diagnostics.Trace.WriteLine(sourceFile.FullName);
                 worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
-                //worker.CancelAsync();
+
                 return false;
             }
         }
