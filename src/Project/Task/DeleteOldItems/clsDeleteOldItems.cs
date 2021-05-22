@@ -203,6 +203,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         {
             try
             {
+                File.SetAttributes(file.FullName, FileAttributes.Normal);
                 file.Delete();
             }
             catch (Exception ex)
