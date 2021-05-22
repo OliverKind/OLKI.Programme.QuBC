@@ -33,13 +33,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
     /// </summary>
     internal partial class AboutForm : Form
     {
-        #region Constants
-        /// <summary>
-        /// Specifies the name of the application version
-        /// </summary>
-        private const string VERSION_NAME = "Screw";
-        #endregion
-
         #region Properties
         /// <summary>
         /// Get the title information from assembly settiongs
@@ -141,7 +134,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             InitializeComponent();
             this.Text = string.Format(this.Text, this.AssemblyTitle);
             this.lblProductName.Text = string.Format(this.lblProductName.Text, this.AssemblyProduct);
-            this.lblVersion.Text = string.Format(this.lblVersion.Text, new object[] { this.AssemblyVersion, VERSION_NAME });
+            this.lblVersion.Text = string.Format(this.lblVersion.Text,this.AssemblyVersion);
             this.lblCopyright.Text = string.Format(this.lblCopyright.Text, this.AssemblyCopyright);
             this.lblCompanyName.Text = string.Format(this.lblCompanyName.Text, this.AssemblyCompany);
             this.textBoxDescription.Text = this.AssemblyDescription;
