@@ -112,8 +112,15 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 public void SetProgressCluster(ExtProgressBar progressBar, ProgressStore.ProgressElement progressElement)
                 {
                     ExtProgrBarInv.DescriptionText(progressBar, progressElement.ElemenName);
-                    ExtProgrBarInv.MaxValue(progressBar, progressElement.MaxValue);
-                    ExtProgrBarInv.Value(progressBar, progressElement.ActualValue);
+                    if (progressElement.ActualValue == null)    //Workaround because null will blank the numeric TextBoxes
+                    {
+                        ExtProgrBarInv.Value(progressBar, progressElement.MaxValue);
+                    }
+                    else
+                    {
+                        ExtProgrBarInv.MaxValue(progressBar, progressElement.MaxValue);
+                        ExtProgrBarInv.Value(progressBar, progressElement.ActualValue);
+                    }
                 }
                 #endregion
                 #endregion
