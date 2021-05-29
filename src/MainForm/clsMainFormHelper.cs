@@ -330,6 +330,25 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 //Set new scope
                 this._projectManager.ActiveProject.ToBackupDirectorys[directory.FullName] = scope;
             }
+            this.Project_AddParentDirectoriesToProject(directory);
+        }
+        #endregion
+
+        #region Project_AddParentDirectoriesToProject
+        /// <summary>
+        /// Add parent directories to the project, if they are not in the project
+        /// </summary>
+        /// <param name="directory">Specifies the directory to add to project</param>
+        internal void Project_AddParentDirectoriesToProject(DirectoryInfo directory)
+        {
+            if (directory == null || directory.Parent == null) return;
+
+            if (!this._projectManager.ActiveProject.ToBackupDirectorys.ContainsKey(directory.Parent.FullName))
+            {
+                //Add directory to ToDo list and set scope
+                this._projectManager.ActiveProject.DirectoryAdd(directory.Parent, Project.Project.DirectoryScope.Selected);
+                Project_AddParentDirectoriesToProject(directory.Parent);
+            }
         }
         #endregion
 
