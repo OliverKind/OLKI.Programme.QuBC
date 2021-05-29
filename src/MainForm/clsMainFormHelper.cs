@@ -307,16 +307,16 @@ namespace OLKI.Programme.QuBC.src.MainForm
         /// Add or overwrite the specified directroy to the project, using a default scope and set the associated ExplorerTreeViewNode
         /// </summary>
         /// <param name="directory">Specifies the directory to add to project</param>
-        internal void Project_AddDirectorysToProject(DirectoryInfo directory)
+        internal void Project_AddDirectoryToProject(DirectoryInfo directory)
         {
-            this.Project_AddDirectorysToProject(directory, DEFAULT_ADD_DIRECTROY_TO_PROJECT_DIRECTORY_SCOPE);
+            this.Project_AddDirectoryToProject(directory, DEFAULT_ADD_DIRECTROY_TO_PROJECT_DIRECTORY_SCOPE);
         }
         /// <summary>
         /// Add or overwrite the specified directroy to the project, using a specified scope and set the associated ExplorerTreeViewNode
         /// </summary>
         /// <param name="directory">Specifies the directory to add to project</param>
         /// <param name="scope">Specifies the scope of the specified directroy to add to project</param>
-        internal void Project_AddDirectorysToProject(DirectoryInfo directory, Project.Project.DirectoryScope scope)
+        internal void Project_AddDirectoryToProject(DirectoryInfo directory, Project.Project.DirectoryScope scope)
         {
             if (directory == null) return;
 

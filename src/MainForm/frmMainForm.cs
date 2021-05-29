@@ -264,7 +264,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 switch (Scope)
                 {
                     case Project.Project.DirectoryScope.All:
-                        this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.All);
+                        this._mainFormHelper.Project_AddDirectoryToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.All);
                         this._mainFormHelper.Project_RemoveSubDirectorysAndFilesFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
                         break;
                     case Project.Project.DirectoryScope.Nothing:
@@ -272,8 +272,8 @@ namespace OLKI.Programme.QuBC.src.MainForm
                         this._mainFormHelper.Project_RemoveSubDirectorysAndFilesFromBackup(this.trvExplorer.LastSelectedNode.DirectoryInfo);
                         break;
                     case Project.Project.DirectoryScope.Selected:
-                        this._mainFormHelper.Project_AddDirectorysToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.Selected);
-                        //Add selected subdirectories and fiels or remove unselected
+                        this._mainFormHelper.Project_AddDirectoryToProject(this.trvExplorer.LastSelectedNode.DirectoryInfo, Project.Project.DirectoryScope.Selected);
+                        //Add selected sub directories and fiels or remove unselected
                         foreach (ListViewItem Item in this.lsvDirectoryContent.Items)
                         {
                             this.lsvExplorer_ItemChecked(this, new ItemCheckedEventArgs(Item));
@@ -535,7 +535,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
                 if (e.Item.Checked)
                 {
-                    this._mainFormHelper.Project_AddDirectorysToProject(Directory, Project.Project.DirectoryScope.All);
+                    this._mainFormHelper.Project_AddDirectoryToProject(Directory, Project.Project.DirectoryScope.All);
                     e.Item.ImageIndex = (int)ExtendedTreeNode.CheckedState.Checked;
                 }
                 else
