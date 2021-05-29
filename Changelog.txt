@@ -1,5 +1,19 @@
 # QuBC - QuickBackupCreator
 
+## [2.2.0.18] - 2021-05-29
+### Added
+- Project cleanup
+- Reset Dimension-ComboBox to Auto if right MouseButton was clicked
+
+### Changed
+- Disable Controles while Task (Create/Restore Backup) is running
+- Remove Attributes before delete a old file, to prevent exceptions due to denied access
+
+### Fixed
+- Add Parent Directories to project
+- Missing Source and Target if Target Directory not exists
+- Numeric values for progress not shown while count items
+
 ## [2.1.1.17] - 2021-05-09
 ### Fixed
 - Remove unhandlet Exceptions while seeking for Apllication updates
