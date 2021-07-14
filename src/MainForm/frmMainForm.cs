@@ -572,7 +572,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
         #endregion
 
         #region tabPage_Conclusion
-        private void LsvErrorLog_SelectedIndexChanged(object sender, EventArgs e)
+        private void lsvErrorLog_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.lsvErrorLog.SelectedItems.Count > 0)
             {
@@ -619,6 +619,8 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.spcExplorer.Enabled = false;
             this.grbTaskControleRestore.Enabled = false;
             this.grbTaskProgressRestore.Enabled = false;
+            if (this.lsvErrorLog.SelectedItems.Count > 0) this.lsvErrorLog.SelectedItems[0].Selected = false;
+
         }
 
         private void uscTaskControleRestore_TaskFinishedCanceled(object sender, EventArgs e)
@@ -626,6 +628,8 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.spcExplorer.Enabled = true;
             this.grbTaskControleBackup.Enabled = true;
             this.grbTaskProgressBackup.Enabled = true;
+            if (this.lsvErrorLog.SelectedItems.Count > 0) this.lsvErrorLog.SelectedItems[0].Selected = false;
+
         }
 
         private void uscTaskControleRestore_TaskStarted(object sender, EventArgs e)

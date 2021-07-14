@@ -776,7 +776,7 @@
             this.lsvErrorLog.TabIndex = 0;
             this.lsvErrorLog.UseCompatibleStateImageBehavior = false;
             this.lsvErrorLog.View = System.Windows.Forms.View.Details;
-            this.lsvErrorLog.SelectedIndexChanged += new System.EventHandler(this.LsvErrorLog_SelectedIndexChanged);
+            this.lsvErrorLog.SelectedIndexChanged += new System.EventHandler(this.lsvErrorLog_SelectedIndexChanged);
             // 
             // chLsvErrorLog_Number
             // 
