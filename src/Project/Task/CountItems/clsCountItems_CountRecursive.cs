@@ -97,7 +97,6 @@ namespace OLKI.Programme.QuBC.src.Project.Task
             }
         }
 
-#pragma warning disable IDE0060 // Remove unused parameter --> Unused parameters to have consistently function call
         /// <summary>
         /// Count all directroy, subdirectory and files
         /// </summary>
@@ -107,6 +106,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// <param name="e">Provides data for the BackgroundWorker</param>
         private void CountRecursive_All(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
+            _ = scope;
             // Search for files in selected directory
             foreach (FileInfo FileItem in directory.GetFiles().OrderBy(o => o.Name))
             {
@@ -131,6 +131,10 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// <param name="e">Provides data for the BackgroundWorker</param>
         private void CountRecursive_Nothing(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
+            _ = directory;
+            _ = scope;
+            _ = worker;
+            _ = e;
             //Absolutly nothing to do
             return;
         }
@@ -144,7 +148,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// <param name="e">Provides data for the BackgroundWorker</param>
         private void CountRecursive_Selected(DirectoryInfo directory, Project.DirectoryScope scope, BackgroundWorker worker, DoWorkEventArgs e)
         {
-            //this._progress.TotalDirectories.MaxValue++;
+            _ = scope;
             //Leafe if the key didn't exists or if no files are selected
             if (!this._project.ToBackupFiles.ContainsKey(directory.FullName) || this._project.ToBackupFiles[directory.FullName].Count == 0) return;
 
@@ -164,7 +168,6 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress));
             }
         }
-#pragma warning restore IDE0060 // Remove unused parameter
         #endregion
         #endregion
     }
