@@ -76,6 +76,11 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 
             this.txtAddTextToFileDefaultText.Text = Settings.Default.Copy_FileExisitngAddTextDefault;
             this.txtAddTextToFileDateFormat.Text = Settings.Default.Copy_FileExisitngAddTextDateFormat;
+
+            this.cboDefaultTabLoadFile.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x002E });
+            this.cboDefaultTabLoadFile.SelectedIndex = Settings.Default.DefaultTab_LoadFile + 1;
+            this.cboDefaultTabStartUp.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x002E });
+            this.cboDefaultTabStartUp.SelectedIndex = Settings.Default.DefaultTab_StartUp + 1;
         }
 
         /// <summary>
@@ -166,6 +171,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
         private void btnOk_Click(object sender, EventArgs e)
         {
             Settings.Default.AppUpdate_CheckAtStartUp = this.chkCheckForUpdates.Checked;
+            Settings.Default.DefaultTab_LoadFile = this.cboDefaultTabLoadFile.SelectedIndex - 1;
+            Settings.Default.DefaultTab_StartUp = this.cboDefaultTabStartUp.SelectedIndex - 1;
             Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
             Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;

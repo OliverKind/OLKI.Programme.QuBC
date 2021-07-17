@@ -604,5 +604,50 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x0029m", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die -- System Standard -- ähnelt.
+        /// </summary>
+        internal static string _0x002A {
+            get {
+                return ResourceManager.GetString("0x002A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sicherung - Quelle ähnelt.
+        /// </summary>
+        internal static string _0x002B {
+            get {
+                return ResourceManager.GetString("0x002B", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sicherung - Ausführen ähnelt.
+        /// </summary>
+        internal static string _0x002C {
+            get {
+                return ResourceManager.GetString("0x002C", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sicherung - Wiederherstellen ähnelt.
+        /// </summary>
+        internal static string _0x002D {
+            get {
+                return ResourceManager.GetString("0x002D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zusammenfassung - Fehler ähnelt.
+        /// </summary>
+        internal static string _0x002E {
+            get {
+                return ResourceManager.GetString("0x002E", resourceCulture);
+            }
+        }
     }
 }

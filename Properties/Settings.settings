@@ -98,5 +98,11 @@
     <Setting Name="AppUpdate_ChangeLog" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Changelog.txt</Value>
     </Setting>
+    <Setting Name="DefaultTab_StartUp" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="DefaultTab_LoadFile" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

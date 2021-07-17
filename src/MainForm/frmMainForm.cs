@@ -91,7 +91,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
         {
             InitializeComponent();
 
-            this.tabControlMain.SelectTab(DEBAULT_TAB_PAGE_INDEX);
+            this.tabControlMain.SelectTab(Settings.Default.DefaultTab_StartUp > -1 ? Settings.Default.DefaultTab_StartUp : DEBAULT_TAB_PAGE_INDEX);
             this._conclusionTabPageOriginalText = this.tabPageConclusion.Text;
             this.Text = string.Format(this.Text, new object[] { ProductName });
 
@@ -206,7 +206,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
         private void SetFormTitle()
         {
             string ApplicationName = string.Empty;
-            object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Reflection.AssemblyProductAttribute), false);
+            object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
             if (attributes.Length > 0)
             {
                 ApplicationName = ((AssemblyProductAttribute)attributes[0]).Product;
@@ -316,6 +316,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
         private void ProjectManager_ProjecOpenOrNew(object sender, EventArgs e)
         {
+            if (Settings.Default.DefaultTab_LoadFile > -1) this.tabControlMain.SelectTab(Settings.Default.DefaultTab_LoadFile);
             this.SetRecentFilesSettingsAndMenue();
             Settings.Default.Save();
         }

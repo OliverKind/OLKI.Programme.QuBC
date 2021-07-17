@@ -327,4 +327,19 @@ Möchten Sie fortfahren?</value>
     {0} gelöschte Ordnerverweise
     {1} gelöschte Dateiverweise</value>
   </data>
+  <data name="0x002A" xml:space="preserve">
+    <value>-- System Standard --</value>
+  </data>
+  <data name="0x002B" xml:space="preserve">
+    <value>Sicherung - Quelle</value>
+  </data>
+  <data name="0x002C" xml:space="preserve">
+    <value>Sicherung - Ausführen</value>
+  </data>
+  <data name="0x002D" xml:space="preserve">
+    <value>Sicherung - Wiederherstellen</value>
+  </data>
+  <data name="0x002E" xml:space="preserve">
+    <value>Zusammenfassung - Fehler</value>
+  </data>
 </root>

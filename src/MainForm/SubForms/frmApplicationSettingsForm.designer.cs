@@ -63,6 +63,11 @@
             this.chkAutoCheckFileAssociation = new System.Windows.Forms.CheckBox();
             this.erpDateFormat = new System.Windows.Forms.ErrorProvider(this.components);
             this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboDefaultTabLoadFile = new System.Windows.Forms.ComboBox();
+            this.cboDefaultTabStartUp = new System.Windows.Forms.ComboBox();
+            this.lblDefaultTabLoadFile = new System.Windows.Forms.Label();
+            this.lblDefaultTabStartUp = new System.Windows.Forms.Label();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -70,25 +75,26 @@
             this.grbLogFile.SuspendLayout();
             this.grbAddTextToFiile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erpDateFormat)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(590, 340);
+            this.btnCancel.Location = new System.Drawing.Point(590, 419);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 23);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "&Abbrechen";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(12, 340);
+            this.btnOk.Location = new System.Drawing.Point(12, 419);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 23);
-            this.btnOk.TabIndex = 8;
+            this.btnOk.TabIndex = 10;
             this.btnOk.Text = "&OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -99,8 +105,8 @@
             this.tolApplicationSettings.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tolApplicationSettings.Location = new System.Drawing.Point(703, 0);
             this.tolApplicationSettings.Name = "tolApplicationSettings";
-            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 375);
-            this.tolApplicationSettings.TabIndex = 10;
+            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 454);
+            this.tolApplicationSettings.TabIndex = 12;
             this.tolApplicationSettings.Text = "toolStrip1";
             // 
             // grbProjectFolder
@@ -197,10 +203,10 @@
             this.grbRecentFiles.Controls.Add(this.btnRecentFilesClear);
             this.grbRecentFiles.Controls.Add(this.nudNumRecentFiles);
             this.grbRecentFiles.Controls.Add(this.lblNumRecentFiles);
-            this.grbRecentFiles.Location = new System.Drawing.Point(12, 234);
+            this.grbRecentFiles.Location = new System.Drawing.Point(12, 313);
             this.grbRecentFiles.Name = "grbRecentFiles";
             this.grbRecentFiles.Size = new System.Drawing.Size(688, 48);
-            this.grbRecentFiles.TabIndex = 4;
+            this.grbRecentFiles.TabIndex = 5;
             this.grbRecentFiles.TabStop = false;
             this.grbRecentFiles.Text = "Zuletzt geöffnete Dateien";
             // 
@@ -237,10 +243,10 @@
             // 
             // btnCheckFileAssociation
             // 
-            this.btnCheckFileAssociation.Location = new System.Drawing.Point(12, 288);
+            this.btnCheckFileAssociation.Location = new System.Drawing.Point(12, 367);
             this.btnCheckFileAssociation.Name = "btnCheckFileAssociation";
             this.btnCheckFileAssociation.Size = new System.Drawing.Size(134, 23);
-            this.btnCheckFileAssociation.TabIndex = 5;
+            this.btnCheckFileAssociation.TabIndex = 6;
             this.btnCheckFileAssociation.Text = "Dateizuordnung prüfen";
             this.btnCheckFileAssociation.UseVisualStyleBackColor = true;
             this.btnCheckFileAssociation.Click += new System.EventHandler(this.btnCheckFileAssociation_Click);
@@ -317,10 +323,10 @@
             // 
             // btnSetDefaults
             // 
-            this.btnSetDefaults.Location = new System.Drawing.Point(494, 288);
+            this.btnSetDefaults.Location = new System.Drawing.Point(494, 367);
             this.btnSetDefaults.Name = "btnSetDefaults";
             this.btnSetDefaults.Size = new System.Drawing.Size(206, 23);
-            this.btnSetDefaults.TabIndex = 7;
+            this.btnSetDefaults.TabIndex = 8;
             this.btnSetDefaults.Text = "Standardeinstellungen wiederherstellen";
             this.btnSetDefaults.UseVisualStyleBackColor = true;
             this.btnSetDefaults.Click += new System.EventHandler(this.btnSetDefaults_Click);
@@ -374,10 +380,10 @@
             // chkAutoCheckFileAssociation
             // 
             this.chkAutoCheckFileAssociation.AutoSize = true;
-            this.chkAutoCheckFileAssociation.Location = new System.Drawing.Point(152, 293);
+            this.chkAutoCheckFileAssociation.Location = new System.Drawing.Point(152, 372);
             this.chkAutoCheckFileAssociation.Name = "chkAutoCheckFileAssociation";
             this.chkAutoCheckFileAssociation.Size = new System.Drawing.Size(229, 17);
-            this.chkAutoCheckFileAssociation.TabIndex = 6;
+            this.chkAutoCheckFileAssociation.TabIndex = 7;
             this.chkAutoCheckFileAssociation.Text = "Dateizuordnung beim Programmstart prüfen";
             this.chkAutoCheckFileAssociation.UseVisualStyleBackColor = true;
             // 
@@ -389,12 +395,61 @@
             // chkCheckForUpdates
             // 
             this.chkCheckForUpdates.AutoSize = true;
-            this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 317);
+            this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 396);
             this.chkCheckForUpdates.Name = "chkCheckForUpdates";
             this.chkCheckForUpdates.Size = new System.Drawing.Size(245, 17);
-            this.chkCheckForUpdates.TabIndex = 11;
+            this.chkCheckForUpdates.TabIndex = 9;
             this.chkCheckForUpdates.Text = "Auf neue Progammversionen beim Start prüfen";
             this.chkCheckForUpdates.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cboDefaultTabLoadFile);
+            this.groupBox1.Controls.Add(this.cboDefaultTabStartUp);
+            this.groupBox1.Controls.Add(this.lblDefaultTabLoadFile);
+            this.groupBox1.Controls.Add(this.lblDefaultTabStartUp);
+            this.groupBox1.Location = new System.Drawing.Point(12, 234);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(688, 73);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Standard Registerkarten";
+            // 
+            // cboDefaultTabLoadFile
+            // 
+            this.cboDefaultTabLoadFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDefaultTabLoadFile.FormattingEnabled = true;
+            this.cboDefaultTabLoadFile.Location = new System.Drawing.Point(160, 46);
+            this.cboDefaultTabLoadFile.Name = "cboDefaultTabLoadFile";
+            this.cboDefaultTabLoadFile.Size = new System.Drawing.Size(310, 21);
+            this.cboDefaultTabLoadFile.TabIndex = 3;
+            // 
+            // cboDefaultTabStartUp
+            // 
+            this.cboDefaultTabStartUp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDefaultTabStartUp.FormattingEnabled = true;
+            this.cboDefaultTabStartUp.Location = new System.Drawing.Point(160, 19);
+            this.cboDefaultTabStartUp.Name = "cboDefaultTabStartUp";
+            this.cboDefaultTabStartUp.Size = new System.Drawing.Size(310, 21);
+            this.cboDefaultTabStartUp.TabIndex = 1;
+            // 
+            // lblDefaultTabLoadFile
+            // 
+            this.lblDefaultTabLoadFile.AutoSize = true;
+            this.lblDefaultTabLoadFile.Location = new System.Drawing.Point(6, 49);
+            this.lblDefaultTabLoadFile.Name = "lblDefaultTabLoadFile";
+            this.lblDefaultTabLoadFile.Size = new System.Drawing.Size(122, 13);
+            this.lblDefaultTabLoadFile.TabIndex = 2;
+            this.lblDefaultTabLoadFile.Text = "Beim Öffnen einer Datei:";
+            // 
+            // lblDefaultTabStartUp
+            // 
+            this.lblDefaultTabStartUp.AutoSize = true;
+            this.lblDefaultTabStartUp.Location = new System.Drawing.Point(6, 22);
+            this.lblDefaultTabStartUp.Name = "lblDefaultTabStartUp";
+            this.lblDefaultTabStartUp.Size = new System.Drawing.Size(148, 13);
+            this.lblDefaultTabStartUp.TabIndex = 0;
+            this.lblDefaultTabStartUp.Text = "Beim Starten der Anwendung:";
             // 
             // ApplicationSettingsForm
             // 
@@ -402,7 +457,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(729, 375);
+            this.ClientSize = new System.Drawing.Size(729, 454);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkCheckForUpdates);
             this.Controls.Add(this.chkAutoCheckFileAssociation);
             this.Controls.Add(this.grbAddTextToFiile);
@@ -434,6 +490,8 @@
             this.grbAddTextToFiile.ResumeLayout(false);
             this.grbAddTextToFiile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erpDateFormat)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -474,5 +532,10 @@
         private System.Windows.Forms.CheckBox chkAutoCheckFileAssociation;
         private System.Windows.Forms.ErrorProvider erpDateFormat;
         private System.Windows.Forms.CheckBox chkCheckForUpdates;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblDefaultTabLoadFile;
+        private System.Windows.Forms.Label lblDefaultTabStartUp;
+        private System.Windows.Forms.ComboBox cboDefaultTabLoadFile;
+        private System.Windows.Forms.ComboBox cboDefaultTabStartUp;
     }
 }
