@@ -1,5 +1,14 @@
 # QuBC - QuickBackupCreator
 
+## [2.3.0.19] - 2021-??-??
+### Added
+- Option to set default tabs
+- Option to SuspendLayout while resize MainForm
+- Ask Before start copy data, while restoring a backup
+
+### Fixed
+- Exception description not cleared if process is startet
+
 ## [2.2.0.18] - 2021-05-29
 ### Added
 - Project cleanup
