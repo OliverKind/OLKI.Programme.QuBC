@@ -943,6 +943,8 @@
             this.Text = "{0}";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
+            this.ResizeBegin += new System.EventHandler(this.MainForm_ResizeBegin);
+            this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.tabControlMain.ResumeLayout(false);

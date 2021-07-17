@@ -72,6 +72,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.chkShowDirectorysWithoutAccess.Checked = Settings.Default.ListItems_ShowWithoutAccess;
             this.chkShowSystemDirectory.Checked = Settings.Default.ListItems_ShowSystem;
             this.chkEypandTreeNodeOnClick.Checked = Settings.Default.ListItems_ExpandTreeNodeOnSingleClick;
+            this.chkMainFormResizeSuspendLayout.Checked = Settings.Default.MainFormResizeSuspendLayout;
             this.txtLogfileDateFormat.Text = Settings.Default.Logfile_DateFormat;
 
             this.txtAddTextToFileDefaultText.Text = Settings.Default.Copy_FileExisitngAddTextDefault;
@@ -180,6 +181,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             Settings.Default.ListItems_ShowSystem = this.chkShowSystemDirectory.Checked;
             Settings.Default.ListItems_ExpandTreeNodeOnSingleClick = this.chkEypandTreeNodeOnClick.Checked;
             Settings.Default.Logfile_DateFormat = this.txtLogfileDateFormat.Text;
+            Settings.Default.MainFormResizeSuspendLayout = this.chkMainFormResizeSuspendLayout.Checked;
 
             Settings.Default.Save();
             this.DialogResult = DialogResult.OK;

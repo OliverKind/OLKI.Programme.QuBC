@@ -68,6 +68,7 @@
             this.cboDefaultTabStartUp = new System.Windows.Forms.ComboBox();
             this.lblDefaultTabLoadFile = new System.Windows.Forms.Label();
             this.lblDefaultTabStartUp = new System.Windows.Forms.Label();
+            this.chkMainFormResizeSuspendLayout = new System.Windows.Forms.CheckBox();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -81,7 +82,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(590, 419);
+            this.btnCancel.Location = new System.Drawing.Point(590, 442);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 23);
             this.btnCancel.TabIndex = 11;
@@ -91,7 +92,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(12, 419);
+            this.btnOk.Location = new System.Drawing.Point(12, 442);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 23);
             this.btnOk.TabIndex = 10;
@@ -105,7 +106,7 @@
             this.tolApplicationSettings.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tolApplicationSettings.Location = new System.Drawing.Point(703, 0);
             this.tolApplicationSettings.Name = "tolApplicationSettings";
-            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 454);
+            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 477);
             this.tolApplicationSettings.TabIndex = 12;
             this.tolApplicationSettings.Text = "toolStrip1";
             // 
@@ -203,7 +204,7 @@
             this.grbRecentFiles.Controls.Add(this.btnRecentFilesClear);
             this.grbRecentFiles.Controls.Add(this.nudNumRecentFiles);
             this.grbRecentFiles.Controls.Add(this.lblNumRecentFiles);
-            this.grbRecentFiles.Location = new System.Drawing.Point(12, 313);
+            this.grbRecentFiles.Location = new System.Drawing.Point(12, 336);
             this.grbRecentFiles.Name = "grbRecentFiles";
             this.grbRecentFiles.Size = new System.Drawing.Size(688, 48);
             this.grbRecentFiles.TabIndex = 5;
@@ -243,7 +244,7 @@
             // 
             // btnCheckFileAssociation
             // 
-            this.btnCheckFileAssociation.Location = new System.Drawing.Point(12, 367);
+            this.btnCheckFileAssociation.Location = new System.Drawing.Point(12, 390);
             this.btnCheckFileAssociation.Name = "btnCheckFileAssociation";
             this.btnCheckFileAssociation.Size = new System.Drawing.Size(134, 23);
             this.btnCheckFileAssociation.TabIndex = 6;
@@ -323,7 +324,7 @@
             // 
             // btnSetDefaults
             // 
-            this.btnSetDefaults.Location = new System.Drawing.Point(494, 367);
+            this.btnSetDefaults.Location = new System.Drawing.Point(494, 390);
             this.btnSetDefaults.Name = "btnSetDefaults";
             this.btnSetDefaults.Size = new System.Drawing.Size(206, 23);
             this.btnSetDefaults.TabIndex = 8;
@@ -380,7 +381,7 @@
             // chkAutoCheckFileAssociation
             // 
             this.chkAutoCheckFileAssociation.AutoSize = true;
-            this.chkAutoCheckFileAssociation.Location = new System.Drawing.Point(152, 372);
+            this.chkAutoCheckFileAssociation.Location = new System.Drawing.Point(152, 395);
             this.chkAutoCheckFileAssociation.Name = "chkAutoCheckFileAssociation";
             this.chkAutoCheckFileAssociation.Size = new System.Drawing.Size(229, 17);
             this.chkAutoCheckFileAssociation.TabIndex = 7;
@@ -395,7 +396,7 @@
             // chkCheckForUpdates
             // 
             this.chkCheckForUpdates.AutoSize = true;
-            this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 396);
+            this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 419);
             this.chkCheckForUpdates.Name = "chkCheckForUpdates";
             this.chkCheckForUpdates.Size = new System.Drawing.Size(245, 17);
             this.chkCheckForUpdates.TabIndex = 9;
@@ -451,13 +452,24 @@
             this.lblDefaultTabStartUp.TabIndex = 0;
             this.lblDefaultTabStartUp.Text = "Beim Starten der Anwendung:";
             // 
+            // chkMainFormResizeSuspendLayout
+            // 
+            this.chkMainFormResizeSuspendLayout.AutoSize = true;
+            this.chkMainFormResizeSuspendLayout.Location = new System.Drawing.Point(12, 313);
+            this.chkMainFormResizeSuspendLayout.Name = "chkMainFormResizeSuspendLayout";
+            this.chkMainFormResizeSuspendLayout.Size = new System.Drawing.Size(356, 17);
+            this.chkMainFormResizeSuspendLayout.TabIndex = 13;
+            this.chkMainFormResizeSuspendLayout.Text = "Während einer Größenänderung das Hauptfenster nicht neu zeichnen";
+            this.chkMainFormResizeSuspendLayout.UseVisualStyleBackColor = true;
+            // 
             // ApplicationSettingsForm
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(729, 454);
+            this.ClientSize = new System.Drawing.Size(729, 477);
+            this.Controls.Add(this.chkMainFormResizeSuspendLayout);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkCheckForUpdates);
             this.Controls.Add(this.chkAutoCheckFileAssociation);
@@ -537,5 +549,6 @@
         private System.Windows.Forms.Label lblDefaultTabStartUp;
         private System.Windows.Forms.ComboBox cboDefaultTabLoadFile;
         private System.Windows.Forms.ComboBox cboDefaultTabStartUp;
+        private System.Windows.Forms.CheckBox chkMainFormResizeSuspendLayout;
     }
 }

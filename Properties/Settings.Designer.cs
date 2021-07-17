@@ -405,5 +405,18 @@ namespace OLKI.Programme.QuBC.Properties {
                 this["DefaultTab_LoadFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool MainFormResizeSuspendLayout {
+            get {
+                return ((bool)(this["MainFormResizeSuspendLayout"]));
+            }
+            set {
+                this["MainFormResizeSuspendLayout"] = value;
+            }
+        }
     }
 }

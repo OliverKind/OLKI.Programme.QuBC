@@ -348,6 +348,17 @@ namespace OLKI.Programme.QuBC.src.MainForm
             }
         }
 
+        private void MainForm_ResizeBegin(object sender, EventArgs e)
+        {
+            if (Settings.Default.MainFormResizeSuspendLayout) this.SuspendLayout();
+        }
+
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
+        {
+            if (Settings.Default.MainFormResizeSuspendLayout) this.ResumeLayout();
+        }
+
+
         private void MainForm_Shown(object sender, EventArgs e)
         {
             // Check for Admin Rights
