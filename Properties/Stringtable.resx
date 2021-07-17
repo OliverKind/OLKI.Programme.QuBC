@@ -342,4 +342,13 @@ Möchten Sie fortfahren?</value>
   <data name="0x002E" xml:space="preserve">
     <value>Zusammenfassung - Fehler</value>
   </data>
+  <data name="0x002Fc" xml:space="preserve">
+    <value>Sicherung Wiederherstellen, Kopie von Daten starten?</value>
+  </data>
+  <data name="0x002Fm" xml:space="preserve">
+    <value>Es wird mit der Wiederherstellung der Datensicherung, mit den gewählten Optionen begonnen.
+Zuvor gelöschte Daten werden gegebenenfalls wieder hergestellt.
+
+Möchten Sie fortfahren?</value>
+  </data>
 </root>

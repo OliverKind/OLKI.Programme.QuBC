@@ -649,5 +649,26 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x002E", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sicherung Wiederherstellen, Kopie von Daten starten? ähnelt.
+        /// </summary>
+        internal static string _0x002Fc {
+            get {
+                return ResourceManager.GetString("0x002Fc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Es wird mit der Wiederherstellung der Datensicherung, mit den gewählten Optionen begonnen.
+        ///Zuvor gelöschte Daten werden gegebenenfalls wieder hergestellt.
+        ///
+        ///Möchten Sie fortfahren? ähnelt.
+        /// </summary>
+        internal static string _0x002Fm {
+            get {
+                return ResourceManager.GetString("0x002Fm", resourceCulture);
+            }
+        }
     }
 }

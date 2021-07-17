@@ -473,7 +473,18 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                             break;
                         //Start Counting in restore mode
                         case ControleMode.RestoreBackup:
-                            this._copier.Restore(worker, e, this._progressStore);
+                            switch ((DialogResult)this.Invoke((Func<DialogResult>)(() => MessageBox.Show(this._mainForm, Properties.Stringtable._0x002Fm, Properties.Stringtable._0x002Fc, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1))))
+                            {
+                                case DialogResult.Yes:
+                                    this._copier.Restore(worker, e, this._progressStore);
+                                    break;
+                                case DialogResult.No:
+                                case DialogResult.Cancel:
+                                    if (worker.IsBusy) worker.CancelAsync();
+                                    break;
+                                default:
+                                    break;
+                            }
                             break;
                         default:
                             throw new ArgumentException("uscTaskControle->worker_DoWork(CopyData)->Invalid value", nameof(this._mode));
