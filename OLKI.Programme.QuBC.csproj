@@ -230,7 +230,7 @@
     <Content Include="Changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="licenses\COPL-License.txt">
+    <Content Include="licenses\CPOL-License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="licenses\LGPL-License.txt">

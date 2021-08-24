@@ -121,6 +121,7 @@ Section ""
   
   SetOutPath "$INSTDIR\Licenses"
   File ".\..\bin\Release\Licenses\LGPL-License.txt"
+  File ".\..\bin\Release\Licenses\CPOL-License.txt"
 
   ;Create Desktop shortcut
   CreateShortCut "$DESKTOP\${AppName}.lnk" "$INSTDIR\QuBC.exe" ""
