@@ -173,12 +173,6 @@
     <None Include="LICENSE" />
     <None Include="README.md" />
     <Compile Include="src\clsProjectManager.cs" />
-    <Compile Include="src\MainForm\SubForms\frmAboutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\MainForm\SubForms\frmAboutForm.designer.cs">
-      <DependentUpon>frmAboutForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\MainForm\SubForms\frmApplicationSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,9 +189,6 @@
     </Compile>
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="src\MainForm\SubForms\frmAboutForm.resx">
-      <DependentUpon>frmAboutForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="src\MainForm\SubForms\frmApplicationSettingsForm.resx">
       <DependentUpon>frmApplicationSettingsForm.cs</DependentUpon>
     </EmbeddedResource>

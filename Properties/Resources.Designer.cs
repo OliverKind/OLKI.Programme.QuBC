@@ -59,5 +59,49 @@ namespace OLKI.Programme.QuBC.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die // Entwickler:
+        ///Programmierung: Oliver Kind
+        ///Design: Oliver Kind
+        ///Orthographie: Lydia Kind
+        ///
+        ///
+        ///// Software von Drittanbietern:
+        ///Widgets und Komponenten von Widgets
+        ///- Sort listview Columns and Set Sort Arrow Icon on Column Header
+        ///  Autor und Veröffentlichung: sagar_253, 21 Mar 2014
+        ///  Quelle: http://www.codeproject.com/Tips/734463/Sort-listview-Columns-and-Set-Sort-Arrow-Icon-on-C
+        ///  Lizenz: The Code Project Open License (CPOL)
+        ///  Anmerkung: Der Code wurde zur Verwendung als Steuerelement angepasst
+        ///
+        ///
+        //// [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string Credits {
+            get {
+                return ResourceManager.GetString("Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProgSym_256 {
+            get {
+                object obj = ResourceManager.GetObject("ProgSym_256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Project_Symbol {
+            get {
+                object obj = ResourceManager.GetObject("Project_Symbol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

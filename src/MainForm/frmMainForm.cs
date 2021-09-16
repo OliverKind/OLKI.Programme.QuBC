@@ -24,6 +24,7 @@
 
 using OLKI.Programme.QuBC.Properties;
 using OLKI.Toolbox.Common;
+using OLKI.Toolbox.Widgets.AboutForm;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -72,10 +73,6 @@ namespace OLKI.Programme.QuBC.src.MainForm
         /// A SaveFileDilaog to specifies the path where the Logfile should been saved to
         /// </summary9
         private readonly SaveFileDialog _saveLogFileDialog = new SaveFileDialog();
-        /// <summary>
-        /// Specifies the application about form
-        /// </summary>
-        private readonly SubForms.AboutForm _frmAbout = new SubForms.AboutForm();
         /// <summary>
         /// Specifies the application settings form
         /// </summary>
@@ -784,7 +781,15 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
         private void mnuMain_Help_About_Click(object sender, EventArgs e)
         {
-            this._frmAbout.ShowDialog(this);
+            System.Reflection.Assembly Assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.Drawing.Image AppImage = Resources.ProgSym_256;
+            System.Drawing.Image ProImage = Resources.Project_Symbol;
+            AboutForm AboutForm = new AboutForm(Assembly, AppImage, ProImage)
+            {
+                Credits = Resources.Credits,
+                LicenseDirectory = Path.GetDirectoryName(Assembly.Location) + @"\Licenses\"
+            };
+            AboutForm.Show(this);
         }
         #endregion
         #endregion
