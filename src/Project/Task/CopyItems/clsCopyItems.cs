@@ -100,7 +100,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
         /// <param name="progressStore">Progress data storage</param>
-        internal void Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
+        /// <returns>True if Copy was sucessfull, False if an critical exception was thrown</returns>
+        internal bool Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             //Initial progress
             this._progress = progressStore;
@@ -109,24 +110,25 @@ namespace OLKI.Programme.QuBC.src.Project.Task
             this._progress.TotalFiles.ActualValue = 0;
 
             // Create main target directory
-            if (!this.CreateRootDirectory(this._project.Settings.ControleBackup.Directory.Path, worker, e)) return;
+            if (!this.CreateRootDirectory(this._project.Settings.ControleBackup.Directory.Path, worker, e)) return false;
 
             // Copy content of selected directories
             foreach (KeyValuePair<string, Project.DirectoryScope> item in this._project.ToBackupDirectorys.OrderBy(o => o.Key))
             {
                 // Check for abbort
-                if (worker.CancellationPending) { e.Cancel = true; return; }
+                if (worker.CancellationPending) { e.Cancel = true; return true; }
 
                 // Copy Recursive    item.Key => sourceDirectory    item.Value = scope
                 if (this.CopyRecursive(CopyMode.Backup, item.Key, item.Value, worker, e, out Exception ex) == TaskException.ExceptionLevel.Critical)
                 {
                     e.Cancel = true;
                     worker.CancelAsync();
-                    return;
+                    return false;
                 }
                 worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
             }
             worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
+            return true;
         }
 
         /// <summary>
@@ -135,7 +137,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
         /// <param name="progressStore">Progress data storage</param>
-        internal void Restore(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
+        /// <returns>True if Copy was sucessfull, False if an critical exception was thrown</returns>
+        internal bool Restore(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             //Initial progress
             this._progress = progressStore;
@@ -153,13 +156,13 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 foreach (DirectoryInfo DriveDirectory in Source.GetDirectories().OrderBy(o => o.Name))
                 {
                     // Check for abbort
-                    if (worker.CancellationPending) { e.Cancel = true; return; }
+                    if (worker.CancellationPending) { e.Cancel = true; return true; }
 
                     if (this.CopyRecursive(CopyMode.Restore, DriveDirectory, Project.DirectoryScope.All, worker, e, out Exception ex) == TaskException.ExceptionLevel.Critical)
                     {
                         e.Cancel = true;
                         worker.CancelAsync();
-                        return;
+                        return false;
                     }
                     worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
                 }
@@ -170,11 +173,12 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 {
                     e.Cancel = true;
                     worker.CancelAsync();
-                    return;
+                    return false;
                 }
                 worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
             }
             worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress, true));
+            return true;
         }
 
         #region Create Root Directorys Items

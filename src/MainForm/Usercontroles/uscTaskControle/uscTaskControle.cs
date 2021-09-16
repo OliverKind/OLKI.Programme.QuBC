@@ -442,11 +442,11 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                     {
                         //Start Counting in backup mode
                         case ControleMode.CreateBackup:
-                            this._counter.Backup(worker, e, this._progressStore);
+                            if (!this._counter.Backup(worker, e, this._progressStore)) return;
                             break;
                         //Start Counting in restore mode
                         case ControleMode.RestoreBackup:
-                            this._counter.Restore(worker, e, this._progressStore);
+                            if (!this._counter.Restore(worker, e, this._progressStore)) return;
                             break;
                         default:
                             throw new ArgumentException("uscTaskControle->worker_DoWork(Count)->Invalid value", nameof(this._mode));
@@ -469,14 +469,14 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                     {
                         //Start Counting in backup mode
                         case ControleMode.CreateBackup:
-                            this._copier.Backup(worker, e, this._progressStore);
+                            if (!this._copier.Backup(worker, e, this._progressStore)) return;
                             break;
                         //Start Counting in restore mode
                         case ControleMode.RestoreBackup:
                             switch ((DialogResult)this.Invoke((Func<DialogResult>)(() => MessageBox.Show(this._mainForm, Properties.Stringtable._0x002Fm, Properties.Stringtable._0x002Fc, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1))))
                             {
                                 case DialogResult.Yes:
-                                    this._copier.Restore(worker, e, this._progressStore);
+                                    if (!this._copier.Restore(worker, e, this._progressStore)) return;
                                     break;
                                 case DialogResult.No:
                                 case DialogResult.Cancel:
@@ -503,7 +503,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
                     //Start delete old items
                     worker.ReportProgress((int)TaskStep.DeleteOldItems_Start, new ProgressState(this._progressStore, true));
-                    this._deleter.Backup(worker, e, this._progressStore);
+                    if (!this._deleter.Backup(worker, e, this._progressStore)) return;
                     if (!e.Cancel) worker.ReportProgress((int)TaskStep.DeleteOldItems_Finish, new ProgressState(true));
                 }
             }
@@ -534,8 +534,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                 this._lastReportTime = DateTime.Now;
 
                 this._taskStep = (TaskStep)e.ProgressPercentage;
-                if (this._taskStep != TaskStep.Copy_Busy) { 
-                    _ = this._taskStep; 
+                if (this._taskStep != TaskStep.Copy_Busy)
+                {
+                    _ = this._taskStep;
                 }
                 switch (this._taskStep)
                 {
@@ -648,7 +649,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
         /// </summary>
         private void ShowFCompletedMessage(TaskStep taskStep)
         {
-            switch (this._taskStep)
+            switch (taskStep)
             {
                 case TaskStep.Count_Finish:
                 case TaskStep.Copy_Finish:

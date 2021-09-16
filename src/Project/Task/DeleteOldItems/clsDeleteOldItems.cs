@@ -88,7 +88,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// </summary>
         /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        internal void Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
+        /// <returns>True if Delete was sucessfull, False if an critical exception was thrown</returns>
+        internal bool Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             //Initial progress
             this._progress = progressStore;
@@ -99,7 +100,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
             foreach (DirectoryInfo DriveDirectory in Target.GetDirectories().OrderBy(o => o.Name))
             {
                 // Check for abbort
-                if (worker.CancellationPending) { e.Cancel = true; return; }
+                if (worker.CancellationPending) { e.Cancel = true; return true; }
 
                 this._progress.DirectroyFiles.ElemenName = DriveDirectory.FullName;
                 worker.ReportProgress((int)TaskControle.TaskStep.DeleteOldItems_Busy, new ProgressState(this._progress, true));
@@ -108,10 +109,11 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 {
                     e.Cancel = true;
                     worker.CancelAsync();
-                    return;
+                    return false;
                 }
             }
             worker.ReportProgress((int)TaskControle.TaskStep.DeleteOldItems_Busy, new ProgressState(this._progress, true));
+            return true;
         }
 
         /// <summary>

@@ -71,7 +71,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// </summary>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        internal void Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
+        /// <returns>True if Count was sucessfull, False if an critical exception was thrown</returns>
+        internal bool Backup(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             // Initial Progress Store
             this._progress = progressStore;
@@ -102,6 +103,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
             }
             worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
+            return true;
         }
 
         /// <summary>
@@ -109,7 +111,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         /// </summary>
         /// <param name="worker">BackgroundWorker for count</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
-        internal void Restore(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
+        /// <returns>True if Count was sucessfull, False if an critical exception was thrown</returns>
+        internal bool Restore(BackgroundWorker worker, DoWorkEventArgs e, ProgressStore progressStore)
         {
             // Initial Progress Store
             this._progress = progressStore;
@@ -125,7 +128,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 foreach (DirectoryInfo DriveDirectory in Source.GetDirectories().OrderBy(o => o.Name))
                 {
                     // Check for abbort
-                    if (worker.CancellationPending) { e.Cancel = true; return; }
+                    if (worker.CancellationPending) { e.Cancel = true; break; }
 
                     //Report Directory
                     this._progress.DirectroyFiles.ElemenName = DriveDirectory.FullName;
@@ -145,6 +148,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 this.CountRecursive(this._project.Settings.ControleRestore.Directory.Path, Project.DirectoryScope.All, worker, e);
             }
             worker.ReportProgress((int)TaskControle.TaskStep.Count_Busy, new ProgressState(this._progress, true));
+            return true;
         }
         #endregion
     }
