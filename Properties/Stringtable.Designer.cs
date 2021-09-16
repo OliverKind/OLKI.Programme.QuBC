@@ -670,5 +670,23 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x002Fm", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vorgang abgeschlossen. ähnelt.
+        /// </summary>
+        internal static string _0x0030c {
+            get {
+                return ResourceManager.GetString("0x0030c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Der Vorgang wurde, mit den gewählten Optionen, abgeschlossen.{0} ähnelt.
+        /// </summary>
+        internal static string _0x0030m {
+            get {
+                return ResourceManager.GetString("0x0030m", resourceCulture);
+            }
+        }
     }
 }

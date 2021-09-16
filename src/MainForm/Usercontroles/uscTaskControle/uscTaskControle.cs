@@ -598,16 +598,19 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                 case TaskStep.Count_Busy:
                 case TaskStep.Count_Finish:
                     this._uscProgress.SetProgressStates.SetProgress_CountFinish();
+                    this.ShowFCompletedMessage(this._taskStep);
                     break;
                 case TaskStep.Copy_Start:
                 case TaskStep.Copy_Busy:
                 case TaskStep.Copy_Finish:
                     this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
+                    this.ShowFCompletedMessage(this._taskStep);
                     break;
                 case TaskStep.DeleteOldItems_Start:
                 case TaskStep.DeleteOldItems_Busy:
                 case TaskStep.DeleteOldItems_Finish:
                     this._uscProgress.SetProgressStates.SetProgress_DeleteFinish();
+                    this.ShowFCompletedMessage(this._taskStep);
                     break;
                 case TaskStep.Cancel:
                     MessageBox.Show(this.ParentForm, Properties.Stringtable._0x0007m, Properties.Stringtable._0x0007m, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -638,6 +641,27 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                 this._logFile.WriteFoot();
             }
             if (this.TaskFinishedCanceled != null) this.TaskFinishedCanceled(this, new EventArgs());
+        }
+
+        /// <summary>
+        /// Shows a message if the BackgroundWorker is completet and wich options where selected
+        /// </summary>
+        private void ShowFCompletedMessage(TaskStep taskStep)
+        {
+            switch (this._taskStep)
+            {
+                case TaskStep.Count_Finish:
+                case TaskStep.Copy_Finish:
+                case TaskStep.DeleteOldItems_Finish:
+                    string SelectedOptions = "";
+                    if (this.chkCountItemsAndBytes.Checked) SelectedOptions += "\n    - " + this.chkCountItemsAndBytes.Text;
+                    if (this.chkCopyData.Checked) SelectedOptions += "\n    - " + this.chkCopyData.Text;
+                    if (this.chkDeleteOld.Visible && this.chkDeleteOld.Checked) SelectedOptions += "\n    - " + this.chkDeleteOld.Text;
+                    MessageBox.Show(this.ParentForm, string.Format(Properties.Stringtable._0x0030m, new object[] { SelectedOptions }), Properties.Stringtable._0x0030c, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                default:
+                    return;
+            }
         }
         #endregion
 

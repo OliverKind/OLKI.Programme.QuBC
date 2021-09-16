@@ -351,4 +351,10 @@ Zuvor gelöschte Daten werden gegebenenfalls wieder hergestellt.
 
 Möchten Sie fortfahren?</value>
   </data>
+  <data name="0x0030c" xml:space="preserve">
+    <value>Vorgang abgeschlossen.</value>
+  </data>
+  <data name="0x0030m" xml:space="preserve">
+    <value>Der Vorgang wurde, mit den gewählten Optionen, abgeschlossen.{0}</value>
+  </data>
 </root>
