@@ -1,6 +1,13 @@
 # QuBC - QuickBackupCreator
+## [2.4.0.20] - 2021-09-18
+### Added
+- Message if BackgroundWorker for Backup or Restore is completed
+- Icons for tabs and buttons
 
-## [2.3.0.19] - 2021-??-??
+### Fixed
+- Show wrong numerical values while deleting old files
+
+## [2.3.0.19] - 2021-07-17
 ### Added
 - Option to set default tabs
 - Option to SuspendLayout while resize MainForm
