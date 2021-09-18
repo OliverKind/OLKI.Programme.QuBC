@@ -61,6 +61,26 @@ namespace OLKI.Programme.QuBC.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackupCreate {
+            get {
+                object obj = ResourceManager.GetObject("BackupCreate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackupRestore {
+            get {
+                object obj = ResourceManager.GetObject("BackupRestore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die // Entwickler:
         ///Programmierung: Oliver Kind
         ///Design: Oliver Kind

@@ -184,6 +184,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                     case ControleMode.CreateBackup:
                         this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Backup;
                         this._directoryBrowser.ShowNewFolderButton = true;
+                        this.btnTaskStart.Image = Resources.BackupCreate;
                         this.btnTaskStart.Text = Stringtable.btnTaskStart_Text__Backup;
                         this.chkDeleteOld.Visible = true;
                         this.chkLogFileCreate.Text = Stringtable.chkLogFileCreate_Text__Backup;
@@ -198,6 +199,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                     case ControleMode.RestoreBackup:
                         this._directoryBrowser.Description = Stringtable.DirectoryBrowser_Description_Restore;
                         this._directoryBrowser.ShowNewFolderButton = false;
+                        this.btnTaskStart.Image = Resources.BackupRestore;
                         this.btnTaskStart.Text = Stringtable.btnTaskStart_Text__Restore;
                         this.chkDeleteOld.Visible = false;
                         this.chkLogFileCreate.Text = Stringtable.chkLogFileCreate_Text__Restore;

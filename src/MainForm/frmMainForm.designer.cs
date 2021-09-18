@@ -118,7 +118,7 @@
             this.txtConclusionFiles = new System.Windows.Forms.TextBox();
             this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
-            this.imlExceptionIcons = new System.Windows.Forms.ImageList(this.components);
+            this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -334,7 +334,7 @@
             this.tabControlMain.Controls.Add(this.tabPageBackup);
             this.tabControlMain.Controls.Add(this.tabPageRestore);
             this.tabControlMain.Controls.Add(this.tabPageConclusion);
-            this.tabControlMain.ImageList = this.imlExceptionIcons;
+            this.tabControlMain.ImageList = this.imlTabIcons;
             this.tabControlMain.Location = new System.Drawing.Point(12, 27);
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlMain.MinimumSize = new System.Drawing.Size(983, 598);
@@ -346,6 +346,7 @@
             // tabPageSelect
             // 
             this.tabPageSelect.Controls.Add(this.spcExplorer);
+            this.tabPageSelect.ImageIndex = 0;
             this.tabPageSelect.Location = new System.Drawing.Point(4, 23);
             this.tabPageSelect.Name = "tabPageSelect";
             this.tabPageSelect.Padding = new System.Windows.Forms.Padding(3);
@@ -607,6 +608,7 @@
             // 
             this.tabPageBackup.Controls.Add(this.grbTaskControleBackup);
             this.tabPageBackup.Controls.Add(this.grbTaskProgressBackup);
+            this.tabPageBackup.ImageIndex = 1;
             this.tabPageBackup.Location = new System.Drawing.Point(4, 23);
             this.tabPageBackup.Name = "tabPageBackup";
             this.tabPageBackup.Padding = new System.Windows.Forms.Padding(3);
@@ -664,6 +666,7 @@
             // 
             this.tabPageRestore.Controls.Add(this.grbTaskControleRestore);
             this.tabPageRestore.Controls.Add(this.grbTaskProgressRestore);
+            this.tabPageRestore.ImageIndex = 2;
             this.tabPageRestore.Location = new System.Drawing.Point(4, 23);
             this.tabPageRestore.Name = "tabPageRestore";
             this.tabPageRestore.Padding = new System.Windows.Forms.Padding(3);
@@ -728,6 +731,7 @@
             this.tabPageConclusion.Controls.Add(this.txtConclusionFiles);
             this.tabPageConclusion.Controls.Add(this.txtConclusionDirectories);
             this.tabPageConclusion.Controls.Add(this.lbltxtCopiedDirectories);
+            this.tabPageConclusion.ImageIndex = 3;
             this.tabPageConclusion.Location = new System.Drawing.Point(4, 23);
             this.tabPageConclusion.Name = "tabPageConclusion";
             this.tabPageConclusion.Padding = new System.Windows.Forms.Padding(3);
@@ -921,11 +925,15 @@
             this.lbltxtCopiedDirectories.TabIndex = 0;
             this.lbltxtCopiedDirectories.Text = "Gesicherte / Wiederhergestellte Ordner:";
             // 
-            // imlExceptionIcons
+            // imlTabIcons
             // 
-            this.imlExceptionIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlExceptionIcons.ImageStream")));
-            this.imlExceptionIcons.TransparentColor = System.Drawing.Color.Transparent;
-            this.imlExceptionIcons.Images.SetKeyName(0, "eventlogWarn.ico");
+            this.imlTabIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlTabIcons.ImageStream")));
+            this.imlTabIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlTabIcons.Images.SetKeyName(0, "BackupOptions.ico");
+            this.imlTabIcons.Images.SetKeyName(1, "BackupCreate.ico");
+            this.imlTabIcons.Images.SetKeyName(2, "BackupRestore.ico");
+            this.imlTabIcons.Images.SetKeyName(3, "BackupReport.ico");
+            this.imlTabIcons.Images.SetKeyName(4, "BackupReportWarning.ico");
             // 
             // MainForm
             // 
@@ -1024,7 +1032,7 @@
         private Usercontroles.uscTaskControle.TaskControle uscTaskControleRestore;
         private Usercontroles.uscProgress.TaskProgress uscTaskProgressBackup;
         private Usercontroles.uscProgress.TaskProgress uscTaskProgressRestore;
-        private System.Windows.Forms.ImageList imlExceptionIcons;
+        private System.Windows.Forms.ImageList imlTabIcons;
         private ExplorerTreeView trvExplorer;
         private System.Windows.Forms.SplitContainer spcExplorer;
         private System.Windows.Forms.ImageList imlListViewIcon;

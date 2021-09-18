@@ -30,7 +30,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
     public partial class TaskProgress : UserControl
     {
         #region Constants
-        private const int EXCEPTION_ICON_INDEX = 0;
+        private const int EXCEPTION_ICON_INDEX = 4;
         /// <summary>
         /// Defines the format to show time values
         /// </summary>

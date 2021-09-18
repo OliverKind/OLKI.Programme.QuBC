@@ -246,7 +246,6 @@ namespace OLKI.Programme.QuBC.src.MainForm
                     {
                         Checked = this.DirectoryContentListView_GetFileChecked(directory, File),
                         ImageKey = File.Extension,
-                        //ImageIndex = 20,
                         Tag = File,
                         Text = File.Name
                     };

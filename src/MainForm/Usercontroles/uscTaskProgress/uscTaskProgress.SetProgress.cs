@@ -70,7 +70,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
 
             internal void ClearExceptionlog()
             {
-                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, -1);
+                TabPageInv.ImageIndex(this._progressControle._conclusionTabPage, 3);
                 ListViewInv.ClearItems(this._progressControle._exceptionListView);
                 TextBoxInv.Text(this._progressControle._exceptionCount, "0");
             }

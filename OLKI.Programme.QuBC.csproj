@@ -232,6 +232,8 @@
     </Content>
     <Content Include="Program_Symbol.ico" />
     <Content Include="Resources\Icons\ButtonIcons\112_RefreshArrow_Blue_16x16_72.png" />
+    <Content Include="Resources\Icons\ButtonIcons\BackupCreate.png" />
+    <Content Include="Resources\Icons\ButtonIcons\BackupRestore.png" />
     <Content Include="Resources\Icons\ButtonIcons\Cancel.png" />
     <Content Include="Resources\Icons\ButtonIcons\Delete.png" />
     <Content Include="Resources\Icons\ButtonIcons\ExistingFiles.png" />
@@ -240,22 +242,17 @@
     <Content Include="Resources\Icons\ButtonIcons\Run.png" />
     <Content Include="Resources\Icons\ButtonIcons\SearchFolderHS.png" />
     <Content Include="Resources\Icons\ButtonIcons\UpFolder.png" />
-    <Content Include="Resources\Icons\eventlogWarn.ico" />
-    <Content Include="Resources\Icons\Icon original Files\075b_UpFolder.ico" />
-    <Content Include="Resources\Icons\Icon original Files\112_ArrowCurve_Blue_Left_16x16_72.png" />
-    <Content Include="Resources\Icons\Icon original Files\3.5_Disk_Drive.ico" />
-    <Content Include="Resources\Icons\Icon original Files\CD_Drive.ico" />
-    <Content Include="Resources\Icons\Icon original Files\eventlogWarn.ico" />
-    <Content Include="Resources\Icons\Icon original Files\File.ico" />
-    <Content Include="Resources\Icons\Icon original Files\folder.ico" />
-    <Content Include="Resources\Icons\Icon original Files\Hard_Drive.ico" />
-    <Content Include="Resources\Icons\Icon original Files\Network_Drive.ico" />
     <Content Include="Resources\Icons\MenueToolStripIcons\Help.png" />
     <Content Include="Resources\Icons\MenueToolStripIcons\New.png" />
     <Content Include="Resources\Icons\MenueToolStripIcons\Open.png" />
     <Content Include="Resources\Icons\MenueToolStripIcons\OpenFolder.png" />
     <Content Include="Resources\Icons\MenueToolStripIcons\Properties.png" />
     <Content Include="Resources\Icons\MenueToolStripIcons\Save.png" />
+    <Content Include="Resources\Icons\TabIcons\BackupCreate.ico" />
+    <Content Include="Resources\Icons\TabIcons\BackupOptions.ico" />
+    <Content Include="Resources\Icons\TabIcons\BackupReport.ico" />
+    <Content Include="Resources\Icons\TabIcons\BackupReportWarning.ico" />
+    <Content Include="Resources\Icons\TabIcons\BackupRestore.ico" />
     <Content Include="Resources\Icons\TreeViewIcons\00--3.5_Disk_Drive.ico" />
     <Content Include="Resources\Icons\TreeViewIcons\01--3.5_Disk_Drive_NoCheck.ico" />
     <Content Include="Resources\Icons\TreeViewIcons\02--3.5_Disk_Drive_Check.ico" />
@@ -281,17 +278,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ProgamIcons\program_symbol\ProgSym_256.png" />
-    <Content Include="Resources\ProgamIcons\program_symbol\vorlagen\112_ArrowCurveBlue_Right.ico" />
-    <Content Include="Resources\ProgamIcons\program_symbol\vorlagen\Generic_Device.ico" />
-    <Content Include="Resources\ProgamIcons\program_symbol\vorlagen\Hard_Drive.ico" />
     <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.png" />
-    <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\327_Options.ico" />
-    <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\copy.ico" />
-    <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\ProgSym.ico" />
-    <Content Include="Resources\ProgamIcons\project_symbol\Vorlagen\Settings.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\OLKI.Toolbox\repository\OLKI.Toolbox.csproj">
