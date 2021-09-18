@@ -93,6 +93,10 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         {
             //Initial progress
             this._progress = progressStore;
+            this._progress.DirectroyFiles.ActualValue = null;
+            this._progress.DirectroyFiles.MaxValue = null;
+            this._progress.FileBytes.ActualValue = null;
+            this._progress.FileBytes.MaxValue = null;
 
             DirectoryInfo Target = new DirectoryInfo(this._project.Settings.ControleBackup.Directory.Path);
 
