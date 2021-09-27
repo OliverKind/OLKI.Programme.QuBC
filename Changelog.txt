@@ -1,4 +1,11 @@
 # QuBC - QuickBackupCreator
+## [2.4.1.21] - 2021-09-27
+### Added
+- Show ReferencedAssemblies at AboutForm
+
+### Fixed
+- Wrong Credits shown at AboutForm
+
 ## [2.4.0.20] - 2021-09-18
 ### Added
 - Message if BackgroundWorker for Backup or Restore is completed
