@@ -536,10 +536,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                 this._lastReportTime = DateTime.Now;
 
                 this._taskStep = (TaskStep)e.ProgressPercentage;
-                if (this._taskStep != TaskStep.Copy_Busy)
-                {
-                    _ = this._taskStep;
-                }
                 switch (this._taskStep)
                 {
                     case TaskStep.Count_Start:
