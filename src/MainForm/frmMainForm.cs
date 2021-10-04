@@ -591,18 +591,18 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 if (!string.IsNullOrEmpty(Exception.Exception.Message)) ExceptionText += Exception.Exception.Message;
 
                 this.txtExceptionSourcePath.Text = Exception.Source;
-                this.txtExceptionDestinationPath.Text = Exception.Target;
+                this.txtExceptionTargetPath.Text = Exception.Target;
                 this.txtExceptionMessage.Text = ExceptionText;
             }
             else
             {
                 this.txtExceptionSourcePath.Text = string.Empty;
-                this.txtExceptionDestinationPath.Text = string.Empty;
+                this.txtExceptionTargetPath.Text = string.Empty;
                 this.txtExceptionMessage.Text = string.Empty;
             }
         }
 
-        private void btnExceptionDestinationGoTo_Click(object sender, EventArgs e)
+        private void btnExceptionTargetGoTo_Click(object sender, EventArgs e)
         {
             if (this.lsvErrorLog.SelectedItems.Count == 0) return;
             this.GoToExceptíonPath(((Project.Task.TaskException)this.lsvErrorLog.SelectedItems[0].Tag).Target);

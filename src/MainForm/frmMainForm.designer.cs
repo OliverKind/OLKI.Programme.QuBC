@@ -99,6 +99,8 @@
             this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
+            this.btnExceptionTargetGoTo = new System.Windows.Forms.Button();
+            this.btnExceptionSourceGoTo = new System.Windows.Forms.Button();
             this.lsvErrorLog = new OLKI.Toolbox.Widgets.SortListView();
             this.chLsvErrorLog_Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLsvErrorLog_Source = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -106,8 +108,8 @@
             this.chLsvErrorLog_Exception = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblExceptionMessage = new System.Windows.Forms.Label();
             this.txtExceptionMessage = new System.Windows.Forms.TextBox();
-            this.lblExceptionDestinationPath = new System.Windows.Forms.Label();
-            this.txtExceptionDestinationPath = new System.Windows.Forms.TextBox();
+            this.lblExceptionTargetPath = new System.Windows.Forms.Label();
+            this.txtExceptionTargetPath = new System.Windows.Forms.TextBox();
             this.txtExceptionSourcePath = new System.Windows.Forms.TextBox();
             this.lblExceptionSourcePath = new System.Windows.Forms.Label();
             this.lblExceptionCount = new System.Windows.Forms.Label();
@@ -119,8 +121,6 @@
             this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
-            this.btnExceptionSourceGoTo = new System.Windows.Forms.Button();
-            this.btnExceptionDestinationGoTo = new System.Windows.Forms.Button();
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -747,13 +747,13 @@
             this.grbException.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbException.Controls.Add(this.btnExceptionDestinationGoTo);
+            this.grbException.Controls.Add(this.btnExceptionTargetGoTo);
             this.grbException.Controls.Add(this.btnExceptionSourceGoTo);
             this.grbException.Controls.Add(this.lsvErrorLog);
             this.grbException.Controls.Add(this.lblExceptionMessage);
             this.grbException.Controls.Add(this.txtExceptionMessage);
-            this.grbException.Controls.Add(this.lblExceptionDestinationPath);
-            this.grbException.Controls.Add(this.txtExceptionDestinationPath);
+            this.grbException.Controls.Add(this.lblExceptionTargetPath);
+            this.grbException.Controls.Add(this.txtExceptionTargetPath);
             this.grbException.Controls.Add(this.txtExceptionSourcePath);
             this.grbException.Controls.Add(this.lblExceptionSourcePath);
             this.grbException.Location = new System.Drawing.Point(6, 110);
@@ -762,6 +762,28 @@
             this.grbException.TabIndex = 8;
             this.grbException.TabStop = false;
             this.grbException.Text = "Kopierfehler";
+            // 
+            // btnExceptionTargetGoTo
+            // 
+            this.btnExceptionTargetGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExceptionTargetGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionTargetGoTo.Image")));
+            this.btnExceptionTargetGoTo.Location = new System.Drawing.Point(937, 369);
+            this.btnExceptionTargetGoTo.Name = "btnExceptionTargetGoTo";
+            this.btnExceptionTargetGoTo.Size = new System.Drawing.Size(23, 23);
+            this.btnExceptionTargetGoTo.TabIndex = 10;
+            this.btnExceptionTargetGoTo.UseVisualStyleBackColor = true;
+            this.btnExceptionTargetGoTo.Click += new System.EventHandler(this.btnExceptionTargetGoTo_Click);
+            // 
+            // btnExceptionSourceGoTo
+            // 
+            this.btnExceptionSourceGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExceptionSourceGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionSourceGoTo.Image")));
+            this.btnExceptionSourceGoTo.Location = new System.Drawing.Point(937, 340);
+            this.btnExceptionSourceGoTo.Name = "btnExceptionSourceGoTo";
+            this.btnExceptionSourceGoTo.Size = new System.Drawing.Size(23, 23);
+            this.btnExceptionSourceGoTo.TabIndex = 9;
+            this.btnExceptionSourceGoTo.UseVisualStyleBackColor = true;
+            this.btnExceptionSourceGoTo.Click += new System.EventHandler(this.btnExceptionSourceGoTo_Click);
             // 
             // lsvErrorLog
             // 
@@ -826,24 +848,24 @@
             this.txtExceptionMessage.Size = new System.Drawing.Size(878, 54);
             this.txtExceptionMessage.TabIndex = 6;
             // 
-            // lblExceptionDestinationPath
+            // lblExceptionTargetPath
             // 
-            this.lblExceptionDestinationPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblExceptionDestinationPath.Location = new System.Drawing.Point(6, 374);
-            this.lblExceptionDestinationPath.Name = "lblExceptionDestinationPath";
-            this.lblExceptionDestinationPath.Size = new System.Drawing.Size(45, 23);
-            this.lblExceptionDestinationPath.TabIndex = 3;
-            this.lblExceptionDestinationPath.Text = "Ziel:";
+            this.lblExceptionTargetPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblExceptionTargetPath.Location = new System.Drawing.Point(6, 374);
+            this.lblExceptionTargetPath.Name = "lblExceptionTargetPath";
+            this.lblExceptionTargetPath.Size = new System.Drawing.Size(45, 23);
+            this.lblExceptionTargetPath.TabIndex = 3;
+            this.lblExceptionTargetPath.Text = "Ziel:";
             // 
-            // txtExceptionDestinationPath
+            // txtExceptionTargetPath
             // 
-            this.txtExceptionDestinationPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtExceptionTargetPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExceptionDestinationPath.Location = new System.Drawing.Point(82, 371);
-            this.txtExceptionDestinationPath.Name = "txtExceptionDestinationPath";
-            this.txtExceptionDestinationPath.ReadOnly = true;
-            this.txtExceptionDestinationPath.Size = new System.Drawing.Size(849, 20);
-            this.txtExceptionDestinationPath.TabIndex = 4;
+            this.txtExceptionTargetPath.Location = new System.Drawing.Point(82, 371);
+            this.txtExceptionTargetPath.Name = "txtExceptionTargetPath";
+            this.txtExceptionTargetPath.ReadOnly = true;
+            this.txtExceptionTargetPath.Size = new System.Drawing.Size(849, 20);
+            this.txtExceptionTargetPath.TabIndex = 4;
             // 
             // txtExceptionSourcePath
             // 
@@ -939,28 +961,6 @@
             this.imlTabIcons.Images.SetKeyName(3, "BackupReport.ico");
             this.imlTabIcons.Images.SetKeyName(4, "BackupReportWarning.ico");
             // 
-            // btnExceptionSourceGoTo
-            // 
-            this.btnExceptionSourceGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExceptionSourceGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionSourceGoTo.Image")));
-            this.btnExceptionSourceGoTo.Location = new System.Drawing.Point(937, 340);
-            this.btnExceptionSourceGoTo.Name = "btnExceptionSourceGoTo";
-            this.btnExceptionSourceGoTo.Size = new System.Drawing.Size(23, 23);
-            this.btnExceptionSourceGoTo.TabIndex = 9;
-            this.btnExceptionSourceGoTo.UseVisualStyleBackColor = true;
-            this.btnExceptionSourceGoTo.Click += new System.EventHandler(this.btnExceptionSourceGoTo_Click);
-            // 
-            // btnExceptionDestinationGoTo
-            // 
-            this.btnExceptionDestinationGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExceptionDestinationGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionDestinationGoTo.Image")));
-            this.btnExceptionDestinationGoTo.Location = new System.Drawing.Point(937, 369);
-            this.btnExceptionDestinationGoTo.Name = "btnExceptionDestinationGoTo";
-            this.btnExceptionDestinationGoTo.Size = new System.Drawing.Size(23, 23);
-            this.btnExceptionDestinationGoTo.TabIndex = 10;
-            this.btnExceptionDestinationGoTo.UseVisualStyleBackColor = true;
-            this.btnExceptionDestinationGoTo.Click += new System.EventHandler(this.btnExceptionDestinationGoTo_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1039,8 +1039,8 @@
         private System.Windows.Forms.ColumnHeader chLsvErrorLog_Exception;
         private System.Windows.Forms.Label lblExceptionMessage;
         private System.Windows.Forms.TextBox txtExceptionMessage;
-        private System.Windows.Forms.Label lblExceptionDestinationPath;
-        private System.Windows.Forms.TextBox txtExceptionDestinationPath;
+        private System.Windows.Forms.Label lblExceptionTargetPath;
+        private System.Windows.Forms.TextBox txtExceptionTargetPath;
         private System.Windows.Forms.TextBox txtExceptionSourcePath;
         private System.Windows.Forms.Label lblExceptionSourcePath;
         private System.Windows.Forms.Label lblExceptionCount;
@@ -1066,7 +1066,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuMain_Help_CheckUpdate;
         private System.Windows.Forms.ToolStripSeparator mnuMain_Help_SepAbout;
         private System.Windows.Forms.ToolStripMenuItem mnuMain_File_Clean;
-        private System.Windows.Forms.Button btnExceptionDestinationGoTo;
+        private System.Windows.Forms.Button btnExceptionTargetGoTo;
         private System.Windows.Forms.Button btnExceptionSourceGoTo;
     }
 }
