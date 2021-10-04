@@ -100,7 +100,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         public void WriteCancel()
         {
             if (!CheckWriteLine()) return;
-            this.WriteLogLine(string.Format(LogTemplates.WriteCancel, DateTime.Now));
+            this.WriteLogLine(string.Format(LogTemplates.WriteCancel, DateTime.Now), "LogFile::WriteCancel");
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         public void WriteCountStart()
         {
             if (!CheckWriteLine()) return;
-            this.WriteLogLine(string.Format(LogTemplates.WriteCountStart, DateTime.Now));
+            this.WriteLogLine(string.Format(LogTemplates.WriteCountStart, DateTime.Now), "LogFile::WriteCountStart");
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
             Args[2] = this._progressStore.TotalFiles.MaxValue;
             Args[3] = this._progressStore.TotalBytes.MaxValue;
 
-            this.WriteLogLine(string.Format(LogTemplates.WriteCountFinish, Args));
+            this.WriteLogLine(string.Format(LogTemplates.WriteCountFinish, Args), "LogFile::WriteCountFinish");
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         public void WriteCopyStart()
         {
             if (!CheckWriteLine()) return;
-            this.WriteLogLine(string.Format(LogTemplates.WriteCopyStart, DateTime.Now));
+            this.WriteLogLine(string.Format(LogTemplates.WriteCopyStart, DateTime.Now), "LogFile::WriteLogLine");
         }
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
             Args[2] = this._progressStore.TotalFiles.ActualValue;
             Args[3] = this._progressStore.TotalBytes.ActualValue;
 
-            this.WriteLogLine(string.Format(LogTemplates.WriteCopyFinish, Args));
+            this.WriteLogLine(string.Format(LogTemplates.WriteCopyFinish, Args), "LogFile::WriteCopyFinish");
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         public void WriteDeleteSart()
         {
             if (!CheckWriteLine()) return;
-            this.WriteLogLine(string.Format(LogTemplates.WriteDeleteSart, DateTime.Now));
+            this.WriteLogLine(string.Format(LogTemplates.WriteDeleteSart, DateTime.Now), "LogFile::WriteDeleteSart");
         }
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         public void WriteDeleteFinish()
         {
             if (!CheckWriteLine()) return;
-            this.WriteLogLine(string.Format(LogTemplates.WriteDeleteFinish, DateTime.Now));
+            this.WriteLogLine(string.Format(LogTemplates.WriteDeleteFinish, DateTime.Now), "LogFile::WriteDeleteFinish");
         }
 
         /// <summary>
@@ -182,7 +182,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
             Args[2] = exception.Target;
             Args[3] = exception.Text;
 
-            this.WriteLogLine(string.Format(LogTemplates.WriteException, Args));
+            this.WriteLogLine(string.Format(LogTemplates.WriteException, Args), "LogFile::WriteException");
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         public void WriteFoot()
         {
             if (!CheckWriteLine()) return;
-            this.WriteLogLine(string.Format(LogTemplates.WriteFoot, DateTime.Now));
+            this.WriteLogLine(string.Format(LogTemplates.WriteFoot, DateTime.Now), "LogFile::WriteFoot");
         }
 
         /// <summary>
@@ -242,7 +242,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
                     throw new ArgumentException();
             }
 
-            this.WriteLogLine(string.Format(LogTemplates.WriteHead, Args));
+            this.WriteLogLine(string.Format(LogTemplates.WriteHead, Args), "LogFile::WriteHead");
         }
         #endregion
     }

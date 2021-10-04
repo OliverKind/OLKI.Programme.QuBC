@@ -293,7 +293,9 @@ Sind Sie sicher das Sie diesen Vorgang durchführen möchten?</value>
 
 {1}
 
-Sollen weitere Meldungen dieser Art unterdrückt werden?</value>
+Schritt: {2}
+
+Sofern weitere Fehler beim Schreiben der Protokolldatei auftreten, so werden diese nicht mehr angezeigt.</value>
   </data>
   <data name="0x0026c" xml:space="preserve">
     <value>Auf Aktualisierungen prüfen.</value>

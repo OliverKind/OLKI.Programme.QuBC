@@ -517,7 +517,9 @@ namespace OLKI.Programme.QuBC.Properties {
         ///
         ///{1}
         ///
-        ///Sollen weitere Meldungen dieser Art unterdrückt werden? ähnelt.
+        ///Schritt: {2}
+        ///
+        ///Sofern weitere Fehler beim Schreiben der Protokolldatei auftreten, so werden diese nicht mehr angezeigt. ähnelt.
         /// </summary>
         internal static string _0x0025m {
             get {

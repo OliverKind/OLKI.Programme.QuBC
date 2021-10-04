@@ -37,9 +37,9 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// </summary>
         /// <param name="lineChar">Spezifies the char to repeat an write to log file line</param>
         /// <param name="charRepeat">Specifies how many times the specified char should been repeated</param>
-        internal void WriteLogLine(char lineChar, int charRepeat)
+        internal void WriteLogLine(char lineChar, int charRepeat, string writeStep)
         {
-            this.WriteLogLine(lineChar, charRepeat, DEFAULT_INDENT);
+            this.WriteLogLine(lineChar, charRepeat, DEFAULT_INDENT, writeStep);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// <param name="lineChar">Spezifies the char to repeat an write to log file line</param>
         /// <param name="charRepeat">Specifies how many times the specified char should been repeated</param>
         /// <param name="indent">Specifies the indent of the line to write</param>
-        internal void WriteLogLine(char lineChar, int charRepeat, int indent)
+        internal void WriteLogLine(char lineChar, int charRepeat, int indent, string writeStep)
         {
             string CharLine = string.Empty;
             //CharLine.PadLeft(charRepeat, lineChar);
@@ -56,16 +56,16 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
             {
                 CharLine += lineChar;
             }
-            this.WriteLogLine(CharLine, indent);
+            this.WriteLogLine(CharLine, indent, writeStep);
         }
 
         /// <summary>
         /// Write an log file line with an specified text and an indent of 0 chars
         /// </summary>
         /// <param name="text">Specifies the text to write to log file line</param>
-        internal void WriteLogLine(string text)
+        internal void WriteLogLine(string text, string writeStep)
         {
-            this.WriteLogLine(text, DEFAULT_INDENT);
+            this.WriteLogLine(text, DEFAULT_INDENT, writeStep);
         }
 
         /// <summary>
@@ -73,7 +73,8 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
         /// </summary>
         /// <param name="text">Specifies the text to write to log file line</param>
         /// <param name="indent">Specifies the indent of the line to write</param>
-        internal void WriteLogLine(string text, int indent)
+        /// <param name="writeStep">The Step of the Logfile Line to write, shown at exception Message</param>
+        internal void WriteLogLine(string text, int indent, string writeStep)
         {
             //Create indent
             string Indent = string.Empty;
@@ -100,10 +101,8 @@ namespace OLKI.Programme.QuBC.src.Project.LogFileWriter
             {
                 if (this._showExceptionMessage)
                 {
-                    if (MessageBox.Show(string.Format(Properties.Stringtable._0x0025m, new object[] { this.LogFilePath, ex.Message }), Properties.Stringtable._0x0025c, MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                    {
-                        this._showExceptionMessage = false;
-                    }
+                    MessageBox.Show(string.Format(Properties.Stringtable._0x0025m, new object[] { this.LogFilePath, ex.Message, writeStep }), Properties.Stringtable._0x0025c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this._showExceptionMessage = false;
                 }
             }
         }
