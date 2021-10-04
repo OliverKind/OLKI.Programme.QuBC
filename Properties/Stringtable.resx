@@ -357,4 +357,10 @@ Möchten Sie fortfahren?</value>
   <data name="0x0030m" xml:space="preserve">
     <value>Der Vorgang wurde, mit den gewählten Optionen, abgeschlossen.{0}</value>
   </data>
+  <data name="0x0031c" xml:space="preserve">
+    <value>Pfad öffnen fehlgeschlagen.</value>
+  </data>
+  <data name="0x0031m" xml:space="preserve">
+    <value>Der Pfad "{0}" konnte nicht geöffnet werden.</value>
+  </data>
 </root>

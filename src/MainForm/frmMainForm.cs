@@ -355,7 +355,6 @@ namespace OLKI.Programme.QuBC.src.MainForm
             if (Settings.Default.MainFormResizeSuspendLayout) this.ResumeLayout();
         }
 
-
         private void MainForm_Shown(object sender, EventArgs e)
         {
             // Check for Admin Rights
@@ -603,6 +602,18 @@ namespace OLKI.Programme.QuBC.src.MainForm
             }
         }
 
+        private void btnExceptionDestinationGoTo_Click(object sender, EventArgs e)
+        {
+            if (this.lsvErrorLog.SelectedItems.Count == 0) return;
+            this.GoToExceptíonPath(((Project.Task.TaskException)this.lsvErrorLog.SelectedItems[0].Tag).Target);
+        }
+
+        private void btnExceptionSourceGoTo_Click(object sender, EventArgs e)
+        {
+            if (this.lsvErrorLog.SelectedItems.Count == 0) return;
+            this.GoToExceptíonPath(((Project.Task.TaskException)this.lsvErrorLog.SelectedItems[0].Tag).Source);
+        }
+
         private void txtExceptionCount_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.txtExceptionCount.Text) || this.txtExceptionCount.Text == "0")
@@ -614,8 +625,34 @@ namespace OLKI.Programme.QuBC.src.MainForm
                 this.tabPageConclusion.Text = string.Format("{0}: {1}", new string[] { this._conclusionTabPageOriginalText, this.txtExceptionCount.Text });
             }
         }
+
+        /// <summary>
+        /// Open the defined path and select the file, if a file path is given
+        /// </summary>
+        /// <param name="path">Path to go to</param>
+        private void GoToExceptíonPath(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return;
+
+            FileInfo File = new FileInfo(path);
+            DirectoryInfo Directory = new DirectoryInfo(path);
+
+            if (File.Exists)
+            {
+                System.Diagnostics.Process.Start("explorer.exe", "/e,/select," + path);
+            }
+            else if (!File.Exists && Directory.Exists)
+            {
+                System.Diagnostics.Process.Start("explorer.exe", path);
+            }
+            else
+            {
+                MessageBox.Show(this, string.Format(Stringtable._0x0031m, path), Stringtable._0x0031c, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         #endregion
 
+        #region tabPage_Backup
         private void uscTaskControleBackup_TaskFinishedCanceled(object sender, EventArgs e)
         {
             this.spcExplorer.Enabled = true;
@@ -631,7 +668,9 @@ namespace OLKI.Programme.QuBC.src.MainForm
             if (this.lsvErrorLog.SelectedItems.Count > 0) this.lsvErrorLog.SelectedItems[0].Selected = false;
 
         }
+        #endregion
 
+        #region tabPage_Restore
         private void uscTaskControleRestore_TaskFinishedCanceled(object sender, EventArgs e)
         {
             this.spcExplorer.Enabled = true;
@@ -647,6 +686,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.grbTaskControleBackup.Enabled = false;
             this.grbTaskProgressBackup.Enabled = false;
         }
+        #endregion
         #endregion
 
         #region Menue Events

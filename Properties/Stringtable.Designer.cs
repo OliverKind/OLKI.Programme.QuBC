@@ -688,5 +688,23 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x0030m", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Pfad öffnen fehlgeschlagen. ähnelt.
+        /// </summary>
+        internal static string _0x0031c {
+            get {
+                return ResourceManager.GetString("0x0031c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Der Pfad &quot;{0}&quot; konnte nicht geöffnet werden. ähnelt.
+        /// </summary>
+        internal static string _0x0031m {
+            get {
+                return ResourceManager.GetString("0x0031m", resourceCulture);
+            }
+        }
     }
 }
