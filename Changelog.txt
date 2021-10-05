@@ -1,5 +1,5 @@
 # QuBC - QuickBackupCreator
-## [2.5.0.22] - 2021-10-??
+## [2.5.0.22] - 2021-10-05
 ### Added
 - Buttons to open Sorce- and Target-Path with an exception, wwhile copy a directory or file
 
