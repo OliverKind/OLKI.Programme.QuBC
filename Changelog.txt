@@ -1,4 +1,12 @@
 # QuBC - QuickBackupCreator
+## [2.5.0.22] - 2021-10-??
+### Added
+- Buttons to open Sorce- and Target-Path with an exception, wwhile copy a directory or file
+
+### Changed
+- Supress multiple ExceptionMessages if there are multiple exceptions, writing to a LogFile
+- Set required .NET-Framework to Version 4.8
+
 ## [2.4.1.21] - 2021-09-27
 ### Added
 - Show ReferencedAssemblies at AboutForm
