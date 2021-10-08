@@ -1,7 +1,7 @@
-'QuBC - 1.1.2.9' - QuickBackupCreator
+'QuBC - 2.5.1.23' - QuickBackupCreator
 ************************************
 
-Copyright © 2020 OLKI - Oliver Kind
+Copyright © 2021 OLKI - Oliver Kind
 Alle Rechte vorbehalten.
 
 
@@ -52,7 +52,7 @@ das Computersystem folgende Voraussetzungen erfüllen:
 - Betriebssystem - Microsoft Windows 7 (32 oder 64 Bit)
 Die Unterstützung durch weitere Windows Versionen ist möglich - wurde jedoch nicht getestet.
 
-- .NET Framework 4.6.1 oder höher
+- .NET Framework 4.8 oder höher
 
 
 Bei der Darstellung der Programm-Oberflächen können je nach
