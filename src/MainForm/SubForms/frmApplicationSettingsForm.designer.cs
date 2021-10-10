@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationSettingsForm));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.tolApplicationSettings = new System.Windows.Forms.ToolStrip();
             this.grbProjectFolder = new System.Windows.Forms.GroupBox();
             this.btnDefaultFileOpen_Delete = new System.Windows.Forms.Button();
             this.btnDefaultPath_Delete = new System.Windows.Forms.Button();
@@ -82,7 +81,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(590, 442);
+            this.btnCancel.Location = new System.Drawing.Point(607, 442);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 23);
             this.btnCancel.TabIndex = 11;
@@ -100,16 +99,6 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // tolApplicationSettings
-            // 
-            this.tolApplicationSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tolApplicationSettings.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.tolApplicationSettings.Location = new System.Drawing.Point(703, 0);
-            this.tolApplicationSettings.Name = "tolApplicationSettings";
-            this.tolApplicationSettings.Size = new System.Drawing.Size(26, 477);
-            this.tolApplicationSettings.TabIndex = 12;
-            this.tolApplicationSettings.Text = "toolStrip1";
-            // 
             // grbProjectFolder
             // 
             this.grbProjectFolder.Controls.Add(this.btnDefaultFileOpen_Delete);
@@ -122,7 +111,7 @@
             this.grbProjectFolder.Controls.Add(this.lblDefaultPath);
             this.grbProjectFolder.Location = new System.Drawing.Point(12, 12);
             this.grbProjectFolder.Name = "grbProjectFolder";
-            this.grbProjectFolder.Size = new System.Drawing.Size(688, 71);
+            this.grbProjectFolder.Size = new System.Drawing.Size(705, 71);
             this.grbProjectFolder.TabIndex = 0;
             this.grbProjectFolder.TabStop = false;
             this.grbProjectFolder.Text = "Standardordner und -dateien";
@@ -130,7 +119,7 @@
             // btnDefaultFileOpen_Delete
             // 
             this.btnDefaultFileOpen_Delete.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultFileOpen_Delete.Image")));
-            this.btnDefaultFileOpen_Delete.Location = new System.Drawing.Point(647, 42);
+            this.btnDefaultFileOpen_Delete.Location = new System.Drawing.Point(664, 42);
             this.btnDefaultFileOpen_Delete.Name = "btnDefaultFileOpen_Delete";
             this.btnDefaultFileOpen_Delete.Size = new System.Drawing.Size(35, 24);
             this.btnDefaultFileOpen_Delete.TabIndex = 7;
@@ -140,7 +129,7 @@
             // btnDefaultPath_Delete
             // 
             this.btnDefaultPath_Delete.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultPath_Delete.Image")));
-            this.btnDefaultPath_Delete.Location = new System.Drawing.Point(647, 16);
+            this.btnDefaultPath_Delete.Location = new System.Drawing.Point(664, 16);
             this.btnDefaultPath_Delete.Name = "btnDefaultPath_Delete";
             this.btnDefaultPath_Delete.Size = new System.Drawing.Size(35, 24);
             this.btnDefaultPath_Delete.TabIndex = 3;
@@ -150,7 +139,7 @@
             // btnDefaultFileOpen_Browse
             // 
             this.btnDefaultFileOpen_Browse.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultFileOpen_Browse.Image")));
-            this.btnDefaultFileOpen_Browse.Location = new System.Drawing.Point(606, 42);
+            this.btnDefaultFileOpen_Browse.Location = new System.Drawing.Point(623, 42);
             this.btnDefaultFileOpen_Browse.Name = "btnDefaultFileOpen_Browse";
             this.btnDefaultFileOpen_Browse.Size = new System.Drawing.Size(35, 24);
             this.btnDefaultFileOpen_Browse.TabIndex = 6;
@@ -161,7 +150,7 @@
             // 
             this.txtDefaultFileOpen.Location = new System.Drawing.Point(142, 45);
             this.txtDefaultFileOpen.Name = "txtDefaultFileOpen";
-            this.txtDefaultFileOpen.Size = new System.Drawing.Size(458, 20);
+            this.txtDefaultFileOpen.Size = new System.Drawing.Size(475, 20);
             this.txtDefaultFileOpen.TabIndex = 5;
             // 
             // lblDefaultFileOpen
@@ -176,7 +165,7 @@
             // btnDefaultPath_Browse
             // 
             this.btnDefaultPath_Browse.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultPath_Browse.Image")));
-            this.btnDefaultPath_Browse.Location = new System.Drawing.Point(606, 16);
+            this.btnDefaultPath_Browse.Location = new System.Drawing.Point(623, 16);
             this.btnDefaultPath_Browse.Name = "btnDefaultPath_Browse";
             this.btnDefaultPath_Browse.Size = new System.Drawing.Size(35, 24);
             this.btnDefaultPath_Browse.TabIndex = 2;
@@ -187,7 +176,7 @@
             // 
             this.txtDefaultPath.Location = new System.Drawing.Point(142, 19);
             this.txtDefaultPath.Name = "txtDefaultPath";
-            this.txtDefaultPath.Size = new System.Drawing.Size(458, 20);
+            this.txtDefaultPath.Size = new System.Drawing.Size(475, 20);
             this.txtDefaultPath.TabIndex = 1;
             // 
             // lblDefaultPath
@@ -206,7 +195,7 @@
             this.grbRecentFiles.Controls.Add(this.lblNumRecentFiles);
             this.grbRecentFiles.Location = new System.Drawing.Point(12, 336);
             this.grbRecentFiles.Name = "grbRecentFiles";
-            this.grbRecentFiles.Size = new System.Drawing.Size(688, 48);
+            this.grbRecentFiles.Size = new System.Drawing.Size(705, 48);
             this.grbRecentFiles.TabIndex = 5;
             this.grbRecentFiles.TabStop = false;
             this.grbRecentFiles.Text = "Zuletzt geöffnete Dateien";
@@ -300,7 +289,7 @@
             this.grbLogFile.Controls.Add(this.txtLogfileDateFormat);
             this.grbLogFile.Location = new System.Drawing.Point(293, 90);
             this.grbLogFile.Name = "grbLogFile";
-            this.grbLogFile.Size = new System.Drawing.Size(407, 87);
+            this.grbLogFile.Size = new System.Drawing.Size(424, 87);
             this.grbLogFile.TabIndex = 2;
             this.grbLogFile.TabStop = false;
             this.grbLogFile.Text = "Protokolldatei";
@@ -318,13 +307,13 @@
             // 
             this.txtLogfileDateFormat.Location = new System.Drawing.Point(195, 19);
             this.txtLogfileDateFormat.Name = "txtLogfileDateFormat";
-            this.txtLogfileDateFormat.Size = new System.Drawing.Size(190, 20);
+            this.txtLogfileDateFormat.Size = new System.Drawing.Size(223, 20);
             this.txtLogfileDateFormat.TabIndex = 1;
             this.txtLogfileDateFormat.TextChanged += new System.EventHandler(this.txtLogfileDateFormat_TextChanged);
             // 
             // btnSetDefaults
             // 
-            this.btnSetDefaults.Location = new System.Drawing.Point(494, 390);
+            this.btnSetDefaults.Location = new System.Drawing.Point(511, 390);
             this.btnSetDefaults.Name = "btnSetDefaults";
             this.btnSetDefaults.Size = new System.Drawing.Size(206, 23);
             this.btnSetDefaults.TabIndex = 8;
@@ -340,7 +329,7 @@
             this.grbAddTextToFiile.Controls.Add(this.txtAddTextToFileDateFormat);
             this.grbAddTextToFiile.Location = new System.Drawing.Point(12, 183);
             this.grbAddTextToFiile.Name = "grbAddTextToFiile";
-            this.grbAddTextToFiile.Size = new System.Drawing.Size(688, 45);
+            this.grbAddTextToFiile.Size = new System.Drawing.Size(705, 45);
             this.grbAddTextToFiile.TabIndex = 3;
             this.grbAddTextToFiile.TabStop = false;
             this.grbAddTextToFiile.Text = "Text an bereits existierende Dateien anhängen";
@@ -374,7 +363,7 @@
             // 
             this.txtAddTextToFileDateFormat.Location = new System.Drawing.Point(476, 19);
             this.txtAddTextToFileDateFormat.Name = "txtAddTextToFileDateFormat";
-            this.txtAddTextToFileDateFormat.Size = new System.Drawing.Size(190, 20);
+            this.txtAddTextToFileDateFormat.Size = new System.Drawing.Size(223, 20);
             this.txtAddTextToFileDateFormat.TabIndex = 3;
             this.txtAddTextToFileDateFormat.TextChanged += new System.EventHandler(this.txtAddTextToFileDateFormat_TextChanged);
             // 
@@ -411,7 +400,7 @@
             this.groupBox1.Controls.Add(this.lblDefaultTabStartUp);
             this.groupBox1.Location = new System.Drawing.Point(12, 234);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(688, 73);
+            this.groupBox1.Size = new System.Drawing.Size(705, 73);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Standard Registerkarten";
@@ -480,7 +469,6 @@
             this.Controls.Add(this.btnCheckFileAssociation);
             this.Controls.Add(this.grbRecentFiles);
             this.Controls.Add(this.grbProjectFolder);
-            this.Controls.Add(this.tolApplicationSettings);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -513,7 +501,6 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.ToolStrip tolApplicationSettings;
         private System.Windows.Forms.GroupBox grbProjectFolder;
         private System.Windows.Forms.TextBox txtDefaultFileOpen;
         private System.Windows.Forms.Label lblDefaultFileOpen;
