@@ -767,7 +767,7 @@
             // 
             this.btnExceptionTargetGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExceptionTargetGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionTargetGoTo.Image")));
-            this.btnExceptionTargetGoTo.Location = new System.Drawing.Point(937, 369);
+            this.btnExceptionTargetGoTo.Location = new System.Drawing.Point(937, 366);
             this.btnExceptionTargetGoTo.Name = "btnExceptionTargetGoTo";
             this.btnExceptionTargetGoTo.Size = new System.Drawing.Size(23, 23);
             this.btnExceptionTargetGoTo.TabIndex = 10;
@@ -831,7 +831,7 @@
             // lblExceptionMessage
             // 
             this.lblExceptionMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblExceptionMessage.Location = new System.Drawing.Point(6, 401);
+            this.lblExceptionMessage.Location = new System.Drawing.Point(6, 397);
             this.lblExceptionMessage.Name = "lblExceptionMessage";
             this.lblExceptionMessage.Size = new System.Drawing.Size(45, 23);
             this.lblExceptionMessage.TabIndex = 5;
@@ -841,17 +841,17 @@
             // 
             this.txtExceptionMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExceptionMessage.Location = new System.Drawing.Point(82, 398);
+            this.txtExceptionMessage.Location = new System.Drawing.Point(82, 394);
             this.txtExceptionMessage.Multiline = true;
             this.txtExceptionMessage.Name = "txtExceptionMessage";
             this.txtExceptionMessage.ReadOnly = true;
-            this.txtExceptionMessage.Size = new System.Drawing.Size(878, 54);
+            this.txtExceptionMessage.Size = new System.Drawing.Size(878, 58);
             this.txtExceptionMessage.TabIndex = 6;
             // 
             // lblExceptionTargetPath
             // 
             this.lblExceptionTargetPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblExceptionTargetPath.Location = new System.Drawing.Point(6, 374);
+            this.lblExceptionTargetPath.Location = new System.Drawing.Point(6, 371);
             this.lblExceptionTargetPath.Name = "lblExceptionTargetPath";
             this.lblExceptionTargetPath.Size = new System.Drawing.Size(45, 23);
             this.lblExceptionTargetPath.TabIndex = 3;
@@ -861,7 +861,7 @@
             // 
             this.txtExceptionTargetPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExceptionTargetPath.Location = new System.Drawing.Point(82, 371);
+            this.txtExceptionTargetPath.Location = new System.Drawing.Point(82, 368);
             this.txtExceptionTargetPath.Name = "txtExceptionTargetPath";
             this.txtExceptionTargetPath.ReadOnly = true;
             this.txtExceptionTargetPath.Size = new System.Drawing.Size(849, 20);
