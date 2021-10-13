@@ -226,6 +226,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             {
                 this._recentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
                 Settings.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
+                Settings.Default.Save();
             }
 
             this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
