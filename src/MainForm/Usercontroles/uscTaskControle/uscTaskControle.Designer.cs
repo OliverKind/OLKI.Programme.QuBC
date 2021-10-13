@@ -241,6 +241,7 @@
             // 
             // txtLogFilePath
             // 
+            this.txtLogFilePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtLogFilePath.Location = new System.Drawing.Point(38, 27);
             this.txtLogFilePath.Name = "txtLogFilePath";
             this.txtLogFilePath.Size = new System.Drawing.Size(415, 20);
@@ -299,6 +300,7 @@
             // 
             this.txtRestoreTargetDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRestoreTargetDirectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtRestoreTargetDirectory.Enabled = false;
             this.txtRestoreTargetDirectory.Location = new System.Drawing.Point(435, 32);
             this.txtRestoreTargetDirectory.Name = "txtRestoreTargetDirectory";
@@ -360,6 +362,7 @@
             // 
             this.txtDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDirectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtDirectory.Location = new System.Drawing.Point(96, 5);
             this.txtDirectory.Name = "txtDirectory";
             this.txtDirectory.Size = new System.Drawing.Size(722, 20);

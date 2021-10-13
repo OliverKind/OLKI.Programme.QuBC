@@ -148,6 +148,7 @@
             // 
             // txtDefaultFileOpen
             // 
+            this.txtDefaultFileOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtDefaultFileOpen.Location = new System.Drawing.Point(142, 45);
             this.txtDefaultFileOpen.Name = "txtDefaultFileOpen";
             this.txtDefaultFileOpen.Size = new System.Drawing.Size(475, 20);
@@ -174,6 +175,7 @@
             // 
             // txtDefaultPath
             // 
+            this.txtDefaultPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtDefaultPath.Location = new System.Drawing.Point(142, 19);
             this.txtDefaultPath.Name = "txtDefaultPath";
             this.txtDefaultPath.Size = new System.Drawing.Size(475, 20);
@@ -212,6 +214,7 @@
             // 
             // nudNumRecentFiles
             // 
+            this.nudNumRecentFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudNumRecentFiles.Location = new System.Drawing.Point(245, 19);
             this.nudNumRecentFiles.Maximum = new decimal(new int[] {
             4,
@@ -305,6 +308,7 @@
             // 
             // txtLogfileDateFormat
             // 
+            this.txtLogfileDateFormat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtLogfileDateFormat.Location = new System.Drawing.Point(195, 19);
             this.txtLogfileDateFormat.Name = "txtLogfileDateFormat";
             this.txtLogfileDateFormat.Size = new System.Drawing.Size(223, 20);
@@ -345,6 +349,7 @@
             // 
             // txtAddTextToFileDefaultText
             // 
+            this.txtAddTextToFileDefaultText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtAddTextToFileDefaultText.Location = new System.Drawing.Point(82, 19);
             this.txtAddTextToFileDefaultText.Name = "txtAddTextToFileDefaultText";
             this.txtAddTextToFileDefaultText.Size = new System.Drawing.Size(206, 20);
@@ -361,6 +366,7 @@
             // 
             // txtAddTextToFileDateFormat
             // 
+            this.txtAddTextToFileDateFormat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtAddTextToFileDateFormat.Location = new System.Drawing.Point(476, 19);
             this.txtAddTextToFileDateFormat.Name = "txtAddTextToFileDateFormat";
             this.txtAddTextToFileDateFormat.Size = new System.Drawing.Size(223, 20);
@@ -407,6 +413,7 @@
             // 
             // cboDefaultTabLoadFile
             // 
+            this.cboDefaultTabLoadFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cboDefaultTabLoadFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDefaultTabLoadFile.FormattingEnabled = true;
             this.cboDefaultTabLoadFile.Location = new System.Drawing.Point(160, 46);
@@ -416,6 +423,7 @@
             // 
             // cboDefaultTabStartUp
             // 
+            this.cboDefaultTabStartUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cboDefaultTabStartUp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDefaultTabStartUp.FormattingEnabled = true;
             this.cboDefaultTabStartUp.Location = new System.Drawing.Point(160, 19);

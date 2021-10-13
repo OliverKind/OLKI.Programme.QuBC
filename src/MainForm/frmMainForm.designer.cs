@@ -390,6 +390,7 @@
             this.trvExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.trvExplorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.trvExplorer.DirectoryList = null;
             this.trvExplorer.ImageIndex = 16;
             this.trvExplorer.ImageList = this.imlTreeViewIcons;
@@ -562,6 +563,7 @@
             this.prgItemProperty.ReadOnly = true;
             this.prgItemProperty.Size = new System.Drawing.Size(245, 389);
             this.prgItemProperty.TabIndex = 4;
+            this.prgItemProperty.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             // 
             // txtExplorerPath
             // 
@@ -790,6 +792,7 @@
             this.lsvErrorLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsvErrorLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lsvErrorLog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chLsvErrorLog_Number,
             this.chLsvErrorLog_Source,

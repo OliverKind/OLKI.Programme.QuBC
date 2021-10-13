@@ -180,6 +180,7 @@
             // 
             // nudUpdateInterval
             // 
+            this.nudUpdateInterval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudUpdateInterval.DecimalPlaces = 1;
             this.nudUpdateInterval.Increment = new decimal(new int[] {
             1,
