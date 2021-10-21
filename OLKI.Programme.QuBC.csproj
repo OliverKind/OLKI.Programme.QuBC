@@ -230,6 +230,9 @@
     <Content Include="doc\ReadMe.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="licenses\MIT-License %28CroweMan%3b 22.06.2010%29.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Program_Symbol.ico" />
     <Content Include="Resources\Icons\ButtonIcons\112_RefreshArrow_Blue_16x16_72.png" />
     <Content Include="Resources\Icons\ButtonIcons\BackupCreate.png" />

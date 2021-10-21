@@ -120,8 +120,9 @@ Section ""
   File ".\..\bin\Release\Resources\ProgamIcons\program_symbol\Program_Symbol.ico"
   
   SetOutPath "$INSTDIR\Licenses"
-  File ".\..\bin\Release\Licenses\LGPL-License.txt"
   File ".\..\bin\Release\Licenses\CPOL-License.txt"
+  File ".\..\bin\Release\Licenses\LGPL-License.txt"
+  File ".\..\bin\Release\Licenses\MIT-License (CroweMan; 22.06.2010).txt"
 
   ;Create Desktop shortcut
   CreateShortCut "$DESKTOP\${AppName}.lnk" "$INSTDIR\QuBC.exe" ""

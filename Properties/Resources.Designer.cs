@@ -95,8 +95,7 @@ namespace OLKI.Programme.QuBC.Properties {
         ///  Lizenz: The Code Project Open License (CPOL)
         ///  Anmerkung: Der Code wurde zur Verwendung als Steuerelement angepasst
         ///
-        ///
-        //// [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///- C [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string Credits {
             get {
