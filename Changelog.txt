@@ -1,4 +1,11 @@
 # QuBC - QuickBackupCreator
+## [2.5.2.24] - 2021-10-22
+### Changed
+- Background Colors for controles
+
+### Fixed
+- Recent files not saved
+
 ## [2.5.1.23] - 2021-10-10
 ### Fixed
 - Updated ReadMe-File
