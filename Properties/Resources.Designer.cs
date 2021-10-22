@@ -87,15 +87,15 @@ namespace OLKI.Programme.QuBC.Properties {
         ///Orthographie: Lydia Kind
         ///
         ///
-        ///// Software von Drittanbietern:
-        ///Widgets und Komponenten von Widgets
-        ///- Sort listview Columns and Set Sort Arrow Icon on Column Header
-        ///  Autor und Veröffentlichung: sagar_253, 21 Mar 2014
-        ///  Quelle: http://www.codeproject.com/Tips/734463/Sort-listview-Columns-and-Set-Sort-Arrow-Icon-on-C
-        ///  Lizenz: The Code Project Open License (CPOL)
-        ///  Anmerkung: Der Code wurde zur Verwendung als Steuerelement angepasst
         ///
-        ///- C [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /////Bilder und Symbole
+        ///- Oliver Kind
+        ///
+        ///- VS2010ImageLibrary, Microsoft Visual Studio 2010, Version 10.0.40219.1 SP1Rel
+        ///  Microsoft Corporation
+        ///  One Microsoft Way
+        ///  Redmond, WA 98052-6399
+        ///  USA ähnelt.
         /// </summary>
         internal static string Credits {
             get {

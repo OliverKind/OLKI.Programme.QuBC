@@ -131,23 +131,10 @@ Design: Oliver Kind
 Orthographie: Lydia Kind
 
 
-// Software von Drittanbietern:
-Widgets und Komponenten von Widgets
-- Sort listview Columns and Set Sort Arrow Icon on Column Header
-  Autor und Veröffentlichung: sagar_253, 21 Mar 2014
-  Quelle: http://www.codeproject.com/Tips/734463/Sort-listview-Columns-and-Set-Sort-Arrow-Icon-on-C
-  Lizenz: The Code Project Open License (CPOL)
-  Anmerkung: Der Code wurde zur Verwendung als Steuerelement angepasst
-
-- C# CSV Reader and Writer
-  Autor und Veröffentlichung: CroweMan, 22 June 2010
-  Quelle: https://www.codeproject.com/Articles/86973/C-CSV-Reader-and-Writer
-  Lizenz: The MIT License
-  Anmerkung: Der Code wurde zur Verwendung als Steuerelement angepasst
-
 
 //Bilder und Symbole
-- Programmicons
+- Oliver Kind
+
 - VS2010ImageLibrary, Microsoft Visual Studio 2010, Version 10.0.40219.1 SP1Rel
   Microsoft Corporation
   One Microsoft Way
