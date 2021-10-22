@@ -123,6 +123,7 @@ Section ""
   File ".\..\bin\Release\Licenses\CPOL-License.txt"
   File ".\..\bin\Release\Licenses\LGPL-License.txt"
   File ".\..\bin\Release\Licenses\MIT-License (CroweMan; 22.06.2010).txt"
+  File ".\..\bin\Release\Licenses\MIT-License (octokit.net; 16.08.2017).txt"
 
   ;Create Desktop shortcut
   CreateShortCut "$DESKTOP\${AppName}.lnk" "$INSTDIR\QuBC.exe" ""
