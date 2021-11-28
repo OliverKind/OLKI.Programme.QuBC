@@ -74,6 +74,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.chkEypandTreeNodeOnClick.Checked = Settings.Default.ListItems_ExpandTreeNodeOnSingleClick;
             this.chkMainFormResizeSuspendLayout.Checked = Settings.Default.MainFormResizeSuspendLayout;
             this.txtLogfileDateFormat.Text = Settings.Default.Logfile_DateFormat;
+            this.nudNumRecentFiles.Value = Settings.Default.RecentFiles_MaxLength;
 
             this.txtAddTextToFileDefaultText.Text = Settings.Default.Copy_FileExisitngAddTextDefault;
             this.txtAddTextToFileDateFormat.Text = Settings.Default.Copy_FileExisitngAddTextDateFormat;
@@ -175,13 +176,14 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             Settings.Default.DefaultTab_LoadFile = this.cboDefaultTabLoadFile.SelectedIndex - 1;
             Settings.Default.DefaultTab_StartUp = this.cboDefaultTabStartUp.SelectedIndex - 1;
             Settings.Default.FileAssociation_CheckOnStartup = this.chkAutoCheckFileAssociation.Checked;
-            Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
-            Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;
-            Settings.Default.ListItems_ShowWithoutAccess = this.chkShowDirectorysWithoutAccess.Checked;
-            Settings.Default.ListItems_ShowSystem = this.chkShowSystemDirectory.Checked;
             Settings.Default.ListItems_ExpandTreeNodeOnSingleClick = this.chkEypandTreeNodeOnClick.Checked;
+            Settings.Default.ListItems_ShowSystem = this.chkShowSystemDirectory.Checked;
+            Settings.Default.ListItems_ShowWithoutAccess = this.chkShowDirectorysWithoutAccess.Checked;
             Settings.Default.Logfile_DateFormat = this.txtLogfileDateFormat.Text;
             Settings.Default.MainFormResizeSuspendLayout = this.chkMainFormResizeSuspendLayout.Checked;
+            Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;
+            Settings.Default.RecentFiles_MaxLength = (int)this.nudNumRecentFiles.Value;
+            Settings.Default.Startup_DefaultFileOpen = this.txtDefaultFileOpen.Text;
 
             Settings.Default.Save();
             this.DialogResult = DialogResult.OK;
