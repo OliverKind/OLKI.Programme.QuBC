@@ -197,6 +197,61 @@ namespace OLKI.Programme.QuBC.src.Project
             this._settings.SettingsChanged += new EventHandler(this.SettingsChanged);
         }
 
+        public void CleanUp(Form parenForm)
+        {
+            if (MessageBox.Show(parenForm, Stringtable._0x0028m, Stringtable._0x0028c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3) == DialogResult.Yes)
+            {
+                List<string> Deleted = new List<string>();
+                int DeletedD = 0;
+                int DeletedF = 0;
+
+                parenForm.Enabled = false;
+                Cursor.Current = Cursors.WaitCursor;
+
+                //Delete not existing directory-references
+                foreach (KeyValuePair<string, Project.DirectoryScope> itemD in this._toBackupDirectorys.OrderBy(o => o.Key))
+                {
+                    if (!new DirectoryInfo(itemD.Key).Exists)
+                    {
+                        DeletedD++;
+                        Deleted.Add(itemD.Key);
+                        this._toBackupDirectorys.Remove(itemD.Key);
+                    }
+                }
+
+                //Delete not existing file-references
+                foreach (KeyValuePair<string, List<string>> itemDF in this._toBackupFiles.OrderBy(o => o.Key))
+                {
+                    if (!this._toBackupDirectorys.ContainsKey(itemDF.Key))
+                    {
+                        DeletedF += this._toBackupFiles[itemDF.Key].Count;
+                        Deleted.AddRange(this._toBackupFiles[itemDF.Key]);
+                        this._toBackupFiles.Remove(itemDF.Key);
+                    }
+                    else
+                    {
+                        foreach (string itemF in itemDF.Value.OrderBy(o => o))
+                        {
+                            if (!new FileInfo(itemF).Exists)
+                            {
+                                DeletedF++;
+                                Deleted.Add(itemF);
+                                this._toBackupFiles[itemDF.Key].Remove(itemF);
+                            }
+                        }
+                    }
+                }
+
+                this.Changed = true;
+                this.ToggleProjectChanged(this, new EventArgs());
+                Cursor.Current = Cursors.Default;
+                parenForm.Enabled = true;
+
+                _ = Deleted;
+                MessageBox.Show(parenForm, string.Format(Stringtable._0x0029m, new object[] { DeletedD, DeletedF }), Stringtable._0x0029c, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         /// <summary>
         /// Event handler for an change event in the settings of this project
         /// </summary>
