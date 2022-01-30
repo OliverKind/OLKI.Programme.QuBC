@@ -192,7 +192,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
 

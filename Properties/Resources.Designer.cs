@@ -106,6 +106,16 @@ namespace OLKI.Programme.QuBC.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Option {
+            get {
+                object obj = ResourceManager.GetObject("Option", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProgSym_256 {
             get {
                 object obj = ResourceManager.GetObject("ProgSym_256", resourceCulture);

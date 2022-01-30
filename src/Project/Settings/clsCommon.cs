@@ -32,6 +32,28 @@ namespace OLKI.Programme.QuBC.src.Project.Settings.Common
     /// </summary>
     public class Common : SettingsBase
     {
+        #region Enums
+        /// <summary>
+        /// Enumeration for Project Automation Mode
+        /// </summary>
+        public enum AutomationMode
+        {
+            None ,
+            Backup ,
+            Restore
+        }
+
+        /// <summary>
+        /// Enumeration for Action after finsh Automation
+        /// </summary>
+        public enum FinishAction
+        {
+            None ,
+            ExitApllication ,
+            SystemShutdown 
+        }
+        #endregion
+
         #region Properties
         /// <summary>
         /// How to handling existing files
@@ -52,6 +74,86 @@ namespace OLKI.Programme.QuBC.src.Project.Settings.Common
             set
             {
                 this._exisitingFiles = value;
+                base.ToggleSettingsChanged(this, new EventArgs());
+            }
+        }
+
+        /// <summary>
+        /// Automation mode for the project
+        /// </summary>
+        private AutomationMode _automation = AutomationMode.None;
+        /// <summary>
+        /// Get or set the Automation mode for the project
+        /// </summary>
+        public AutomationMode Automation
+        {
+            get
+            {
+                return this._automation;
+            }
+            set
+            {
+                this._automation = value;
+                base.ToggleSettingsChanged(this, new EventArgs());
+            }
+        }
+
+        /// <summary>
+        /// Wait Time for Automation action
+        /// </summary>
+        private int _automationWaitTime = 0;
+        /// <summary>
+        /// Get or set the wait Time for Automation action
+        /// </summary>
+        public int AutomationWaitTime
+        {
+            get
+            {
+                return this._automationWaitTime;
+            }
+            set
+            {
+                this._automationWaitTime = value;
+                base.ToggleSettingsChanged(this, new EventArgs());
+            }
+        }
+
+        /// <summary>
+        /// Action after Automation was finished
+        /// </summary>
+        private FinishAction _automationFinishAction = FinishAction.None;
+        /// <summary>
+        /// Get or set the Action after Automation was finished
+        /// </summary>
+        public FinishAction AutomationFinishAction
+        {
+            get
+            {
+                return this._automationFinishAction;
+            }
+            set
+            {
+                this._automationFinishAction = value;
+                base.ToggleSettingsChanged(this, new EventArgs());
+            }
+        }
+
+        /// <summary>
+        /// Default Tab to open if project will be open
+        /// </summary>
+        private int _defaultTab = -1;
+        /// <summary>
+        /// Get or set the default Tab to open if project will be open
+        /// </summary>
+        public int DefaultTab
+        {
+            get
+            {
+                return this._defaultTab;
+            }
+            set
+            {
+                this._defaultTab = value;
                 base.ToggleSettingsChanged(this, new EventArgs());
             }
         }

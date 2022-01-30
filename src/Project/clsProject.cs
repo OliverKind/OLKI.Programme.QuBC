@@ -83,6 +83,11 @@ namespace OLKI.Programme.QuBC.src.Project
         /// Specifies if the change events should restrained
         /// </summary>
         private bool _restrainChangedEvent = false;
+
+        /// <summary>
+        /// Form to change Project Settings
+        /// </summary>
+        MainForm.SubForms.ProjectSettingsForm _settingsForm;
         #endregion
 
         #region Properties
@@ -197,6 +202,16 @@ namespace OLKI.Programme.QuBC.src.Project
             this._settings.SettingsChanged += new EventHandler(this.SettingsChanged);
         }
 
+        public void ChangeSettings(Form parenForm)
+        {
+            this._settingsForm = new MainForm.SubForms.ProjectSettingsForm(this._settings, parenForm);
+            this._settingsForm.RequestProjectCelanUp += new EventHandler(this.SettingsForm_RequestProjectCelanUp);
+            if (this._settingsForm.ShowDialog(parenForm) == DialogResult.OK)
+            {
+
+            }
+        }
+
         public void CleanUp(Form parenForm)
         {
             if (MessageBox.Show(parenForm, Stringtable._0x0028m, Stringtable._0x0028c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3) == DialogResult.Yes)
@@ -262,13 +277,21 @@ namespace OLKI.Programme.QuBC.src.Project
         }
 
         /// <summary>
+        /// Event handler for an RequestProjectCelanUp in SettingsForm
+        /// </summary>
+        internal void SettingsForm_RequestProjectCelanUp(object sender, EventArgs e)
+        {
+            this.CleanUp(this._settingsForm.ApplicationMainForm);
+        }
+
+        /// <summary>
         /// Toggle ProjectChanged event
         /// </summary>
         /// <param name="sender">Sender of changed event</param>
         /// <param name="e">EventArgs of changed event</param>
         internal void ToggleProjectChanged(object sender, EventArgs e)
         {
-            if (!this._restrainChangedEvent && this.ProjectChanged != null) ProjectChanged(this, new EventArgs());
+            if (!this._restrainChangedEvent && this.ProjectChanged != null) this.ProjectChanged(this, new EventArgs());
         }
 
         #region Directory an file handling

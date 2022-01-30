@@ -716,6 +716,12 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.SetRecentFilesSettingsAndMenue();
         }
 
+        private void mnuMain_File_Projectsettings_Click(object sender, EventArgs e)
+        {
+            if (this._projectManager.ActiveProject == null) return;
+            this._projectManager.ActiveProject.ChangeSettings(this);
+        }
+
         private void mnuMain_File_Save_Click(object sender, EventArgs e)
         {
             this._projectManager.Project_Save();
