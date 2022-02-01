@@ -585,13 +585,13 @@ namespace OLKI.Programme.QuBC.src.Project
                 //Read Directorys
                 foreach (XElement DirectoryItem in inputProject.Element("DirectoryList").Elements("DirectoryItem"))
                 {
-                    string DirectoryPath = DirectoryItem.Element("Path").Value;
-                    DirectoryScope DirectoryScope = (DirectoryScope)Convert.ToInt32(DirectoryItem.Element("Scope").Value);
+                    string DirectoryPath = Serialize.GetFromXElement(DirectoryItem, "Path", "");
+                    DirectoryScope DirectoryScope = (DirectoryScope)Serialize.GetFromXElement(DirectoryItem, "Scope", (int)DirectoryScope.Nothing);
                     this.DirectoryAdd(DirectoryPath, DirectoryScope);
                     //Read Files
                     foreach (XElement FileItem in DirectoryItem.Element("FilesToCopy").Elements())
                     {
-                        string FilePath = FileItem.Element("FilePath").Value;
+                        string FilePath = Serialize.GetFromXElement(FileItem, "FilePath", "");
                         this.FileAdd(DirectoryPath, FilePath);
                     }
                 }
@@ -604,8 +604,9 @@ namespace OLKI.Programme.QuBC.src.Project
                     {
                         XElement ExistringFiles = Common.Element("ExistringFiles");
                         {
-                            this._settings.Common.ExisitingFiles.AddTextToExistingFile = (string)ExistringFiles.Element("AddTextToExistingFile");
-                            this._settings.Common.ExisitingFiles.HandleExistingItem = (HandleExistingFiles.HowToHandleExistingItem)(int)ExistringFiles.Element("HandleExistingItem");
+
+                            this._settings.Common.ExisitingFiles.AddTextToExistingFile = Serialize.GetFromXElement(ExistringFiles, "AddTextToExistingFile", this._settings.Common.ExisitingFiles.AddTextToExistingFile);
+                            this._settings.Common.ExisitingFiles.HandleExistingItem = (HandleExistingFiles.HowToHandleExistingItem)Serialize.GetFromXElement(ExistringFiles, "HandleExistingItem", (int)this._settings.Common.ExisitingFiles.HandleExistingItem);
                         }
 
                         this._settings.Common.DefaultTab = Serialize.GetFromXElement(Common, "StarUpTab", this._settings.Common.DefaultTab);
@@ -617,41 +618,40 @@ namespace OLKI.Programme.QuBC.src.Project
                     {
                         XElement Action = ControleBackup.Element("Action");
                         {
-                            this._settings.ControleBackup.Action.CopyData = (bool)Action.Element("CopyData");
-                            this._settings.ControleBackup.Action.CountItemsAndBytes = (bool)Action.Element("CountItemsAndBytes");
-                            this._settings.ControleBackup.Action.DeleteOldData = Serialize.GetFromXElement(Action, "DeleteOldData", false);
+                            this._settings.ControleBackup.Action.CopyData = Serialize.GetFromXElement(Action, "CopyData", this._settings.ControleBackup.Action.CopyData);
+                            this._settings.ControleBackup.Action.CountItemsAndBytes = Serialize.GetFromXElement(Action, "CountItemsAndBytes", this._settings.ControleBackup.Action.CountItemsAndBytes);
+                            this._settings.ControleBackup.Action.DeleteOldData = Serialize.GetFromXElement(Action, "DeleteOldData", this._settings.ControleBackup.Action.DeleteOldData);
                         }
                         XElement Directory = ControleBackup.Element("Directory");
                         {
-                            this._settings.ControleBackup.Directory.CreateDriveDirectroy = (bool)Directory.Element("CreateDriveDirectroy");
-                            this._settings.ControleBackup.Directory.Path = (string)Directory.Element("Path");
+                            this._settings.ControleBackup.Directory.CreateDriveDirectroy = Serialize.GetFromXElement(Directory, "CreateDriveDirectroy", this._settings.ControleBackup.Directory.CreateDriveDirectroy);
+                            this._settings.ControleBackup.Directory.Path = Serialize.GetFromXElement(Directory, "Path", this._settings.ControleBackup.Directory.Path);
                         }
                         XElement Logfile = ControleBackup.Element("Logfile");
                         {
-                            this._settings.ControleBackup.Logfile.AutoPath = (bool)Logfile.Element("AutoPath");
-                            this._settings.ControleBackup.Logfile.Create = (bool)Logfile.Element("Create");
-                            this._settings.ControleBackup.Logfile.Path = (string)Logfile.Element("Path");
+                            this._settings.ControleBackup.Logfile.AutoPath = Serialize.GetFromXElement(Directory, "AutoPath", this._settings.ControleBackup.Logfile.AutoPath);
+                            this._settings.ControleBackup.Logfile.Create = Serialize.GetFromXElement(Directory, "Create", this._settings.ControleBackup.Logfile.Create);
+                            this._settings.ControleBackup.Logfile.Path = Serialize.GetFromXElement(Directory, "Path", this._settings.ControleBackup.Logfile.Path);
                         }
                     }
                     XElement ControleRestore = Settings.Element("ControleRestore");
                     {
                         XElement Action = ControleRestore.Element("Action");
                         {
-                            this._settings.ControleRestore.Action.CopyData = (bool)Action.Element("CopyData");
-                            this._settings.ControleRestore.Action.CountItemsAndBytes = (bool)Action.Element("CountItemsAndBytes");
+                            this._settings.ControleRestore.Action.CopyData = Serialize.GetFromXElement(Action, "CopyData", this._settings.ControleRestore.Action.CopyData);
+                            this._settings.ControleRestore.Action.CountItemsAndBytes = Serialize.GetFromXElement(Action, "CountItemsAndBytes", this._settings.ControleRestore.Action.CountItemsAndBytes);
                         }
                         XElement Directory = ControleRestore.Element("Directory");
                         {
-                            this._settings.ControleRestore.Directory.CreateDriveDirectroy = (bool)Directory.Element("CreateDriveDirectroy");
-                            this._settings.ControleRestore.Directory.Path = (string)Directory.Element("Path");
-                            this._settings.ControleRestore.Directory.RestoreTargetPath = (string)Directory.Element("RestoreTargetPath");
-
+                            this._settings.ControleRestore.Directory.CreateDriveDirectroy = Serialize.GetFromXElement(Directory, "CreateDriveDirectroy", this._settings.ControleRestore.Directory.CreateDriveDirectroy);
+                            this._settings.ControleRestore.Directory.Path = Serialize.GetFromXElement(Directory, "Path", this._settings.ControleRestore.Directory.Path);
+                            this._settings.ControleRestore.Directory.RestoreTargetPath = Serialize.GetFromXElement(Directory, "RestoreTargetPath", this._settings.ControleRestore.Directory.RestoreTargetPath);
                         }
                         XElement Logfile = ControleRestore.Element("Logfile");
                         {
-                            this._settings.ControleRestore.Logfile.AutoPath = (bool)Logfile.Element("AutoPath");
-                            this._settings.ControleRestore.Logfile.Create = (bool)Logfile.Element("Create");
-                            this._settings.ControleRestore.Logfile.Path = (string)Logfile.Element("Path");
+                            this._settings.ControleRestore.Logfile.AutoPath = Serialize.GetFromXElement(Logfile, "AutoPath", this._settings.ControleRestore.Logfile.AutoPath);
+                            this._settings.ControleRestore.Logfile.Create = Serialize.GetFromXElement(Logfile, "Create", this._settings.ControleRestore.Logfile.Create);
+                            this._settings.ControleRestore.Logfile.Path = Serialize.GetFromXElement(Logfile, "Path", this._settings.ControleRestore.Logfile.Path);
                         }
                     }
                 }
