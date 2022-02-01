@@ -1,17 +1,36 @@
-﻿using OLKI.Programme.QuBC.src.Project.Settings.Common;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿/*
+ * QuBC - QuickBackupCreator
+ * 
+ * Initial Author: Oliver Kind - 2022
+ * License:        LGPL
+ * 
+ * Desctiption:
+ * A form to change the settings of the current project
+ * 
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the LGPL General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * LGPL General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not check the GitHub-Repository.
+ * 
+ * */
 
+using OLKI.Programme.QuBC.src.Project.Settings.Common;
+using System;
+using System.Windows.Forms;
 
 namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 {
+    /// <summary>
+    /// A form to change the settings of the current project
+    /// </summary>
     public partial class ProjectSettingsForm : Form
     {
         #region Properties
@@ -32,7 +51,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
         /// <summary>
         /// Project Settings
         /// </summary>
-        Project.Settings.Settings _projectSettings;
+        readonly Project.Settings.Settings _projectSettings;
         #endregion
 
         #region Methodes
