@@ -192,16 +192,21 @@ namespace OLKI.Programme.QuBC.src.Project
             this._settings.SettingsChanged += new EventHandler(this.SettingsChanged);
         }
 
+        /// <summary>
+        /// Change Project settings
+        /// </summary>
+        /// <param name="parenForm">Form to use as parent for Settings Form</param>
         public void ChangeSettings(Form parenForm)
         {
             this._settingsForm = new MainForm.SubForms.ProjectSettingsForm(this._settings, parenForm);
             this._settingsForm.RequestProjectCelanUp += new EventHandler(this.SettingsForm_RequestProjectCelanUp);
-            if (this._settingsForm.ShowDialog(parenForm) == DialogResult.OK)
-            {
-
-            }
+            this._settingsForm.ShowDialog(parenForm);
         }
 
+        /// <summary>
+        /// Clean up the project. Delete not existing directory-references and not existing file-references.
+        /// </summary>
+        /// <param name="parenForm">Form to use as parent for MessageBoxes</param>
         public void CleanUp(Form parenForm)
         {
             if (MessageBox.Show(parenForm, Stringtable._0x0028m, Stringtable._0x0028c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3) == DialogResult.Yes)
