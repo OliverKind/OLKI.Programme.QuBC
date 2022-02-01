@@ -23,6 +23,7 @@
  * */
 
 using OLKI.Programme.QuBC.Properties;
+using OLKI.Programme.QuBC.src.Project.Settings.Common;
 using OLKI.Toolbox.Common;
 using OLKI.Toolbox.DirectoryAndFile;
 using System;
@@ -484,7 +485,7 @@ namespace OLKI.Programme.QuBC.src.Project
         internal string Project_ToXMLString()
         {
             XElement ProjectRoot = new XElement("QuBC_ProjectData");
-            ProjectRoot.Add(new XAttribute("Version", "2;3"));
+            ProjectRoot.Add(new XAttribute("Version", "2;3;4"));
 
             //Get Directorys (get files)
             XElement DirectoryList = new XElement(XML_DIRECTORYS_ELEMENT_NAME);
@@ -524,13 +525,17 @@ namespace OLKI.Programme.QuBC.src.Project
                             (int)this._settings.Common.ExisitingFiles.HandleExistingItem,
                             new XAttribute("PlainText", this._settings.Common.ExisitingFiles.HandleExistingItem)    // Add plain text attribute to make debugging easyer
                         )
-                    )
+                    ),
+                    new XElement("StarUpTab", this._settings.Common.DefaultTab),
+                    new XElement("Automation", this._settings.Common.Automation),
+                    new XElement("AutomationFinishAction", this._settings.Common.AutomationFinishAction),
+                    new XElement("AutomationWaitTime", this._settings.Common.AutomationWaitTime)
                 ),
                 new XElement("ControleBackup",
                     new XElement("Action",
                         new XElement("CopyData", this._settings.ControleBackup.Action.CopyData),
                         new XElement("CountItemsAndBytes", this._settings.ControleBackup.Action.CountItemsAndBytes),
-                        new XElement("DeleteOldData", this._settings.ControleBackup.Action.DeleteOldData)
+                        new XElement("DeleteOl1Data", this._settings.ControleBackup.Action.DeleteOldData)
                     ),
                     new XElement("Directory",
                         new XElement("CreateDriveDirectroy", this._settings.ControleBackup.Directory.CreateDriveDirectroy),
@@ -613,6 +618,11 @@ namespace OLKI.Programme.QuBC.src.Project
                             this._settings.Common.ExisitingFiles.AddTextToExistingFile = (string)ExistringFiles.Element("AddTextToExistingFile");
                             this._settings.Common.ExisitingFiles.HandleExistingItem = (HandleExistingFiles.HowToHandleExistingItem)(int)ExistringFiles.Element("HandleExistingItem");
                         }
+
+                        this._settings.Common.DefaultTab = Serialize.GetFromXElement(Common, "StarUpTab", this._settings.Common.DefaultTab);
+                        this._settings.Common.Automation = (Common.AutomationMode)Serialize.GetFromXElement(Common, "Automation", (int)this._settings.Common.Automation);
+                        this._settings.Common.AutomationFinishAction = (Common.FinishAction)Serialize.GetFromXElement(Common, "AutomationFinishAction", (int)this._settings.Common.AutomationFinishAction);
+                        this._settings.Common.AutomationWaitTime = Serialize.GetFromXElement(Common, "AutomationWaitTime", (int)this._settings.Common.AutomationWaitTime);
                     }
                     XElement ControleBackup = Settings.Element("ControleBackup");
                     {
