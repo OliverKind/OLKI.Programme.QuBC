@@ -515,9 +515,9 @@ namespace OLKI.Programme.QuBC.src.Project
                             new XAttribute("PlainText", this._settings.Common.ExisitingFiles.HandleExistingItem)    // Add plain text attribute to make debugging easyer
                         )
                     ),
-                    new XElement("StarUpTab", this._settings.Common.DefaultTab),
-                    new XElement("Automation", this._settings.Common.Automation),
-                    new XElement("AutomationFinishAction", this._settings.Common.AutomationFinishAction),
+                    new XElement("DefaultTab", (int)this._settings.Common.DefaultTab),
+                    new XElement("Automation", (int)this._settings.Common.Automation),
+                    new XElement("AutomationFinishAction", (int)this._settings.Common.AutomationFinishAction),
                     new XElement("AutomationWaitTime", this._settings.Common.AutomationWaitTime)
                 ),
                 new XElement("ControleBackup",
@@ -609,7 +609,7 @@ namespace OLKI.Programme.QuBC.src.Project
                             this._settings.Common.ExisitingFiles.HandleExistingItem = (HandleExistingFiles.HowToHandleExistingItem)Serialize.GetFromXElement(ExistringFiles, "HandleExistingItem", (int)this._settings.Common.ExisitingFiles.HandleExistingItem);
                         }
 
-                        this._settings.Common.DefaultTab = Serialize.GetFromXElement(Common, "StarUpTab", this._settings.Common.DefaultTab);
+                        this._settings.Common.DefaultTab = Serialize.GetFromXElement(Common, "DefaultTab", this._settings.Common.DefaultTab);
                         this._settings.Common.Automation = (Common.AutomationMode)Serialize.GetFromXElement(Common, "Automation", (int)this._settings.Common.Automation);
                         this._settings.Common.AutomationFinishAction = (Common.FinishAction)Serialize.GetFromXElement(Common, "AutomationFinishAction", (int)this._settings.Common.AutomationFinishAction);
                         this._settings.Common.AutomationWaitTime = Serialize.GetFromXElement(Common, "AutomationWaitTime", (int)this._settings.Common.AutomationWaitTime);
