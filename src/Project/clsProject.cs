@@ -40,17 +40,6 @@ namespace OLKI.Programme.QuBC.src.Project
     /// </summary>
     public class Project
     {
-        #region Constants
-        private const string XML_DIRECTORYS_ELEMENT_NAME = "DirectoryList";
-        private const string XML_DIRECTORY_ITEM_NAME = "DirectoryItem";
-        private const string XML_DIRECTORY_ITEM_PATH_NAME = "Path";
-        private const string XML_DIRECTORY_ITEM_SCOPE_NAME = "Scope";
-        private const string XML_FILES_ELEMENT_NAME = "FilesToCopy";
-        private const string XML_FILE_ITEM_NAME = "File";
-        private const string XML_FILE_ITEM_PATH_NAME = "FilePath";
-        private const string XML_FILE_SETTINGS_NODE = "Settings";
-        #endregion
-
         #region Events
         /// <summary>
         /// Thrown if the project was changed, settings or data
@@ -488,25 +477,25 @@ namespace OLKI.Programme.QuBC.src.Project
             ProjectRoot.Add(new XAttribute("Version", "2;3;4"));
 
             //Get Directorys (get files)
-            XElement DirectoryList = new XElement(XML_DIRECTORYS_ELEMENT_NAME);
+            XElement DirectoryList = new XElement("DirectoryList");
             foreach (string Dkey in this._toBackupDirectorys.Keys)
             {
-                XElement DirectoryItem = new XElement(XML_DIRECTORY_ITEM_NAME);
+                XElement DirectoryItem = new XElement("DirectoryItem");
                 //Add Values to directroy Item
-                DirectoryItem.Add(new XElement(XML_DIRECTORY_ITEM_PATH_NAME, Dkey));
-                DirectoryItem.Add(new XElement(XML_DIRECTORY_ITEM_SCOPE_NAME,
+                DirectoryItem.Add(new XElement("Path", Dkey));
+                DirectoryItem.Add(new XElement("Scope",
                     (int)this._toBackupDirectorys[Dkey],
                     new XAttribute("PlainText", this._toBackupDirectorys[Dkey]))    // Add plain text attribute to make debugging easyer
                 );
 
                 //Get Files
-                XElement FileList = new XElement(XML_FILES_ELEMENT_NAME);
+                XElement FileList = new XElement("FilesToCopy");
                 if (this._toBackupDirectorys[Dkey] == DirectoryScope.Selected && this._toBackupFiles.ContainsKey(Dkey))
                 {
                     foreach (string item in this._toBackupFiles[Dkey])
                     {
-                        XElement FileItem = new XElement(XML_FILE_ITEM_NAME);
-                        FileItem.Add(new XElement(XML_FILE_ITEM_PATH_NAME, item));
+                        XElement FileItem = new XElement("File");
+                        FileItem.Add(new XElement("FilePath", item));
                         FileList.Add(FileItem);
                     }
                 }
@@ -516,7 +505,7 @@ namespace OLKI.Programme.QuBC.src.Project
             ProjectRoot.Add(DirectoryList);
 
             //Get Settings
-            XElement SettingsRoot = new XElement(XML_FILE_SETTINGS_NODE);
+            XElement SettingsRoot = new XElement("Settings");
             SettingsRoot.Add(
                 new XElement("Common",
                     new XElement("ExistringFiles",
@@ -594,22 +583,22 @@ namespace OLKI.Programme.QuBC.src.Project
                 //Check Fileversion
                 if (!this.Project_FromXMLString_CheckVersion(inputProject.Attribute("Version").Value)) return false;
                 //Read Directorys
-                foreach (XElement DirectoryItem in inputProject.Element(XML_DIRECTORYS_ELEMENT_NAME).Elements(XML_DIRECTORY_ITEM_NAME))
+                foreach (XElement DirectoryItem in inputProject.Element("DirectoryList").Elements("DirectoryItem"))
                 {
-                    string DirectoryPath = DirectoryItem.Element(XML_DIRECTORY_ITEM_PATH_NAME).Value;
-                    DirectoryScope DirectoryScope = (DirectoryScope)Convert.ToInt32(DirectoryItem.Element(XML_DIRECTORY_ITEM_SCOPE_NAME).Value);
+                    string DirectoryPath = DirectoryItem.Element("Path").Value;
+                    DirectoryScope DirectoryScope = (DirectoryScope)Convert.ToInt32(DirectoryItem.Element("Scope").Value);
                     this.DirectoryAdd(DirectoryPath, DirectoryScope);
                     //Read Files
-                    foreach (XElement FileItem in DirectoryItem.Element(XML_FILES_ELEMENT_NAME).Elements())
+                    foreach (XElement FileItem in DirectoryItem.Element("FilesToCopy").Elements())
                     {
-                        string FilePath = FileItem.Element(XML_FILE_ITEM_PATH_NAME).Value;
+                        string FilePath = FileItem.Element("FilePath").Value;
                         this.FileAdd(DirectoryPath, FilePath);
                     }
                 }
 
                 //Read Settings
                 this._settings.RestrainChangedEvent = true;
-                XElement Settings = inputProject.Element(XML_FILE_SETTINGS_NODE);
+                XElement Settings = inputProject.Element("Settings");
                 {
                     XElement Common = Settings.Element("Common");
                     {
