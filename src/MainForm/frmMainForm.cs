@@ -314,9 +314,27 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
         private void ProjectManager_ProjecOpenOrNew(object sender, EventArgs e)
         {
-            if (Settings.Default.DefaultTab_LoadFile > -1) this.tabControlMain.SelectTab(Settings.Default.DefaultTab_LoadFile);
+            //Set default tab
+            if (Settings.Default.DefaultTab_LoadFile > -1 && this._projectManager.ActiveProject.Settings.Common.DefaultTab == -1) this.tabControlMain.SelectTab(Settings.Default.DefaultTab_LoadFile);
+            if (this._projectManager.ActiveProject.Settings.Common.DefaultTab > -1) this.tabControlMain.SelectTab(this._projectManager.ActiveProject.Settings.Common.DefaultTab);
+
+            //Set recent Files
             this.SetRecentFilesSettingsAndMenue();
             Settings.Default.Save();
+
+            //Start Automation
+            SubForms.AutomationStart AutomationStartForm = new SubForms.AutomationStart(this, this._projectManager.ActiveProject.Settings.Common);
+            switch (this._projectManager.ActiveProject.Settings.Common.Automation)
+            {
+                case Project.Settings.Common.Common.AutomationMode.Backup:
+                    AutomationStartForm.ShowDialog(this);
+                    break;
+                case Project.Settings.Common.Common.AutomationMode.Restore:
+                    AutomationStartForm.ShowDialog(this);
+                    break;
+                default:
+                    break;
+            }
         }
         #endregion
 
