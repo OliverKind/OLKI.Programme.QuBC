@@ -155,7 +155,7 @@ namespace OLKI.Programme.QuBC.src
         {
             try
             {
-                Project.Project NewProject = new Project.Project(path);
+                Project.Project LoadedProject = new Project.Project(path);
                 // If it ist not an new project that should been loaded, ask for file to open or open the file if path is given
                 if (!newProject)
                 {
@@ -165,14 +165,13 @@ namespace OLKI.Programme.QuBC.src
                     }
                     else
                     {
-                        if (!NewProject.Project_FromXMLString(File.ReadAllText(path))) return false;
+                        if (!LoadedProject.Project_FromXMLString(File.ReadAllText(path))) return false;
                     }
                 }
-                this._activeProject = NewProject;
+                this._activeProject = LoadedProject;
                 this._activeProject.ProjectChanged += new EventHandler(this.ToggleActiveProjecChanged);
 
                 this.ProjecOpenOrNew?.Invoke(this, new EventArgs());
-
                 return true;
             }
             catch (Exception ex)
