@@ -97,6 +97,11 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
         #region Fiels
         /// <summary>
+        /// Is the current Action in AutomationMde;
+        /// </summary>
+        private bool _automationRun = false;
+
+        /// <summary>
         /// Element to copy items
         /// </summary>
         private CopyItems _copier;
@@ -356,6 +361,15 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
 
         private void btnTaskStart_Click(object sender, EventArgs e)
         {
+            this.btnTaskStart_Click(sender, e, false);
+        }
+
+        internal void btnTaskStart_Click(object sender, EventArgs e, bool automationRun)
+        {
+            _ = sender;
+            _ = e;
+            this._automationRun = automationRun;
+
             if (this.Mode == ControleMode.CreateBackup && this.chkRootDirectory.Checked && this.chkDeleteOld.Checked)
             {
                 switch (MessageBox.Show(this._mainForm, Properties.Stringtable._0x0024m, Properties.Stringtable._0x0024c, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3))
@@ -407,7 +421,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             }
 
             // Initial BackgroundWorker
-            if (this.TaskStarted != null) this.TaskStarted(this, new EventArgs());
+            this.TaskStarted?.Invoke(this, new EventArgs());
             this._worker.RunWorkerAsync();
         }
 
@@ -596,18 +610,21 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                 case TaskStep.Count_Start:
                 case TaskStep.Count_Busy:
                 case TaskStep.Count_Finish:
+                    this.AutomationFinshAction();
                     this._uscProgress.SetProgressStates.SetProgress_CountFinish();
                     this.ShowCompletedMessage(this._taskStep);
                     break;
                 case TaskStep.Copy_Start:
                 case TaskStep.Copy_Busy:
                 case TaskStep.Copy_Finish:
+                    this.AutomationFinshAction();
                     this._uscProgress.SetProgressStates.SetProgress_CopyFinish();
                     this.ShowCompletedMessage(this._taskStep);
                     break;
                 case TaskStep.DeleteOldItems_Start:
                 case TaskStep.DeleteOldItems_Busy:
                 case TaskStep.DeleteOldItems_Finish:
+                    this.AutomationFinshAction();
                     this._uscProgress.SetProgressStates.SetProgress_DeleteFinish();
                     this.ShowCompletedMessage(this._taskStep);
                     break;
@@ -639,7 +656,25 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             {
                 this._logFile.WriteFoot();
             }
-            if (this.TaskFinishedCanceled != null) this.TaskFinishedCanceled(this, new EventArgs());
+            this.TaskFinishedCanceled?.Invoke(this, new EventArgs());
+        }
+
+        private void AutomationFinshAction()
+        {
+            if (!this._automationRun) return;
+            this._automationRun = false;
+
+            switch (this._projectManager.ActiveProject.Settings.Common.AutomationFinishAction)
+            {
+                case Project.Settings.Common.Common.FinishAction.ExitApllication:
+                    Application.Exit();
+                    break;
+                case Project.Settings.Common.Common.FinishAction.SystemShutdown:
+                    System.Diagnostics.Process.Start("shutdown", "/f /s /t 1");
+                    break;
+                default:
+                    break;
+            }
         }
 
         /// <summary>
