@@ -82,7 +82,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
                     break;
                 default:
                     this.rabAutomationNone.Checked = true;
-                    throw new ArgumentException();
+                    break;
             }
         }
 
