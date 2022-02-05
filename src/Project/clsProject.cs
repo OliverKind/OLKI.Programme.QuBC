@@ -479,6 +479,7 @@ namespace OLKI.Programme.QuBC.src.Project
         internal string Project_ToXMLString()
         {
             XElement ProjectRoot = new XElement("QuBC_ProjectData");
+            //TODO: CHANGE to settings
             ProjectRoot.Add(new XAttribute("Version", "2;3;4"));
 
             //Get Directorys (get files)
@@ -529,7 +530,7 @@ namespace OLKI.Programme.QuBC.src.Project
                     new XElement("Action",
                         new XElement("CopyData", this._settings.ControleBackup.Action.CopyData),
                         new XElement("CountItemsAndBytes", this._settings.ControleBackup.Action.CountItemsAndBytes),
-                        new XElement("DeleteOl1Data", this._settings.ControleBackup.Action.DeleteOldData)
+                        new XElement("DeleteOldData", this._settings.ControleBackup.Action.DeleteOldData)
                     ),
                     new XElement("Directory",
                         new XElement("CreateDriveDirectroy", this._settings.ControleBackup.Directory.CreateDriveDirectroy),
