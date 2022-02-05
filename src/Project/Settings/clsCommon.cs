@@ -1,7 +1,7 @@
 ﻿/*
  * QuBC - QuickBackupCreator
  * 
- * Initial Author: Oliver Kind - 2021
+ * Initial Author: Oliver Kind - 2022
  * License:        LGPL
  * 
  * Desctiption:
@@ -38,8 +38,8 @@ namespace OLKI.Programme.QuBC.src.Project.Settings.Common
         /// </summary>
         public enum AutomationMode
         {
-            None ,
-            Backup ,
+            None,
+            Backup,
             Restore
         }
 
@@ -48,9 +48,9 @@ namespace OLKI.Programme.QuBC.src.Project.Settings.Common
         /// </summary>
         public enum FinishAction
         {
-            None ,
-            ExitApllication ,
-            SystemShutdown 
+            None,
+            ExitApllication,
+            SystemShutdown
         }
         #endregion
 
