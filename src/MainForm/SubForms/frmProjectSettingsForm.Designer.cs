@@ -178,7 +178,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.cboFinishAction.Items.AddRange(new object[] {
             "Nichts unternehmen",
             "Programm beenden (Meldungen gehen verloren)",
-            "System herunterfahren (erzwungen)"});
+            "System herunterfahren (erzwungen, Meldungen gehen verloren)"});
             this.cboFinishAction.Location = new System.Drawing.Point(272, 45);
             this.cboFinishAction.Name = "cboFinishAction";
             this.cboFinishAction.Size = new System.Drawing.Size(415, 21);

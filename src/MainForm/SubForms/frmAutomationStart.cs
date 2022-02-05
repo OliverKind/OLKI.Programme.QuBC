@@ -110,10 +110,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             switch (this._settings.Automation)
             {
                 case Project.Settings.Common.Common.AutomationMode.Backup:
-                    this._mainForm.uscTaskControleBackup.btnTaskStart_Click(sender, e);
+                    this._mainForm.uscTaskControleBackup.btnTaskStart_Click(sender, e, true);
                     break;
                 case Project.Settings.Common.Common.AutomationMode.Restore:
-                    this._mainForm.uscTaskControleRestore.btnTaskStart_Click(sender, e);
+                    this._mainForm.uscTaskControleRestore.btnTaskStart_Click(sender, e, true);
                     break;
                 default:
                     this.Close();
