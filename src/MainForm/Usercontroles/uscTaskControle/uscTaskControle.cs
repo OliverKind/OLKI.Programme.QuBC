@@ -659,6 +659,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             this.TaskFinishedCanceled?.Invoke(this, new EventArgs());
         }
 
+        /// <summary>
+        /// Run action if Automation has finished
+        /// </summary>
         private void AutomationFinshAction()
         {
             if (!this._automationRun) return;
