@@ -1,5 +1,5 @@
-'QuBC - 2.5.2.24' - QuickBackupCreator
-************************************
+QuBC - QuickBackupCreator
+*************************
 
 Copyright © 2021 OLKI - Oliver Kind
 Alle Rechte vorbehalten.
