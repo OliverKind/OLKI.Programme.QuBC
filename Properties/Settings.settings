@@ -47,7 +47,7 @@
     <Setting Name="ProjectFile_DefaultPath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="RecentFiles_MaxLength" Roaming="true" Type="System.Single" Scope="User">
+    <Setting Name="RecentFiles_MaxLength" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="Startup_DefaultFileOpen" Roaming="true" Type="System.String" Scope="User">

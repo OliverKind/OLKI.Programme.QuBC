@@ -736,8 +736,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
         private void btnLogFilePath_Click(object sender, EventArgs e)
         {
             //this._saveLogFile.FileName = this.txtLogFilePath.Text;
-            this._saveLogFile.Filter = Settings.Default.Logfile_FilterList;
-            this._saveLogFile.FilterIndex = Settings.Default.Logfile_FilterIndex;
+            this._saveLogFile.Filter = Settings_AppConst.Default.Logfile_FilterList;
+            this._saveLogFile.FilterIndex = Settings_AppConst.Default.Logfile_FilterIndex;
             if (this._saveLogFile.ShowDialog() == DialogResult.OK)
             {
                 this.txtLogFilePath.Text = this._saveLogFile.FileName;

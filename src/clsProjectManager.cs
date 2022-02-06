@@ -124,9 +124,9 @@ namespace OLKI.Programme.QuBC.src
         {
             OpenFileDialog OpenFileDialog = new OpenFileDialog()
             {
-                DefaultExt = Settings.Default.ProjectFile_DefaultExtension,
-                Filter = Settings.Default.ProjectFile_FilterList,
-                FilterIndex = Settings.Default.ProjectFile_FilterIndex,
+                DefaultExt = Settings_AppConst.Default.ProjectFile_DefaultExtension,
+                Filter = Settings_AppConst.Default.ProjectFile_FilterList,
+                FilterIndex = Settings_AppConst.Default.ProjectFile_FilterIndex,
                 InitialDirectory = Settings.Default.ProjectFile_DefaultPath
             };
             DialogResult DialogResult = OpenFileDialog.ShowDialog();
@@ -241,9 +241,9 @@ namespace OLKI.Programme.QuBC.src
             {
                 SaveFileDialog SaveFileDialog = new SaveFileDialog()
                 {
-                    DefaultExt = Settings.Default.ProjectFile_DefaultExtension,
-                    Filter = Settings.Default.ProjectFile_FilterList,
-                    FilterIndex = Settings.Default.ProjectFile_FilterIndex,
+                    DefaultExt = Settings_AppConst.Default.ProjectFile_DefaultExtension,
+                    Filter = Settings_AppConst.Default.ProjectFile_FilterList,
+                    FilterIndex = Settings_AppConst.Default.ProjectFile_FilterIndex,
                     InitialDirectory = Settings.Default.ProjectFile_DefaultPath
                 };
                 DialogResult DialogResult = SaveFileDialog.ShowDialog();

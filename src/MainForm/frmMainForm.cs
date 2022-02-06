@@ -104,14 +104,14 @@ namespace OLKI.Programme.QuBC.src.MainForm
 
             // Initial rectent files
             this._recentFiles.MaxLength = Settings.Default.RecentFiles_MaxLength;
-            this._recentFiles.Seperator = Settings.Default.RecentFiles_Seperator;
+            this._recentFiles.Seperator = Settings_AppConst.Default.RecentFiles_Seperator;
             this._recentFiles.SetFromString(Settings_AppVar.Default.RecentFiles_FileList);
             //this.SetRecentFilesSettingsAndMenue(); --> Raisid while loading inital projects
 
             // Initial save dialog
-            this._saveLogFileDialog.DefaultExt = Settings.Default.ProjectFile_DefaultExtension;
-            this._saveLogFileDialog.Filter = Settings.Default.Logfile_FilterList;
-            this._saveLogFileDialog.FilterIndex = Settings.Default.Logfile_FilterIndex;
+            this._saveLogFileDialog.DefaultExt = Settings_AppConst.Default.ProjectFile_DefaultExtension;
+            this._saveLogFileDialog.Filter = Settings_AppConst.Default.Logfile_FilterList;
+            this._saveLogFileDialog.FilterIndex = Settings_AppConst.Default.Logfile_FilterIndex;
             this._saveLogFileDialog.InitialDirectory = Settings.Default.ProjectFile_DefaultPath;
 
             this.uscTaskProgressBackup.ConclusionDirectoriesTextBox = this.txtConclusionDirectories;
@@ -384,7 +384,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
         private void MainForm_Shown(object sender, EventArgs e)
         {
             // Check for Admin Rights
-            if (Settings.Default.Internal_CheckAdminRights && !new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+            if (Settings_AppConst.Default.Internal_CheckAdminRights && !new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
             {
                 MessageBox.Show(Stringtable._0x0003m, Stringtable._0x0003c, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

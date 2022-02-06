@@ -222,9 +222,9 @@ namespace OLKI.Programme.QuBC.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public float RecentFiles_MaxLength {
+        public int RecentFiles_MaxLength {
             get {
-                return ((float)(this["RecentFiles_MaxLength"]));
+                return ((int)(this["RecentFiles_MaxLength"]));
             }
             set {
                 this["RecentFiles_MaxLength"] = value;

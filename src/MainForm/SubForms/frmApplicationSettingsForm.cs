@@ -144,8 +144,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
         {
             OpenFileDialog OpenFileDialog = new OpenFileDialog
             {
-                DefaultExt = Settings.Default.ProjectFile_DefaultExtension,
-                Filter = Settings.Default.ProjectFile_FilterList,
+                DefaultExt = Settings_AppConst.Default.ProjectFile_DefaultExtension,
+                Filter = Settings_AppConst.Default.ProjectFile_FilterList,
                 InitialDirectory = Settings.Default.ProjectFile_DefaultPath,
                 Multiselect = false
             };
