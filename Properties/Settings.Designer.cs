@@ -27,242 +27,12 @@ namespace OLKI.Programme.QuBC.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool ListItems_ShowSystem {
+        public bool AppUpdate_CheckAtStartUp {
             get {
-                return ((bool)(this["ListItems_ShowSystem"]));
+                return ((bool)(this["AppUpdate_CheckAtStartUp"]));
             }
             set {
-                this["ListItems_ShowSystem"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool ListItems_ShowWithoutAccess {
-            get {
-                return ((bool)(this["ListItems_ShowWithoutAccess"]));
-            }
-            set {
-                this["ListItems_ShowWithoutAccess"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("qubc")]
-        public string ProjectFile_DefaultExtension {
-            get {
-                return ((string)(this["ProjectFile_DefaultExtension"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Sicherungsvorlage (*.qubc)|*.qubc|Sicherungsvorlage (*.qbc)|*.qbc|Sicherungsvorla" +
-            "ge (*.xml)|*.xml|Alle Dateien (*.*)|*.*")]
-        public string ProjectFile_FilterList {
-            get {
-                return ((string)(this["ProjectFile_FilterList"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int ProjectFile_FilterIndex {
-            get {
-                return ((int)(this["ProjectFile_FilterIndex"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public string ProjectFile_DefaultPath {
-            get {
-                return ((string)(this["ProjectFile_DefaultPath"]));
-            }
-            set {
-                this["ProjectFile_DefaultPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("yyyy-MM-dd__HH-mm-ss")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public string Logfile_DateFormat {
-            get {
-                return ((string)(this["Logfile_DateFormat"]));
-            }
-            set {
-                this["Logfile_DateFormat"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Logdatei (*.log)|*.log|Textdatei (*.txt)|*.txt|Alle Dateien (*.*)|*.*")]
-        public string Logfile_FilterList {
-            get {
-                return ((string)(this["Logfile_FilterList"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int Logfile_FilterIndex {
-            get {
-                return ((int)(this["Logfile_FilterIndex"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public string Startup_DefaultFileOpen {
-            get {
-                return ((string)(this["Startup_DefaultFileOpen"]));
-            }
-            set {
-                this["Startup_DefaultFileOpen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool ListItems_ExpandTreeNodeOnSingleClick {
-            get {
-                return ((bool)(this["ListItems_ExpandTreeNodeOnSingleClick"]));
-            }
-            set {
-                this["ListItems_ExpandTreeNodeOnSingleClick"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QuBC.Project")]
-        public string FileAssociation_ExtensionFile {
-            get {
-                return ((string)(this["FileAssociation_ExtensionFile"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QuBC Project")]
-        public string FileAssociation_ExtensionDescription {
-            get {
-                return ((string)(this["FileAssociation_ExtensionDescription"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Project_Symbol.ico")]
-        public string FileAssociation_ExtensionIconFile {
-            get {
-                return ((string)(this["FileAssociation_ExtensionIconFile"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool FileAssociation_CheckOnStartup {
-            get {
-                return ((bool)(this["FileAssociation_CheckOnStartup"]));
-            }
-            set {
-                this["FileAssociation_CheckOnStartup"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public string RecentFiles_FileList {
-            get {
-                return ((string)(this["RecentFiles_FileList"]));
-            }
-            set {
-                this["RecentFiles_FileList"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int RecentFiles_MaxLength {
-            get {
-                return ((int)(this["RecentFiles_MaxLength"]));
-            }
-            set {
-                this["RecentFiles_MaxLength"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("|")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public string RecentFiles_Seperator {
-            get {
-                return ((string)(this["RecentFiles_Seperator"]));
-            }
-            set {
-                this["RecentFiles_Seperator"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool Internal_SettingsUpgradet {
-            get {
-                return ((bool)(this["Internal_SettingsUpgradet"]));
-            }
-            set {
-                this["Internal_SettingsUpgradet"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Internal_CheckAdminRights {
-            get {
-                return ((bool)(this["Internal_CheckAdminRights"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1;2;3")]
-        public string ProjectFile_VersionCompatibleNative {
-            get {
-                return ((string)(this["ProjectFile_VersionCompatibleNative"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ProjectFile_VersionCompatibleConvert {
-            get {
-                return ((string)(this["ProjectFile_VersionCompatibleConvert"]));
+                this["AppUpdate_CheckAtStartUp"] = value;
             }
         }
         
@@ -320,63 +90,14 @@ namespace OLKI.Programme.QuBC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool ListItems_ShowHidden {
+        public int DefaultTab_LoadFile {
             get {
-                return ((bool)(this["ListItems_ShowHidden"]));
+                return ((int)(this["DefaultTab_LoadFile"]));
             }
             set {
-                this["ListItems_ShowHidden"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("QuBC__v{0}__Setup.exe")]
-        public string AppUpdate_SetupSearchPattern {
-            get {
-                return ((string)(this["AppUpdate_SetupSearchPattern"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public bool AppUpdate_CheckAtStartUp {
-            get {
-                return ((bool)(this["AppUpdate_CheckAtStartUp"]));
-            }
-            set {
-                this["AppUpdate_CheckAtStartUp"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("OliverKind")]
-        public string AppUpdate_Owner {
-            get {
-                return ((string)(this["AppUpdate_Owner"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("OLKI.Programme.QuBC")]
-        public string AppUpdate_Name {
-            get {
-                return ((string)(this["AppUpdate_Name"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Changelog.txt")]
-        public string AppUpdate_ChangeLog {
-            get {
-                return ((string)(this["AppUpdate_ChangeLog"]));
+                this["DefaultTab_LoadFile"] = value;
             }
         }
         
@@ -395,14 +116,79 @@ namespace OLKI.Programme.QuBC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int DefaultTab_LoadFile {
+        public bool FileAssociation_CheckOnStartup {
             get {
-                return ((int)(this["DefaultTab_LoadFile"]));
+                return ((bool)(this["FileAssociation_CheckOnStartup"]));
             }
             set {
-                this["DefaultTab_LoadFile"] = value;
+                this["FileAssociation_CheckOnStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool ListItems_ExpandTreeNodeOnSingleClick {
+            get {
+                return ((bool)(this["ListItems_ExpandTreeNodeOnSingleClick"]));
+            }
+            set {
+                this["ListItems_ExpandTreeNodeOnSingleClick"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool ListItems_ShowHidden {
+            get {
+                return ((bool)(this["ListItems_ShowHidden"]));
+            }
+            set {
+                this["ListItems_ShowHidden"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool ListItems_ShowSystem {
+            get {
+                return ((bool)(this["ListItems_ShowSystem"]));
+            }
+            set {
+                this["ListItems_ShowSystem"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool ListItems_ShowWithoutAccess {
+            get {
+                return ((bool)(this["ListItems_ShowWithoutAccess"]));
+            }
+            set {
+                this["ListItems_ShowWithoutAccess"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("yyyy-MM-dd__HH-mm-ss")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public string Logfile_DateFormat {
+            get {
+                return ((string)(this["Logfile_DateFormat"]));
+            }
+            set {
+                this["Logfile_DateFormat"] = value;
             }
         }
         
@@ -416,6 +202,45 @@ namespace OLKI.Programme.QuBC.Properties {
             }
             set {
                 this["MainFormResizeSuspendLayout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public string ProjectFile_DefaultPath {
+            get {
+                return ((string)(this["ProjectFile_DefaultPath"]));
+            }
+            set {
+                this["ProjectFile_DefaultPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public float RecentFiles_MaxLength {
+            get {
+                return ((float)(this["RecentFiles_MaxLength"]));
+            }
+            set {
+                this["RecentFiles_MaxLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public string Startup_DefaultFileOpen {
+            get {
+                return ((string)(this["Startup_DefaultFileOpen"]));
+            }
+            set {
+                this["Startup_DefaultFileOpen"] = value;
             }
         }
     }

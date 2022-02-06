@@ -480,7 +480,7 @@ namespace OLKI.Programme.QuBC.src.Project
         {
             XElement ProjectRoot = new XElement("QuBC_ProjectData");
             //TODO: CHANGE to settings
-            ProjectRoot.Add(new XAttribute("Version", "2;3;4"));
+            ProjectRoot.Add(new XAttribute("Version", Settings_AppConst.Default.ProjectFile_Version_Actual));
 
             //Get Directorys (get files)
             XElement DirectoryList = new XElement("DirectoryList");
@@ -685,14 +685,14 @@ namespace OLKI.Programme.QuBC.src.Project
             List<string> FileVersionList = FileVersion.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             // Full Compatible fileversions
-            List<string> FullCompatibleVersionList = Properties.Settings.Default.ProjectFile_VersionCompatibleNative.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> FullCompatibleVersionList = Settings_AppConst.Default.ProjectFile_VersionCompatibleNative.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             if (FileVersionList.Intersect(FullCompatibleVersionList).Count() > 0)
             {
                 return true;    // Full Compatible Return true
             }
 
             // Fileversions they are compatible if the file would been converted
-            List<string> ConvCompatibleVersionList = Properties.Settings.Default.ProjectFile_VersionCompatibleConvert.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> ConvCompatibleVersionList = Settings_AppConst.Default.ProjectFile_VersionCompatibleConvert.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             if (FileVersionList.Intersect(ConvCompatibleVersionList).Count() > 0)
             {
                 //TODO: ADD CODE --> in future version to convert if necessary 

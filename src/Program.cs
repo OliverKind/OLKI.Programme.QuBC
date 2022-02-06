@@ -77,11 +77,14 @@ namespace OLKI.Programme.QuBC.src
             Microsoft.Win32.Registry.SetValue(RegistryPath, REGISTRY_SETTINGS_DIRECTORY_KEY, ConigFilePathRootDir);
 
             // Upgrade Settings
-            if (!Settings.Default.Internal_SettingsUpgradet)
+            if (!Settings_AppVar.Default.SettingsUpgradet)
             {
                 Settings.Default.Upgrade();
-                Settings.Default.Internal_SettingsUpgradet = true;
-                Settings.Default.Save();
+                Settings_AppVar.Default.Upgrade();
+                Settings_AppConst1.Default.Upgrade();
+
+                Settings_AppVar.Default.SettingsUpgradet = true;
+                Settings_AppVar.Default.Save();
             }
 
             // Show MainForm
@@ -119,10 +122,10 @@ namespace OLKI.Programme.QuBC.src
         {
             UpdateApp AppUpdater = new UpdateApp();
             ReleaseData LastReleaseData = AppUpdater.GetLastReleaseData(
-                Settings.Default.AppUpdate_Owner,
-                Settings.Default.AppUpdate_Name,
-                Settings.Default.AppUpdate_ChangeLog,
-                Settings.Default.AppUpdate_SetupSearchPattern,
+                Settings_AppConst1.Default.AppUpdate_Owner,
+                Settings_AppConst1.Default.AppUpdate_Name,
+                Settings_AppConst1.Default.AppUpdate_ChangeLog,
+                Settings_AppConst1.Default.AppUpdate_SetupSearchPattern,
                 out Exception GetDataEx);
             ReleaseVersion ActualVersion = new ReleaseVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString());
 

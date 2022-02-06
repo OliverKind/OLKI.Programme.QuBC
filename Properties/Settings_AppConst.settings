@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OLKI.Programme.QuBC.Properties" GeneratedClassName="Settings_AppConst">
+  <Profiles />
+  <Settings>
+    <Setting Name="AppUpdate_ChangeLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Changelog.txt</Value>
+    </Setting>
+    <Setting Name="AppUpdate_Name" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">OLKI.Programme.QuBC</Value>
+    </Setting>
+    <Setting Name="AppUpdate_Owner" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">OliverKind</Value>
+    </Setting>
+    <Setting Name="AppUpdate_SetupSearchPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QuBC__v{0}__Setup.exe</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionDescription" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QuBC Project</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">QuBC.Project</Value>
+    </Setting>
+    <Setting Name="FileAssociation_ExtensionIconFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Project_Symbol.ico</Value>
+    </Setting>
+    <Setting Name="Internal_CheckAdminRights" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Logfile_FilterIndex" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Logfile_FilterList" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Logdatei (*.log)|*.log|Textdatei (*.txt)|*.txt|Alle Dateien (*.*)|*.*</Value>
+    </Setting>
+    <Setting Name="ProjectFile_DefaultExtension" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">qubc</Value>
+    </Setting>
+    <Setting Name="ProjectFile_FilterIndex" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ProjectFile_FilterList" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Sicherungsvorlage (*.qubc)|*.qubc|Sicherungsvorlage (*.qbc)|*.qbc|Sicherungsvorlage (*.xml)|*.xml|Alle Dateien (*.*)|*.*</Value>
+    </Setting>
+    <Setting Name="ProjectFile_Version_Actual" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2;3;4</Value>
+    </Setting>
+    <Setting Name="ProjectFile_VersionCompatibleConvert" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ProjectFile_VersionCompatibleNative" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1;2;3;4</Value>
+    </Setting>
+    <Setting Name="RecentFiles_Seperator" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">|</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

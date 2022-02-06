@@ -88,6 +88,10 @@ namespace OLKI.Programme.QuBC.src.MainForm
         {
             InitializeComponent();
 
+            if (Settings_AppVar.Default.MainForm_State != FormWindowState.Minimized) this.WindowState = (FormWindowState)Settings_AppVar.Default.MainForm_State;
+            if (Settings_AppVar.Default.MainForm_State == FormWindowState.Normal) this.Size = Settings_AppVar.Default.MainForm_Size;
+
+
             this.tabControlMain.SelectTab(Settings.Default.DefaultTab_StartUp > -1 ? Settings.Default.DefaultTab_StartUp : DEBAULT_TAB_PAGE_INDEX);
             this._conclusionTabPageOriginalText = this.tabPageConclusion.Text;
             this.Text = string.Format(this.Text, new object[] { ProductName });
@@ -101,7 +105,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             // Initial rectent files
             this._recentFiles.MaxLength = Settings.Default.RecentFiles_MaxLength;
             this._recentFiles.Seperator = Settings.Default.RecentFiles_Seperator;
-            this._recentFiles.SetFromString(Settings.Default.RecentFiles_FileList);
+            this._recentFiles.SetFromString(Settings_AppVar.Default.RecentFiles_FileList);
             //this.SetRecentFilesSettingsAndMenue(); --> Raisid while loading inital projects
 
             // Initial save dialog
@@ -225,8 +229,8 @@ namespace OLKI.Programme.QuBC.src.MainForm
             if (this._projectManager.ActiveProject != null && this._projectManager.ActiveProject.File != null)
             {
                 this._recentFiles.AddToList(this._projectManager.ActiveProject.File.FullName);
-                Settings.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
-                Settings.Default.Save();
+                Settings_AppVar.Default.RecentFiles_FileList = this._recentFiles.GetAsString();
+                Settings_AppVar.Default.Save();
             }
 
             this._recentFiles.SetMenueItem(new List<ToolStripMenuItem> { this.mnuMain_File_RecentFiles_File0, this.mnuMain_File_RecentFiles_File1, this.mnuMain_File_RecentFiles_File2, this.mnuMain_File_RecentFiles_File3 }, this.mnuMain_File_RecentFiles, this.mnuMain_File_SepRecentFiles);
@@ -362,6 +366,9 @@ namespace OLKI.Programme.QuBC.src.MainForm
                         break;
                 }
             }
+            if (this.WindowState == FormWindowState.Normal) Settings_AppVar.Default.MainForm_Size = this.Size;
+            Settings_AppVar.Default.MainForm_State = this.WindowState;
+            Settings_AppVar.Default.Save();
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)

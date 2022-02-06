@@ -95,6 +95,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings_AppConst1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings_AppConst.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings_AppVar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings_AppVar.settings</DependentUpon>
+    </Compile>
+    <Compile Include="src\MainForm\SubForms\frmAutomationStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\MainForm\SubForms\frmAutomationStart.Designer.cs">
+      <DependentUpon>frmAutomationStart.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\MainForm\SubForms\frmProjectSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +173,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="src\MainForm\SubForms\frmAutomationStart.resx">
+      <DependentUpon>frmAutomationStart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\MainForm\SubForms\frmProjectSettingsForm.resx">
       <DependentUpon>frmProjectSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +199,14 @@
     </EmbeddedResource>
     <None Include="CONTRIBUTING.md" />
     <None Include="LICENSE" />
+    <None Include="Properties\Settings_AppConst.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings_AppConst1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings_AppVar.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings_AppVar.Designer.cs</LastGenOutput>
+    </None>
     <None Include="README.md" />
     <Compile Include="src\clsProjectManager.cs" />
     <Compile Include="src\MainForm\SubForms\frmApplicationSettingsForm.cs">
