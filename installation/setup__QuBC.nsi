@@ -1,4 +1,4 @@
-;NSIS Installer for QuBC 3.0.0.25
+;NSIS Installer for QuBC 3.0.1.26
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'QuBC'
-  !define Version          '3.0.0.25'
+  !define Version          '3.0.1.26'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm um schnell Datensicherungen zu erstellen'
   !define Copyright        '2021 - Oliver Kind'
