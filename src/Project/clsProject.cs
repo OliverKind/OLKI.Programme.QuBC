@@ -635,9 +635,9 @@ namespace OLKI.Programme.QuBC.src.Project
                         }
                         XElement Logfile = ControleBackup.Element("Logfile");
                         {
-                            this._settings.ControleBackup.Logfile.AutoPath = Serialize.GetFromXElement(Directory, "AutoPath", this._settings.ControleBackup.Logfile.AutoPath);
-                            this._settings.ControleBackup.Logfile.Create = Serialize.GetFromXElement(Directory, "Create", this._settings.ControleBackup.Logfile.Create);
-                            this._settings.ControleBackup.Logfile.Path = Serialize.GetFromXElement(Directory, "Path", this._settings.ControleBackup.Logfile.Path);
+                            this._settings.ControleBackup.Logfile.AutoPath = Serialize.GetFromXElement(Logfile, "AutoPath", this._settings.ControleBackup.Logfile.AutoPath);
+                            this._settings.ControleBackup.Logfile.Create = Serialize.GetFromXElement(Logfile, "Create", this._settings.ControleBackup.Logfile.Create);
+                            this._settings.ControleBackup.Logfile.Path = Serialize.GetFromXElement(Logfile, "Path", this._settings.ControleBackup.Logfile.Path);
                         }
                     }
                     XElement ControleRestore = Settings.Element("ControleRestore");
