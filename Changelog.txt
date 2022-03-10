@@ -1,4 +1,8 @@
 # QuBC - QuickBackupCreator
+## [3.0.2.27] - 2022-03-10
+### Fixed
+- Backup LogFile settings not can not be read from saved file
+
 ## [3.0.1.26] - 2022-03-05
 ### Fixed
 - Flickering of Dimension DropDown ComboBox
