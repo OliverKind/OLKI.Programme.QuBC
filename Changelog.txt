@@ -1,4 +1,8 @@
 # QuBC - QuickBackupCreator
+## [3.0.3.28] - 2022-03-13
+### Fixed
+- Project settings Form resizeable
+
 ## [3.0.2.27] - 2022-03-10
 ### Fixed
 - Backup LogFile settings not can not be read from saved file
