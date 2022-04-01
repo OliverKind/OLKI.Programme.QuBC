@@ -42,13 +42,13 @@
       <Value Profile="(Default)">Sicherungsvorlage (*.qubc)|*.qubc|Sicherungsvorlage (*.qbc)|*.qbc|Sicherungsvorlage (*.xml)|*.xml|Alle Dateien (*.*)|*.*</Value>
     </Setting>
     <Setting Name="ProjectFile_Version_Actual" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">2;3;4</Value>
+      <Value Profile="(Default)">2;3;4;5</Value>
     </Setting>
     <Setting Name="ProjectFile_VersionCompatibleConvert" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ProjectFile_VersionCompatibleNative" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1;2;3;4</Value>
+      <Value Profile="(Default)">1;2;3;4;5</Value>
     </Setting>
     <Setting Name="RecentFiles_Seperator" Type="System.String" Scope="Application">
       <Value Profile="(Default)">|</Value>

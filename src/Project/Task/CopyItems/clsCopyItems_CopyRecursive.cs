@@ -142,7 +142,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 }
 
                 //Copy attributes from source to target
-                if (Properties.Settings.Default.Copy_DirectoryAttributes && !OLKI.Toolbox.DirectoryAndFile.Path.IsDrive(sourceDirectory) && !OLKI.Toolbox.DirectoryAndFile.Path.IsDrive(TargetDirectory)) HandleAttributes.Direcotry.Set(TargetDirectory, sourceDirectory.Attributes);
+                if (this._project.Settings.Common.CopyDirectoryProperties && !Toolbox.DirectoryAndFile.Path.IsDrive(sourceDirectory) && !OLKI.Toolbox.DirectoryAndFile.Path.IsDrive(TargetDirectory)) HandleAttributes.Direcotry.Set(TargetDirectory, sourceDirectory.Attributes);
 
                 // Report Progress
                 this._progress.TotalDirectories.ActualValue++;
@@ -624,7 +624,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                 targetFile.CreationTime = sourceFile.CreationTime;
                 targetFile.LastAccessTime = sourceFile.LastAccessTime;
                 targetFile.LastWriteTime = sourceFile.LastWriteTime;
-                if (Properties.Settings.Default.Copy_FileAttributes && !HandleAttributes.File.Set(targetFile, sourceFile.Attributes, out exception))
+                if (this._project.Settings.Common.CopyFileProperties && !HandleAttributes.File.Set(targetFile, sourceFile.Attributes, out exception))
                 {
                     TaskException Exception = new TaskException
                     {

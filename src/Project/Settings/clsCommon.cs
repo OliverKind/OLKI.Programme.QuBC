@@ -139,6 +139,46 @@ namespace OLKI.Programme.QuBC.src.Project.Settings.Common
         }
 
         /// <summary>
+        /// Should Directory attributes and properties been copied
+        /// </summary>
+        private bool _copyDirectoryProperties = true;
+        /// <summary>
+        /// Get or set if Directory attributes and properties should been copied
+        /// </summary>
+        public bool CopyDirectoryProperties
+        {
+            get
+            {
+                return this._copyDirectoryProperties;
+            }
+            set
+            {
+                this._copyDirectoryProperties = value;
+                base.ToggleSettingsChanged(this, new EventArgs());
+            }
+        }
+
+        /// <summary>
+        /// Should File attributes and properties been copied
+        /// </summary>
+        private bool _copyFileProperties = true;
+        /// <summary>
+        /// Get or set if File attributes and properties should been copied
+        /// </summary>
+        public bool CopyFileProperties
+        {
+            get
+            {
+                return this._copyFileProperties;
+            }
+            set
+            {
+                this._copyFileProperties = value;
+                base.ToggleSettingsChanged(this, new EventArgs());
+            }
+        }
+
+        /// <summary>
         /// Default Tab to open if project will be open
         /// </summary>
         private int _defaultTab = -1;

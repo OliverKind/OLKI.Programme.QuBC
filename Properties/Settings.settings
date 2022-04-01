@@ -5,12 +5,6 @@
     <Setting Name="AppUpdate_CheckAtStartUp" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Copy_DirectoryAttributes" Roaming="true" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="Copy_FileAttributes" Roaming="true" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="Copy_FileExisitngAddTextDateFormat" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">yyyyMMddHHmmss</Value>
     </Setting>

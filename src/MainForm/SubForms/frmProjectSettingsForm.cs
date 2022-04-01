@@ -65,6 +65,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             Toolbox.Widgets.Tools.ComboBox.AutoDropDownWidth(this.cboDefaultTab);
             Toolbox.Widgets.Tools.ComboBox.AutoDropDownWidth(this.cboFinishAction);
 
+            this.chkCopyDirectoryProperties.Checked = this._projectSettings.Common.CopyDirectoryProperties;
+            this.chkCopyFileProperties.Checked = this._projectSettings.Common.CopyFileProperties;
             this.cboDefaultTab.SelectedIndex = this._projectSettings.Common.DefaultTab + 1;
             this.cboFinishAction.SelectedIndex = (int)this._projectSettings.Common.AutomationFinishAction;
             this.nudWaitTime.Value = this._projectSettings.Common.AutomationWaitTime;
@@ -117,6 +119,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 
             this._projectSettings.Common.AutomationFinishAction = (Common.FinishAction)this.cboFinishAction.SelectedIndex;
             this._projectSettings.Common.AutomationWaitTime = (int)this.nudWaitTime.Value;
+            this._projectSettings.Common.CopyDirectoryProperties = this.chkCopyDirectoryProperties.Checked;
+            this._projectSettings.Common.CopyFileProperties = this.chkCopyFileProperties.Checked;
             this._projectSettings.Common.DefaultTab = this.cboDefaultTab.SelectedIndex - 1;
             this.DialogResult = DialogResult.OK;
             this.Close();

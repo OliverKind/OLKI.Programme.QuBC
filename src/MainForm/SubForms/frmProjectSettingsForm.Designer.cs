@@ -46,6 +46,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.nudWaitTime = new System.Windows.Forms.NumericUpDown();
             this.rabAutomationBackup = new System.Windows.Forms.RadioButton();
             this.rabAutomationNone = new System.Windows.Forms.RadioButton();
+            this.chkCopyDirectoryProperties = new System.Windows.Forms.CheckBox();
+            this.chkCopyFileProperties = new System.Windows.Forms.CheckBox();
             this.grbCommon.SuspendLayout();
             this.grbAutomation.SuspendLayout();
             this.grbAutomationSettings.SuspendLayout();
@@ -66,12 +68,14 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             // 
             // grbCommon
             // 
+            this.grbCommon.Controls.Add(this.chkCopyFileProperties);
+            this.grbCommon.Controls.Add(this.chkCopyDirectoryProperties);
             this.grbCommon.Controls.Add(this.lblDefaultTab);
             this.grbCommon.Controls.Add(this.cboDefaultTab);
             this.grbCommon.Controls.Add(this.btnProjectCleanUp);
             this.grbCommon.Location = new System.Drawing.Point(12, 12);
             this.grbCommon.Name = "grbCommon";
-            this.grbCommon.Size = new System.Drawing.Size(705, 48);
+            this.grbCommon.Size = new System.Drawing.Size(705, 94);
             this.grbCommon.TabIndex = 0;
             this.grbCommon.TabStop = false;
             this.grbCommon.Text = "Allgemein";
@@ -104,7 +108,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(607, 238);
+            this.btnCancel.Location = new System.Drawing.Point(607, 284);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 23);
             this.btnCancel.TabIndex = 3;
@@ -114,7 +118,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(12, 238);
+            this.btnOk.Location = new System.Drawing.Point(12, 284);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 23);
             this.btnOk.TabIndex = 2;
@@ -128,7 +132,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.grbAutomation.Controls.Add(this.grbAutomationSettings);
             this.grbAutomation.Controls.Add(this.rabAutomationBackup);
             this.grbAutomation.Controls.Add(this.rabAutomationNone);
-            this.grbAutomation.Location = new System.Drawing.Point(12, 66);
+            this.grbAutomation.Location = new System.Drawing.Point(12, 112);
             this.grbAutomation.Name = "grbAutomation";
             this.grbAutomation.Size = new System.Drawing.Size(705, 166);
             this.grbAutomation.TabIndex = 1;
@@ -244,13 +248,33 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.rabAutomationNone.UseVisualStyleBackColor = true;
             this.rabAutomationNone.CheckedChanged += new System.EventHandler(this.rabAutomationNone_CheckedChanged);
             // 
+            // checkBox1
+            // 
+            this.chkCopyDirectoryProperties.AutoSize = true;
+            this.chkCopyDirectoryProperties.Location = new System.Drawing.Point(6, 48);
+            this.chkCopyDirectoryProperties.Name = "checkBox1";
+            this.chkCopyDirectoryProperties.Size = new System.Drawing.Size(246, 17);
+            this.chkCopyDirectoryProperties.TabIndex = 3;
+            this.chkCopyDirectoryProperties.Text = "Attribute, Zeitstempel, ... von Ordnern kopieren";
+            this.chkCopyDirectoryProperties.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.chkCopyFileProperties.AutoSize = true;
+            this.chkCopyFileProperties.Location = new System.Drawing.Point(6, 71);
+            this.chkCopyFileProperties.Name = "checkBox2";
+            this.chkCopyFileProperties.Size = new System.Drawing.Size(245, 17);
+            this.chkCopyFileProperties.TabIndex = 4;
+            this.chkCopyFileProperties.Text = "Attribute, Zeitstempel, ... von Dateien kopieren";
+            this.chkCopyFileProperties.UseVisualStyleBackColor = true;
+            // 
             // ProjectSettingsForm
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(729, 273);
+            this.ClientSize = new System.Drawing.Size(729, 319);
             this.Controls.Add(this.grbAutomation);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
@@ -291,5 +315,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
         private System.Windows.Forms.ComboBox cboDefaultTab;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboFinishAction;
+        private System.Windows.Forms.CheckBox chkCopyFileProperties;
+        private System.Windows.Forms.CheckBox chkCopyDirectoryProperties;
     }
 }
