@@ -105,11 +105,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings_AppVar.settings</DependentUpon>
     </Compile>
-    <Compile Include="src\MainForm\SubForms\frmAutomationStart.cs">
+    <Compile Include="src\MainForm\SubForms\frmAutomationStartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\MainForm\SubForms\frmAutomationStart.Designer.cs">
-      <DependentUpon>frmAutomationStart.cs</DependentUpon>
+    <Compile Include="src\MainForm\SubForms\frmAutomationStartForm.Designer.cs">
+      <DependentUpon>frmAutomationStartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\MainForm\SubForms\frmProjectSettingsForm.cs">
       <SubType>Form</SubType>
@@ -173,8 +173,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\MainForm\SubForms\frmAutomationStart.resx">
-      <DependentUpon>frmAutomationStart.cs</DependentUpon>
+    <EmbeddedResource Include="src\MainForm\SubForms\frmAutomationStartForm.resx">
+      <DependentUpon>frmAutomationStartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\MainForm\SubForms\frmProjectSettingsForm.resx">
       <DependentUpon>frmProjectSettingsForm.cs</DependentUpon>
