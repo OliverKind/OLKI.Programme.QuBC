@@ -1,7 +1,7 @@
 ﻿
 namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 {
-    partial class AutomationStartForm
+    partial class AutomationStart
     {
         /// <summary>
         /// Required designer variable.

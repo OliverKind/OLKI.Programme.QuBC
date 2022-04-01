@@ -327,7 +327,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             Settings.Default.Save();
 
             //Start Automation
-            SubForms.AutomationStartForm AutomationStartForm = new SubForms.AutomationStartForm(this, this._projectManager.ActiveProject.Settings.Common);
+            SubForms.AutomationStart AutomationStartForm = new SubForms.AutomationStart(this, this._projectManager.ActiveProject.Settings.Common);
             switch (this._projectManager.ActiveProject.Settings.Common.Automation)
             {
                 case Project.Settings.Common.Common.AutomationMode.Backup:

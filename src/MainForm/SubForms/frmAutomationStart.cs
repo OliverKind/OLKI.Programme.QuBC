@@ -30,7 +30,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
     /// <summary>
     /// The AutomationStart Formn, to wait until the Automation starts
     /// </summary>
-    public partial class AutomationStartForm : Form
+    public partial class AutomationStart : Form
     {
         #region Fields
         /// <summary>
@@ -60,7 +60,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
         /// </summary>
         /// <param name="mainForm">Application MainForm</param>
         /// <param name="projectCommonSettings">Project common settings, to get automation settings</param>
-        public AutomationStartForm(MainForm mainForm, Project.Settings.Common.Common projectCommonSettings)
+        public AutomationStart(MainForm mainForm, Project.Settings.Common.Common projectCommonSettings)
         {
             InitializeComponent();
 
