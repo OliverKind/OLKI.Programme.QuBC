@@ -290,6 +290,7 @@
     <Content Include="Resources\Icons\MenueToolStripIcons\Properties.png" />
     <Content Include="Resources\Icons\MenueToolStripIcons\Save.png" />
     <Content Include="Resources\Icons\Options.ico" />
+    <Content Include="Resources\Icons\Properties.ico" />
     <Content Include="Resources\Icons\TabIcons\BackupCreate.ico" />
     <Content Include="Resources\Icons\TabIcons\BackupOptions.ico" />
     <Content Include="Resources\Icons\TabIcons\BackupReport.ico" />
