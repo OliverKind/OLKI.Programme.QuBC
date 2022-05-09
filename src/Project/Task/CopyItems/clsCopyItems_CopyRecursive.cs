@@ -335,7 +335,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
             {
                 if (TargetFile.Exists)
                 {
-                    HandleExistingFiles.CheckResult HandleFile = HandleExistingFiles.GetOverwriteByAction(sourceFile, TargetFile, Properties.Settings.Default.Copy_FileExisitngAddTextDateFormat, this._project.Settings.Common.ExisitingFiles.HandleExistingItem, this._project.Settings.Common.ExisitingFiles.AddTextToExistingFile, false, out exception, this._mainForm);
+                    HandleExistingFiles.CheckResult HandleFile = HandleExistingFiles.GetOverwriteByAction(sourceFile, TargetFile, Properties.Settings.Default.Copy_FileExisitngAddTextDateFormat, this._project.Settings.Common.ExisitingFiles.HandleExistingItem, this._project.Settings.Common.ExisitingFiles.AddTextToExistingFile, false, out exception, this._mainForm, System.Security.Cryptography.SHA256.Create());
                     if (HandleFile.FormResult == DialogResult.Cancel)
                     {
                         worker.ReportProgress((int)TaskControle.TaskStep.Cancel, new ProgressState(true));
