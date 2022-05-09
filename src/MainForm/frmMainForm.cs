@@ -684,6 +684,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.spcExplorer.Enabled = true;
             this.grbTaskControleRestore.Enabled = true;
             this.grbTaskProgressRestore.Enabled = true;
+            this.pnlCompare.Enabled = false;
         }
 
         private void uscTaskControleBackup_TaskStarted(object sender, EventArgs e)
@@ -691,6 +692,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.spcExplorer.Enabled = false;
             this.grbTaskControleRestore.Enabled = false;
             this.grbTaskProgressRestore.Enabled = false;
+            this.pnlCompare.Enabled = false;
             if (this.lsvErrorLog.SelectedItems.Count > 0) this.lsvErrorLog.SelectedItems[0].Selected = false;
 
         }
@@ -711,6 +713,54 @@ namespace OLKI.Programme.QuBC.src.MainForm
             this.spcExplorer.Enabled = false;
             this.grbTaskControleBackup.Enabled = false;
             this.grbTaskProgressBackup.Enabled = false;
+        }
+        #endregion
+
+        #region tabPage_Compare
+        private void btnBackupDirPrimaryBrowse_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog FolderBrowserDialog = new FolderBrowserDialog
+            {
+                Description = Stringtable._0x0006,
+                SelectedPath = this.txtBackupDirPrimary.Text
+            };
+            if (FolderBrowserDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                this.txtBackupDirPrimary.Text = FolderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void btnBackupDirSecondaryBrowse_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog FolderBrowserDialog = new FolderBrowserDialog
+            {
+                Description = Stringtable._0x0006,
+                SelectedPath = this.txtBackupDirSecondary.Text
+            };
+            if (FolderBrowserDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                this.txtBackupDirSecondary.Text = FolderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void btnCompareCleanCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCompareCleanStart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCompareSearchCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCompareSearchStart_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
         #endregion

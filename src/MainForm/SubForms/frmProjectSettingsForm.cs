@@ -22,6 +22,7 @@
  * 
  * */
 
+using OLKI.Programme.QuBC.Properties;
 using OLKI.Programme.QuBC.src.Project.Settings.Common;
 using System;
 using System.Windows.Forms;
@@ -67,6 +68,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 
             this.chkCopyDirectoryProperties.Checked = this._projectSettings.Common.CopyDirectoryProperties;
             this.chkCopyFileProperties.Checked = this._projectSettings.Common.CopyFileProperties;
+            this.cboDefaultTab.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x0032, Stringtable._0x002E });
             this.cboDefaultTab.SelectedIndex = this._projectSettings.Common.DefaultTab + 1;
             this.cboFinishAction.SelectedIndex = (int)this._projectSettings.Common.AutomationFinishAction;
             this.nudWaitTime.Value = this._projectSettings.Common.AutomationWaitTime;

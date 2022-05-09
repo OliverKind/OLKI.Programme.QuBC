@@ -708,5 +708,14 @@ namespace OLKI.Programme.QuBC.Properties {
                 return ResourceManager.GetString("0x0031m", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sicherungskopien vergleichen ähnelt.
+        /// </summary>
+        internal static string _0x0032 {
+            get {
+                return ResourceManager.GetString("0x0032", resourceCulture);
+            }
+        }
     }
 }

@@ -365,4 +365,7 @@ Möchten Sie fortfahren?</value>
   <data name="0x0031m" xml:space="preserve">
     <value>Der Pfad "{0}" konnte nicht geöffnet werden.</value>
   </data>
+  <data name="0x0032" xml:space="preserve">
+    <value>Sicherungskopien vergleichen</value>
+  </data>
 </root>

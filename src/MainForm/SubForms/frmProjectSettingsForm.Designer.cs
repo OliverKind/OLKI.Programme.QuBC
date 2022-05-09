@@ -32,6 +32,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectSettingsForm));
             this.btnProjectCleanUp = new System.Windows.Forms.Button();
             this.grbCommon = new System.Windows.Forms.GroupBox();
+            this.chkCopyFileProperties = new System.Windows.Forms.CheckBox();
+            this.chkCopyDirectoryProperties = new System.Windows.Forms.CheckBox();
             this.lblDefaultTab = new System.Windows.Forms.Label();
             this.cboDefaultTab = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -46,8 +48,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.nudWaitTime = new System.Windows.Forms.NumericUpDown();
             this.rabAutomationBackup = new System.Windows.Forms.RadioButton();
             this.rabAutomationNone = new System.Windows.Forms.RadioButton();
-            this.chkCopyDirectoryProperties = new System.Windows.Forms.CheckBox();
-            this.chkCopyFileProperties = new System.Windows.Forms.CheckBox();
             this.grbCommon.SuspendLayout();
             this.grbAutomation.SuspendLayout();
             this.grbAutomationSettings.SuspendLayout();
@@ -80,6 +80,26 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.grbCommon.TabStop = false;
             this.grbCommon.Text = "Allgemein";
             // 
+            // chkCopyFileProperties
+            // 
+            this.chkCopyFileProperties.AutoSize = true;
+            this.chkCopyFileProperties.Location = new System.Drawing.Point(6, 71);
+            this.chkCopyFileProperties.Name = "chkCopyFileProperties";
+            this.chkCopyFileProperties.Size = new System.Drawing.Size(245, 17);
+            this.chkCopyFileProperties.TabIndex = 4;
+            this.chkCopyFileProperties.Text = "Attribute, Zeitstempel, ... von Dateien kopieren";
+            this.chkCopyFileProperties.UseVisualStyleBackColor = true;
+            // 
+            // chkCopyDirectoryProperties
+            // 
+            this.chkCopyDirectoryProperties.AutoSize = true;
+            this.chkCopyDirectoryProperties.Location = new System.Drawing.Point(6, 48);
+            this.chkCopyDirectoryProperties.Name = "chkCopyDirectoryProperties";
+            this.chkCopyDirectoryProperties.Size = new System.Drawing.Size(246, 17);
+            this.chkCopyDirectoryProperties.TabIndex = 3;
+            this.chkCopyDirectoryProperties.Text = "Attribute, Zeitstempel, ... von Ordnern kopieren";
+            this.chkCopyDirectoryProperties.UseVisualStyleBackColor = true;
+            // 
             // lblDefaultTab
             // 
             this.lblDefaultTab.AutoSize = true;
@@ -94,12 +114,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.cboDefaultTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cboDefaultTab.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDefaultTab.FormattingEnabled = true;
-            this.cboDefaultTab.Items.AddRange(new object[] {
-            "-- Programmeinstellungen --",
-            "Sicherung - Quelle",
-            "Sicherung - Ausführen",
-            "Sicherung - Wiederherstellen",
-            "Zusammenfassung - Fehler"});
             this.cboDefaultTab.Location = new System.Drawing.Point(403, 19);
             this.cboDefaultTab.Name = "cboDefaultTab";
             this.cboDefaultTab.Size = new System.Drawing.Size(296, 21);
@@ -247,26 +261,6 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.rabAutomationNone.Text = "Keine";
             this.rabAutomationNone.UseVisualStyleBackColor = true;
             this.rabAutomationNone.CheckedChanged += new System.EventHandler(this.rabAutomationNone_CheckedChanged);
-            // 
-            // checkBox1
-            // 
-            this.chkCopyDirectoryProperties.AutoSize = true;
-            this.chkCopyDirectoryProperties.Location = new System.Drawing.Point(6, 48);
-            this.chkCopyDirectoryProperties.Name = "checkBox1";
-            this.chkCopyDirectoryProperties.Size = new System.Drawing.Size(246, 17);
-            this.chkCopyDirectoryProperties.TabIndex = 3;
-            this.chkCopyDirectoryProperties.Text = "Attribute, Zeitstempel, ... von Ordnern kopieren";
-            this.chkCopyDirectoryProperties.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.chkCopyFileProperties.AutoSize = true;
-            this.chkCopyFileProperties.Location = new System.Drawing.Point(6, 71);
-            this.chkCopyFileProperties.Name = "checkBox2";
-            this.chkCopyFileProperties.Size = new System.Drawing.Size(245, 17);
-            this.chkCopyFileProperties.TabIndex = 4;
-            this.chkCopyFileProperties.Text = "Attribute, Zeitstempel, ... von Dateien kopieren";
-            this.chkCopyFileProperties.UseVisualStyleBackColor = true;
             // 
             // ProjectSettingsForm
             // 

@@ -98,6 +98,31 @@
             this.uscTaskControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
             this.grbTaskProgressRestore = new System.Windows.Forms.GroupBox();
             this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
+            this.tabPageCompare = new System.Windows.Forms.TabPage();
+            this.pnlCompare = new System.Windows.Forms.Panel();
+            this.grbBackupSelect = new System.Windows.Forms.GroupBox();
+            this.btnBackupDirSecondaryBrowse = new System.Windows.Forms.Button();
+            this.txtBackupDirSecondary = new System.Windows.Forms.TextBox();
+            this.lblBackupDirSecondary = new System.Windows.Forms.Label();
+            this.btnBackupDirPrimaryBrowse = new System.Windows.Forms.Button();
+            this.txtBackupDirPrimary = new System.Windows.Forms.TextBox();
+            this.lblBackupDirPrimary = new System.Windows.Forms.Label();
+            this.grbCompareOptions = new System.Windows.Forms.GroupBox();
+            this.btnCompareSearchCancel = new System.Windows.Forms.Button();
+            this.txtCompareSearchDoubleData = new System.Windows.Forms.TextBox();
+            this.lblCompareSearchDoubleData = new System.Windows.Forms.Label();
+            this.lblCompareSearchDoubleFiles = new System.Windows.Forms.Label();
+            this.chkCompareSearchOptContent = new System.Windows.Forms.CheckBox();
+            this.chkCompareSearchOptFileSize = new System.Windows.Forms.CheckBox();
+            this.chkCompareSearchOptLastChange = new System.Windows.Forms.CheckBox();
+            this.txtCompareSearchDoubleFiles = new System.Windows.Forms.TextBox();
+            this.btnCompareSearchStart = new System.Windows.Forms.Button();
+            this.grbComapreClean = new System.Windows.Forms.GroupBox();
+            this.btnCompareCleanCancel = new System.Windows.Forms.Button();
+            this.btnCompareCleanStart = new System.Windows.Forms.Button();
+            this.chkCompareCleanEmptyDir = new System.Windows.Forms.CheckBox();
+            this.chkCompareCleanDoubleFile = new System.Windows.Forms.CheckBox();
+            this.expCompareProgress = new OLKI.Toolbox.Widgets.ExtProgressBar();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
             this.btnExceptionTargetGoTo = new System.Windows.Forms.Button();
@@ -122,6 +147,7 @@
             this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
+            this.grbCompareProgress = new System.Windows.Forms.GroupBox();
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -136,8 +162,14 @@
             this.tabPageRestore.SuspendLayout();
             this.grbTaskControleRestore.SuspendLayout();
             this.grbTaskProgressRestore.SuspendLayout();
+            this.tabPageCompare.SuspendLayout();
+            this.pnlCompare.SuspendLayout();
+            this.grbBackupSelect.SuspendLayout();
+            this.grbCompareOptions.SuspendLayout();
+            this.grbComapreClean.SuspendLayout();
             this.tabPageConclusion.SuspendLayout();
             this.grbException.SuspendLayout();
+            this.grbCompareProgress.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -347,6 +379,7 @@
             this.tabControlMain.Controls.Add(this.tabPageSelect);
             this.tabControlMain.Controls.Add(this.tabPageBackup);
             this.tabControlMain.Controls.Add(this.tabPageRestore);
+            this.tabControlMain.Controls.Add(this.tabPageCompare);
             this.tabControlMain.Controls.Add(this.tabPageConclusion);
             this.tabControlMain.ImageList = this.imlTabIcons;
             this.tabControlMain.Location = new System.Drawing.Point(12, 27);
@@ -736,6 +769,296 @@
             this.uscTaskProgressRestore.Size = new System.Drawing.Size(951, 270);
             this.uscTaskProgressRestore.TabIndex = 0;
             // 
+            // tabPageCompare
+            // 
+            this.tabPageCompare.Controls.Add(this.pnlCompare);
+            this.tabPageCompare.ImageIndex = 5;
+            this.tabPageCompare.Location = new System.Drawing.Point(4, 23);
+            this.tabPageCompare.Name = "tabPageCompare";
+            this.tabPageCompare.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCompare.Size = new System.Drawing.Size(975, 571);
+            this.tabPageCompare.TabIndex = 4;
+            this.tabPageCompare.Text = "Sicherungskopien vergleichen";
+            this.tabPageCompare.UseVisualStyleBackColor = true;
+            // 
+            // pnlCompare
+            // 
+            this.pnlCompare.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCompare.Controls.Add(this.grbCompareProgress);
+            this.pnlCompare.Controls.Add(this.grbBackupSelect);
+            this.pnlCompare.Controls.Add(this.grbCompareOptions);
+            this.pnlCompare.Controls.Add(this.grbComapreClean);
+            this.pnlCompare.Location = new System.Drawing.Point(3, 3);
+            this.pnlCompare.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlCompare.Name = "pnlCompare";
+            this.pnlCompare.Size = new System.Drawing.Size(969, 565);
+            this.pnlCompare.TabIndex = 0;
+            // 
+            // grbBackupSelect
+            // 
+            this.grbBackupSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbBackupSelect.Controls.Add(this.btnBackupDirSecondaryBrowse);
+            this.grbBackupSelect.Controls.Add(this.txtBackupDirSecondary);
+            this.grbBackupSelect.Controls.Add(this.lblBackupDirSecondary);
+            this.grbBackupSelect.Controls.Add(this.btnBackupDirPrimaryBrowse);
+            this.grbBackupSelect.Controls.Add(this.txtBackupDirPrimary);
+            this.grbBackupSelect.Controls.Add(this.lblBackupDirPrimary);
+            this.grbBackupSelect.Location = new System.Drawing.Point(3, 3);
+            this.grbBackupSelect.Name = "grbBackupSelect";
+            this.grbBackupSelect.Size = new System.Drawing.Size(963, 71);
+            this.grbBackupSelect.TabIndex = 1;
+            this.grbBackupSelect.TabStop = false;
+            this.grbBackupSelect.Text = "Backups ausählen";
+            // 
+            // btnBackupDirSecondaryBrowse
+            // 
+            this.btnBackupDirSecondaryBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackupDirSecondaryBrowse.Image = ((System.Drawing.Image)(resources.GetObject("btnBackupDirSecondaryBrowse.Image")));
+            this.btnBackupDirSecondaryBrowse.Location = new System.Drawing.Point(922, 41);
+            this.btnBackupDirSecondaryBrowse.Name = "btnBackupDirSecondaryBrowse";
+            this.btnBackupDirSecondaryBrowse.Size = new System.Drawing.Size(35, 24);
+            this.btnBackupDirSecondaryBrowse.TabIndex = 5;
+            this.btnBackupDirSecondaryBrowse.UseVisualStyleBackColor = true;
+            this.btnBackupDirSecondaryBrowse.Click += new System.EventHandler(this.btnBackupDirSecondaryBrowse_Click);
+            // 
+            // txtBackupDirSecondary
+            // 
+            this.txtBackupDirSecondary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBackupDirSecondary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtBackupDirSecondary.Location = new System.Drawing.Point(208, 45);
+            this.txtBackupDirSecondary.Name = "txtBackupDirSecondary";
+            this.txtBackupDirSecondary.Size = new System.Drawing.Size(708, 20);
+            this.txtBackupDirSecondary.TabIndex = 4;
+            // 
+            // lblBackupDirSecondary
+            // 
+            this.lblBackupDirSecondary.AutoSize = true;
+            this.lblBackupDirSecondary.Location = new System.Drawing.Point(6, 48);
+            this.lblBackupDirSecondary.Name = "lblBackupDirSecondary";
+            this.lblBackupDirSecondary.Size = new System.Drawing.Size(196, 13);
+            this.lblBackupDirSecondary.TabIndex = 3;
+            this.lblBackupDirSecondary.Text = "Ordner mit sekundärer Sicherungskopie:";
+            // 
+            // btnBackupDirPrimaryBrowse
+            // 
+            this.btnBackupDirPrimaryBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackupDirPrimaryBrowse.Image = ((System.Drawing.Image)(resources.GetObject("btnBackupDirPrimaryBrowse.Image")));
+            this.btnBackupDirPrimaryBrowse.Location = new System.Drawing.Point(922, 16);
+            this.btnBackupDirPrimaryBrowse.Name = "btnBackupDirPrimaryBrowse";
+            this.btnBackupDirPrimaryBrowse.Size = new System.Drawing.Size(35, 24);
+            this.btnBackupDirPrimaryBrowse.TabIndex = 2;
+            this.btnBackupDirPrimaryBrowse.UseVisualStyleBackColor = true;
+            this.btnBackupDirPrimaryBrowse.Click += new System.EventHandler(this.btnBackupDirPrimaryBrowse_Click);
+            // 
+            // txtBackupDirPrimary
+            // 
+            this.txtBackupDirPrimary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBackupDirPrimary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtBackupDirPrimary.Location = new System.Drawing.Point(208, 19);
+            this.txtBackupDirPrimary.Name = "txtBackupDirPrimary";
+            this.txtBackupDirPrimary.Size = new System.Drawing.Size(708, 20);
+            this.txtBackupDirPrimary.TabIndex = 1;
+            // 
+            // lblBackupDirPrimary
+            // 
+            this.lblBackupDirPrimary.AutoSize = true;
+            this.lblBackupDirPrimary.Location = new System.Drawing.Point(6, 22);
+            this.lblBackupDirPrimary.Name = "lblBackupDirPrimary";
+            this.lblBackupDirPrimary.Size = new System.Drawing.Size(180, 13);
+            this.lblBackupDirPrimary.TabIndex = 0;
+            this.lblBackupDirPrimary.Text = "Ordner mit primärer Sicherungskopie:";
+            // 
+            // grbCompareOptions
+            // 
+            this.grbCompareOptions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbCompareOptions.Controls.Add(this.btnCompareSearchCancel);
+            this.grbCompareOptions.Controls.Add(this.txtCompareSearchDoubleData);
+            this.grbCompareOptions.Controls.Add(this.lblCompareSearchDoubleData);
+            this.grbCompareOptions.Controls.Add(this.lblCompareSearchDoubleFiles);
+            this.grbCompareOptions.Controls.Add(this.chkCompareSearchOptContent);
+            this.grbCompareOptions.Controls.Add(this.chkCompareSearchOptFileSize);
+            this.grbCompareOptions.Controls.Add(this.chkCompareSearchOptLastChange);
+            this.grbCompareOptions.Controls.Add(this.txtCompareSearchDoubleFiles);
+            this.grbCompareOptions.Controls.Add(this.btnCompareSearchStart);
+            this.grbCompareOptions.Location = new System.Drawing.Point(3, 80);
+            this.grbCompareOptions.Name = "grbCompareOptions";
+            this.grbCompareOptions.Size = new System.Drawing.Size(963, 147);
+            this.grbCompareOptions.TabIndex = 1;
+            this.grbCompareOptions.TabStop = false;
+            this.grbCompareOptions.Text = "Doppelte Dateien suchen";
+            // 
+            // btnCompareSearchCancel
+            // 
+            this.btnCompareSearchCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCompareSearchCancel.Image")));
+            this.btnCompareSearchCancel.Location = new System.Drawing.Point(372, 88);
+            this.btnCompareSearchCancel.Name = "btnCompareSearchCancel";
+            this.btnCompareSearchCancel.Size = new System.Drawing.Size(333, 23);
+            this.btnCompareSearchCancel.TabIndex = 8;
+            this.btnCompareSearchCancel.Text = "Suche abbrechen";
+            this.btnCompareSearchCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCompareSearchCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompareSearchCancel.UseVisualStyleBackColor = true;
+            this.btnCompareSearchCancel.Click += new System.EventHandler(this.btnCompareSearchCancel_Click);
+            // 
+            // txtCompareSearchDoubleData
+            // 
+            this.txtCompareSearchDoubleData.Location = new System.Drawing.Point(525, 117);
+            this.txtCompareSearchDoubleData.Name = "txtCompareSearchDoubleData";
+            this.txtCompareSearchDoubleData.ReadOnly = true;
+            this.txtCompareSearchDoubleData.Size = new System.Drawing.Size(180, 20);
+            this.txtCompareSearchDoubleData.TabIndex = 7;
+            // 
+            // lblCompareSearchDoubleData
+            // 
+            this.lblCompareSearchDoubleData.AutoSize = true;
+            this.lblCompareSearchDoubleData.Location = new System.Drawing.Point(380, 120);
+            this.lblCompareSearchDoubleData.Name = "lblCompareSearchDoubleData";
+            this.lblCompareSearchDoubleData.Size = new System.Drawing.Size(139, 13);
+            this.lblCompareSearchDoubleData.TabIndex = 6;
+            this.lblCompareSearchDoubleData.Text = "Gefundene doppelte Daten:";
+            // 
+            // lblCompareSearchDoubleFiles
+            // 
+            this.lblCompareSearchDoubleFiles.AutoSize = true;
+            this.lblCompareSearchDoubleFiles.Location = new System.Drawing.Point(6, 120);
+            this.lblCompareSearchDoubleFiles.Name = "lblCompareSearchDoubleFiles";
+            this.lblCompareSearchDoubleFiles.Size = new System.Drawing.Size(147, 13);
+            this.lblCompareSearchDoubleFiles.TabIndex = 4;
+            this.lblCompareSearchDoubleFiles.Text = "Gefundene doppelte Dateien:";
+            // 
+            // chkCompareSearchOptContent
+            // 
+            this.chkCompareSearchOptContent.AutoSize = true;
+            this.chkCompareSearchOptContent.Location = new System.Drawing.Point(6, 65);
+            this.chkCompareSearchOptContent.Name = "chkCompareSearchOptContent";
+            this.chkCompareSearchOptContent.Size = new System.Drawing.Size(171, 17);
+            this.chkCompareSearchOptContent.TabIndex = 2;
+            this.chkCompareSearchOptContent.Text = "Inhalt von Dateien vergleichen";
+            this.chkCompareSearchOptContent.UseVisualStyleBackColor = true;
+            // 
+            // chkCompareSearchOptFileSize
+            // 
+            this.chkCompareSearchOptFileSize.AutoSize = true;
+            this.chkCompareSearchOptFileSize.Location = new System.Drawing.Point(6, 42);
+            this.chkCompareSearchOptFileSize.Name = "chkCompareSearchOptFileSize";
+            this.chkCompareSearchOptFileSize.Size = new System.Drawing.Size(174, 17);
+            this.chkCompareSearchOptFileSize.TabIndex = 1;
+            this.chkCompareSearchOptFileSize.Text = "Größe von Dateien vergleichen";
+            this.chkCompareSearchOptFileSize.UseVisualStyleBackColor = true;
+            // 
+            // chkCompareSearchOptLastChange
+            // 
+            this.chkCompareSearchOptLastChange.AutoSize = true;
+            this.chkCompareSearchOptLastChange.Location = new System.Drawing.Point(6, 19);
+            this.chkCompareSearchOptLastChange.Name = "chkCompareSearchOptLastChange";
+            this.chkCompareSearchOptLastChange.Size = new System.Drawing.Size(216, 17);
+            this.chkCompareSearchOptLastChange.TabIndex = 0;
+            this.chkCompareSearchOptLastChange.Text = "Datum der letzten Änderung vergleichen";
+            this.chkCompareSearchOptLastChange.UseVisualStyleBackColor = true;
+            // 
+            // txtCompareSearchDoubleFiles
+            // 
+            this.txtCompareSearchDoubleFiles.Location = new System.Drawing.Point(159, 117);
+            this.txtCompareSearchDoubleFiles.Name = "txtCompareSearchDoubleFiles";
+            this.txtCompareSearchDoubleFiles.ReadOnly = true;
+            this.txtCompareSearchDoubleFiles.Size = new System.Drawing.Size(180, 20);
+            this.txtCompareSearchDoubleFiles.TabIndex = 5;
+            // 
+            // btnCompareSearchStart
+            // 
+            this.btnCompareSearchStart.Image = ((System.Drawing.Image)(resources.GetObject("btnCompareSearchStart.Image")));
+            this.btnCompareSearchStart.Location = new System.Drawing.Point(6, 88);
+            this.btnCompareSearchStart.Name = "btnCompareSearchStart";
+            this.btnCompareSearchStart.Size = new System.Drawing.Size(333, 23);
+            this.btnCompareSearchStart.TabIndex = 3;
+            this.btnCompareSearchStart.Text = "Suche starten";
+            this.btnCompareSearchStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCompareSearchStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompareSearchStart.UseVisualStyleBackColor = true;
+            this.btnCompareSearchStart.Click += new System.EventHandler(this.btnCompareSearchStart_Click);
+            // 
+            // grbComapreClean
+            // 
+            this.grbComapreClean.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbComapreClean.Controls.Add(this.btnCompareCleanCancel);
+            this.grbComapreClean.Controls.Add(this.btnCompareCleanStart);
+            this.grbComapreClean.Controls.Add(this.chkCompareCleanEmptyDir);
+            this.grbComapreClean.Controls.Add(this.chkCompareCleanDoubleFile);
+            this.grbComapreClean.Location = new System.Drawing.Point(3, 233);
+            this.grbComapreClean.Name = "grbComapreClean";
+            this.grbComapreClean.Size = new System.Drawing.Size(963, 94);
+            this.grbComapreClean.TabIndex = 2;
+            this.grbComapreClean.TabStop = false;
+            this.grbComapreClean.Text = "Sekundäre Sicherungskopie bereinigen";
+            // 
+            // btnCompareCleanCancel
+            // 
+            this.btnCompareCleanCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCompareCleanCancel.Image")));
+            this.btnCompareCleanCancel.Location = new System.Drawing.Point(363, 65);
+            this.btnCompareCleanCancel.Name = "btnCompareCleanCancel";
+            this.btnCompareCleanCancel.Size = new System.Drawing.Size(333, 23);
+            this.btnCompareCleanCancel.TabIndex = 3;
+            this.btnCompareCleanCancel.Text = "Abbrechen";
+            this.btnCompareCleanCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCompareCleanCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompareCleanCancel.UseVisualStyleBackColor = true;
+            this.btnCompareCleanCancel.Click += new System.EventHandler(this.btnCompareCleanCancel_Click);
+            // 
+            // btnCompareCleanStart
+            // 
+            this.btnCompareCleanStart.Image = ((System.Drawing.Image)(resources.GetObject("btnCompareCleanStart.Image")));
+            this.btnCompareCleanStart.Location = new System.Drawing.Point(6, 65);
+            this.btnCompareCleanStart.Name = "btnCompareCleanStart";
+            this.btnCompareCleanStart.Size = new System.Drawing.Size(333, 23);
+            this.btnCompareCleanStart.TabIndex = 2;
+            this.btnCompareCleanStart.Text = "Bereinigen";
+            this.btnCompareCleanStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCompareCleanStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompareCleanStart.UseVisualStyleBackColor = true;
+            this.btnCompareCleanStart.Click += new System.EventHandler(this.btnCompareCleanStart_Click);
+            // 
+            // chkCompareCleanEmptyDir
+            // 
+            this.chkCompareCleanEmptyDir.AutoSize = true;
+            this.chkCompareCleanEmptyDir.Location = new System.Drawing.Point(6, 42);
+            this.chkCompareCleanEmptyDir.Name = "chkCompareCleanEmptyDir";
+            this.chkCompareCleanEmptyDir.Size = new System.Drawing.Size(128, 17);
+            this.chkCompareCleanEmptyDir.TabIndex = 1;
+            this.chkCompareCleanEmptyDir.Text = "Lehre Ordner löschen";
+            this.chkCompareCleanEmptyDir.UseVisualStyleBackColor = true;
+            // 
+            // chkCompareCleanDoubleFile
+            // 
+            this.chkCompareCleanDoubleFile.AutoSize = true;
+            this.chkCompareCleanDoubleFile.Location = new System.Drawing.Point(6, 19);
+            this.chkCompareCleanDoubleFile.Name = "chkCompareCleanDoubleFile";
+            this.chkCompareCleanDoubleFile.Size = new System.Drawing.Size(149, 17);
+            this.chkCompareCleanDoubleFile.TabIndex = 0;
+            this.chkCompareCleanDoubleFile.Text = "Doppelte Dateien löschen";
+            this.chkCompareCleanDoubleFile.UseVisualStyleBackColor = true;
+            // 
+            // expCompareProgress
+            // 
+            this.expCompareProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.expCompareProgress.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
+            this.expCompareProgress.DecimalDigits = ((uint)(2u));
+            this.expCompareProgress.Location = new System.Drawing.Point(6, 19);
+            this.expCompareProgress.MaxValue = ((long)(0));
+            this.expCompareProgress.MinimumSize = new System.Drawing.Size(300, 23);
+            this.expCompareProgress.Name = "expCompareProgress";
+            this.expCompareProgress.ShowDimensionComboBox = false;
+            this.expCompareProgress.Size = new System.Drawing.Size(951, 49);
+            this.expCompareProgress.TabIndex = 3;
+            this.expCompareProgress.Value = ((long)(-1));
+            // 
             // tabPageConclusion
             // 
             this.tabPageConclusion.Controls.Add(this.grbException);
@@ -975,6 +1298,19 @@
             this.imlTabIcons.Images.SetKeyName(2, "BackupRestore.ico");
             this.imlTabIcons.Images.SetKeyName(3, "BackupReport.ico");
             this.imlTabIcons.Images.SetKeyName(4, "BackupReportWarning.ico");
+            this.imlTabIcons.Images.SetKeyName(5, "BackupCompare.ico");
+            // 
+            // grbCompareProgress
+            // 
+            this.grbCompareProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbCompareProgress.Controls.Add(this.expCompareProgress);
+            this.grbCompareProgress.Location = new System.Drawing.Point(3, 333);
+            this.grbCompareProgress.Name = "grbCompareProgress";
+            this.grbCompareProgress.Size = new System.Drawing.Size(963, 74);
+            this.grbCompareProgress.TabIndex = 4;
+            this.grbCompareProgress.TabStop = false;
+            this.grbCompareProgress.Text = "Fortschritt";
             // 
             // MainForm
             // 
@@ -1011,10 +1347,19 @@
             this.tabPageRestore.ResumeLayout(false);
             this.grbTaskControleRestore.ResumeLayout(false);
             this.grbTaskProgressRestore.ResumeLayout(false);
+            this.tabPageCompare.ResumeLayout(false);
+            this.pnlCompare.ResumeLayout(false);
+            this.grbBackupSelect.ResumeLayout(false);
+            this.grbBackupSelect.PerformLayout();
+            this.grbCompareOptions.ResumeLayout(false);
+            this.grbCompareOptions.PerformLayout();
+            this.grbComapreClean.ResumeLayout(false);
+            this.grbComapreClean.PerformLayout();
             this.tabPageConclusion.ResumeLayout(false);
             this.tabPageConclusion.PerformLayout();
             this.grbException.ResumeLayout(false);
             this.grbException.PerformLayout();
+            this.grbCompareProgress.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1084,5 +1429,31 @@
         internal Usercontroles.uscTaskControle.TaskControle uscTaskControleRestore;
         private System.Windows.Forms.GroupBox grbTaskControleRestore;
         private System.Windows.Forms.GroupBox grbTaskControleBackup;
+        private System.Windows.Forms.TabPage tabPageCompare;
+        private System.Windows.Forms.GroupBox grbComapreClean;
+        private System.Windows.Forms.Button btnCompareCleanStart;
+        private System.Windows.Forms.CheckBox chkCompareCleanEmptyDir;
+        private System.Windows.Forms.CheckBox chkCompareCleanDoubleFile;
+        private Toolbox.Widgets.ExtProgressBar expCompareProgress;
+        private System.Windows.Forms.GroupBox grbCompareOptions;
+        internal System.Windows.Forms.TextBox txtCompareSearchDoubleData;
+        private System.Windows.Forms.Label lblCompareSearchDoubleData;
+        private System.Windows.Forms.Label lblCompareSearchDoubleFiles;
+        private System.Windows.Forms.CheckBox chkCompareSearchOptContent;
+        private System.Windows.Forms.CheckBox chkCompareSearchOptFileSize;
+        private System.Windows.Forms.CheckBox chkCompareSearchOptLastChange;
+        private System.Windows.Forms.TextBox txtCompareSearchDoubleFiles;
+        private System.Windows.Forms.Button btnCompareSearchStart;
+        private System.Windows.Forms.GroupBox grbBackupSelect;
+        private System.Windows.Forms.Button btnBackupDirSecondaryBrowse;
+        private System.Windows.Forms.TextBox txtBackupDirSecondary;
+        private System.Windows.Forms.Label lblBackupDirSecondary;
+        private System.Windows.Forms.Button btnBackupDirPrimaryBrowse;
+        private System.Windows.Forms.TextBox txtBackupDirPrimary;
+        private System.Windows.Forms.Label lblBackupDirPrimary;
+        private System.Windows.Forms.Button btnCompareSearchCancel;
+        private System.Windows.Forms.Button btnCompareCleanCancel;
+        private System.Windows.Forms.Panel pnlCompare;
+        private System.Windows.Forms.GroupBox grbCompareProgress;
     }
 }
