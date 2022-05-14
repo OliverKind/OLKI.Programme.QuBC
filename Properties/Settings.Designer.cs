@@ -217,5 +217,18 @@ namespace OLKI.Programme.QuBC.Properties {
                 this["Startup_DefaultFileOpen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool Log_ClearExceptionListOnStartProcess {
+            get {
+                return ((bool)(this["Log_ClearExceptionListOnStartProcess"]));
+            }
+            set {
+                this["Log_ClearExceptionListOnStartProcess"] = value;
+            }
+        }
     }
 }

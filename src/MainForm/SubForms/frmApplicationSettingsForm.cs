@@ -69,6 +69,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.txtDefaultFileOpen.Text = Settings.Default.Startup_DefaultFileOpen;
             this.chkAutoCheckFileAssociation.Checked = Settings.Default.FileAssociation_CheckOnStartup;
             this.chkCheckForUpdates.Checked = Settings.Default.AppUpdate_CheckAtStartUp;
+            this.chkClearExceptionListOnStartProcess.Checked = Settings.Default.Log_ClearExceptionListOnStartProcess;
             this.chkShowDirectorysWithoutAccess.Checked = Settings.Default.ListItems_ShowWithoutAccess;
             this.chkShowSystemDirectory.Checked = Settings.Default.ListItems_ShowSystem;
             this.chkEypandTreeNodeOnClick.Checked = Settings.Default.ListItems_ExpandTreeNodeOnSingleClick;
@@ -179,6 +180,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             Settings.Default.ListItems_ExpandTreeNodeOnSingleClick = this.chkEypandTreeNodeOnClick.Checked;
             Settings.Default.ListItems_ShowSystem = this.chkShowSystemDirectory.Checked;
             Settings.Default.ListItems_ShowWithoutAccess = this.chkShowDirectorysWithoutAccess.Checked;
+            Settings.Default.Log_ClearExceptionListOnStartProcess = this.chkClearExceptionListOnStartProcess.Checked;
             Settings.Default.Logfile_DateFormat = this.txtLogfileDateFormat.Text;
             Settings.Default.MainFormResizeSuspendLayout = this.chkMainFormResizeSuspendLayout.Checked;
             Settings.Default.ProjectFile_DefaultPath = this.txtDefaultPath.Text;

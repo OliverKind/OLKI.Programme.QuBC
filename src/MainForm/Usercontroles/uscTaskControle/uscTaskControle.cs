@@ -442,7 +442,8 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
             };
             this._logFile.WriteHead(this.txtHandleExistingFileText.Text);
 
-            this._uscProgress.SetProgressStates.ClearExceptionlog();
+            // Clear exception List
+            if (Settings.Default.Log_ClearExceptionListOnStartProcess) this._uscProgress.SetProgressStates.ClearExceptionlog();
 
             try
             {

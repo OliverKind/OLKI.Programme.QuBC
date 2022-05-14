@@ -68,6 +68,7 @@
             this.lblDefaultTabLoadFile = new System.Windows.Forms.Label();
             this.lblDefaultTabStartUp = new System.Windows.Forms.Label();
             this.chkMainFormResizeSuspendLayout = new System.Windows.Forms.CheckBox();
+            this.chkClearExceptionListOnStartProcess = new System.Windows.Forms.CheckBox();
             this.grbProjectFolder.SuspendLayout();
             this.grbRecentFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecentFiles)).BeginInit();
@@ -290,12 +291,12 @@
             // 
             this.grbLogFile.Controls.Add(this.lblLogfileDateFormat);
             this.grbLogFile.Controls.Add(this.txtLogfileDateFormat);
-            this.grbLogFile.Location = new System.Drawing.Point(293, 90);
+            this.grbLogFile.Location = new System.Drawing.Point(292, 90);
             this.grbLogFile.Name = "grbLogFile";
-            this.grbLogFile.Size = new System.Drawing.Size(424, 87);
+            this.grbLogFile.Size = new System.Drawing.Size(425, 45);
             this.grbLogFile.TabIndex = 2;
             this.grbLogFile.TabStop = false;
-            this.grbLogFile.Text = "Protokolldatei";
+            this.grbLogFile.Text = "Protokollierung";
             // 
             // lblLogfileDateFormat
             // 
@@ -459,6 +460,16 @@
             this.chkMainFormResizeSuspendLayout.Text = "Während einer Größenänderung das Hauptfenster nicht neu zeichnen";
             this.chkMainFormResizeSuspendLayout.UseVisualStyleBackColor = true;
             // 
+            // chkClearOnStartProcess
+            // 
+            this.chkClearExceptionListOnStartProcess.AutoSize = true;
+            this.chkClearExceptionListOnStartProcess.Location = new System.Drawing.Point(292, 141);
+            this.chkClearExceptionListOnStartProcess.Name = "chkClearOnStartProcess";
+            this.chkClearExceptionListOnStartProcess.Size = new System.Drawing.Size(269, 17);
+            this.chkClearExceptionListOnStartProcess.TabIndex = 14;
+            this.chkClearExceptionListOnStartProcess.Text = "Fehlerprotokoll beim Starten eines Processes leeren";
+            this.chkClearExceptionListOnStartProcess.UseVisualStyleBackColor = true;
+            // 
             // ApplicationSettingsForm
             // 
             this.AcceptButton = this.btnOk;
@@ -466,6 +477,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(729, 477);
+            this.Controls.Add(this.chkClearExceptionListOnStartProcess);
             this.Controls.Add(this.chkMainFormResizeSuspendLayout);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkCheckForUpdates);
@@ -546,5 +558,6 @@
         private System.Windows.Forms.ComboBox cboDefaultTabLoadFile;
         private System.Windows.Forms.ComboBox cboDefaultTabStartUp;
         private System.Windows.Forms.CheckBox chkMainFormResizeSuspendLayout;
+        private System.Windows.Forms.CheckBox chkClearExceptionListOnStartProcess;
     }
 }
