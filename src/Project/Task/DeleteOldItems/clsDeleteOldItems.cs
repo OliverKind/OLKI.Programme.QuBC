@@ -190,8 +190,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     Description = Properties.Stringtable._0x0020,
                     Exception = ex,
                     Level = TaskException.ExceptionLevel.Critical,
-                    Source = targetDirectory.FullName,
-                    Target = ""
+                    Source = "",
+                    Target = targetDirectory.FullName
                 };
                 worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
 
@@ -219,8 +219,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     Description = Properties.Stringtable._0x0020,
                     Exception = ex,
                     Level = TaskException.ExceptionLevel.Slight,
-                    Source = file.FullName,
-                    Target = ""
+                    Source = "",
+                    Target = file.FullName
                 };
                 this._progress.Exception = Exception;
                 worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
@@ -246,8 +246,8 @@ namespace OLKI.Programme.QuBC.src.Project.Task
                     Description = Properties.Stringtable._0x0020,
                     Exception = ex,
                     Level = TaskException.ExceptionLevel.Slight,
-                    Source = directory.FullName,
-                    Target = ""
+                    Source = "",
+                    Target = directory.FullName
                 };
                 this._progress.Exception = Exception;
                 worker.ReportProgress((int)TaskControle.TaskStep.Exception, new ProgressState(this._progress, true));
