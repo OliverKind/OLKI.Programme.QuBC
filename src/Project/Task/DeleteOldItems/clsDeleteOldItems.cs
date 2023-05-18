@@ -84,7 +84,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
         }
 
         /// <summary>
-        /// Copy items in backup mode
+        /// Delte Items in backup mode
         /// </summary>
         /// <param name="worker">BackgroundWorker for copy</param>
         /// <param name="e">Provides data for the BackgroundWorker</param>
