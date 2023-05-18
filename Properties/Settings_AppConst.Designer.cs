@@ -12,7 +12,7 @@ namespace OLKI.Programme.QuBC.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
     internal sealed partial class Settings_AppConst : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings_AppConst defaultInstance = ((Settings_AppConst)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings_AppConst())));
