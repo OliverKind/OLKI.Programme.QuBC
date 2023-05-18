@@ -70,7 +70,6 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageSelect = new System.Windows.Forms.TabPage();
             this.spcExplorer = new System.Windows.Forms.SplitContainer();
-            this.trvExplorer = new OLKI.Programme.QuBC.src.MainForm.ExplorerTreeView();
             this.imlTreeViewIcons = new System.Windows.Forms.ImageList(this.components);
             this.grbDirectoryScope = new System.Windows.Forms.GroupBox();
             this.rabSaveNothing = new System.Windows.Forms.RadioButton();
@@ -90,16 +89,14 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.tabPageBackup = new System.Windows.Forms.TabPage();
             this.grbTaskControleBackup = new System.Windows.Forms.GroupBox();
-            this.uscTaskControleBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
             this.grbTaskProgressBackup = new System.Windows.Forms.GroupBox();
-            this.uscTaskProgressBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageRestore = new System.Windows.Forms.TabPage();
             this.grbTaskControleRestore = new System.Windows.Forms.GroupBox();
-            this.uscTaskControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
             this.grbTaskProgressRestore = new System.Windows.Forms.GroupBox();
-            this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.tabPageCompare = new System.Windows.Forms.TabPage();
             this.pnlCompare = new System.Windows.Forms.Panel();
+            this.grbCompareProgress = new System.Windows.Forms.GroupBox();
+            this.expCompareProgress = new OLKI.Toolbox.Widgets.ExtProgressBar();
             this.grbBackupSelect = new System.Windows.Forms.GroupBox();
             this.btnBackupDirSecondaryBrowse = new System.Windows.Forms.Button();
             this.txtBackupDirSecondary = new System.Windows.Forms.TextBox();
@@ -108,8 +105,9 @@
             this.txtBackupDirPrimary = new System.Windows.Forms.TextBox();
             this.lblBackupDirPrimary = new System.Windows.Forms.Label();
             this.grbCompareOptions = new System.Windows.Forms.GroupBox();
+            this.cboByteDime = new System.Windows.Forms.ComboBox();
+            this.txtBytesNum = new System.Windows.Forms.TextBox();
             this.btnCompareSearchCancel = new System.Windows.Forms.Button();
-            this.txtCompareSearchDoubleData = new System.Windows.Forms.TextBox();
             this.lblCompareSearchDoubleData = new System.Windows.Forms.Label();
             this.lblCompareSearchDoubleFiles = new System.Windows.Forms.Label();
             this.chkCompareSearchOptContent = new System.Windows.Forms.CheckBox();
@@ -122,7 +120,6 @@
             this.btnCompareCleanStart = new System.Windows.Forms.Button();
             this.chkCompareCleanEmptyDir = new System.Windows.Forms.CheckBox();
             this.chkCompareCleanDoubleFile = new System.Windows.Forms.CheckBox();
-            this.expCompareProgress = new OLKI.Toolbox.Widgets.ExtProgressBar();
             this.tabPageConclusion = new System.Windows.Forms.TabPage();
             this.grbException = new System.Windows.Forms.GroupBox();
             this.btnExceptionTargetGoTo = new System.Windows.Forms.Button();
@@ -147,7 +144,12 @@
             this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
             this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
-            this.grbCompareProgress = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.trvExplorer = new OLKI.Programme.QuBC.src.MainForm.ExplorerTreeView();
+            this.uscTaskControleBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
+            this.uscTaskProgressBackup = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
+            this.uscTaskControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
+            this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageSelect.SuspendLayout();
@@ -164,12 +166,12 @@
             this.grbTaskProgressRestore.SuspendLayout();
             this.tabPageCompare.SuspendLayout();
             this.pnlCompare.SuspendLayout();
+            this.grbCompareProgress.SuspendLayout();
             this.grbBackupSelect.SuspendLayout();
             this.grbCompareOptions.SuspendLayout();
             this.grbComapreClean.SuspendLayout();
             this.tabPageConclusion.SuspendLayout();
             this.grbException.SuspendLayout();
-            this.grbCompareProgress.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -430,23 +432,6 @@
             this.spcExplorer.SplitterDistance = 230;
             this.spcExplorer.TabIndex = 11;
             // 
-            // trvExplorer
-            // 
-            this.trvExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.trvExplorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.trvExplorer.DirectoryList = null;
-            this.trvExplorer.ImageIndex = 16;
-            this.trvExplorer.ImageList = this.imlTreeViewIcons;
-            this.trvExplorer.Location = new System.Drawing.Point(3, 3);
-            this.trvExplorer.Name = "trvExplorer";
-            this.trvExplorer.SelectedImageIndex = 0;
-            this.trvExplorer.ShowNodeToolTips = true;
-            this.trvExplorer.Size = new System.Drawing.Size(225, 559);
-            this.trvExplorer.TabIndex = 10;
-            this.trvExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer_AfterSelect);
-            // 
             // imlTreeViewIcons
             // 
             this.imlTreeViewIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlTreeViewIcons.ImageStream")));
@@ -678,18 +663,6 @@
             this.grbTaskControleBackup.TabStop = false;
             this.grbTaskControleBackup.Text = "Sicherungsoptionen";
             // 
-            // uscTaskControleBackup
-            // 
-            this.uscTaskControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscTaskControleBackup.Location = new System.Drawing.Point(0, 17);
-            this.uscTaskControleBackup.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.CreateBackup;
-            this.uscTaskControleBackup.Name = "uscTaskControleBackup";
-            this.uscTaskControleBackup.Size = new System.Drawing.Size(957, 235);
-            this.uscTaskControleBackup.TabIndex = 0;
-            this.uscTaskControleBackup.TaskFinishedCanceled += new System.EventHandler(this.uscTaskControleBackup_TaskFinishedCanceled);
-            this.uscTaskControleBackup.TaskStarted += new System.EventHandler(this.uscTaskControleBackup_TaskStarted);
-            // 
             // grbTaskProgressBackup
             // 
             this.grbTaskProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -701,15 +674,6 @@
             this.grbTaskProgressBackup.TabIndex = 20;
             this.grbTaskProgressBackup.TabStop = false;
             this.grbTaskProgressBackup.Text = "Sicherungsvorgang";
-            // 
-            // uscTaskProgressBackup
-            // 
-            this.uscTaskProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscTaskProgressBackup.Location = new System.Drawing.Point(6, 20);
-            this.uscTaskProgressBackup.Name = "uscTaskProgressBackup";
-            this.uscTaskProgressBackup.Size = new System.Drawing.Size(951, 270);
-            this.uscTaskProgressBackup.TabIndex = 0;
             // 
             // tabPageRestore
             // 
@@ -736,18 +700,6 @@
             this.grbTaskControleRestore.TabStop = false;
             this.grbTaskControleRestore.Text = "Wiederherstellungsoptionen";
             // 
-            // uscTaskControleRestore
-            // 
-            this.uscTaskControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscTaskControleRestore.Location = new System.Drawing.Point(0, 17);
-            this.uscTaskControleRestore.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.RestoreBackup;
-            this.uscTaskControleRestore.Name = "uscTaskControleRestore";
-            this.uscTaskControleRestore.Size = new System.Drawing.Size(957, 235);
-            this.uscTaskControleRestore.TabIndex = 0;
-            this.uscTaskControleRestore.TaskFinishedCanceled += new System.EventHandler(this.uscTaskControleRestore_TaskFinishedCanceled);
-            this.uscTaskControleRestore.TaskStarted += new System.EventHandler(this.uscTaskControleRestore_TaskStarted);
-            // 
             // grbTaskProgressRestore
             // 
             this.grbTaskProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -759,15 +711,6 @@
             this.grbTaskProgressRestore.TabIndex = 21;
             this.grbTaskProgressRestore.TabStop = false;
             this.grbTaskProgressRestore.Text = "Wiederherstellung";
-            // 
-            // uscTaskProgressRestore
-            // 
-            this.uscTaskProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscTaskProgressRestore.Location = new System.Drawing.Point(6, 20);
-            this.uscTaskProgressRestore.Name = "uscTaskProgressRestore";
-            this.uscTaskProgressRestore.Size = new System.Drawing.Size(951, 270);
-            this.uscTaskProgressRestore.TabIndex = 0;
             // 
             // tabPageCompare
             // 
@@ -786,6 +729,7 @@
             this.pnlCompare.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCompare.Controls.Add(this.label1);
             this.pnlCompare.Controls.Add(this.grbCompareProgress);
             this.pnlCompare.Controls.Add(this.grbBackupSelect);
             this.pnlCompare.Controls.Add(this.grbCompareOptions);
@@ -795,6 +739,34 @@
             this.pnlCompare.Name = "pnlCompare";
             this.pnlCompare.Size = new System.Drawing.Size(969, 565);
             this.pnlCompare.TabIndex = 0;
+            // 
+            // grbCompareProgress
+            // 
+            this.grbCompareProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbCompareProgress.Controls.Add(this.expCompareProgress);
+            this.grbCompareProgress.Enabled = false;
+            this.grbCompareProgress.Location = new System.Drawing.Point(3, 333);
+            this.grbCompareProgress.Name = "grbCompareProgress";
+            this.grbCompareProgress.Size = new System.Drawing.Size(963, 74);
+            this.grbCompareProgress.TabIndex = 4;
+            this.grbCompareProgress.TabStop = false;
+            this.grbCompareProgress.Text = "Fortschritt";
+            // 
+            // expCompareProgress
+            // 
+            this.expCompareProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.expCompareProgress.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
+            this.expCompareProgress.DecimalDigits = ((uint)(2u));
+            this.expCompareProgress.Location = new System.Drawing.Point(6, 19);
+            this.expCompareProgress.MaxValue = ((long)(0));
+            this.expCompareProgress.MinimumSize = new System.Drawing.Size(300, 23);
+            this.expCompareProgress.Name = "expCompareProgress";
+            this.expCompareProgress.ShowDimensionComboBox = false;
+            this.expCompareProgress.Size = new System.Drawing.Size(951, 49);
+            this.expCompareProgress.TabIndex = 0;
+            this.expCompareProgress.Value = ((long)(-1));
             // 
             // grbBackupSelect
             // 
@@ -806,10 +778,11 @@
             this.grbBackupSelect.Controls.Add(this.btnBackupDirPrimaryBrowse);
             this.grbBackupSelect.Controls.Add(this.txtBackupDirPrimary);
             this.grbBackupSelect.Controls.Add(this.lblBackupDirPrimary);
+            this.grbBackupSelect.Enabled = false;
             this.grbBackupSelect.Location = new System.Drawing.Point(3, 3);
             this.grbBackupSelect.Name = "grbBackupSelect";
             this.grbBackupSelect.Size = new System.Drawing.Size(963, 71);
-            this.grbBackupSelect.TabIndex = 1;
+            this.grbBackupSelect.TabIndex = 0;
             this.grbBackupSelect.TabStop = false;
             this.grbBackupSelect.Text = "Backups ausählen";
             // 
@@ -877,8 +850,9 @@
             // 
             this.grbCompareOptions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbCompareOptions.Controls.Add(this.cboByteDime);
+            this.grbCompareOptions.Controls.Add(this.txtBytesNum);
             this.grbCompareOptions.Controls.Add(this.btnCompareSearchCancel);
-            this.grbCompareOptions.Controls.Add(this.txtCompareSearchDoubleData);
             this.grbCompareOptions.Controls.Add(this.lblCompareSearchDoubleData);
             this.grbCompareOptions.Controls.Add(this.lblCompareSearchDoubleFiles);
             this.grbCompareOptions.Controls.Add(this.chkCompareSearchOptContent);
@@ -886,6 +860,7 @@
             this.grbCompareOptions.Controls.Add(this.chkCompareSearchOptLastChange);
             this.grbCompareOptions.Controls.Add(this.txtCompareSearchDoubleFiles);
             this.grbCompareOptions.Controls.Add(this.btnCompareSearchStart);
+            this.grbCompareOptions.Enabled = false;
             this.grbCompareOptions.Location = new System.Drawing.Point(3, 80);
             this.grbCompareOptions.Name = "grbCompareOptions";
             this.grbCompareOptions.Size = new System.Drawing.Size(963, 147);
@@ -893,34 +868,46 @@
             this.grbCompareOptions.TabStop = false;
             this.grbCompareOptions.Text = "Doppelte Dateien suchen";
             // 
+            // cboByteDime
+            // 
+            this.cboByteDime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboByteDime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboByteDime.DropDownWidth = 65;
+            this.cboByteDime.FormattingEnabled = true;
+            this.cboByteDime.Location = new System.Drawing.Point(646, 117);
+            this.cboByteDime.Name = "cboByteDime";
+            this.cboByteDime.Size = new System.Drawing.Size(57, 21);
+            this.cboByteDime.TabIndex = 9;
+            // 
+            // txtBytesNum
+            // 
+            this.txtBytesNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBytesNum.Location = new System.Drawing.Point(525, 117);
+            this.txtBytesNum.Name = "txtBytesNum";
+            this.txtBytesNum.ReadOnly = true;
+            this.txtBytesNum.Size = new System.Drawing.Size(115, 20);
+            this.txtBytesNum.TabIndex = 8;
+            // 
             // btnCompareSearchCancel
             // 
             this.btnCompareSearchCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCompareSearchCancel.Image")));
             this.btnCompareSearchCancel.Location = new System.Drawing.Point(372, 88);
             this.btnCompareSearchCancel.Name = "btnCompareSearchCancel";
             this.btnCompareSearchCancel.Size = new System.Drawing.Size(333, 23);
-            this.btnCompareSearchCancel.TabIndex = 8;
+            this.btnCompareSearchCancel.TabIndex = 6;
             this.btnCompareSearchCancel.Text = "Suche abbrechen";
             this.btnCompareSearchCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCompareSearchCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCompareSearchCancel.UseVisualStyleBackColor = true;
             this.btnCompareSearchCancel.Click += new System.EventHandler(this.btnCompareSearchCancel_Click);
             // 
-            // txtCompareSearchDoubleData
-            // 
-            this.txtCompareSearchDoubleData.Location = new System.Drawing.Point(525, 117);
-            this.txtCompareSearchDoubleData.Name = "txtCompareSearchDoubleData";
-            this.txtCompareSearchDoubleData.ReadOnly = true;
-            this.txtCompareSearchDoubleData.Size = new System.Drawing.Size(180, 20);
-            this.txtCompareSearchDoubleData.TabIndex = 7;
-            // 
             // lblCompareSearchDoubleData
             // 
             this.lblCompareSearchDoubleData.AutoSize = true;
-            this.lblCompareSearchDoubleData.Location = new System.Drawing.Point(380, 120);
+            this.lblCompareSearchDoubleData.Location = new System.Drawing.Point(369, 120);
             this.lblCompareSearchDoubleData.Name = "lblCompareSearchDoubleData";
             this.lblCompareSearchDoubleData.Size = new System.Drawing.Size(139, 13);
-            this.lblCompareSearchDoubleData.TabIndex = 6;
+            this.lblCompareSearchDoubleData.TabIndex = 7;
             this.lblCompareSearchDoubleData.Text = "Gefundene doppelte Daten:";
             // 
             // lblCompareSearchDoubleFiles
@@ -945,6 +932,8 @@
             // chkCompareSearchOptFileSize
             // 
             this.chkCompareSearchOptFileSize.AutoSize = true;
+            this.chkCompareSearchOptFileSize.Checked = true;
+            this.chkCompareSearchOptFileSize.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkCompareSearchOptFileSize.Location = new System.Drawing.Point(6, 42);
             this.chkCompareSearchOptFileSize.Name = "chkCompareSearchOptFileSize";
             this.chkCompareSearchOptFileSize.Size = new System.Drawing.Size(174, 17);
@@ -955,6 +944,8 @@
             // chkCompareSearchOptLastChange
             // 
             this.chkCompareSearchOptLastChange.AutoSize = true;
+            this.chkCompareSearchOptLastChange.Checked = true;
+            this.chkCompareSearchOptLastChange.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkCompareSearchOptLastChange.Location = new System.Drawing.Point(6, 19);
             this.chkCompareSearchOptLastChange.Name = "chkCompareSearchOptLastChange";
             this.chkCompareSearchOptLastChange.Size = new System.Drawing.Size(216, 17);
@@ -991,6 +982,7 @@
             this.grbComapreClean.Controls.Add(this.btnCompareCleanStart);
             this.grbComapreClean.Controls.Add(this.chkCompareCleanEmptyDir);
             this.grbComapreClean.Controls.Add(this.chkCompareCleanDoubleFile);
+            this.grbComapreClean.Enabled = false;
             this.grbComapreClean.Location = new System.Drawing.Point(3, 233);
             this.grbComapreClean.Name = "grbComapreClean";
             this.grbComapreClean.Size = new System.Drawing.Size(963, 94);
@@ -1044,21 +1036,6 @@
             this.chkCompareCleanDoubleFile.Text = "Doppelte Dateien löschen";
             this.chkCompareCleanDoubleFile.UseVisualStyleBackColor = true;
             // 
-            // expCompareProgress
-            // 
-            this.expCompareProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.expCompareProgress.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
-            this.expCompareProgress.DecimalDigits = ((uint)(2u));
-            this.expCompareProgress.Location = new System.Drawing.Point(6, 19);
-            this.expCompareProgress.MaxValue = ((long)(0));
-            this.expCompareProgress.MinimumSize = new System.Drawing.Size(300, 23);
-            this.expCompareProgress.Name = "expCompareProgress";
-            this.expCompareProgress.ShowDimensionComboBox = false;
-            this.expCompareProgress.Size = new System.Drawing.Size(951, 49);
-            this.expCompareProgress.TabIndex = 3;
-            this.expCompareProgress.Value = ((long)(-1));
-            // 
             // tabPageConclusion
             // 
             this.tabPageConclusion.Controls.Add(this.grbException);
@@ -1102,7 +1079,8 @@
             // 
             // btnExceptionTargetGoTo
             // 
-            this.btnExceptionTargetGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExceptionTargetGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExceptionTargetGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionTargetGoTo.Image")));
             this.btnExceptionTargetGoTo.Location = new System.Drawing.Point(937, 366);
             this.btnExceptionTargetGoTo.Name = "btnExceptionTargetGoTo";
@@ -1113,7 +1091,8 @@
             // 
             // btnExceptionSourceGoTo
             // 
-            this.btnExceptionSourceGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExceptionSourceGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExceptionSourceGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionSourceGoTo.Image")));
             this.btnExceptionSourceGoTo.Location = new System.Drawing.Point(937, 340);
             this.btnExceptionSourceGoTo.Name = "btnExceptionSourceGoTo";
@@ -1300,17 +1279,75 @@
             this.imlTabIcons.Images.SetKeyName(4, "BackupReportWarning.ico");
             this.imlTabIcons.Images.SetKeyName(5, "BackupCompare.ico");
             // 
-            // grbCompareProgress
+            // label1
             // 
-            this.grbCompareProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(200, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(692, 31);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Funktion in dieser Progammversion noch nicht verfügbar";
+            // 
+            // trvExplorer
+            // 
+            this.trvExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbCompareProgress.Controls.Add(this.expCompareProgress);
-            this.grbCompareProgress.Location = new System.Drawing.Point(3, 333);
-            this.grbCompareProgress.Name = "grbCompareProgress";
-            this.grbCompareProgress.Size = new System.Drawing.Size(963, 74);
-            this.grbCompareProgress.TabIndex = 4;
-            this.grbCompareProgress.TabStop = false;
-            this.grbCompareProgress.Text = "Fortschritt";
+            this.trvExplorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.trvExplorer.CheckBoxes = true;
+            this.trvExplorer.DirectoryList = null;
+            this.trvExplorer.ImageIndex = 16;
+            this.trvExplorer.ImageList = this.imlTreeViewIcons;
+            this.trvExplorer.Location = new System.Drawing.Point(3, 3);
+            this.trvExplorer.Name = "trvExplorer";
+            this.trvExplorer.SelectedImageIndex = 0;
+            this.trvExplorer.ShowNodeToolTips = true;
+            this.trvExplorer.Size = new System.Drawing.Size(225, 559);
+            this.trvExplorer.TabIndex = 10;
+            this.trvExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvExplorer_AfterSelect);
+            // 
+            // uscTaskControleBackup
+            // 
+            this.uscTaskControleBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscTaskControleBackup.Location = new System.Drawing.Point(0, 17);
+            this.uscTaskControleBackup.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.CreateBackup;
+            this.uscTaskControleBackup.Name = "uscTaskControleBackup";
+            this.uscTaskControleBackup.Size = new System.Drawing.Size(957, 235);
+            this.uscTaskControleBackup.TabIndex = 0;
+            this.uscTaskControleBackup.TaskFinishedCanceled += new System.EventHandler(this.uscTaskControleBackup_TaskFinishedCanceled);
+            this.uscTaskControleBackup.TaskStarted += new System.EventHandler(this.uscTaskControleBackup_TaskStarted);
+            // 
+            // uscTaskProgressBackup
+            // 
+            this.uscTaskProgressBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscTaskProgressBackup.Location = new System.Drawing.Point(6, 20);
+            this.uscTaskProgressBackup.Name = "uscTaskProgressBackup";
+            this.uscTaskProgressBackup.Size = new System.Drawing.Size(951, 270);
+            this.uscTaskProgressBackup.TabIndex = 0;
+            // 
+            // uscTaskControleRestore
+            // 
+            this.uscTaskControleRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscTaskControleRestore.Location = new System.Drawing.Point(0, 17);
+            this.uscTaskControleRestore.Mode = OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle.ControleMode.RestoreBackup;
+            this.uscTaskControleRestore.Name = "uscTaskControleRestore";
+            this.uscTaskControleRestore.Size = new System.Drawing.Size(957, 235);
+            this.uscTaskControleRestore.TabIndex = 0;
+            this.uscTaskControleRestore.TaskFinishedCanceled += new System.EventHandler(this.uscTaskControleRestore_TaskFinishedCanceled);
+            this.uscTaskControleRestore.TaskStarted += new System.EventHandler(this.uscTaskControleRestore_TaskStarted);
+            // 
+            // uscTaskProgressRestore
+            // 
+            this.uscTaskProgressRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscTaskProgressRestore.Location = new System.Drawing.Point(6, 20);
+            this.uscTaskProgressRestore.Name = "uscTaskProgressRestore";
+            this.uscTaskProgressRestore.Size = new System.Drawing.Size(951, 270);
+            this.uscTaskProgressRestore.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -1349,6 +1386,8 @@
             this.grbTaskProgressRestore.ResumeLayout(false);
             this.tabPageCompare.ResumeLayout(false);
             this.pnlCompare.ResumeLayout(false);
+            this.pnlCompare.PerformLayout();
+            this.grbCompareProgress.ResumeLayout(false);
             this.grbBackupSelect.ResumeLayout(false);
             this.grbBackupSelect.PerformLayout();
             this.grbCompareOptions.ResumeLayout(false);
@@ -1359,7 +1398,6 @@
             this.tabPageConclusion.PerformLayout();
             this.grbException.ResumeLayout(false);
             this.grbException.PerformLayout();
-            this.grbCompareProgress.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1436,7 +1474,6 @@
         private System.Windows.Forms.CheckBox chkCompareCleanDoubleFile;
         private Toolbox.Widgets.ExtProgressBar expCompareProgress;
         private System.Windows.Forms.GroupBox grbCompareOptions;
-        internal System.Windows.Forms.TextBox txtCompareSearchDoubleData;
         private System.Windows.Forms.Label lblCompareSearchDoubleData;
         private System.Windows.Forms.Label lblCompareSearchDoubleFiles;
         private System.Windows.Forms.CheckBox chkCompareSearchOptContent;
@@ -1455,5 +1492,8 @@
         private System.Windows.Forms.Button btnCompareCleanCancel;
         private System.Windows.Forms.Panel pnlCompare;
         private System.Windows.Forms.GroupBox grbCompareProgress;
+        internal System.Windows.Forms.ComboBox cboByteDime;
+        internal System.Windows.Forms.TextBox txtBytesNum;
+        private System.Windows.Forms.Label label1;
     }
 }

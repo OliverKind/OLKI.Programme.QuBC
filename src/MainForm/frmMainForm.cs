@@ -52,6 +52,13 @@ namespace OLKI.Programme.QuBC.src.MainForm
         #endregion 
 
         #region Fields
+        /// <summary>
+        /// Provides tool to compare backups
+        /// </summary>
+        private readonly CompareBackups _compareBackups;
+        /// <summary>
+        /// Default text of Conclusion Tab
+        /// </summary>
         private readonly string _conclusionTabPageOriginalText;
         /// <summary>
         /// Provides helper functions for the application MainForm
