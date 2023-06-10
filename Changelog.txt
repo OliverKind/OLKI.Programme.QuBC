@@ -1,7 +1,14 @@
 # QuBC - QuickBackupCreator
-## [3.0.3.28] - 2022-03-13
-### Fixed
+## [3.1.0.29] - 2022-06-10
+### Added
+- Function to compare and clean up Backups
+- Option to clear exception List on Process start
+- Option to copy Directory and File properties and attributes
+- Option to compare SHA256 Checksums for existin Files
 - Project settings Form resizeable
+
+### Fixed
+- Some controles not moving if Form is resized
 
 ## [3.0.2.27] - 2022-03-10
 ### Fixed
