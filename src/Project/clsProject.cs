@@ -479,7 +479,6 @@ namespace OLKI.Programme.QuBC.src.Project
         internal string Project_ToXMLString()
         {
             XElement ProjectRoot = new XElement("QuBC_ProjectData");
-            //TODO: CHANGE to settings
             ProjectRoot.Add(new XAttribute("Version", Settings_AppConst.Default.ProjectFile_Version_Actual));
 
             //Get Directorys (get files)

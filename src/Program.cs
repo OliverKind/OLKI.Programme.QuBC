@@ -26,7 +26,6 @@ using OLKI.Programme.QuBC.Properties;
 using OLKI.Toolbox.DirectoryAndFile;
 using OLKI.Toolbox.UpdateApp;
 using System;
-using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
