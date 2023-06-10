@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("OLKI-Software")]
 [assembly: AssemblyProduct("QuBC")]
-[assembly: AssemblyCopyright("Copyright ©  2022 - Oliver Kind")]
+[assembly: AssemblyCopyright("Copyright ©  2023 - Oliver Kind")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.1.0.29")]
-[assembly: AssemblyFileVersion("3.1.0.29")]
+[assembly: AssemblyVersion("3.1.0.28")]
+[assembly: AssemblyFileVersion("3.1.0.28")]
