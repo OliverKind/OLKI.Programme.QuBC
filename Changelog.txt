@@ -1,5 +1,5 @@
 # QuBC - QuickBackupCreator
-## [3.1.0.28] - 2022-06-10
+## [3.1.0.28] - 2023-06-10
 ### Added
 - Function to compare and clean up Backups
 - Option to clear exception List on Process start
