@@ -272,9 +272,13 @@
     <Content Include="Resources\Icons\TreeViewIcons\18--folder_Check.ico" />
     <Content Include="Resources\Icons\TreeViewIcons\19--folder_IntCheck.ico" />
     <Content Include="Resources\Icons\TreeViewIcons\20--File.ico" />
-    <Content Include="Resources\ProgamIcons\program_symbol\Program_Symbol.ico" />
+    <Content Include="Resources\ProgamIcons\program_symbol\Program_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\ProgamIcons\program_symbol\ProgSym_256.png" />
-    <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.ico" />
+    <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\ProgamIcons\project_symbol\Project_Symbol.png" />
   </ItemGroup>
   <ItemGroup>
