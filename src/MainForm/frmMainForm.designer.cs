@@ -381,8 +381,8 @@
             this.tabControlMain.Controls.Add(this.tabPageSelect);
             this.tabControlMain.Controls.Add(this.tabPageBackup);
             this.tabControlMain.Controls.Add(this.tabPageRestore);
-            this.tabControlMain.Controls.Add(this.tabPageCompare);
             this.tabControlMain.Controls.Add(this.tabPageConclusion);
+            this.tabControlMain.Controls.Add(this.tabPageCompare);
             this.tabControlMain.ImageList = this.imlTabIcons;
             this.tabControlMain.Location = new System.Drawing.Point(12, 27);
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(0);

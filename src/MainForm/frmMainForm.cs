@@ -94,7 +94,7 @@ namespace OLKI.Programme.QuBC.src.MainForm
         internal MainForm(string[] args)
         {
             InitializeComponent();
-
+            this.tabControlMain.TabPages.Remove(this.tabPageCompare);   //TODO: Remove to compare Backups
             if (Settings_AppVar.Default.MainForm_State != FormWindowState.Minimized) this.WindowState = (FormWindowState)Settings_AppVar.Default.MainForm_State;
             if (Settings_AppVar.Default.MainForm_State == FormWindowState.Normal) this.Size = Settings_AppVar.Default.MainForm_Size;
 

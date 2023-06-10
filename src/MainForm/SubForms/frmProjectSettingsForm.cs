@@ -68,7 +68,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
 
             this.chkCopyDirectoryProperties.Checked = this._projectSettings.Common.CopyDirectoryProperties;
             this.chkCopyFileProperties.Checked = this._projectSettings.Common.CopyFileProperties;
-            this.cboDefaultTab.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x0032, Stringtable._0x002E });
+            this.cboDefaultTab.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x002E });    //TODO: Add "Stringtable._0x0032" to compare Backups
             this.cboDefaultTab.SelectedIndex = this._projectSettings.Common.DefaultTab + 1;
             this.cboFinishAction.SelectedIndex = (int)this._projectSettings.Common.AutomationFinishAction;
             this.nudWaitTime.Value = this._projectSettings.Common.AutomationWaitTime;

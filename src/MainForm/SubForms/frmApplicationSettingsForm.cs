@@ -80,9 +80,9 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.txtAddTextToFileDefaultText.Text = Settings.Default.Copy_FileExisitngAddTextDefault;
             this.txtAddTextToFileDateFormat.Text = Settings.Default.Copy_FileExisitngAddTextDateFormat;
 
-            this.cboDefaultTabLoadFile.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x0032, Stringtable._0x002E });
+            this.cboDefaultTabLoadFile.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x002E });       //TODO: Add "Stringtable._0x0032" to compare Backups
             this.cboDefaultTabLoadFile.SelectedIndex = Settings.Default.DefaultTab_LoadFile + 1;
-            this.cboDefaultTabStartUp.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x0032, Stringtable._0x002E });
+            this.cboDefaultTabStartUp.Items.AddRange(new string[] { Stringtable._0x002A, Stringtable._0x002B, Stringtable._0x002C, Stringtable._0x002D, Stringtable._0x002E });        //TODO: Add "Stringtable._0x0032" to compare Backups
             this.cboDefaultTabStartUp.SelectedIndex = Settings.Default.DefaultTab_StartUp + 1;
         }
 
