@@ -98,6 +98,29 @@
             this.uscTaskControleRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle.TaskControle();
             this.grbTaskProgressRestore = new System.Windows.Forms.GroupBox();
             this.uscTaskProgressRestore = new OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress.TaskProgress();
+            this.tabPageConclusion = new System.Windows.Forms.TabPage();
+            this.grbException = new System.Windows.Forms.GroupBox();
+            this.btnExceptionTargetGoTo = new System.Windows.Forms.Button();
+            this.btnExceptionSourceGoTo = new System.Windows.Forms.Button();
+            this.lsvErrorLog = new OLKI.Toolbox.Widgets.SortListView();
+            this.chLsvErrorLog_Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLsvErrorLog_Source = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLsvErrorLog_Target = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLsvErrorLog_Exception = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblExceptionMessage = new System.Windows.Forms.Label();
+            this.txtExceptionMessage = new System.Windows.Forms.TextBox();
+            this.lblExceptionTargetPath = new System.Windows.Forms.Label();
+            this.txtExceptionTargetPath = new System.Windows.Forms.TextBox();
+            this.txtExceptionSourcePath = new System.Windows.Forms.TextBox();
+            this.lblExceptionSourcePath = new System.Windows.Forms.Label();
+            this.lblExceptionCount = new System.Windows.Forms.Label();
+            this.txtExceptionCount = new System.Windows.Forms.TextBox();
+            this.lblCopiedDuration = new System.Windows.Forms.Label();
+            this.txtConclusionDuration = new System.Windows.Forms.TextBox();
+            this.lblCopiedFiles = new System.Windows.Forms.Label();
+            this.txtConclusionFiles = new System.Windows.Forms.TextBox();
+            this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
+            this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.tabPageCompare = new System.Windows.Forms.TabPage();
             this.pnlCompare = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -126,29 +149,6 @@
             this.btnCompareCleanStart = new System.Windows.Forms.Button();
             this.chkCompareCleanEmptyDir = new System.Windows.Forms.CheckBox();
             this.chkCompareCleanDoubleFile = new System.Windows.Forms.CheckBox();
-            this.tabPageConclusion = new System.Windows.Forms.TabPage();
-            this.grbException = new System.Windows.Forms.GroupBox();
-            this.btnExceptionTargetGoTo = new System.Windows.Forms.Button();
-            this.btnExceptionSourceGoTo = new System.Windows.Forms.Button();
-            this.lsvErrorLog = new OLKI.Toolbox.Widgets.SortListView();
-            this.chLsvErrorLog_Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLsvErrorLog_Source = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLsvErrorLog_Target = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLsvErrorLog_Exception = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblExceptionMessage = new System.Windows.Forms.Label();
-            this.txtExceptionMessage = new System.Windows.Forms.TextBox();
-            this.lblExceptionTargetPath = new System.Windows.Forms.Label();
-            this.txtExceptionTargetPath = new System.Windows.Forms.TextBox();
-            this.txtExceptionSourcePath = new System.Windows.Forms.TextBox();
-            this.lblExceptionSourcePath = new System.Windows.Forms.Label();
-            this.lblExceptionCount = new System.Windows.Forms.Label();
-            this.txtExceptionCount = new System.Windows.Forms.TextBox();
-            this.lblCopiedDuration = new System.Windows.Forms.Label();
-            this.txtConclusionDuration = new System.Windows.Forms.TextBox();
-            this.lblCopiedFiles = new System.Windows.Forms.Label();
-            this.txtConclusionFiles = new System.Windows.Forms.TextBox();
-            this.txtConclusionDirectories = new System.Windows.Forms.TextBox();
-            this.lbltxtCopiedDirectories = new System.Windows.Forms.Label();
             this.imlTabIcons = new System.Windows.Forms.ImageList(this.components);
             this.mnuMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -164,14 +164,14 @@
             this.tabPageRestore.SuspendLayout();
             this.grbTaskControleRestore.SuspendLayout();
             this.grbTaskProgressRestore.SuspendLayout();
+            this.tabPageConclusion.SuspendLayout();
+            this.grbException.SuspendLayout();
             this.tabPageCompare.SuspendLayout();
             this.pnlCompare.SuspendLayout();
             this.grbCompareProgress.SuspendLayout();
             this.grbBackupSelect.SuspendLayout();
             this.grbCompareOptions.SuspendLayout();
             this.grbComapreClean.SuspendLayout();
-            this.tabPageConclusion.SuspendLayout();
-            this.grbException.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -700,7 +700,7 @@
             this.grbTaskProgressBackup.Controls.Add(this.uscTaskProgressBackup);
             this.grbTaskProgressBackup.Location = new System.Drawing.Point(6, 270);
             this.grbTaskProgressBackup.Name = "grbTaskProgressBackup";
-            this.grbTaskProgressBackup.Size = new System.Drawing.Size(963, 296);
+            this.grbTaskProgressBackup.Size = new System.Drawing.Size(963, 217);
             this.grbTaskProgressBackup.TabIndex = 20;
             this.grbTaskProgressBackup.TabStop = false;
             this.grbTaskProgressBackup.Text = "Sicherungsvorgang";
@@ -711,7 +711,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uscTaskProgressBackup.Location = new System.Drawing.Point(6, 20);
             this.uscTaskProgressBackup.Name = "uscTaskProgressBackup";
-            this.uscTaskProgressBackup.Size = new System.Drawing.Size(951, 270);
+            this.uscTaskProgressBackup.Size = new System.Drawing.Size(951, 191);
             this.uscTaskProgressBackup.TabIndex = 0;
             // 
             // tabPageRestore
@@ -758,7 +758,7 @@
             this.grbTaskProgressRestore.Controls.Add(this.uscTaskProgressRestore);
             this.grbTaskProgressRestore.Location = new System.Drawing.Point(6, 270);
             this.grbTaskProgressRestore.Name = "grbTaskProgressRestore";
-            this.grbTaskProgressRestore.Size = new System.Drawing.Size(963, 296);
+            this.grbTaskProgressRestore.Size = new System.Drawing.Size(963, 217);
             this.grbTaskProgressRestore.TabIndex = 21;
             this.grbTaskProgressRestore.TabStop = false;
             this.grbTaskProgressRestore.Text = "Wiederherstellung";
@@ -769,8 +769,238 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uscTaskProgressRestore.Location = new System.Drawing.Point(6, 20);
             this.uscTaskProgressRestore.Name = "uscTaskProgressRestore";
-            this.uscTaskProgressRestore.Size = new System.Drawing.Size(951, 270);
+            this.uscTaskProgressRestore.Size = new System.Drawing.Size(951, 191);
             this.uscTaskProgressRestore.TabIndex = 0;
+            // 
+            // tabPageConclusion
+            // 
+            this.tabPageConclusion.Controls.Add(this.grbException);
+            this.tabPageConclusion.Controls.Add(this.lblExceptionCount);
+            this.tabPageConclusion.Controls.Add(this.txtExceptionCount);
+            this.tabPageConclusion.Controls.Add(this.lblCopiedDuration);
+            this.tabPageConclusion.Controls.Add(this.txtConclusionDuration);
+            this.tabPageConclusion.Controls.Add(this.lblCopiedFiles);
+            this.tabPageConclusion.Controls.Add(this.txtConclusionFiles);
+            this.tabPageConclusion.Controls.Add(this.txtConclusionDirectories);
+            this.tabPageConclusion.Controls.Add(this.lbltxtCopiedDirectories);
+            this.tabPageConclusion.ImageIndex = 3;
+            this.tabPageConclusion.Location = new System.Drawing.Point(4, 23);
+            this.tabPageConclusion.Name = "tabPageConclusion";
+            this.tabPageConclusion.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConclusion.Size = new System.Drawing.Size(975, 571);
+            this.tabPageConclusion.TabIndex = 2;
+            this.tabPageConclusion.Text = "Zusammenfassung - Fehler";
+            this.tabPageConclusion.UseVisualStyleBackColor = true;
+            // 
+            // grbException
+            // 
+            this.grbException.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbException.Controls.Add(this.btnExceptionTargetGoTo);
+            this.grbException.Controls.Add(this.btnExceptionSourceGoTo);
+            this.grbException.Controls.Add(this.lsvErrorLog);
+            this.grbException.Controls.Add(this.lblExceptionMessage);
+            this.grbException.Controls.Add(this.txtExceptionMessage);
+            this.grbException.Controls.Add(this.lblExceptionTargetPath);
+            this.grbException.Controls.Add(this.txtExceptionTargetPath);
+            this.grbException.Controls.Add(this.txtExceptionSourcePath);
+            this.grbException.Controls.Add(this.lblExceptionSourcePath);
+            this.grbException.Location = new System.Drawing.Point(6, 110);
+            this.grbException.Name = "grbException";
+            this.grbException.Size = new System.Drawing.Size(966, 458);
+            this.grbException.TabIndex = 8;
+            this.grbException.TabStop = false;
+            this.grbException.Text = "Kopierfehler";
+            // 
+            // btnExceptionTargetGoTo
+            // 
+            this.btnExceptionTargetGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExceptionTargetGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionTargetGoTo.Image")));
+            this.btnExceptionTargetGoTo.Location = new System.Drawing.Point(937, 366);
+            this.btnExceptionTargetGoTo.Name = "btnExceptionTargetGoTo";
+            this.btnExceptionTargetGoTo.Size = new System.Drawing.Size(23, 23);
+            this.btnExceptionTargetGoTo.TabIndex = 10;
+            this.btnExceptionTargetGoTo.UseVisualStyleBackColor = true;
+            this.btnExceptionTargetGoTo.Click += new System.EventHandler(this.btnExceptionTargetGoTo_Click);
+            // 
+            // btnExceptionSourceGoTo
+            // 
+            this.btnExceptionSourceGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExceptionSourceGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionSourceGoTo.Image")));
+            this.btnExceptionSourceGoTo.Location = new System.Drawing.Point(937, 340);
+            this.btnExceptionSourceGoTo.Name = "btnExceptionSourceGoTo";
+            this.btnExceptionSourceGoTo.Size = new System.Drawing.Size(23, 23);
+            this.btnExceptionSourceGoTo.TabIndex = 9;
+            this.btnExceptionSourceGoTo.UseVisualStyleBackColor = true;
+            this.btnExceptionSourceGoTo.Click += new System.EventHandler(this.btnExceptionSourceGoTo_Click);
+            // 
+            // lsvErrorLog
+            // 
+            this.lsvErrorLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsvErrorLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lsvErrorLog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chLsvErrorLog_Number,
+            this.chLsvErrorLog_Source,
+            this.chLsvErrorLog_Target,
+            this.chLsvErrorLog_Exception});
+            this.lsvErrorLog.FullRowSelect = true;
+            this.lsvErrorLog.GridLines = true;
+            this.lsvErrorLog.HideSelection = false;
+            this.lsvErrorLog.Location = new System.Drawing.Point(6, 19);
+            this.lsvErrorLog.MultiSelect = false;
+            this.lsvErrorLog.Name = "lsvErrorLog";
+            this.lsvErrorLog.ShowItemToolTips = true;
+            this.lsvErrorLog.Size = new System.Drawing.Size(954, 315);
+            this.lsvErrorLog.TabIndex = 0;
+            this.lsvErrorLog.UseCompatibleStateImageBehavior = false;
+            this.lsvErrorLog.View = System.Windows.Forms.View.Details;
+            this.lsvErrorLog.SelectedIndexChanged += new System.EventHandler(this.lsvErrorLog_SelectedIndexChanged);
+            // 
+            // chLsvErrorLog_Number
+            // 
+            this.chLsvErrorLog_Number.Text = "Nummer";
+            this.chLsvErrorLog_Number.Width = 30;
+            // 
+            // chLsvErrorLog_Source
+            // 
+            this.chLsvErrorLog_Source.Text = "Quelle";
+            this.chLsvErrorLog_Source.Width = 240;
+            // 
+            // chLsvErrorLog_Target
+            // 
+            this.chLsvErrorLog_Target.Text = "Ziel";
+            this.chLsvErrorLog_Target.Width = 240;
+            // 
+            // chLsvErrorLog_Exception
+            // 
+            this.chLsvErrorLog_Exception.Text = "Fehler";
+            this.chLsvErrorLog_Exception.Width = 360;
+            // 
+            // lblExceptionMessage
+            // 
+            this.lblExceptionMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblExceptionMessage.Location = new System.Drawing.Point(6, 397);
+            this.lblExceptionMessage.Name = "lblExceptionMessage";
+            this.lblExceptionMessage.Size = new System.Drawing.Size(45, 23);
+            this.lblExceptionMessage.TabIndex = 5;
+            this.lblExceptionMessage.Text = "Fehler:";
+            // 
+            // txtExceptionMessage
+            // 
+            this.txtExceptionMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExceptionMessage.Location = new System.Drawing.Point(82, 394);
+            this.txtExceptionMessage.Multiline = true;
+            this.txtExceptionMessage.Name = "txtExceptionMessage";
+            this.txtExceptionMessage.ReadOnly = true;
+            this.txtExceptionMessage.Size = new System.Drawing.Size(878, 58);
+            this.txtExceptionMessage.TabIndex = 6;
+            // 
+            // lblExceptionTargetPath
+            // 
+            this.lblExceptionTargetPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblExceptionTargetPath.Location = new System.Drawing.Point(6, 371);
+            this.lblExceptionTargetPath.Name = "lblExceptionTargetPath";
+            this.lblExceptionTargetPath.Size = new System.Drawing.Size(45, 23);
+            this.lblExceptionTargetPath.TabIndex = 3;
+            this.lblExceptionTargetPath.Text = "Ziel:";
+            // 
+            // txtExceptionTargetPath
+            // 
+            this.txtExceptionTargetPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExceptionTargetPath.Location = new System.Drawing.Point(82, 368);
+            this.txtExceptionTargetPath.Name = "txtExceptionTargetPath";
+            this.txtExceptionTargetPath.ReadOnly = true;
+            this.txtExceptionTargetPath.Size = new System.Drawing.Size(849, 20);
+            this.txtExceptionTargetPath.TabIndex = 4;
+            // 
+            // txtExceptionSourcePath
+            // 
+            this.txtExceptionSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExceptionSourcePath.Location = new System.Drawing.Point(82, 342);
+            this.txtExceptionSourcePath.Name = "txtExceptionSourcePath";
+            this.txtExceptionSourcePath.ReadOnly = true;
+            this.txtExceptionSourcePath.Size = new System.Drawing.Size(849, 20);
+            this.txtExceptionSourcePath.TabIndex = 2;
+            // 
+            // lblExceptionSourcePath
+            // 
+            this.lblExceptionSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblExceptionSourcePath.Location = new System.Drawing.Point(6, 345);
+            this.lblExceptionSourcePath.Name = "lblExceptionSourcePath";
+            this.lblExceptionSourcePath.Size = new System.Drawing.Size(45, 23);
+            this.lblExceptionSourcePath.TabIndex = 1;
+            this.lblExceptionSourcePath.Text = "Quelle:";
+            // 
+            // lblExceptionCount
+            // 
+            this.lblExceptionCount.Location = new System.Drawing.Point(6, 87);
+            this.lblExceptionCount.Name = "lblExceptionCount";
+            this.lblExceptionCount.Size = new System.Drawing.Size(213, 23);
+            this.lblExceptionCount.TabIndex = 6;
+            this.lblExceptionCount.Text = "Fehler:";
+            // 
+            // txtExceptionCount
+            // 
+            this.txtExceptionCount.Location = new System.Drawing.Point(225, 84);
+            this.txtExceptionCount.Name = "txtExceptionCount";
+            this.txtExceptionCount.ReadOnly = true;
+            this.txtExceptionCount.Size = new System.Drawing.Size(200, 20);
+            this.txtExceptionCount.TabIndex = 7;
+            this.txtExceptionCount.TextChanged += new System.EventHandler(this.txtExceptionCount_TextChanged);
+            // 
+            // lblCopiedDuration
+            // 
+            this.lblCopiedDuration.Location = new System.Drawing.Point(6, 61);
+            this.lblCopiedDuration.Name = "lblCopiedDuration";
+            this.lblCopiedDuration.Size = new System.Drawing.Size(213, 23);
+            this.lblCopiedDuration.TabIndex = 4;
+            this.lblCopiedDuration.Text = "Dauer:";
+            // 
+            // txtConclusionDuration
+            // 
+            this.txtConclusionDuration.Location = new System.Drawing.Point(225, 58);
+            this.txtConclusionDuration.Name = "txtConclusionDuration";
+            this.txtConclusionDuration.ReadOnly = true;
+            this.txtConclusionDuration.Size = new System.Drawing.Size(200, 20);
+            this.txtConclusionDuration.TabIndex = 5;
+            // 
+            // lblCopiedFiles
+            // 
+            this.lblCopiedFiles.Location = new System.Drawing.Point(6, 35);
+            this.lblCopiedFiles.Name = "lblCopiedFiles";
+            this.lblCopiedFiles.Size = new System.Drawing.Size(213, 23);
+            this.lblCopiedFiles.TabIndex = 3;
+            this.lblCopiedFiles.Text = "Gesicherte / Wiederhergestellte Dateien:";
+            // 
+            // txtConclusionFiles
+            // 
+            this.txtConclusionFiles.Location = new System.Drawing.Point(225, 32);
+            this.txtConclusionFiles.Name = "txtConclusionFiles";
+            this.txtConclusionFiles.ReadOnly = true;
+            this.txtConclusionFiles.Size = new System.Drawing.Size(200, 20);
+            this.txtConclusionFiles.TabIndex = 2;
+            // 
+            // txtConclusionDirectories
+            // 
+            this.txtConclusionDirectories.Location = new System.Drawing.Point(225, 6);
+            this.txtConclusionDirectories.Name = "txtConclusionDirectories";
+            this.txtConclusionDirectories.ReadOnly = true;
+            this.txtConclusionDirectories.Size = new System.Drawing.Size(200, 20);
+            this.txtConclusionDirectories.TabIndex = 1;
+            // 
+            // lbltxtCopiedDirectories
+            // 
+            this.lbltxtCopiedDirectories.Location = new System.Drawing.Point(6, 9);
+            this.lbltxtCopiedDirectories.Name = "lbltxtCopiedDirectories";
+            this.lbltxtCopiedDirectories.Size = new System.Drawing.Size(213, 23);
+            this.lbltxtCopiedDirectories.TabIndex = 0;
+            this.lbltxtCopiedDirectories.Text = "Gesicherte / Wiederhergestellte Ordner:";
             // 
             // tabPageCompare
             // 
@@ -1106,236 +1336,6 @@
             this.chkCompareCleanDoubleFile.Text = "Doppelte Dateien löschen";
             this.chkCompareCleanDoubleFile.UseVisualStyleBackColor = true;
             // 
-            // tabPageConclusion
-            // 
-            this.tabPageConclusion.Controls.Add(this.grbException);
-            this.tabPageConclusion.Controls.Add(this.lblExceptionCount);
-            this.tabPageConclusion.Controls.Add(this.txtExceptionCount);
-            this.tabPageConclusion.Controls.Add(this.lblCopiedDuration);
-            this.tabPageConclusion.Controls.Add(this.txtConclusionDuration);
-            this.tabPageConclusion.Controls.Add(this.lblCopiedFiles);
-            this.tabPageConclusion.Controls.Add(this.txtConclusionFiles);
-            this.tabPageConclusion.Controls.Add(this.txtConclusionDirectories);
-            this.tabPageConclusion.Controls.Add(this.lbltxtCopiedDirectories);
-            this.tabPageConclusion.ImageIndex = 3;
-            this.tabPageConclusion.Location = new System.Drawing.Point(4, 23);
-            this.tabPageConclusion.Name = "tabPageConclusion";
-            this.tabPageConclusion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConclusion.Size = new System.Drawing.Size(975, 571);
-            this.tabPageConclusion.TabIndex = 2;
-            this.tabPageConclusion.Text = "Zusammenfassung - Fehler";
-            this.tabPageConclusion.UseVisualStyleBackColor = true;
-            // 
-            // grbException
-            // 
-            this.grbException.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbException.Controls.Add(this.btnExceptionTargetGoTo);
-            this.grbException.Controls.Add(this.btnExceptionSourceGoTo);
-            this.grbException.Controls.Add(this.lsvErrorLog);
-            this.grbException.Controls.Add(this.lblExceptionMessage);
-            this.grbException.Controls.Add(this.txtExceptionMessage);
-            this.grbException.Controls.Add(this.lblExceptionTargetPath);
-            this.grbException.Controls.Add(this.txtExceptionTargetPath);
-            this.grbException.Controls.Add(this.txtExceptionSourcePath);
-            this.grbException.Controls.Add(this.lblExceptionSourcePath);
-            this.grbException.Location = new System.Drawing.Point(6, 110);
-            this.grbException.Name = "grbException";
-            this.grbException.Size = new System.Drawing.Size(966, 458);
-            this.grbException.TabIndex = 8;
-            this.grbException.TabStop = false;
-            this.grbException.Text = "Kopierfehler";
-            // 
-            // btnExceptionTargetGoTo
-            // 
-            this.btnExceptionTargetGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExceptionTargetGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionTargetGoTo.Image")));
-            this.btnExceptionTargetGoTo.Location = new System.Drawing.Point(937, 366);
-            this.btnExceptionTargetGoTo.Name = "btnExceptionTargetGoTo";
-            this.btnExceptionTargetGoTo.Size = new System.Drawing.Size(23, 23);
-            this.btnExceptionTargetGoTo.TabIndex = 10;
-            this.btnExceptionTargetGoTo.UseVisualStyleBackColor = true;
-            this.btnExceptionTargetGoTo.Click += new System.EventHandler(this.btnExceptionTargetGoTo_Click);
-            // 
-            // btnExceptionSourceGoTo
-            // 
-            this.btnExceptionSourceGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExceptionSourceGoTo.Image = ((System.Drawing.Image)(resources.GetObject("btnExceptionSourceGoTo.Image")));
-            this.btnExceptionSourceGoTo.Location = new System.Drawing.Point(937, 340);
-            this.btnExceptionSourceGoTo.Name = "btnExceptionSourceGoTo";
-            this.btnExceptionSourceGoTo.Size = new System.Drawing.Size(23, 23);
-            this.btnExceptionSourceGoTo.TabIndex = 9;
-            this.btnExceptionSourceGoTo.UseVisualStyleBackColor = true;
-            this.btnExceptionSourceGoTo.Click += new System.EventHandler(this.btnExceptionSourceGoTo_Click);
-            // 
-            // lsvErrorLog
-            // 
-            this.lsvErrorLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsvErrorLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lsvErrorLog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chLsvErrorLog_Number,
-            this.chLsvErrorLog_Source,
-            this.chLsvErrorLog_Target,
-            this.chLsvErrorLog_Exception});
-            this.lsvErrorLog.FullRowSelect = true;
-            this.lsvErrorLog.GridLines = true;
-            this.lsvErrorLog.HideSelection = false;
-            this.lsvErrorLog.Location = new System.Drawing.Point(6, 19);
-            this.lsvErrorLog.MultiSelect = false;
-            this.lsvErrorLog.Name = "lsvErrorLog";
-            this.lsvErrorLog.ShowItemToolTips = true;
-            this.lsvErrorLog.Size = new System.Drawing.Size(954, 315);
-            this.lsvErrorLog.TabIndex = 0;
-            this.lsvErrorLog.UseCompatibleStateImageBehavior = false;
-            this.lsvErrorLog.View = System.Windows.Forms.View.Details;
-            this.lsvErrorLog.SelectedIndexChanged += new System.EventHandler(this.lsvErrorLog_SelectedIndexChanged);
-            // 
-            // chLsvErrorLog_Number
-            // 
-            this.chLsvErrorLog_Number.Text = "Nummer";
-            this.chLsvErrorLog_Number.Width = 30;
-            // 
-            // chLsvErrorLog_Source
-            // 
-            this.chLsvErrorLog_Source.Text = "Quelle";
-            this.chLsvErrorLog_Source.Width = 240;
-            // 
-            // chLsvErrorLog_Target
-            // 
-            this.chLsvErrorLog_Target.Text = "Ziel";
-            this.chLsvErrorLog_Target.Width = 240;
-            // 
-            // chLsvErrorLog_Exception
-            // 
-            this.chLsvErrorLog_Exception.Text = "Fehler";
-            this.chLsvErrorLog_Exception.Width = 360;
-            // 
-            // lblExceptionMessage
-            // 
-            this.lblExceptionMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblExceptionMessage.Location = new System.Drawing.Point(6, 397);
-            this.lblExceptionMessage.Name = "lblExceptionMessage";
-            this.lblExceptionMessage.Size = new System.Drawing.Size(45, 23);
-            this.lblExceptionMessage.TabIndex = 5;
-            this.lblExceptionMessage.Text = "Fehler:";
-            // 
-            // txtExceptionMessage
-            // 
-            this.txtExceptionMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExceptionMessage.Location = new System.Drawing.Point(82, 394);
-            this.txtExceptionMessage.Multiline = true;
-            this.txtExceptionMessage.Name = "txtExceptionMessage";
-            this.txtExceptionMessage.ReadOnly = true;
-            this.txtExceptionMessage.Size = new System.Drawing.Size(878, 58);
-            this.txtExceptionMessage.TabIndex = 6;
-            // 
-            // lblExceptionTargetPath
-            // 
-            this.lblExceptionTargetPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblExceptionTargetPath.Location = new System.Drawing.Point(6, 371);
-            this.lblExceptionTargetPath.Name = "lblExceptionTargetPath";
-            this.lblExceptionTargetPath.Size = new System.Drawing.Size(45, 23);
-            this.lblExceptionTargetPath.TabIndex = 3;
-            this.lblExceptionTargetPath.Text = "Ziel:";
-            // 
-            // txtExceptionTargetPath
-            // 
-            this.txtExceptionTargetPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExceptionTargetPath.Location = new System.Drawing.Point(82, 368);
-            this.txtExceptionTargetPath.Name = "txtExceptionTargetPath";
-            this.txtExceptionTargetPath.ReadOnly = true;
-            this.txtExceptionTargetPath.Size = new System.Drawing.Size(849, 20);
-            this.txtExceptionTargetPath.TabIndex = 4;
-            // 
-            // txtExceptionSourcePath
-            // 
-            this.txtExceptionSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExceptionSourcePath.Location = new System.Drawing.Point(82, 342);
-            this.txtExceptionSourcePath.Name = "txtExceptionSourcePath";
-            this.txtExceptionSourcePath.ReadOnly = true;
-            this.txtExceptionSourcePath.Size = new System.Drawing.Size(849, 20);
-            this.txtExceptionSourcePath.TabIndex = 2;
-            // 
-            // lblExceptionSourcePath
-            // 
-            this.lblExceptionSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblExceptionSourcePath.Location = new System.Drawing.Point(6, 345);
-            this.lblExceptionSourcePath.Name = "lblExceptionSourcePath";
-            this.lblExceptionSourcePath.Size = new System.Drawing.Size(45, 23);
-            this.lblExceptionSourcePath.TabIndex = 1;
-            this.lblExceptionSourcePath.Text = "Quelle:";
-            // 
-            // lblExceptionCount
-            // 
-            this.lblExceptionCount.Location = new System.Drawing.Point(6, 87);
-            this.lblExceptionCount.Name = "lblExceptionCount";
-            this.lblExceptionCount.Size = new System.Drawing.Size(213, 23);
-            this.lblExceptionCount.TabIndex = 6;
-            this.lblExceptionCount.Text = "Fehler:";
-            // 
-            // txtExceptionCount
-            // 
-            this.txtExceptionCount.Location = new System.Drawing.Point(225, 84);
-            this.txtExceptionCount.Name = "txtExceptionCount";
-            this.txtExceptionCount.ReadOnly = true;
-            this.txtExceptionCount.Size = new System.Drawing.Size(200, 20);
-            this.txtExceptionCount.TabIndex = 7;
-            this.txtExceptionCount.TextChanged += new System.EventHandler(this.txtExceptionCount_TextChanged);
-            // 
-            // lblCopiedDuration
-            // 
-            this.lblCopiedDuration.Location = new System.Drawing.Point(6, 61);
-            this.lblCopiedDuration.Name = "lblCopiedDuration";
-            this.lblCopiedDuration.Size = new System.Drawing.Size(213, 23);
-            this.lblCopiedDuration.TabIndex = 4;
-            this.lblCopiedDuration.Text = "Dauer:";
-            // 
-            // txtConclusionDuration
-            // 
-            this.txtConclusionDuration.Location = new System.Drawing.Point(225, 58);
-            this.txtConclusionDuration.Name = "txtConclusionDuration";
-            this.txtConclusionDuration.ReadOnly = true;
-            this.txtConclusionDuration.Size = new System.Drawing.Size(200, 20);
-            this.txtConclusionDuration.TabIndex = 5;
-            // 
-            // lblCopiedFiles
-            // 
-            this.lblCopiedFiles.Location = new System.Drawing.Point(6, 35);
-            this.lblCopiedFiles.Name = "lblCopiedFiles";
-            this.lblCopiedFiles.Size = new System.Drawing.Size(213, 23);
-            this.lblCopiedFiles.TabIndex = 3;
-            this.lblCopiedFiles.Text = "Gesicherte / Wiederhergestellte Dateien:";
-            // 
-            // txtConclusionFiles
-            // 
-            this.txtConclusionFiles.Location = new System.Drawing.Point(225, 32);
-            this.txtConclusionFiles.Name = "txtConclusionFiles";
-            this.txtConclusionFiles.ReadOnly = true;
-            this.txtConclusionFiles.Size = new System.Drawing.Size(200, 20);
-            this.txtConclusionFiles.TabIndex = 2;
-            // 
-            // txtConclusionDirectories
-            // 
-            this.txtConclusionDirectories.Location = new System.Drawing.Point(225, 6);
-            this.txtConclusionDirectories.Name = "txtConclusionDirectories";
-            this.txtConclusionDirectories.ReadOnly = true;
-            this.txtConclusionDirectories.Size = new System.Drawing.Size(200, 20);
-            this.txtConclusionDirectories.TabIndex = 1;
-            // 
-            // lbltxtCopiedDirectories
-            // 
-            this.lbltxtCopiedDirectories.Location = new System.Drawing.Point(6, 9);
-            this.lbltxtCopiedDirectories.Name = "lbltxtCopiedDirectories";
-            this.lbltxtCopiedDirectories.Size = new System.Drawing.Size(213, 23);
-            this.lbltxtCopiedDirectories.TabIndex = 0;
-            this.lbltxtCopiedDirectories.Text = "Gesicherte / Wiederhergestellte Ordner:";
-            // 
             // imlTabIcons
             // 
             this.imlTabIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlTabIcons.ImageStream")));
@@ -1382,6 +1382,10 @@
             this.tabPageRestore.ResumeLayout(false);
             this.grbTaskControleRestore.ResumeLayout(false);
             this.grbTaskProgressRestore.ResumeLayout(false);
+            this.tabPageConclusion.ResumeLayout(false);
+            this.tabPageConclusion.PerformLayout();
+            this.grbException.ResumeLayout(false);
+            this.grbException.PerformLayout();
             this.tabPageCompare.ResumeLayout(false);
             this.pnlCompare.ResumeLayout(false);
             this.pnlCompare.PerformLayout();
@@ -1392,10 +1396,6 @@
             this.grbCompareOptions.PerformLayout();
             this.grbComapreClean.ResumeLayout(false);
             this.grbComapreClean.PerformLayout();
-            this.tabPageConclusion.ResumeLayout(false);
-            this.tabPageConclusion.PerformLayout();
-            this.grbException.ResumeLayout(false);
-            this.grbException.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

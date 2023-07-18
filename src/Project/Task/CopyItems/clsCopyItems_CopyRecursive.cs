@@ -112,6 +112,7 @@ namespace OLKI.Programme.QuBC.src.Project.Task
 
                 // Report Progress
                 this._progress.DirectroyFiles.ElemenName = sourceDirectory.FullName;
+                this._progress.FileBytes.MaxValue = null;
                 worker.ReportProgress((int)TaskControle.TaskStep.Copy_Busy, new ProgressState(this._progress));
 
                 //Copy Files

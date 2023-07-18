@@ -78,27 +78,20 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscProgress
                 /// <param name="clearProgressBars">Set ProgressBar values to zero if true</param>
                 public void ResetAllProgressBars(bool setBlockStyle, bool clearProgressBars)
                 {
-                    ExtProgrBarInv.DescriptionText(this._progressControle.expActualDir, "");
-                    ExtProgrBarInv.DescriptionText(this._progressControle.expActualFile, "");
+                    ExtProgrBarInv.DescriptionText(this._progressControle.expActualObject, "");
 
                     if (setBlockStyle)
                     {
-                        ExtProgrBarInv.Style(this._progressControle.expActualDir, ProgressBarStyle.Blocks);
-                        ExtProgrBarInv.Style(this._progressControle.expActualDir, ProgressBarStyle.Blocks);
                         ExtProgrBarInv.Style(this._progressControle.expAllByte, ProgressBarStyle.Blocks);
-                        ExtProgrBarInv.Style(this._progressControle.expAllDir, ProgressBarStyle.Blocks);
                         ExtProgrBarInv.Style(this._progressControle.expAllItems, ProgressBarStyle.Blocks);
-                        ExtProgrBarInv.Style(this._progressControle.expActualFile, ProgressBarStyle.Blocks);
+                        ExtProgrBarInv.Style(this._progressControle.expActualObject, ProgressBarStyle.Blocks);
                     }
 
                     if (clearProgressBars)
                     {
-                        ExtProgrBarInv.Value(this._progressControle.expActualDir, null);
-                        ExtProgrBarInv.Value(this._progressControle.expActualDir, null);
                         ExtProgrBarInv.Value(this._progressControle.expAllByte, null);
-                        ExtProgrBarInv.Value(this._progressControle.expAllDir, null);
                         ExtProgrBarInv.Value(this._progressControle.expAllItems, null);
-                        ExtProgrBarInv.Value(this._progressControle.expActualFile, null);
+                        ExtProgrBarInv.Value(this._progressControle.expActualObject, null);
                     }
                 }
                 #endregion

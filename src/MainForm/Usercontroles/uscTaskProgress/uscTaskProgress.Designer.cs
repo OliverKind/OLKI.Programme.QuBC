@@ -38,17 +38,12 @@
             this.txtCopyStart = new System.Windows.Forms.TextBox();
             this.lblActualFileByte = new System.Windows.Forms.Label();
             this.lblActualFile = new System.Windows.Forms.Label();
-            this.lblActualDirFiles = new System.Windows.Forms.Label();
-            this.lblActualDir = new System.Windows.Forms.Label();
-            this.lblAllDir = new System.Windows.Forms.Label();
             this.lblpbaAllItems = new System.Windows.Forms.Label();
             this.lblUpdateInterval = new System.Windows.Forms.Label();
             this.nudUpdateInterval = new System.Windows.Forms.NumericUpDown();
             this.lblUpdateIntervalDimension = new System.Windows.Forms.Label();
             this.lblStepText = new System.Windows.Forms.Label();
-            this.expActualDir = new OLKI.Toolbox.Widgets.ExtProgressBar();
-            this.expActualFile = new OLKI.Toolbox.Widgets.ExtProgressBar();
-            this.expAllDir = new OLKI.Toolbox.Widgets.ExtProgressBar();
+            this.expActualObject = new OLKI.Toolbox.Widgets.ExtProgressBar();
             this.expAllByte = new OLKI.Toolbox.Widgets.ExtProgressBar();
             this.expAllItems = new OLKI.Toolbox.Widgets.ExtProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.nudUpdateInterval)).BeginInit();
@@ -122,7 +117,7 @@
             // 
             // lblActualFileByte
             // 
-            this.lblActualFileByte.Location = new System.Drawing.Point(-3, 252);
+            this.lblActualFileByte.Location = new System.Drawing.Point(0, 160);
             this.lblActualFileByte.Name = "lblActualFileByte";
             this.lblActualFileByte.Size = new System.Drawing.Size(190, 23);
             this.lblActualFileByte.TabIndex = 34;
@@ -130,35 +125,11 @@
             // 
             // lblActualFile
             // 
-            this.lblActualFile.Location = new System.Drawing.Point(0, 223);
+            this.lblActualFile.Location = new System.Drawing.Point(0, 136);
             this.lblActualFile.Name = "lblActualFile";
             this.lblActualFile.Size = new System.Drawing.Size(190, 23);
             this.lblActualFile.TabIndex = 32;
-            this.lblActualFile.Text = "Aktuelle Datei:";
-            // 
-            // lblActualDirFiles
-            // 
-            this.lblActualDirFiles.Location = new System.Drawing.Point(0, 197);
-            this.lblActualDirFiles.Name = "lblActualDirFiles";
-            this.lblActualDirFiles.Size = new System.Drawing.Size(190, 23);
-            this.lblActualDirFiles.TabIndex = 28;
-            this.lblActualDirFiles.Text = "Fortschritt Dateien im Ordner:";
-            // 
-            // lblActualDir
-            // 
-            this.lblActualDir.Location = new System.Drawing.Point(0, 168);
-            this.lblActualDir.Name = "lblActualDir";
-            this.lblActualDir.Size = new System.Drawing.Size(190, 23);
-            this.lblActualDir.TabIndex = 26;
-            this.lblActualDir.Text = "Aktueller Ordner:";
-            // 
-            // lblAllDir
-            // 
-            this.lblAllDir.Location = new System.Drawing.Point(0, 139);
-            this.lblAllDir.Name = "lblAllDir";
-            this.lblAllDir.Size = new System.Drawing.Size(190, 23);
-            this.lblAllDir.TabIndex = 22;
-            this.lblAllDir.Text = "Fortschritt Ordner:";
+            this.lblActualFile.Text = "Aktuelles Objekt:";
             // 
             // lblpbaAllItems
             // 
@@ -226,56 +197,23 @@
             this.lblStepText.TabIndex = 10;
             this.lblStepText.Text = "Aktueller Vorgang - Beschreibung";
             // 
-            // expActualDir
+            // expActualObject
             // 
-            this.expActualDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.expActualObject.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.expActualDir.AutoByteDimension = false;
-            this.expActualDir.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
-            this.expActualDir.DecimalDigits = ((uint)(0u));
-            this.expActualDir.Location = new System.Drawing.Point(196, 165);
-            this.expActualDir.MaxValue = ((long)(0));
-            this.expActualDir.MinimumSize = new System.Drawing.Size(300, 23);
-            this.expActualDir.Name = "expActualDir";
-            this.expActualDir.ShowDimensionComboBox = false;
-            this.expActualDir.Size = new System.Drawing.Size(755, 49);
-            this.expActualDir.TabIndex = 44;
-            this.expActualDir.Value = ((long)(-1));
-            // 
-            // expActualFile
-            // 
-            this.expActualFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.expActualFile.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
-            this.expActualFile.DecimalDigits = ((uint)(2u));
-            this.expActualFile.Location = new System.Drawing.Point(196, 220);
-            this.expActualFile.MaxValue = ((long)(0));
-            this.expActualFile.MinimumSize = new System.Drawing.Size(300, 23);
-            this.expActualFile.Name = "expActualFile";
-            this.expActualFile.Size = new System.Drawing.Size(755, 49);
-            this.expActualFile.TabIndex = 43;
-            this.expActualFile.Value = ((long)(-1));
-            // 
-            // expAllDir
-            // 
-            this.expAllDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.expAllDir.AutoByteDimension = false;
-            this.expAllDir.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
-            this.expAllDir.DecimalDigits = ((uint)(0u));
-            this.expAllDir.Location = new System.Drawing.Point(196, 136);
-            this.expAllDir.MaxValue = ((long)(0));
-            this.expAllDir.MinimumSize = new System.Drawing.Size(300, 23);
-            this.expAllDir.Name = "expAllDir";
-            this.expAllDir.ShowDescriptionText = false;
-            this.expAllDir.ShowDimensionComboBox = false;
-            this.expAllDir.Size = new System.Drawing.Size(755, 23);
-            this.expAllDir.TabIndex = 41;
-            this.expAllDir.Value = ((long)(-1));
+            this.expActualObject.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
+            this.expActualObject.DecimalDigits = ((uint)(2u));
+            this.expActualObject.Location = new System.Drawing.Point(196, 136);
+            this.expActualObject.MaxValue = ((long)(0));
+            this.expActualObject.MinimumSize = new System.Drawing.Size(300, 23);
+            this.expActualObject.Name = "expActualObject";
+            this.expActualObject.Size = new System.Drawing.Size(755, 49);
+            this.expActualObject.TabIndex = 43;
+            this.expActualObject.Value = ((long)(-1));
             // 
             // expAllByte
             // 
-            this.expAllByte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.expAllByte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.expAllByte.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
             this.expAllByte.DecimalDigits = ((uint)(2u));
@@ -290,7 +228,7 @@
             // 
             // expAllItems
             // 
-            this.expAllItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.expAllItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.expAllItems.AutoByteDimension = false;
             this.expAllItems.ByteDimension = OLKI.Toolbox.DirectoryAndFile.FileSize.Dimension.NoDimension;
@@ -309,9 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.expActualDir);
-            this.Controls.Add(this.expActualFile);
-            this.Controls.Add(this.expAllDir);
+            this.Controls.Add(this.expActualObject);
             this.Controls.Add(this.expAllByte);
             this.Controls.Add(this.expAllItems);
             this.Controls.Add(this.lblStepText);
@@ -328,12 +264,9 @@
             this.Controls.Add(this.txtCopyStart);
             this.Controls.Add(this.lblActualFileByte);
             this.Controls.Add(this.lblActualFile);
-            this.Controls.Add(this.lblActualDirFiles);
-            this.Controls.Add(this.lblActualDir);
-            this.Controls.Add(this.lblAllDir);
             this.Controls.Add(this.lblpbaAllItems);
             this.Name = "TaskProgress";
-            this.Size = new System.Drawing.Size(951, 270);
+            this.Size = new System.Drawing.Size(951, 191);
             ((System.ComponentModel.ISupportInitialize)(this.nudUpdateInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -351,18 +284,13 @@
         internal System.Windows.Forms.TextBox txtCopyStart;
         private System.Windows.Forms.Label lblActualFileByte;
         private System.Windows.Forms.Label lblActualFile;
-        private System.Windows.Forms.Label lblActualDirFiles;
-        private System.Windows.Forms.Label lblActualDir;
-        private System.Windows.Forms.Label lblAllDir;
         private System.Windows.Forms.Label lblpbaAllItems;
         private System.Windows.Forms.Label lblUpdateInterval;
         private System.Windows.Forms.NumericUpDown nudUpdateInterval;
         private System.Windows.Forms.Label lblUpdateIntervalDimension;
         internal System.Windows.Forms.Label lblStepText;
-        private Toolbox.Widgets.ExtProgressBar expActualFile;
-        private Toolbox.Widgets.ExtProgressBar expAllDir;
+        private Toolbox.Widgets.ExtProgressBar expActualObject;
         private Toolbox.Widgets.ExtProgressBar expAllByte;
         private Toolbox.Widgets.ExtProgressBar expAllItems;
-        private Toolbox.Widgets.ExtProgressBar expActualDir;
     }
 }
