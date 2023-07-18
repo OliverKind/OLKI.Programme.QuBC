@@ -694,7 +694,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.Usercontroles.uscTaskControle
                     string SelectedOptions = "";
                     if (this.chkCountItemsAndBytes.Checked) SelectedOptions += "\n    - " + this.chkCountItemsAndBytes.Text;
                     if (this.chkCopyData.Checked) SelectedOptions += "\n    - " + this.chkCopyData.Text;
-                    if (this.chkDeleteOld.Visible && this.chkDeleteOld.Checked) SelectedOptions += "\n    - " + this.chkDeleteOld.Text;
+                    if (this.chkCopyData.Checked && this.chkDeleteOld.Checked) SelectedOptions += "\n    - " + this.chkDeleteOld.Text;
                     MessageBox.Show(this.ParentForm, string.Format(Properties.Stringtable._0x0030m, new object[] { SelectedOptions }), Properties.Stringtable._0x0030c, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 default:
