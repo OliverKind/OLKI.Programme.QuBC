@@ -1,4 +1,11 @@
 # QuBC - QuickBackupCreator
+## [3.1.1.29] - 2023-07-18
+### Changed
+- Progressarea simplifyed
+
+### Fixed
+- "Delte old Data" missing at conclusion, at some conditions
+
 ## [3.1.0.28] - 2023-06-10
 ### Added
 - Function to compare and clean up Backups
