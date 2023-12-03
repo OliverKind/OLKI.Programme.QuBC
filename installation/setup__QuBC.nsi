@@ -135,7 +135,7 @@ Section ""
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\QuBC.lnk" "$INSTDIR\QuBC.exe"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Readme.lnk" "$INSTDIR\${ReadmeFile}"
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\EULA.lnk" "$INSTDIR\${EulaFile}"
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\EULA.lnk" "$INSTDIR\Licenses\${EulaFile}"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Installationshinweise.lnk" "$INSTDIR\${InformationFile}"
   !insertmacro MUI_STARTMENU_WRITE_END
 
