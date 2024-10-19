@@ -121,7 +121,7 @@
     <value>Inkompatible Datei!</value>
   </data>
   <data name="0x0001m" xml:space="preserve">
-    <value>Die Projektdatei ist nicht mit dieser Progammversion kompatibel.</value>
+    <value>Die Projektdatei ist nicht mit dieser Programmversion kompatibel.</value>
     <comment>OLKI.Programme.QuBC.Project.Project_FromXMLString_CheckVersion:IncopatibeVersion.Message</comment>
   </data>
   <data name="0x0002c" xml:space="preserve">
@@ -241,7 +241,7 @@ Die Kopie ist wahrscheinlich unvollständig.
     <value>Elemente und Daten werden kopiert</value>
   </data>
   <data name="0x001A" xml:space="preserve">
-    <value>Kopieren von Elemente und Daten abgeschlossen</value>
+    <value>Kopieren von Elementen und Daten abgeschlossen</value>
   </data>
   <data name="0x001B" xml:space="preserve">
     <value>Vorgang abgebrochen</value>
@@ -281,9 +281,9 @@ Die Kopie ist wahrscheinlich unvollständig.
   <data name="0x0024m" xml:space="preserve">
     <value>Sie haben die Option "Alte Dateien und Ordner löschen" gewählt.
 
-Alle Dateien und Ordner die in der Sicherungskopie, jedoch nicht in den Quellen vorhanden sind, werden unwiederruflich gelöscht. Sie werden nicht in die Papierkorb verschoben. Es erfolgt keine weitere Abfrage.
+Alle Dateien und Ordner die in der Sicherungskopie, jedoch nicht in den Quellen vorhanden sind, werden unwiderruflich gelöscht. Sie werden nicht in den Papierkorb verschoben. Es erfolgt keine weitere Abfrage.
 
-Sind Sie sicher das Sie diesen Vorgang durchführen möchten?</value>
+Sind Sie sicher, dass Sie diesen Vorgang durchführen möchten?</value>
   </data>
   <data name="0x0025c" xml:space="preserve">
     <value>Fehler beim Schreiben in die Protokolldatei!</value>

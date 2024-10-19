@@ -70,7 +70,7 @@ namespace OLKI.Programme.QuBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Die Projektdatei ist nicht mit dieser Progammversion kompatibel. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Projektdatei ist nicht mit dieser Programmversion kompatibel. ähnelt.
         /// </summary>
         internal static string _0x0001m {
             get {
@@ -381,7 +381,7 @@ namespace OLKI.Programme.QuBC.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Kopieren von Elemente und Daten abgeschlossen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kopieren von Elementen und Daten abgeschlossen ähnelt.
         /// </summary>
         internal static string _0x001A {
             get {
@@ -493,9 +493,9 @@ namespace OLKI.Programme.QuBC.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Sie haben die Option &quot;Alte Dateien und Ordner löschen&quot; gewählt.
         ///
-        ///Alle Dateien und Ordner die in der Sicherungskopie, jedoch nicht in den Quellen vorhanden sind, werden unwiederruflich gelöscht. Sie werden nicht in die Papierkorb verschoben. Es erfolgt keine weitere Abfrage.
+        ///Alle Dateien und Ordner die in der Sicherungskopie, jedoch nicht in den Quellen vorhanden sind, werden unwiderruflich gelöscht. Sie werden nicht in den Papierkorb verschoben. Es erfolgt keine weitere Abfrage.
         ///
-        ///Sind Sie sicher das Sie diesen Vorgang durchführen möchten? ähnelt.
+        ///Sind Sie sicher, dass Sie diesen Vorgang durchführen möchten? ähnelt.
         /// </summary>
         internal static string _0x0024m {
             get {

@@ -62,7 +62,7 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.progressBar1.Size = new System.Drawing.Size(342, 23);
             this.progressBar1.TabIndex = 14;
             // 
-            // AutomationStart
+            // AutomationStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,10 +73,10 @@ namespace OLKI.Programme.QuBC.src.MainForm.SubForms
             this.Controls.Add(this.btnStart);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AutomationStart";
+            this.Name = "AutomationStartForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Starten Automatisation: {0}";
+            this.Text = "Starte Automatisation: {0}";
             this.ResumeLayout(false);
 
         }

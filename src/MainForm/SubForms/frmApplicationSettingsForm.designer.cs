@@ -394,9 +394,9 @@
             this.chkCheckForUpdates.AutoSize = true;
             this.chkCheckForUpdates.Location = new System.Drawing.Point(12, 419);
             this.chkCheckForUpdates.Name = "chkCheckForUpdates";
-            this.chkCheckForUpdates.Size = new System.Drawing.Size(245, 17);
+            this.chkCheckForUpdates.Size = new System.Drawing.Size(248, 17);
             this.chkCheckForUpdates.TabIndex = 9;
-            this.chkCheckForUpdates.Text = "Auf neue Progammversionen beim Start prüfen";
+            this.chkCheckForUpdates.Text = "Auf neue Programmversionen beim Start prüfen";
             this.chkCheckForUpdates.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -460,11 +460,11 @@
             this.chkMainFormResizeSuspendLayout.Text = "Während einer Größenänderung das Hauptfenster nicht neu zeichnen";
             this.chkMainFormResizeSuspendLayout.UseVisualStyleBackColor = true;
             // 
-            // chkClearOnStartProcess
+            // chkClearExceptionListOnStartProcess
             // 
             this.chkClearExceptionListOnStartProcess.AutoSize = true;
             this.chkClearExceptionListOnStartProcess.Location = new System.Drawing.Point(292, 141);
-            this.chkClearExceptionListOnStartProcess.Name = "chkClearOnStartProcess";
+            this.chkClearExceptionListOnStartProcess.Name = "chkClearExceptionListOnStartProcess";
             this.chkClearExceptionListOnStartProcess.Size = new System.Drawing.Size(269, 17);
             this.chkClearExceptionListOnStartProcess.TabIndex = 14;
             this.chkClearExceptionListOnStartProcess.Text = "Fehlerprotokoll beim Starten eines Processes leeren";
