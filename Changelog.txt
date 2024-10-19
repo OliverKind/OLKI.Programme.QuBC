@@ -1,4 +1,9 @@
 # QuBC - QuickBackupCreator
+## [3.1.2.30] - 2024-10-18
+### Fixed
+- Not working licence shortcut, at start menue
+- Spelling
+
 ## [3.1.1.29] - 2023-07-18
 ### Changed
 - Progressarea simplifyed
